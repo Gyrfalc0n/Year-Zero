@@ -5,6 +5,12 @@ using Photon.Pun;
 
 public class SelectableObj : Interactable {
 
+    [SerializeField]
+    string path;
+
+    [SerializeField]
+    float requiredTime;
+
     public List<Tool> tools;
 
     [HideInInspector]
@@ -65,4 +71,14 @@ public class SelectableObj : Interactable {
     }
 
     public virtual void Interact(Interactable obj) { }
+
+    public string GetPath()
+    {
+        return path;
+    }
+
+    public float GetRequiredTime()
+    {
+        return requiredTime;
+    }
 }

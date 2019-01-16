@@ -5,19 +5,28 @@ using Photon.Pun;
 
 public class InstantiateTask : Task
 {
-    string unit;
+    MovableUnit associatedUnit;
 
-    public void Init(MovableUnit unit, string path, float requiredTime)
+    public void Init(MovableUnit unit)
     {
-        costs = unit.costs;
-        this.unit = path;
-        this.requiredTime = requiredTime;
-        remainingTime = requiredTime;
+        associatedUnit = unit;
+        active = true;
+        remainingTime = unit.GetRequiredTime();
+        requiredTime = unit.GetRequiredTime();
     }
 
     public override void OnFinishedTask()
     {
         base.OnFinishedTask();
-        PhotonNetwork.Instantiate(unit, new Vector3(1,1,1), Quaternion.identity);
+        PhotonNetwork.Instantiate(associatedUnit.GetPath(), new Vector3(1,1,1), Quaternion.identity);
+    }
+    public override void Cancel()
+    {
+        PlayerManager.playerManager.AddWood(associatedUnit.costs[0]);
+        PlayerManager.playerManager.AddStone(associatedUnit.costs[1]);
+        PlayerManager.playerManager.AddGold(associatedUnit.costs[2]);
+        PlayerManager.playerManager.AddMeat(associatedUnit.costs[3]);
+        PlayerManager.playerManager.AddPopulation(associatedUnit.costs[4]);
+        base.Cancel();
     }
 }

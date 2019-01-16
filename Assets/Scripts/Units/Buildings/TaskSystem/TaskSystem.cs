@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class TaskSystem : MonoBehaviour
 {
+    TaskBar tasksBar;
+
     List<Task> tasks = new List<Task>();
+
+    void Awake()
+    {
+        tasksBar = GameObject.Find("TasksBar").GetComponent<TaskBar>();
+    }
 
     void Update()
     {
@@ -22,11 +29,13 @@ public class TaskSystem : MonoBehaviour
     public void Add(Task task)
     {
         tasks.Add(task);
+        tasksBar.UpdateQueue(tasks);
     }
 
     void Remove(Task task)
     {
         tasks.Remove(task);
+        tasksBar.UpdateQueue(tasks);
     }
 
     public void Cancel(Task task)

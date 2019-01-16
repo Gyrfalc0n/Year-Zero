@@ -7,13 +7,13 @@ public class Task : MonoBehaviour
     protected float requiredTime;
     protected float remainingTime;
 
-    protected int[] costs;
+    protected ConstructedUnit associatedBuilding;
 
-    bool active;
+    protected bool active;
 
-    void Awake()
+    public virtual void FirstInit(ConstructedUnit building)
     {
-        active = true;
+        associatedBuilding = building;
     }
 
     public void UpdateTask()
@@ -37,16 +37,16 @@ public class Task : MonoBehaviour
 
     public virtual void Cancel()
     {
-        PlayerManager.playerManager.AddWood(costs[0]);
-        PlayerManager.playerManager.AddStone(costs[1]);
-        PlayerManager.playerManager.AddGold(costs[2]);
-        PlayerManager.playerManager.AddMeat(costs[3]);
-        PlayerManager.playerManager.AddPopulation(costs[4]);
         active = false;
     }
 
     public float GetCurrentAdvancement()
     {
         return 1 - remainingTime / requiredTime;
+    }
+
+    public ConstructedUnit GetBuilding()
+    {
+        return associatedBuilding;
     }
 }

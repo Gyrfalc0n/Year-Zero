@@ -198,7 +198,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5502829914954294225}
         m_MethodName: CreateInstantiateTask
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -221,6 +221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf5796637047694fabb888f74916a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instantiatePrefab: {fileID: 2435338677811070794, guid: 34fc7537abb30c049ab65d2f02cd82df,
+  instantiateTaskPrefab: {fileID: 2435338677811070794, guid: 34fc7537abb30c049ab65d2f02cd82df,
     type: 3}
-  img: {fileID: 0}
+  associatedUnit: {fileID: 0}

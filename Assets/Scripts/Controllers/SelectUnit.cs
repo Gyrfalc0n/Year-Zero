@@ -107,13 +107,14 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             else
             {
                 cardsPanel.ClearCards();
-                toolsPanel.CheckTools(0);
+                toolsPanel.ClearTools();
                 if (selected[0].GetComponent<InConstructionUnit>() != null)
                 {
                     advancementBar.Init(selected[0].GetComponent<InConstructionUnit>());
                 }
                 else if (selected[0].GetComponent<ConstructedUnit>() != null)
                 {
+                    toolsPanel.CheckTools(0);
                     taskBar.Init(selected[0].GetComponent<ConstructedUnit>());
                 }
             }   

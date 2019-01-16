@@ -6,19 +6,23 @@ using UnityEngine.UI;
 public class TaskTool : Tool
 {
     [SerializeField]
-    GameObject instantiatePrefab;
-    [SerializeField]
-    Image img;
-    [SerializeField]
-    float requiredTime;
+    GameObject instantiateTaskPrefab;
 
-    public void CreateInstantiateTask(string name)
+    ConstructedUnit associatedBuilding;
+    [SerializeField]
+    MovableUnit associatedUnit;
+
+    public void Init(ConstructedUnit building)
     {
-        string path = "Units/" + name;
-        GameObject unit = ((GameObject)Resources.Load(path));
-        InstantiateTask task = Instantiate(instantiatePrefab).GetComponent<InstantiateTask>();
-        task.Init(unit.GetComponent<MovableUnit>(), path, requiredTime);
-        SelectUnit.selectUnit.selected[0].GetComponent<TaskSystem>().Add(task);
-        //TaskBar.taskBar.UpdateQueue(SelectUnit.selectUnit.selected[0].GetComponent<TaskSystem>().tasks);
+        associatedBuilding = building;
+    }
+
+    public void CreateInstantiateTask()
+    {
+        InstantiateTask task = Instantiate(instantiateTaskPrefab).GetComponent<InstantiateTask>();
+        task.FirstInit(associatedBuilding);
+        task.Init(associatedUnit);
+        associatedBuilding.GetComponent<TaskSystem>().Add(task);
+        //tasksBar.UpdateQueue(associatedBuilding.GetComponent<TaskSystem>().GetTasks());
     }
 }

@@ -31,7 +31,13 @@ public class TaskBar : MonoBehaviour
         {
             if (content.childCount > 0)
             {
+                if (!bar.gameObject.activeInHierarchy)
+                    ShowBar();
                 UpdateBar();
+            }
+            else
+            {
+                HideBar();
             }
         }
     }
@@ -44,6 +50,16 @@ public class TaskBar : MonoBehaviour
             TaskButton obj = Instantiate(taskCardButtonPrefab, content).GetComponent<TaskButton>();
             obj.Init(task);
         }
+    }
+
+    void ShowBar()
+    {
+        bar.gameObject.SetActive(true);
+    }
+
+    void HideBar()
+    {
+        bar.gameObject.SetActive(false);
     }
 
     void UpdateBar()
@@ -61,7 +77,7 @@ public class TaskBar : MonoBehaviour
     public void Cancel(int index = -1)
     {
         Transform tmp;
-        if (index == 1)
+        if (index == -1)
         {
             tmp = EventSystem.current.currentSelectedGameObject.transform;
         }

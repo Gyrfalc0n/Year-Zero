@@ -7,7 +7,7 @@ public class ToolsPanel : MonoBehaviour {
     [SerializeField]
     private Transform buttons;
 
-    private void ClearTools()
+    public void ClearTools()
     {
         while (buttons.childCount > 0)
         {
@@ -30,7 +30,15 @@ public class ToolsPanel : MonoBehaviour {
         ClearTools();
         foreach (Tool tool in list)
         {
-            Instantiate(tool, buttons);
+            if (tool.GetComponent<TaskTool>() != null)
+            {
+                TaskTool obj = Instantiate(tool.GetComponent<TaskTool>(), buttons);
+                obj.Init(SelectUnit.selectUnit.selected[0].GetComponent<ConstructedUnit>());
+            }
+            else
+            {
+                Instantiate(tool, buttons);
+            }
         }
     }
 }
