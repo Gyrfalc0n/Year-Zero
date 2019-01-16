@@ -47,8 +47,7 @@ public class InConstructionUnit : BuildingUnit
     public virtual void OnConstructionFinished()
     {
         RemoveAllBuilders();
-        GameObject obj = PhotonNetwork.Instantiate(buildingName, transform.position, Quaternion.identity);
-        InstanceManager.instanceManager.mySelectableObjs.Add(obj.GetComponent<SelectableObj>());
+        InstanceManager.instanceManager.InstantiateUnit(buildingName, transform.position, Quaternion.identity);
         KillUnit();
     }
 

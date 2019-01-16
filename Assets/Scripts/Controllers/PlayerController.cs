@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (!currentPlayerControls.IsActive())
         {
-            ResetCurrentPlayerControls();
+            InitMovementControls();
         }
     }
 

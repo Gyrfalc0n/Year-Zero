@@ -103,9 +103,8 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
 
     private void Construct()
     {
-        GameObject obj = PhotonNetwork.Instantiate(constructionUnit + "Cons", GetCenter(), Quaternion.identity);
+        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(constructionUnit + "Cons", GetCenter(), Quaternion.identity);
         obj.GetComponent<InConstructionUnit>().Init(constructionUnit + "Cons");
-        InstanceManager.instanceManager.mySelectableObjs.Add(obj.GetComponent<SelectableObj>());
         Pay(((GameObject)Resources.Load(constructionUnit + "Unit")).GetComponent<ConstructedUnit>());
         builder.Build(obj.GetComponent<InConstructionUnit>());
         Destroy(this.gameObject);

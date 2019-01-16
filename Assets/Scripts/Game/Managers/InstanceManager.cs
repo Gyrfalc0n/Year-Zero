@@ -57,7 +57,6 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
     {
         GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
-        mySelectableObjs.Add(obj.GetComponent<SelectableObj>());
         return obj;
     }
 

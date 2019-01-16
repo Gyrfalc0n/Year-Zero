@@ -30,9 +30,9 @@ public class DestructibleUnit : SelectableObj {
             SelectUnit.selectUnit.selected.Remove(this);
         }
         photonView.RPC("RemoveFromLists", RpcTarget.All);
-        if (InstanceManager.instanceManager.allSelectableObjs.Contains(this))
+        if (InstanceManager.instanceManager.mySelectableObjs.Contains(this))
         {
-            InstanceManager.instanceManager.allSelectableObjs.Remove(this);
+            InstanceManager.instanceManager.mySelectableObjs.Remove(this);
         }
         OnDestroyed();
         PhotonNetwork.Destroy(this.gameObject);
@@ -41,7 +41,6 @@ public class DestructibleUnit : SelectableObj {
     [PunRPC]
     void RemoveFromLists()
     {
-        print("dd");
         InstanceManager.instanceManager.allSelectableObjs.Remove(this);
     }
 
