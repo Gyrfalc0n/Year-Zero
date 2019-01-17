@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour {
         currentPlayerControls = moveToolControls.Activate();
     }
 
-    public void InitBuildToolControls(string building, BuilderUnit builder)
+    public void InitBuildToolControls(ConstructedUnit building, BuilderUnit builder)
     {
         ResetCurrentPlayerControls();
         currentPlayerControls = buildToolControls.Activate();

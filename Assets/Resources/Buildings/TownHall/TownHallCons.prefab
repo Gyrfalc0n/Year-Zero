@@ -210,8 +210,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 114905757237956842}
-  viewIdField: 0
-  InstantiationId: 3
+  viewIdField: 7
+  InstantiationId: 7
   isRuntimeInstantiated: 0
 --- !u!114 &114905757237956842
 MonoBehaviour:
@@ -240,14 +240,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d09a9a8d26cbf246a7d325342c51547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: Buildings/TownHall/TownHallCons
+  requiredTime: 0
   tools: []
   highlighted: 0
   selected: 0
   objName: NH
   description: NH
   costs: 
-  selectionCircle: {fileID: 212382818354637692}
   constructionTime: 5
-  ghost: {fileID: 1498426257654464, guid: 5d66490c44b273340b4574f04e246d7d, type: 3}
   lines: 5
   columns: 5

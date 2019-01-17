@@ -39,20 +39,20 @@ MonoBehaviour:
   path: Units/BuilderUnit
   requiredTime: 5
   tools:
-  - {fileID: 2041768297793046771, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
-  - {fileID: 2883753823781178217, guid: 595081643c9d3e3469a07e89de86499d, type: 3}
-  - {fileID: 5981483205417774045, guid: e4b97814700c90449a9b6c7866f8c8db, type: 3}
-  - {fileID: 2284150624336752623, guid: 32840d902b5b9e941aad72fd7a05b78e, type: 3}
+  - {fileID: 2146817939600602931, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
+  - {fileID: 2998254043193242793, guid: 595081643c9d3e3469a07e89de86499d, type: 3}
+  - {fileID: 5952819384617243677, guid: e4b97814700c90449a9b6c7866f8c8db, type: 3}
+  - {fileID: 2174174414262472751, guid: 32840d902b5b9e941aad72fd7a05b78e, type: 3}
   highlighted: 0
   selected: 0
-  objName: 
-  description: 
-  costs: 0000000000000000000000000000000000000000
+  objName: Builder
+  description: zefzr
+  costs: 3200000000000000000000000000000000000000
   card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
   home: {fileID: 0}
   buildings:
-  - {fileID: 3424752441351867879, guid: 88d854d8c3cde334db13c7e31fd1084f, type: 3}
-  - {fileID: 2699758247476204039, guid: b42d3277259430e41981914e69bfd316, type: 3}
+  - {fileID: 3040530385692134829, guid: 6962dc1b4813b234f960e9ae6263e9ae, type: 3}
+  - {fileID: 5328136209144221274, guid: 2b403ffb2360ad14d8019343f288c927, type: 3}
 --- !u!1001 &6365286697518465740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,12 +111,12 @@ PrefabInstance:
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: viewIdField
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: InstantiationId
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}

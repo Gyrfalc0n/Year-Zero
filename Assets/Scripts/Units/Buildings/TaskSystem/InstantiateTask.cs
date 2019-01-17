@@ -22,11 +22,7 @@ public class InstantiateTask : Task
     }
     public override void Cancel()
     {
-        PlayerManager.playerManager.AddWood(associatedUnit.costs[0]);
-        PlayerManager.playerManager.AddStone(associatedUnit.costs[1]);
-        PlayerManager.playerManager.AddGold(associatedUnit.costs[2]);
-        PlayerManager.playerManager.AddMeat(associatedUnit.costs[3]);
-        PlayerManager.playerManager.AddPopulation(associatedUnit.costs[4]);
+        PlayerManager.playerManager.PayBack(associatedBuilding.costs);
         base.Cancel();
     }
 }

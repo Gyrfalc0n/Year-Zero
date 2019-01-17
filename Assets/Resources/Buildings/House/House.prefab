@@ -1,31 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &3550818549849571484
+--- !u!114 &422363845163993769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7463316122757063408}
+  m_GameObject: {fileID: 3040530385692134829}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1a5f8268b8a164ea40725fe4b2a3f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f223a585a037204ab9352ef611a2f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7684654043931827047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3040530385692134829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdd5a794db73c144b6633bad90575ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: Buildings/House/House
+  requiredTime: 0
   tools: []
   highlighted: 0
   selected: 0
-  objName: 
-  description: 
+  objName: House
+  description: dqzzqefefe
   costs: 0000000000000000000000000000000000000000
-  selectionCircle: {fileID: 7306208292471212876}
-  yellowSelected:
-    serializedVersion: 2
-    rgba: 4281452287
-  yellowHighlighted:
-    serializedVersion: 2
-    rgba: 875677439
---- !u!1001 &7464246578101755952
+  constructor: {fileID: 7857935253195583872, guid: 1c6e6275de2c1e041a35c879befc2639,
+    type: 3}
+  ghost: {fileID: 1498426257654464, guid: 6bdf2b934cbad8244ab888002c9a834d, type: 3}
+  popValue: 5
+--- !u!1001 &3042023807884283757
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -34,7 +45,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_Name
-      value: NeutralConstructionUnit
+      value: House
       objectReference: {fileID: 0}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,25 +94,19 @@ PrefabInstance:
     - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: viewIdField
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: InstantiationId
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
---- !u!1 &7463316122757063408 stripped
+--- !u!1 &3040530385692134829 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203,
     type: 3}
-  m_PrefabInstance: {fileID: 7464246578101755952}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &7306208292471212876 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 212382818354637692, guid: 636fb200f2cdc914bb060a84a57f4203,
-    type: 3}
-  m_PrefabInstance: {fileID: 7464246578101755952}
+  m_PrefabInstance: {fileID: 3042023807884283757}
   m_PrefabAsset: {fileID: 0}

@@ -74,19 +74,10 @@ public class TaskBar : MonoBehaviour
         RemoveAllTaskTools();
     }
 
-    public void Cancel(int index = -1)
+    public void Cancel()
     {
-        Transform tmp;
-        if (index == -1)
-        {
-            tmp = EventSystem.current.currentSelectedGameObject.transform;
-        }
-        else
-        {
-            tmp = content.GetChild(index);
-        }
-
-        SelectUnit.selectUnit.selected[0].GetComponent<TaskSystem>().Cancel(tmp.GetComponent<TaskButton>().GetTask());
+        Transform tmp = EventSystem.current.currentSelectedGameObject.transform;
+        currentBuilding.GetComponent<TaskSystem>().Cancel(tmp.GetComponent<TaskButton>().GetTask());
         Destroy(tmp);
     }
 

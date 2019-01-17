@@ -5,6 +5,8 @@ using Photon.Pun;
 
 public class ResourceUnit : Interactable
 {
+    [SerializeField]
+    int resourceIndex;
     private float resources = 100;
 
     public float TakeResource(float val)
@@ -21,6 +23,11 @@ public class ResourceUnit : Interactable
             resources -= val;
         }
         return res;
+    }
+
+    public int GetResourceIndex()
+    {
+        return resourceIndex;
     }
 
     public bool StillResource()

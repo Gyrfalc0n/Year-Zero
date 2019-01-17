@@ -8,11 +8,10 @@ public class BuildToolControls : PlayerControls
     PlacementGrid placementGrid;
     PlacementGrid currentPlacementGrid;
 
-    public void CreatePlacementGrid(string buildingPath, BuilderUnit builder)
+    public void CreatePlacementGrid(ConstructedUnit building, BuilderUnit builder)
     {
-        InConstructionUnit buildingObj = ((GameObject)Resources.Load(buildingPath + "Cons")).GetComponent<InConstructionUnit>();
         currentPlacementGrid = Instantiate(placementGrid).GetComponent<PlacementGrid>();
-        currentPlacementGrid.Init(buildingObj.lines, buildingObj.columns, buildingPath, builder);
+        currentPlacementGrid.Init(building, builder);
     }
 
     public override void Update()

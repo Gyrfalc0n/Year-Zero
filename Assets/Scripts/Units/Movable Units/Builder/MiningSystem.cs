@@ -105,7 +105,7 @@ public class MiningSystem : MonoBehaviour
 
     void GiveResources()
     {
-        PlayerManager.playerManager.AddWood((int)resourceAmount);
+        PlayerManager.playerManager.Add((int)resourceAmount, currentResourceUnit.GetResourceIndex());
         resourceAmount = 0;
 
     }

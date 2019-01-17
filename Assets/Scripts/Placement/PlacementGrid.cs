@@ -9,23 +9,26 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
     [SerializeField]
     private float cellSize;
     [SerializeField]
-    private GameObject detectionCell;
+    GameObject detectionCell;
     [SerializeField]
-    private LayerMask groundLayer;
-    private string constructionUnit;
-    private BuilderUnit builder;
+    LayerMask groundLayer;
+    ConstructedUnit associatedBuilding;
+    InConstructionUnit buildingCons;
 
-    private List<DetectionCell> cells = new List<DetectionCell>();
+    BuilderUnit builder;
 
-    private float lines;
-    private float columns;
+    List<DetectionCell> cells = new List<DetectionCell>();
 
-    public void Init(float lines, float columns, string unit, BuilderUnit builder)
+    float lines;
+    float columns;
+
+    public void Init(ConstructedUnit building, BuilderUnit builder)
     {
         this.builder = builder;
-        constructionUnit = unit;
-        this.lines = lines;
-        this.columns = columns;
+        associatedBuilding = building;
+        buildingCons = building.GetConstructor();
+        this.lines = buildingCons.lines;
+        this.columns = buildingCons.columns;
         CreateGrid();
         CreateGhost();
     }
@@ -61,8 +64,7 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
 
     private void CreateGhost()
     {
-        GameObject obj = ((GameObject)Resources.Load(constructionUnit + "Ghost"));
-        Instantiate(obj, GetCenter(), Quaternion.identity, transform);
+        Instantiate(associatedBuilding.GetGhost(), GetCenter(), Quaternion.identity, transform);
     }
 
     public void FollowMouse()
@@ -103,9 +105,9 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
 
     private void Construct()
     {
-        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(constructionUnit + "Cons", GetCenter(), Quaternion.identity);
-        obj.GetComponent<InConstructionUnit>().Init(constructionUnit + "Cons");
-        Pay(((GameObject)Resources.Load(constructionUnit + "Unit")).GetComponent<ConstructedUnit>());
+        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(buildingCons.GetPath(), GetCenter(), Quaternion.identity);
+        obj.GetComponent<InConstructionUnit>().Init(associatedBuilding);
+        PlayerManager.playerManager.Pay(associatedBuilding.costs);
         builder.Build(obj.GetComponent<InConstructionUnit>());
         Destroy(this.gameObject);
     }
@@ -115,13 +117,5 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
         return new Vector3((transform.position.x - cellSize / 2) + (lines / 2 * cellSize),
             transform.position.y + 0.01f,
             (transform.position.z - cellSize / 2) + (columns * cellSize / 2));
-    }
-
-    void Pay(ConstructedUnit unit)
-    {
-        PlayerManager.playerManager.RemoveWood(unit.costs[0]);
-        PlayerManager.playerManager.RemoveStone(unit.costs[1]);
-        PlayerManager.playerManager.RemoveGold(unit.costs[2]);
-        PlayerManager.playerManager.RemoveMeat(unit.costs[3]);
     }
 }

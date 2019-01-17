@@ -6,12 +6,12 @@ using Photon.Pun;
 public class SelectableObj : Interactable {
 
     [SerializeField]
-    string path;
+    protected string path;
 
     [SerializeField]
     float requiredTime;
 
-    public List<Tool> tools;
+    public List<GameObject> tools;
 
     [HideInInspector]
     public bool highlighted = false;

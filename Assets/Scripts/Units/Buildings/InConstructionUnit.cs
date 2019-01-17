@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class InConstructionUnit : BuildingUnit
 {
-    string buildingName;
+    ConstructedUnit associatedBuilding;
 
     [SerializeField]
     private float constructionTime;
@@ -27,9 +27,9 @@ public class InConstructionUnit : BuildingUnit
         CheckConstruction();
     }
 
-    public void Init(string name)
+    public void Init(ConstructedUnit building)
     {
-        buildingName = name.Substring(0, name.Length - 4) + "Unit";
+        associatedBuilding = building;
     }
 
     private void CheckConstruction()
@@ -47,7 +47,7 @@ public class InConstructionUnit : BuildingUnit
     public virtual void OnConstructionFinished()
     {
         RemoveAllBuilders();
-        InstanceManager.instanceManager.InstantiateUnit(buildingName, transform.position, Quaternion.identity);
+        InstanceManager.instanceManager.InstantiateUnit(associatedBuilding.GetPath(), transform.position, Quaternion.identity);
         KillUnit();
     }
 
@@ -63,7 +63,7 @@ public class InConstructionUnit : BuildingUnit
 
     public override void Cancel()
     {
-        //payback
+        PlayerManager.playerManager.Pay(associatedBuilding.costs);
         KillUnit();
     }
 

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(BuildingSystem))]
 public class BuilderUnit : MovableUnit {
 
-    public List<Tool> buildings;
+    public List<GameObject> buildings;
 
     //patrolSystem
     MiningSystem miningSystem;

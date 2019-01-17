@@ -5,8 +5,19 @@ using UnityEngine;
 [System.Serializable]
 public class GameResource {
 
+    string name;
     private int value;
     public int defaultValue;
+
+    public GameResource(string name)
+    {
+        this.name = name;
+    }
+
+    public string GetName()
+    {
+        return name;
+    }
 
     private void Awake()
     {

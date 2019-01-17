@@ -29,7 +29,8 @@ public class DestructibleUnit : SelectableObj {
         {
             SelectUnit.selectUnit.selected.Remove(this);
         }
-        photonView.RPC("RemoveFromLists", RpcTarget.All);
+        photonView.RPC("RemoveFromLists", RpcTarget.Others);
+        RemoveFromLists();
         if (InstanceManager.instanceManager.mySelectableObjs.Contains(this))
         {
             InstanceManager.instanceManager.mySelectableObjs.Remove(this);

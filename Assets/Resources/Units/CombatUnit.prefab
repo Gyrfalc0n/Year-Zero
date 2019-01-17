@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e226df9e722ccd34687705c3ba79b977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: 
+  requiredTime: 0
   tools:
-  - {fileID: 2041768297793046771, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
-  - {fileID: 2883753823781178217, guid: 595081643c9d3e3469a07e89de86499d, type: 3}
-  - {fileID: 5981483205417774045, guid: e4b97814700c90449a9b6c7866f8c8db, type: 3}
-  - {fileID: 3565725812590824644, guid: a85f33f8274a5f74cbaa2194e5bb9b94, type: 3}
+  - {fileID: 2146817939600602931, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
+  - {fileID: 2998254043193242793, guid: 595081643c9d3e3469a07e89de86499d, type: 3}
+  - {fileID: 5952819384617243677, guid: e4b97814700c90449a9b6c7866f8c8db, type: 3}
+  - {fileID: 3522613447464678148, guid: a85f33f8274a5f74cbaa2194e5bb9b94, type: 3}
   highlighted: 0
   selected: 0
   objName: 
   description: 
   costs: 0000000000000000000000000000000000000000
-  selectionCircle: {fileID: 6484921866780970626}
   card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
   home: {fileID: 0}
 --- !u!114 &8875462194112808232
@@ -103,12 +104,6 @@ PrefabInstance:
 --- !u!1 &6559854125858058406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1498426257654464, guid: a2cd80c251494bb4a9642bd55de4b99a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6560647747847402086}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &6484921866780970626 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 212522719781960932, guid: a2cd80c251494bb4a9642bd55de4b99a,
     type: 3}
   m_PrefabInstance: {fileID: 6560647747847402086}
   m_PrefabAsset: {fileID: 0}

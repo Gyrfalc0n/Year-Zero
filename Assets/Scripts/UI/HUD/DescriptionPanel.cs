@@ -54,8 +54,14 @@ public class DescriptionPanel : MonoBehaviour {
             if (raycastResultList[i].gameObject.GetComponent<BuildTool>() != null)
             {
                 BuildTool tmp = raycastResultList[i].gameObject.GetComponent<BuildTool>();
-                SelectableObj building = ((GameObject)Resources.Load(tmp.path + tmp.building + "Unit")).GetComponent<SelectableObj>();
+                SelectableObj building = tmp.GetAssociatedBuilding().GetComponent<SelectableObj>();
                 Init(building);
+                found = true;
+            }
+            else if (raycastResultList[i].gameObject.GetComponent<TaskTool>() != null)
+            {
+                TaskTool tmp = raycastResultList[i].gameObject.GetComponent<TaskTool>();
+                Init(tmp.GetAssociatedUnit());
                 found = true;
             }
         }
