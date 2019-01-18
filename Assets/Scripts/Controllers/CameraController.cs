@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    private Vector3 pos;
-    private int panSpeed = 40;
-    public int border;
+    Vector3 pos;
+    [SerializeField]
+    int panSpeed;
+    [SerializeField]
+    int border;
+
+    [SerializeField]
+    int limitZ;
+    [SerializeField]
+    int limitX;
 
     private void Awake()
     {
@@ -23,22 +30,23 @@ public class CameraController : MonoBehaviour {
         if (Input.GetKey(KeyCode.Z) || Input.mousePosition.y >= Screen.height - border)
         {
             pos.z += panSpeed * Time.deltaTime;
-            transform.position = pos;
+            pos.z = Mathf.Clamp(pos.z, -limitZ, limitZ);
         }
         if (Input.GetKey(KeyCode.S) || Input.mousePosition.y <= border)
         {
             pos.z -= panSpeed * Time.deltaTime;
-            transform.position = pos;
+            pos.z = Mathf.Clamp(pos.z, -limitZ, limitZ);
         }
         if (Input.GetKey(KeyCode.Q) || Input.mousePosition.x <= border)
         {
             pos.x -= panSpeed * Time.deltaTime;
-            transform.position = pos;
+            pos.x = Mathf.Clamp(pos.x, -limitX, limitX);
         }
         if (Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - border)
         {
             pos.x += panSpeed * Time.deltaTime;
-            transform.position = pos;
+            pos.x = Mathf.Clamp(pos.x, -limitX, limitX);
         }
+        transform.position = pos;
     }
 }

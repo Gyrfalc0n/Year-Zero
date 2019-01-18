@@ -47,7 +47,7 @@ public class InConstructionUnit : BuildingUnit
     public virtual void OnConstructionFinished()
     {
         RemoveAllBuilders();
-        InstanceManager.instanceManager.InstantiateUnit(associatedBuilding.GetPath(), transform.position, Quaternion.identity);
+        InstanceManager.instanceManager.InstantiateUnit(MyTools.GetPath(associatedBuilding.gameObject), transform.position, Quaternion.identity);
         KillUnit();
     }
 
