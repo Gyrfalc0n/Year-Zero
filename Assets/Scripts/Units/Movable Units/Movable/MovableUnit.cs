@@ -21,6 +21,11 @@ public class MovableUnit : DestructibleUnit {
         patrolSystem = GetComponent<PatrolSystem>();
         DetermineHome();
     }
+
+    public void Init(Vector3 vec)
+    {
+        SetDestination(vec, 1);
+    }
     
     public virtual void SetDestination(Vector3 pos, float stoppingDistance)
     {
@@ -67,5 +72,10 @@ public class MovableUnit : DestructibleUnit {
         ResetDestination();
         if (patrolSystem.IsPatroling())
             StopPatrol();
+    }
+
+    public override Vector3 GetSelectionCirclePos()
+    {
+        return new Vector3(0, -GetComponent<BoxCollider>().size.y / 2 + 0.01f, 0);
     }
 }
