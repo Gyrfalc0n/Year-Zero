@@ -6,7 +6,18 @@ using Photon.Realtime;
 
 public class DestructibleUnit : SelectableObj {
 
-    private int lifeValue = 1;
+    FloatingLifeBarPanel flbPanel;
+    FloatingLifeBar lifeBar;
+
+    public override void Awake()
+    {
+        base.Awake();
+        flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
+        flbPanel.AddLifeBar(this);
+    }
+
+    int maxLife = 5;
+    int lifeValue = 5;
 
     [PunRPC]
     void TakeDamage(int value)
@@ -46,4 +57,14 @@ public class DestructibleUnit : SelectableObj {
     }
 
     public virtual void OnDestroyed() { }
+
+    public int GetLife()
+    {
+        return lifeValue;
+    }
+
+    public int GetMaxlife()
+    {
+        return maxLife;
+    }
 }
