@@ -22,7 +22,7 @@ public class SelectableObj : Interactable {
     public string objName;
     [TextArea(3,5)]
     public string description;
-    public int[] costs = new int[5];
+    public int[] costs = new int[3];
 
     string selectionCirclePath = "Units/SelectionCircle";
     SpriteRenderer selectionCircle;

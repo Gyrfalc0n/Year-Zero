@@ -13,6 +13,7 @@ public class MovableUnit : DestructibleUnit {
 
     [HideInInspector]
     public TownHall home;
+    public int pop;
 
     public override void Awake()
     {

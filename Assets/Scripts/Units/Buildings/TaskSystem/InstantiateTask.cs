@@ -25,7 +25,7 @@ public class InstantiateTask : Task
     }
     public override void Cancel()
     {
-        PlayerManager.playerManager.PayBack(associatedBuilding.costs);
+        PlayerManager.playerManager.PayBack(associatedUnit.costs, associatedUnit.pop);
         base.Cancel();
     }
 }

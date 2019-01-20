@@ -18,9 +18,8 @@ public class PlayerManager : MonoBehaviour {
     [SerializeField]
     private ResourcesPanel resourcesPanel;
 
-    GameResource[] resources = new GameResource[] { new GameResource("Metal")
-,new GameResource("Stone")
-,new GameResource("Gold")
+    GameResource[] resources = new GameResource[] { new GameResource("Energy")
+,new GameResource("Ore")
 ,new GameResource("Meat")};
 
     Population population = new Population();
@@ -42,9 +41,9 @@ public class PlayerManager : MonoBehaviour {
         return names;
     }
 
-    public bool Pay(int[] costs)
+    public bool Pay(int[] costs, int pop = 0)
     {
-        if (PayCheck(costs))
+        if (PayCheck(costs, pop))
         {
             int i = 0;
             foreach (GameResource resource in resources)
@@ -52,13 +51,14 @@ public class PlayerManager : MonoBehaviour {
                 resource.Remove(costs[i]);
                 i++;
             }
+            population.Remove(pop);
             UpdateResourcesPanel();
             return true;
         }
         return false;
     }
 
-    public void PayBack(int[] costs)
+    public void PayBack(int[] costs, int pop = 0)
     {
         int i = 0;
         foreach (GameResource resource in resources)
@@ -66,9 +66,10 @@ public class PlayerManager : MonoBehaviour {
             resource.Add(costs[i]);
             i++;
         }
+        population.Add(pop);
     }
 
-    public bool PayCheck(int[] costs)
+    public bool PayCheck(int[] costs, int pop = 0)
     {
         int i = 0;
         bool possible = true;
@@ -78,6 +79,8 @@ public class PlayerManager : MonoBehaviour {
                 possible = false;
             i++;
         }
+        if (possible)
+            possible = population.GetCurrentMaxValue() >= population.GetValue() + pop;
         if (!possible)
             Debug.Log("Not enough resources");
         return possible;
@@ -121,12 +124,6 @@ public class PlayerManager : MonoBehaviour {
     #endregion
 
     #region population
-
-    public void AddPopulation(int val)
-    {
-        population.Add(val);
-        UpdateResourcesPanel();
-    }
 
     public void AddMaxPopulation(int val)
     {
