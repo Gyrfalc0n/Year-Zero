@@ -20,26 +20,28 @@ public class Population {
         return value;
     }
 
-    public int Add(int val)
+    public void Add(int val)
     {
         value += val;
-        return value;
     }
 
-    public int AddMax(int val)
+    public void AddMax(int val)
     {
         rawValue += val;
         currentMaxValue += val;
         if (currentMaxValue > maxValue)
             currentMaxValue = maxValue;
-        return value;
     }
 
-    public int Remove(int val)
+    public void Remove(int val)
+    {
+        value -= val;
+    }
+
+    public void RemoveMax(int val)
     {
         rawValue -= val;
-        if (rawValue < val)
-            val = rawValue;
-        return value;
+        if (rawValue < maxValue)
+            currentMaxValue = rawValue;
     }
 }

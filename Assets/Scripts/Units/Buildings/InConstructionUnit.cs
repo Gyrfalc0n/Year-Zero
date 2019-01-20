@@ -10,9 +10,6 @@ public class InConstructionUnit : BuildingUnit
     float constructionTime;
     float remainingTime;
 
-    public int lines;
-    public int columns;
-
     private List<BuilderUnit> builders = new List<BuilderUnit>();
 
     void Update()
@@ -58,7 +55,7 @@ public class InConstructionUnit : BuildingUnit
 
     public override void Cancel()
     {
-        PlayerManager.playerManager.Pay(associatedBuilding.costs);
+        PlayerManager.playerManager.Pay(associatedBuilding.costs, associatedBuilding.pop);
         KillUnit();
     }
 

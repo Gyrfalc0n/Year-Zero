@@ -41,7 +41,7 @@ public class PlayerManager : MonoBehaviour {
         return names;
     }
 
-    public bool Pay(int[] costs, int pop = 0)
+    public bool Pay(int[] costs, int pop)
     {
         if (PayCheck(costs, pop))
         {
@@ -51,14 +51,14 @@ public class PlayerManager : MonoBehaviour {
                 resource.Remove(costs[i]);
                 i++;
             }
-            population.Remove(pop);
+            population.Add(pop);
             UpdateResourcesPanel();
             return true;
         }
         return false;
     }
 
-    public void PayBack(int[] costs, int pop = 0)
+    public void PayBack(int[] costs, int pop)
     {
         int i = 0;
         foreach (GameResource resource in resources)
@@ -66,10 +66,11 @@ public class PlayerManager : MonoBehaviour {
             resource.Add(costs[i]);
             i++;
         }
-        population.Add(pop);
+        population.Remove(pop);
+        UpdateResourcesPanel();
     }
 
-    public bool PayCheck(int[] costs, int pop = 0)
+    public bool PayCheck(int[] costs, int pop)
     {
         int i = 0;
         bool possible = true;
@@ -79,8 +80,11 @@ public class PlayerManager : MonoBehaviour {
                 possible = false;
             i++;
         }
-        if (possible)
-            possible = population.GetCurrentMaxValue() >= population.GetValue() + pop;
+        if (possible && population.GetCurrentMaxValue() < population.GetValue() + pop)
+        {
+            possible = false;
+        }
+            
         if (!possible)
             Debug.Log("Not enough resources");
         return possible;

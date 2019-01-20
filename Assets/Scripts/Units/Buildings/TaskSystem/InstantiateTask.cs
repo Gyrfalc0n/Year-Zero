@@ -18,9 +18,7 @@ public class InstantiateTask : Task
     public override void OnFinishedTask()
     {
         base.OnFinishedTask();
-        print(MyTools.GetPath(associatedUnit.gameObject));
         GameObject unit = InstanceManager.instanceManager.InstantiateUnit(MyTools.GetPath(associatedUnit.gameObject), associatedBuilding.GetComponent<ProductionBuilding>().GetSpawnPointCoords(), Quaternion.identity);
-        //GameObject unit = InstanceManager.instanceManager.InstantiateUnit(associatedUnit.GetPath(), associatedBuilding.GetComponent<ProductionBuilding>().GetSpawnPointCoords(), Quaternion.identity);
         unit.GetComponent<MovableUnit>().Init(associatedBuilding.GetComponent<ProductionBuilding>().GetBannerCoords());
     }
     public override void Cancel()

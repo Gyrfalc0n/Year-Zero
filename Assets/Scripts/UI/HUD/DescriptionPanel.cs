@@ -38,11 +38,8 @@ public class DescriptionPanel : MonoBehaviour {
             costs[i].resourceName.text = PlayerManager.playerManager.GetResourcesName()[i] + " :";
             costs[i].value.text = (obj.costs[i]).ToString();
         }
-        if (obj.GetComponent<MovableUnit>() != null)
-        {
-            pop.gameObject.SetActive(true);
-            pop.value.text = obj.GetComponent<MovableUnit>().pop.ToString();
-        }
+        pop.gameObject.SetActive(true);
+        pop.value.text = obj.GetComponent<SelectableObj>().pop.ToString();
 
         description.text = obj.description;
     }

@@ -12,6 +12,9 @@ public class ConstructedUnit : BuildingUnit
     [SerializeField]
     GameObject ghost;
 
+    public int lines;
+    public int columns;
+
     public InConstructionUnit GetConstructor()
     {
         return constructor;
