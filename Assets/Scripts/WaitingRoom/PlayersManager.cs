@@ -13,6 +13,13 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
     [SerializeField]
     private Toggle readyToggle;
 
+    #region customProp
+
+    string isReady = "IsReady";
+    string checkIsReady = "CheckIsReady";
+
+    #endregion
+
     [SerializeField]
     Transform playersList;
 
@@ -26,17 +33,17 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         {
             readyToggle.gameObject.SetActive(true);
             startButton.gameObject.SetActive(false);
-            customProp.Add("IsReady", false);
+            customProp.Add(isReady, false);
 
         }
         else
         {
             readyToggle.gameObject.SetActive(false);
             startButton.gameObject.SetActive(true);
-            customProp.Add("IsReady", true);
+            customProp.Add(isReady, true);
         }
         PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
-        photonView.RPC("CheckIsReady", RpcTarget.MasterClient);
+        photonView.RPC(checkIsReady, RpcTarget.MasterClient);
     }
 
     [SerializeField]
@@ -63,9 +70,9 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     public void ToggleReady(bool val)
     {
-        customProp["IsReady"] = val;
+        customProp[isReady] = val;
         PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
-        photonView.RPC("CheckIsReady", RpcTarget.MasterClient);
+        photonView.RPC(checkIsReady, RpcTarget.MasterClient);
     }
 
     [PunRPC]
@@ -74,7 +81,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         bool allReady = true;
         foreach (Player player in PhotonNetwork.PlayerList)
         {
-            if ((bool)player.CustomProperties["IsReady"] == false)
+            if ((bool)player.CustomProperties[isReady] == false)
                 allReady = false;
         }
 

@@ -5,9 +5,8 @@ using Photon.Pun;
 
 public class ResourceUnit : Interactable
 {
-    [SerializeField]
-    int resourceIndex;
-    private float resources = 100;
+    protected int resourceIndex;
+    protected float resources;
 
     public float TakeResource(float val)
     {
@@ -35,7 +34,14 @@ public class ResourceUnit : Interactable
         return resources > 0;
     }
 
-    public void Destroy()
+    public virtual void OnNoMoreResources() { }
+
+    protected void SetResources(float value)
+    {
+        resources = value;
+    }
+
+    protected void Destroy()
     {
         PhotonNetwork.Destroy(gameObject);
     }

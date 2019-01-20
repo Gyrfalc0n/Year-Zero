@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1298595418991947369}
   - component: {fileID: 1298595418991947368}
   - component: {fileID: 1298595418991947371}
-  - component: {fileID: 1298595418991947370}
   - component: {fileID: 1045374866}
   - component: {fileID: 5238304439067346547}
   - component: {fileID: 9020529900289086287}
+  - component: {fileID: 1515063217522246508}
   m_Layer: 12
-  m_Name: Tree
+  m_Name: Asteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,18 +95,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1298595418991947370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298595418991947365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f79ea06b9e234143ad566a3a1dafd8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!208 &1045374866
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -160,3 +148,15 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!114 &1515063217522246508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298595418991947365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed3f7b7c8eaaba4e9ff4c1cacbd8c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

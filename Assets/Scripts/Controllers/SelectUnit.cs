@@ -277,6 +277,9 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     public bool InstantSelect()
     {
+        if (selected.Count == 0 || selected[0].GetComponent<BuilderUnit>() == null)
+            return false;
+
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
         {

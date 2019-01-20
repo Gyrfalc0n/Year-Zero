@@ -7,20 +7,13 @@ public class InConstructionUnit : BuildingUnit
 {
     ConstructedUnit associatedBuilding;
 
-    [SerializeField]
-    private float constructionTime;
+    float constructionTime;
     float remainingTime;
 
     public int lines;
     public int columns;
 
     private List<BuilderUnit> builders = new List<BuilderUnit>();
-
-    public override void Awake()
-    {
-        base.Awake();
-        remainingTime = constructionTime;
-    }
 
     void Update()
     {
@@ -30,6 +23,8 @@ public class InConstructionUnit : BuildingUnit
     public void Init(ConstructedUnit building)
     {
         associatedBuilding = building;
+        constructionTime = building.GetRequiredTime();
+        remainingTime = constructionTime;
     }
 
     private void CheckConstruction()

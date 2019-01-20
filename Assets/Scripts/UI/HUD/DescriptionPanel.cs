@@ -10,10 +10,15 @@ public class DescriptionPanel : MonoBehaviour {
     private GameObject panel;
 
     [SerializeField]
-    private Text objName;
+    Text objName;
 
     [SerializeField]
-    private Text[] costs = new Text[5];
+    Transform costPanel;
+
+    [SerializeField]
+    ResourceTextDescrPanel[] costs = new ResourceTextDescrPanel[3];
+    [SerializeField]
+    ResourceTextDescrPanel pop;
 
     [SerializeField]
     private Text description;
@@ -28,9 +33,15 @@ public class DescriptionPanel : MonoBehaviour {
         panel.SetActive(true);
         objName.text = obj.objName;
 
-        for (int i = 0; i < costs.Length; i++)
+        for (int i = costs.Length - 1; i >= 0; i--)
         {
-            costs[i].text = (obj.costs[i]).ToString();
+            costs[i].resourceName.text = PlayerManager.playerManager.GetResourcesName()[i] + " :";
+            costs[i].value.text = (obj.costs[i]).ToString();
+        }
+        if (obj.GetComponent<MovableUnit>() != null)
+        {
+            pop.gameObject.SetActive(true);
+            pop.value.text = obj.GetComponent<MovableUnit>().pop.ToString();
         }
 
         description.text = obj.description;
@@ -38,6 +49,7 @@ public class DescriptionPanel : MonoBehaviour {
 
     public void ResetPanel()
     {
+        pop.gameObject.SetActive(false);
         panel.SetActive(false);
     }
 

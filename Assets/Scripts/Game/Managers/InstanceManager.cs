@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using ExitGames.Client.Photon;
 
 public class InstanceManager : MonoBehaviourPunCallbacks {
 
@@ -19,13 +19,30 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     #endregion
 
+    int race;
+    int team;
+    int color;
+
     private void Start()
     {
         Vector3 myCoords;
         if (!PhotonNetwork.OfflineMode)
+        {
             myCoords = (Vector3)PhotonNetwork.LocalPlayer.CustomProperties["MyCoords"];
+
+            Hashtable customProp = PhotonNetwork.LocalPlayer.CustomProperties;
+            race = (int)customProp["Race"];
+            team = (int)customProp["Team"];
+            color = (int)customProp["Color"];
+        }
         else
+        {
             myCoords = new Vector3(0, 0, 0);
+
+            race = 0;
+            team = 0;
+            color = 0;
+        }
         PlayerManager.playerManager.AddHome(InstantiateUnit("Buildings/TownHall/TownHall", new Vector3(myCoords.x+2, 0.5f, myCoords.y+2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
         InstantiateUnit("Units/BuilderUnit", myCoords, Quaternion.Euler(0, 0, 0));
         //InstantiateUnit("Units/MovableUnit", new Vector3 (5, 0, 0), Quaternion.Euler(0, 0, 0));
@@ -63,5 +80,20 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
         PhotonNetwork.Disconnect();
+    }
+
+    public int GetTeam()
+    {
+        return team;
+    }
+
+    public int GetRace()
+    {
+        return race;
+    }
+
+    public int GetColor()
+    {
+        return color;
     }
 }

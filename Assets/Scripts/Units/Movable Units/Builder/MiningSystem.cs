@@ -7,9 +7,9 @@ public class MiningSystem : MonoBehaviour
 {
     NavMeshAgent agent;
 
-    protected Vector3 pos1;
-    protected Vector3 pos2;
-    protected Vector3 lastPos;
+    protected Vector3 homePos;
+    protected Vector3 resourcePos;
+    protected Vector3 currentDestination;
     float stoppingDistance;
 
     bool mining = false;
@@ -18,7 +18,7 @@ public class MiningSystem : MonoBehaviour
     private ResourceUnit currentResourceUnit;
     private float speedMining = 2f;
 
-    private void Start()
+    void Start()
     {
         agent = GetComponent<NavMeshAgent>();
     }
@@ -37,11 +37,11 @@ public class MiningSystem : MonoBehaviour
 
     public void InitPatrol(Vector3 pos1, Vector3 pos2, float stoppingDistance)
     {
-        this.pos1 = pos1;
-        this.pos2 = pos2;
+        homePos = pos1;
+        resourcePos = pos2;
         this.stoppingDistance = stoppingDistance;
-        lastPos = pos2;
-        SetDestination(lastPos, stoppingDistance);
+        currentDestination = pos2;
+        SetDestination(currentDestination, stoppingDistance);
     }
     public void StopPatrol()
     {
@@ -69,7 +69,7 @@ public class MiningSystem : MonoBehaviour
 
     void OnReachedDestination()
     {
-        if (lastPos == pos2)
+        if (currentDestination == resourcePos)
         {
             if (resourceAmount < resourceMax)
             {
@@ -80,7 +80,7 @@ public class MiningSystem : MonoBehaviour
                 else
                 {
                     GoBack();
-                    currentResourceUnit.Destroy();
+                    currentResourceUnit.OnNoMoreResources();
                 }
             }
             else
@@ -88,7 +88,7 @@ public class MiningSystem : MonoBehaviour
                 resourceAmount = resourceMax;
                 GoBack();
                 if (!currentResourceUnit.StillResource())
-                    currentResourceUnit.Destroy();
+                    currentResourceUnit.OnNoMoreResources();
             }
         }
         else
@@ -114,8 +114,8 @@ public class MiningSystem : MonoBehaviour
     {
         if (currentResourceUnit != null)
         {
-            lastPos = (lastPos == pos1) ? pos2 : pos1;
-            SetDestination(lastPos, stoppingDistance);
+            currentDestination = (currentDestination == homePos) ? resourcePos : homePos;
+            SetDestination(currentDestination, stoppingDistance);
         }
         else
         {

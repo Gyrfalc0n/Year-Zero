@@ -26,7 +26,7 @@ public class BuilderUnit : MovableUnit {
         {
             Build(obj.GetComponent<InConstructionUnit>());
         }
-        else if (obj.GetComponent<ResourceUnit>() != null)
+        else if (obj.GetComponent<ResourceUnit>() != null && (obj.GetComponent<ConstructedUnit>() == null || obj.photonView.IsMine))
         {
             Mine(obj.GetComponent<ResourceUnit>());
         }
