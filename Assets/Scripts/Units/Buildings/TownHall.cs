@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TownHall : ProductionBuilding
+public class TownHall : ConstructedUnit
 {
     public override void Awake()
     {

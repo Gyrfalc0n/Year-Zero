@@ -6,6 +6,9 @@ using Photon.Pun;
 public class SelectableObj : Interactable {
 
     [SerializeField]
+    protected string path;
+
+    [SerializeField]
     float requiredTime;
 
     public List<GameObject> tools;
@@ -24,12 +27,12 @@ public class SelectableObj : Interactable {
     public string description;
     public int[] costs = new int[5];
 
-    string selectionCirclePath = "Units/SelectionCircle";
     SpriteRenderer selectionCircle;
 
     public virtual void Awake()
     {
-        InitSelectionCircle();
+        selectionCircle = transform.Find("SelectionCircle").GetComponent<SpriteRenderer>();
+        selectionCircle.color = myColor;
         InstanceManager.instanceManager.allSelectableObjs.Add(this);
         if (photonView.IsMine)
         {
@@ -37,21 +40,7 @@ public class SelectableObj : Interactable {
         }
     }
 
-    public void InitSelectionCircle()
-    {
-        selectionCircle = ((GameObject)Instantiate(Resources.Load(selectionCirclePath), transform)).GetComponent<SpriteRenderer>();
-        selectionCircle.color = myColor;
-        selectionCircle.transform.localPosition = GetSelectionCirclePos();
-        selectionCircle.transform.localScale = new Vector3(1, 1, 1);
-        selectionCircle.gameObject.SetActive(false);
-    }
-
-    public virtual Vector3 GetSelectionCirclePos()
-    {
-        return Vector3.zero;
-    }
-
-    public virtual void Select()
+    public void Select()
     {
         if (highlighted)
             Dehighlight();
@@ -60,7 +49,7 @@ public class SelectableObj : Interactable {
         selectionCircle.color = myColor;
     }
 
-    public virtual void Deselect()
+    public void Deselect()
     {
         selected = false;
         selectionCircle.gameObject.SetActive(false);
@@ -82,6 +71,11 @@ public class SelectableObj : Interactable {
     }
 
     public virtual void Interact(Interactable obj) { }
+
+    public string GetPath()
+    {
+        return path;
+    }
 
     public float GetRequiredTime()
     {

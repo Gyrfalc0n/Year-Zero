@@ -9,14 +9,6 @@ public class MovementControls : PlayerControls
 
     public override void RightClick()
     {
-        if (SelectUnit.selectUnit.selected[0].GetComponent<ProductionBuilding>() != null)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundLayer))
-            {
-                SelectUnit.selectUnit.selected[0].GetComponent<ProductionBuilding>().MoveBanner(hit.point);
-            }
-        }
         if (!SelectUnit.selectUnit.InstantSelect())
         {
             MoveToMousePoint();

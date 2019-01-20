@@ -10,9 +10,4 @@ public class BuildingUnit : DestructibleUnit
     {
         return -42f;
     }
-
-    public override Vector3 GetSelectionCirclePos()
-    {
-        return new Vector3(0, 0.01f, 0);
-    }
 }
