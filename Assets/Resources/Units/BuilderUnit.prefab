@@ -36,6 +36,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9684f996a9d65468764b7bc9c2274b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: Units/BuilderUnit
   requiredTime: 5
   tools:
   - {fileID: 2146817939600602931, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
@@ -113,12 +114,12 @@ PrefabInstance:
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: viewIdField
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: InstantiationId
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1684042643915140, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_IsActive

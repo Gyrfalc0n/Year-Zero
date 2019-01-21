@@ -68,4 +68,9 @@ public class BuilderUnit : MovableUnit {
         if (buildingSystem.IsBuilding())
             StopBuild();
     }
+
+    public bool IsDoingNothing()
+    {
+        return (!patrolSystem.IsPatroling() && !miningSystem.IsMining() && !buildingSystem.IsBuilding());
+    }
 }
