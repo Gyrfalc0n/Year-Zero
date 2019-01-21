@@ -6,6 +6,9 @@ using Photon.Pun;
 public class SelectableObj : Interactable {
 
     [SerializeField]
+    string path;
+
+    [SerializeField]
     float requiredTime;
 
     public List<GameObject> tools;
@@ -87,5 +90,10 @@ public class SelectableObj : Interactable {
     public float GetRequiredTime()
     {
         return requiredTime;
+    }
+
+    public string GetPath()
+    {
+        return path;
     }
 }

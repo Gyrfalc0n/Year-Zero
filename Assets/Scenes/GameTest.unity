@@ -8817,6 +8817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1614030371}
+  - component: {fileID: 1614030372}
   m_Layer: 5
   m_Name: MinimapPanel
   m_TagString: Untagged
@@ -8845,6 +8846,19 @@ RectTransform:
   m_AnchoredPosition: {x: -256, y: -182}
   m_SizeDelta: {x: 188.25, y: 136.95}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1614030372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614030370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26e0c2310ff2d4499c8afdca3ff0261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 296169620}
 --- !u!1 &1617939984
 GameObject:
   m_ObjectHideFlags: 0
