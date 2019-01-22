@@ -1107,6 +1107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35129fe0b7756744ba35d88361f3700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 296169620}
+  cnvs: {fileID: 117349996}
+  ground: {fileID: 12891965}
+  cam: {fileID: 534669908}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -1195,7 +1199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c8d78fcd5688542a108b02c40c4c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimap: {fileID: 1614030372}
+  minimapPanel: {fileID: 1614030371}
+  markerPrefab: {fileID: 4391663289516484670, guid: 0599c26d07e2f0249af492c491710436,
+    type: 3}
 --- !u!224 &308914618 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
@@ -8718,7 +8724,7 @@ GameObject:
   - component: {fileID: 1581088133}
   - component: {fileID: 1581088132}
   m_Layer: 5
-  m_Name: Marker
+  m_Name: MarkerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8960,7 +8966,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1614030371}
-  - component: {fileID: 1614030372}
   m_Layer: 5
   m_Name: MinimapPanel
   m_TagString: Untagged
@@ -8990,25 +8995,6 @@ RectTransform:
   m_AnchoredPosition: {x: -256, y: -182}
   m_SizeDelta: {x: 188.25, y: 136.95}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1614030372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614030370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c26e0c2310ff2d4499c8afdca3ff0261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  img: {fileID: 296169620}
-  cnvs: {fileID: 117349996}
-  ground: {fileID: 12891965}
-  cam: {fileID: 534669908}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!1 &1617939984
 GameObject:
   m_ObjectHideFlags: 0
