@@ -9,6 +9,9 @@ public class JoblessConstructorsPanel : MonoBehaviour
     GameObject button;
     int clickCounter;
 
+    [SerializeField]
+    CameraController cam;
+
     List<BuilderUnit> builders = new List<BuilderUnit>();
 
     void Start()
@@ -36,5 +39,6 @@ public class JoblessConstructorsPanel : MonoBehaviour
         clickCounter = (clickCounter+1 >= builders.Count) ? 0 : ++clickCounter;
         SelectUnit.selectUnit.ClearSelection();
         SelectUnit.selectUnit.SelectObject(builders[clickCounter]);
+        cam.LookTo(builders[clickCounter].transform.position);
     }
 }

@@ -22,6 +22,11 @@ public class Minimap : MonoBehaviour
     float scaleX;
     float scaleZ;
 
+    [SerializeField]
+    CameraController cam;
+    [SerializeField]
+    LayerMask groundLayer;
+
     void Start()
     {
         scaleX = ground.localScale.x / (img.rect.width * cnvs.scaleFactor);
@@ -34,14 +39,25 @@ public class Minimap : MonoBehaviour
 
     void Update()
     {
-        //print((Input.mousePosition.x - img.rect.width * cnvs.scaleFactor / 2 - camLeft) *scaleX);
-        //print((Input.mousePosition.y - img.rect.height * cnvs.scaleFactor / 2 - camBottom) * scaleZ);
+        if (MouseOnMinimap() && Input.GetMouseButtonDown(0))
+        {
+            MoveCamera();
+        }
     }
 
-    bool MouseOnMinimap()
+    public bool MouseOnMinimap()
     {
         Vector3 vec = Input.mousePosition;
         return (vec[0] >= camLeft && vec[0] <= camRight &&
             vec[1] >= camBottom && vec[1] <= camTop);
+    }
+
+    void MoveCamera()
+    {
+        float x = (Input.mousePosition.x - img.rect.width * cnvs.scaleFactor / 2 - camLeft) * scaleX;
+        float z = (Input.mousePosition.y - img.rect.height * cnvs.scaleFactor / 2 - camBottom) * scaleZ;
+
+        Vector3 vec = new Vector3(x, 0, z);
+        cam.LookTo(vec);
     }
 }

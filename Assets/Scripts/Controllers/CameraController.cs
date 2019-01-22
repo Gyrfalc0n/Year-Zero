@@ -50,8 +50,11 @@ public class CameraController : MonoBehaviour {
         transform.position = pos;
     }
 
-    public void LookTo(Transform obj)
+    public void LookTo(Vector3 obj)
     {
-
+        float modulo = Mathf.Abs(Camera.main.transform.position.y / Mathf.Sin(Mathf.Deg2Rad *Camera.main.transform.eulerAngles.x) );
+        Camera.main.transform.position = new Vector3(obj.x, Camera.main.transform.position.y,
+            obj.z - modulo * Mathf.Cos(Mathf.Deg2Rad * Camera.main.transform.eulerAngles.x));
+        pos = Camera.main.transform.position;
     }
 }
