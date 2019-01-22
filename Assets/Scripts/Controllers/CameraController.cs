@@ -49,4 +49,9 @@ public class CameraController : MonoBehaviour {
         }
         transform.position = pos;
     }
+
+    public void LookTo(Transform obj)
+    {
+
+    }
 }

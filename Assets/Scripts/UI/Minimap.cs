@@ -8,27 +8,40 @@ public class Minimap : MonoBehaviour
     [SerializeField]
     RectTransform img;
 
+    [SerializeField]
+    Canvas cnvs;
+
+    [SerializeField]
+    Transform ground;
+
     float camTop;
     float camBottom;
     float camLeft;
     float camRight;
 
+    float scaleX;
+    float scaleZ;
+
     void Start()
     {
-        camTop = img.position.y + img.sizeDelta[1] / 2;
-        camBottom = img.position.y - img.sizeDelta[1] / 2;
-        camLeft = img.position.x - img.sizeDelta[0] / 2;
-        camRight = img.position.x + img.sizeDelta[0] / 2;
+        scaleX = ground.localScale.x / (img.rect.width * cnvs.scaleFactor);
+        scaleZ = ground.localScale.z / (img.rect.height * cnvs.scaleFactor);
+        camTop = img.position.y + img.rect.height * cnvs.scaleFactor / 2;
+        camBottom = img.position.y - img.rect.height * cnvs.scaleFactor / 2;
+        camLeft = img.position.x - img.rect.width * cnvs.scaleFactor / 2;
+        camRight = img.position.x + img.rect.width * cnvs.scaleFactor / 2;
     }
 
     void Update()
     {
-        //print(MouseOnMinimap());
+        //print((Input.mousePosition.x - img.rect.width * cnvs.scaleFactor / 2 - camLeft) *scaleX);
+        //print((Input.mousePosition.y - img.rect.height * cnvs.scaleFactor / 2 - camBottom) * scaleZ);
     }
 
     bool MouseOnMinimap()
     {
-        return (Input.mousePosition.x >= camLeft && Input.mousePosition.x <= camRight &&
-            Input.mousePosition.y >= camBottom && Input.mousePosition.y <= camTop);
+        Vector3 vec = Input.mousePosition;
+        return (vec[0] >= camLeft && vec[0] <= camRight &&
+            vec[1] >= camBottom && vec[1] <= camTop);
     }
 }
