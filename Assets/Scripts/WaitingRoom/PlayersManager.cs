@@ -9,9 +9,9 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     Hashtable customProp;
     [SerializeField]
-    private StartGameButton startButton;
+    StartGameButton startButton;
     [SerializeField]
-    private Toggle readyToggle;
+    Toggle readyToggle;
 
     #region customProp
 
@@ -22,6 +22,18 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     [SerializeField]
     Transform playersList;
+
+    [SerializeField]
+    private List<Vector3> coords = new List<Vector3>();
+
+    [SerializeField]
+    List<Vector3> topLeftCoords = new List<Vector3>();
+    [SerializeField]
+    List<Vector3> bottomLeftCoords = new List<Vector3>();
+    [SerializeField]
+    List<Vector3> topRightCoords = new List<Vector3>();
+    [SerializeField]
+    List<Vector3> bottomRigtCoords = new List<Vector3>();
 
     private void Awake()
     {
@@ -45,9 +57,6 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
         photonView.RPC(checkIsReady, RpcTarget.MasterClient);
     }
-
-    [SerializeField]
-    private List<Vector3> coords = new List<Vector3>();
 
     public void StartGame()
     {
@@ -90,4 +99,18 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         else
             startButton.Deactivate();
     }
+
+    /*void DetermineCoords()
+    {
+        List<int> teams = new List<int>();
+
+        foreach (Player player in PhotonNetwork.PlayerList)
+        {
+            int tmp = Random.Range(0, coords.Count - 1);
+            photonView.RPC("SetCoords", player, coords[tmp]);
+            coords.RemoveAt(tmp);
+        }
+        string mapName = PlayerPrefs.GetString("MapName");
+        PhotonNetwork.LoadLevel(mapName);
+    }*/
 }

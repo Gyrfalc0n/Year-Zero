@@ -17,9 +17,10 @@ public class JoblessConstructorsPanel : MonoBehaviour
     void Start()
     {
         button.SetActive(false);
+        UpdatePanel();
     }
 
-    void Update()
+    public void UpdatePanel()
     {
         builders.Clear();
         bool oneBuilder = false;

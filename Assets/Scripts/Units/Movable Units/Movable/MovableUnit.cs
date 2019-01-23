@@ -14,12 +14,26 @@ public class MovableUnit : DestructibleUnit {
     [HideInInspector]
     public TownHall home;
 
+    bool moving = false;
+
     public override void Awake()
     {
         base.Awake();
         agent = GetComponent<NavMeshAgent>();
         patrolSystem = GetComponent<PatrolSystem>();
         DetermineHome();
+    }
+
+    public virtual void Update()
+    {
+        if (moving)
+        {
+            if (Vector3.Distance(agent.destination, transform.position) <= agent.stoppingDistance)
+            {
+                moving = false;
+                OnReachedDestination();
+            }
+        }
     }
 
     public void Init(Vector3 vec)
@@ -32,6 +46,8 @@ public class MovableUnit : DestructibleUnit {
         ResetAction();
         agent.SetDestination(pos);
         agent.stoppingDistance = stoppingDistance;
+        GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>().UpdatePanel();
+        moving = true;
     }
 
     public void ResetDestination()
@@ -77,5 +93,10 @@ public class MovableUnit : DestructibleUnit {
     public override Vector3 GetSelectionCirclePos()
     {
         return new Vector3(0, -GetComponent<BoxCollider>().size.y / 2 + 0.01f, 0);
+    }
+
+    void OnReachedDestination()
+    {
+        GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>().UpdatePanel();
     }
 }

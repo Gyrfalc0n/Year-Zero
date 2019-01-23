@@ -2378,6 +2378,7 @@ GameObject:
   - component: {fileID: 3092367607066396640}
   - component: {fileID: 7541666077418348061}
   - component: {fileID: 7941700741359980458}
+  - component: {fileID: 3429640758760826960}
   m_Layer: 5
   m_Name: PlayerSettingsPrefab
   m_TagString: Untagged
@@ -2426,8 +2427,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
-  viewIdField: 3
+  - {fileID: 3429640758760826960}
+  viewIdField: 0
   InstantiationId: 3
   isRuntimeInstantiated: 0
 --- !u!114 &7941700741359980458
@@ -2446,6 +2447,21 @@ MonoBehaviour:
   raceDropdown: {fileID: 3092367606261121532}
   teamDropdown: {fileID: 3092367607495968684}
   colorDropdown: {fileID: 3092367606991846395}
+--- !u!114 &3429640758760826960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092367607066396641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &3092367607173219840
 GameObject:
   m_ObjectHideFlags: 0
