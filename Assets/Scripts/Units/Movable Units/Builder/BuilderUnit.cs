@@ -12,12 +12,15 @@ public class BuilderUnit : MovableUnit {
     //patrolSystem
     MiningSystem miningSystem;
     BuildingSystem buildingSystem;
+    JoblessConstructorsPanel jobless;
 
     public override void Awake()
     {
         base.Awake();
         miningSystem = GetComponent<MiningSystem>();
         buildingSystem = GetComponent<BuildingSystem>();
+        jobless = GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>();
+        jobless.UpdatePanel();
     }
 
     public override void Interact(Interactable obj)
@@ -30,34 +33,40 @@ public class BuilderUnit : MovableUnit {
         {
             Mine(obj.GetComponent<ResourceUnit>());
         }
+        jobless.UpdatePanel();
     }
 
     public void Build(InConstructionUnit obj)
     {
         ResetAction();
         buildingSystem.InitBuild(obj);
+        jobless.UpdatePanel();
     }
 
     public void StopBuild()
     {
         buildingSystem.StopBuilding();
+        jobless.UpdatePanel();
     }
 
     public void Mine(ResourceUnit obj)
     {
         ResetAction();
         miningSystem.InitMining(home, obj);
+        jobless.UpdatePanel();
     }
 
     public void StopMine()
     {
         miningSystem.StoptMining();
+        jobless.UpdatePanel();
     }
 
     public override void Patrol(Vector3 pos1, Vector3 pos2, float stoppingDistance)
     {
         ResetAction();
         base.Patrol(pos1, pos2, stoppingDistance);
+        jobless.UpdatePanel();
     }
 
     public override void ResetAction()
@@ -67,10 +76,12 @@ public class BuilderUnit : MovableUnit {
             StopMine();
         if (buildingSystem.IsBuilding())
             StopBuild();
+        jobless.UpdatePanel();
     }
 
     public bool IsDoingNothing()
     {
-        return (!patrolSystem.IsPatroling() && !miningSystem.IsMining() && !buildingSystem.IsBuilding());
+        bool immobile = Vector3.Distance(agent.destination, transform.position) <= 1;
+        return (!patrolSystem.IsPatroling() && !miningSystem.IsMining() && !buildingSystem.IsBuilding() && immobile);
     }
 }

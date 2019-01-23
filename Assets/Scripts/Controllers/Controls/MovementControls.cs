@@ -5,7 +5,37 @@ using UnityEngine.EventSystems;
 
 public class MovementControls : PlayerControls
 {
-    public LayerMask groundLayer;
+    [SerializeField]
+    RectTransform img;
+
+    [SerializeField]
+    Canvas cnvs;
+
+    [SerializeField]
+    Transform ground;
+
+    [SerializeField]
+    CameraController cam;
+    [SerializeField]
+    LayerMask groundLayer;
+
+    float camTop;
+    float camBottom;
+    float camLeft;
+    float camRight;
+
+    float scaleX;
+    float scaleZ;
+
+    void Start()
+    {
+        scaleX = ground.localScale.x / (img.rect.width * cnvs.scaleFactor);
+        scaleZ = ground.localScale.z / (img.rect.height * cnvs.scaleFactor);
+        camTop = img.position.y + img.rect.height * cnvs.scaleFactor / 2;
+        camBottom = img.position.y - img.rect.height * cnvs.scaleFactor / 2;
+        camLeft = img.position.x - img.rect.width * cnvs.scaleFactor / 2;
+        camRight = img.position.x + img.rect.width * cnvs.scaleFactor / 2;
+    }
 
     public override void RightClick()
     {
@@ -25,17 +55,31 @@ public class MovementControls : PlayerControls
 
     public override void Update()
     {
-        if (active && !MouseOverUI())
+        if (active)
         {
-            if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
+            if (!MouseOverUI())
             {
-                LeftClick();
+                if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
+                {
+                    LeftClick();
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
+                    RightClick();
+                }
+                SelectUnit.selectUnit.UpdateSelection();
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (MouseOnMinimap())
             {
-                RightClick();
+                if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
+                {
+                    MoveCamera(MinimapToWorldSpaceCoords());
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
+                    RightClick();
+                }
             }
-            SelectUnit.selectUnit.UpdateSelection();
         }
     }
 
@@ -66,5 +110,43 @@ public class MovementControls : PlayerControls
                 unit.GetComponent<MovableUnit>().ResetAction();
             }
         }
+    }
+
+
+    public bool MouseOnMinimap()
+    {
+        Vector3 vec = Input.mousePosition;
+        return (vec[0] >= camLeft && vec[0] <= camRight &&
+            vec[1] >= camBottom && vec[1] <= camTop);
+    }
+
+    Vector3 MinimapToWorldSpaceCoords()
+    {
+        float x = (Input.mousePosition.x - img.rect.width * cnvs.scaleFactor / 2 - camLeft) * scaleX;
+        float z = (Input.mousePosition.y - img.rect.height * cnvs.scaleFactor / 2 - camBottom) * scaleZ;
+
+        return new Vector3(x, 0, z);
+    }
+
+    public Vector3 WorldSpaceToMinimap()
+    {
+        float x = 0;
+        float z = 0;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+        {
+            x = (hit.point.x / scaleX) + img.rect.width * cnvs.scaleFactor / 2 + camLeft;
+            z = (hit.point.z / scaleZ) + img.rect.height * cnvs.scaleFactor / 2 + camBottom;
+        }
+        else
+        {
+            Debug.Log("Error");
+        }
+        return new Vector3(x, z, 0);
+    }
+
+    void MoveCamera(Vector3 vec)
+    {
+        cam.LookTo(vec);
     }
 }
