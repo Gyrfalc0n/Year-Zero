@@ -17,36 +17,27 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     string isReady = "IsReady";
     string checkIsReady = "CheckIsReady";
+    string race = "Race";
+    string team = "Team";
+    string color = "Color";
+    string place = "Place";
 
     #endregion
 
     [SerializeField]
-    Transform playersList;
+    List<PlayerSettings> playerSettings;
 
     [SerializeField]
-    private List<Vector3> coords = new List<Vector3>();
+    List<Vector3> coords = new List<Vector3>();
 
-    [SerializeField]
-    List<Vector3> topLeftCoords = new List<Vector3>();
-    [SerializeField]
-    List<Vector3> bottomLeftCoords = new List<Vector3>();
-    [SerializeField]
-    List<Vector3> topRightCoords = new List<Vector3>();
-    [SerializeField]
-    List<Vector3> bottomRigtCoords = new List<Vector3>();
-
-    private void Awake()
+    void Start()
     {
-        GameObject obj = PhotonNetwork.Instantiate("UI/WaittingRoom/PlayerSettingsPrefab", Vector3.zero, Quaternion.identity);
-        obj.transform.SetParent(playersList);
-
-        customProp = PhotonNetwork.LocalPlayer.CustomProperties;
+        customProp = new Hashtable();
         if (!PhotonNetwork.IsMasterClient)
         {
             readyToggle.gameObject.SetActive(true);
             startButton.gameObject.SetActive(false);
             customProp.Add(isReady, false);
-
         }
         else
         {
@@ -54,9 +45,58 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
             startButton.gameObject.SetActive(true);
             customProp.Add(isReady, true);
         }
-        PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
+        InitSettings();
         photonView.RPC(checkIsReady, RpcTarget.MasterClient);
     }
+
+    void InitSettings()
+    {
+        int playerPlace = GetFirstAvailablePlace();
+        customProp.Add(race, 0);
+        customProp.Add(team, 0);
+        customProp.Add(color, 0);
+        customProp.Add(place, playerPlace);
+        playerSettings[playerPlace].InitPanel(PhotonNetwork.LocalPlayer);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
+    }
+
+    public override void OnPlayerPropertiesUpdate(Player target, Hashtable changedProps)
+    {
+        UpdateSettings();
+    }
+
+    void UpdateSettings()
+    { 
+        foreach (Player player in PhotonNetwork.PlayerList)
+        {
+            playerSettings[(int)player.CustomProperties[place]].UpdatePanel(player);
+        }
+    }
+
+    int GetFirstAvailablePlace()
+    {
+        List<int> remainingPlace = new List<int>() { 0, 1, 2, 3 };
+        foreach (Player player in PhotonNetwork.PlayerListOthers)
+        {
+            int tmp = (int)player.CustomProperties[place];
+            remainingPlace.Remove(tmp);
+        }
+        return remainingPlace[0];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void StartGame()
     {
@@ -100,17 +140,13 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
             startButton.Deactivate();
     }
 
-    /*void DetermineCoords()
+    public override void OnLeftRoom()
     {
-        List<int> teams = new List<int>();
+        PhotonNetwork.LoadLevel("MainMenu");
+    }
 
-        foreach (Player player in PhotonNetwork.PlayerList)
-        {
-            int tmp = Random.Range(0, coords.Count - 1);
-            photonView.RPC("SetCoords", player, coords[tmp]);
-            coords.RemoveAt(tmp);
-        }
-        string mapName = PlayerPrefs.GetString("MapName");
-        PhotonNetwork.LoadLevel(mapName);
-    }*/
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        PhotonNetwork.LeaveRoom();
+    }
 }
