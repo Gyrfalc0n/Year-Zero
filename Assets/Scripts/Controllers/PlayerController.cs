@@ -10,6 +10,7 @@ using Photon.Pun;
 [RequireComponent(typeof(BuildToolControls))]
 [RequireComponent(typeof(PatrolToolControls))]
 [RequireComponent(typeof(AttackToolControls))]
+[RequireComponent(typeof(MinimapMarkerControls))]
 public class PlayerController : MonoBehaviour {
 
     MovementControls movementControls;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     BuildToolControls buildToolControls;
     AttackToolControls attackToolControls;
     MoveToolControls moveToolControls;
+    MinimapMarkerControls minimapMarkerControls;
 
     PlayerControls currentPlayerControls;
 
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour {
         buildToolControls = GetComponent<BuildToolControls>();
         patrolToolControls = GetComponent<PatrolToolControls>();
         attackToolControls = GetComponent<AttackToolControls>();
+        minimapMarkerControls = GetComponent<MinimapMarkerControls>();
         currentPlayerControls = movementControls.Activate();
     }
 
@@ -121,5 +124,11 @@ public class PlayerController : MonoBehaviour {
     {
         ResetCurrentPlayerControls();
         currentPlayerControls = attackToolControls.Activate();
+    }
+
+    public void InitMinimapMarkerControls()
+    {
+        ResetCurrentPlayerControls();
+        currentPlayerControls = minimapMarkerControls.Activate();
     }
 }

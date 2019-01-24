@@ -24,6 +24,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdd5a794db73c144b6633bad90575ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: Buildings/House/House
   requiredTime: 5
   tools: []
   highlighted: 0
@@ -48,6 +49,16 @@ PrefabInstance:
     - target: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_Name
       value: House
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: viewIdField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -92,16 +103,6 @@ PrefabInstance:
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: viewIdField
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: InstantiationId
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}

@@ -191,7 +191,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         return changement;
     }
 
-    bool SelectObject(SelectableObj hitObj)
+    public bool SelectObject(SelectableObj hitObj)
     {
         bool already = false;
         if (!selected.Contains(hitObj))

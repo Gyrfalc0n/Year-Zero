@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Photon.Pun;
 
-public class PlayerControls : MonoBehaviour
+public class PlayerControls : MonoBehaviourPunCallbacks
 {
     protected bool active;
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &3958520819672713424
+--- !u!114 &1055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca134a4fc941c7c49929cecccfcba72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5413095573885725764
+--- !u!114 &1067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24,7 +24,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acbbee7f6276fd41b8a750b15c2cb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7889593142705889374
+--- !u!114 &1098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36,6 +36,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9684f996a9d65468764b7bc9c2274b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: Units/BuilderUnit
   requiredTime: 5
   tools:
   - {fileID: 2146817939600602931, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
@@ -47,7 +48,7 @@ MonoBehaviour:
   objName: Builder
   description: zefzr
   costs: 000000000000000000000000
-  pop: 1
+  pop: 0
   card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
   home: {fileID: 0}
   buildings:
@@ -113,12 +114,12 @@ PrefabInstance:
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: viewIdField
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: InstantiationId
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1684042643915140, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_IsActive

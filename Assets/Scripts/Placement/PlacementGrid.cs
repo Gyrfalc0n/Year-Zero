@@ -105,7 +105,7 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
 
     private void Construct()
     {
-        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(MyTools.GetPath(buildingCons.gameObject), GetCenter(), Quaternion.identity);
+        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(buildingCons.GetPath(), GetCenter(), Quaternion.identity);
         obj.GetComponent<InConstructionUnit>().Init(associatedBuilding);
         PlayerManager.playerManager.Pay(associatedBuilding.costs, associatedBuilding.pop);
         builder.Build(obj.GetComponent<InConstructionUnit>());

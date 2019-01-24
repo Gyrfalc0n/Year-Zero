@@ -9,7 +9,7 @@ public class PseudoInputField : MonoBehaviour {
     const string playerNamePrefKey = "PlayerName";
 
     [SerializeField]
-    private InputField inputField;
+    InputField inputField;
 
     public void CheckPseudo()
     {
