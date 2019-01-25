@@ -56,7 +56,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         customProp.Add(team, 0);
         customProp.Add(color, 0);
         customProp.Add(place, playerPlace);
-        playerSettings[playerPlace].InitPanel(PhotonNetwork.LocalPlayer);
+        playerSettings[playerPlace].InitPanel();
         PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
     }
 
@@ -75,13 +75,27 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     int GetFirstAvailablePlace()
     {
-        List<int> remainingPlace = new List<int>() { 0, 1, 2, 3 };
+        /*List<int> remainingPlace = new List<int>() { 0, 1, 2, 3 };
         foreach (Player player in PhotonNetwork.PlayerListOthers)
         {
             int tmp = (int)player.CustomProperties[place];
             remainingPlace.Remove(tmp);
         }
-        return remainingPlace[0];
+        return remainingPlace[0];*/
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            return 0;
+        }
+
+        for (int i = 1; i < PhotonNetwork.CurrentRoom.MaxPlayers; i++)
+        {
+            if (!playerSettings[0].photonView.IsOwnerActive || playerSettings[0].photonView.Owner == PhotonNetwork.MasterClient)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
 

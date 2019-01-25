@@ -5,7 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 
-public class PlayerSettings : MonoBehaviour
+public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
 {
     Hashtable customProp;
     [SerializeField]
@@ -17,13 +17,11 @@ public class PlayerSettings : MonoBehaviour
     [SerializeField]
     Dropdown colorDropdown;
 
-    Player associatedPlayer;
-
     #region customProp
 
-    string race = "Race";
-    string team = "Team";
-    string color = "Color";
+    readonly string race = "Race";
+    readonly string team = "Team";
+    readonly string color = "Color";
 
     #endregion
 
@@ -35,19 +33,18 @@ public class PlayerSettings : MonoBehaviour
         }
     }
 
-    public void OnValueChanged()
+    void UpdateSlot(int val)
     {
-        if (PhotonNetwork.LocalPlayer == associatedPlayer)
-            UpdateProps();
+        nameDropdown.value = val;
     }
 
-    public void InitPanel(Player player)
+    public void InitPanel()
     {
-        associatedPlayer = player;
+        photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
         raceDropdown.interactable = true;
         teamDropdown.interactable = true;
         colorDropdown.interactable = true;
-        nameDropdown.options[0].text = player.NickName;
+        nameDropdown.options[0].text = PhotonNetwork.LocalPlayer.NickName;
         nameDropdown.RefreshShownValue();
     }
 
@@ -86,5 +83,26 @@ public class PlayerSettings : MonoBehaviour
     public bool IsOpen()
     {
         return nameDropdown.value == 0;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(raceDropdown.value);
+            stream.SendNext(teamDropdown.value);
+            stream.SendNext(colorDropdown.value);
+            stream.SendNext(nameDropdown.value);
+            stream.SendNext(nameDropdown.options[0].text);
+        }
+        else
+        {
+            raceDropdown.value = (int)stream.ReceiveNext();
+            teamDropdown.value = (int)stream.ReceiveNext();
+            colorDropdown.value = (int)stream.ReceiveNext();
+            nameDropdown.value = (int)stream.ReceiveNext();
+            nameDropdown.options[0].text = (string)stream.ReceiveNext();
+            nameDropdown.RefreshShownValue();
+        }
     }
 }
