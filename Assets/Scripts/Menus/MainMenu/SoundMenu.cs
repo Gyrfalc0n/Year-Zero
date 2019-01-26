@@ -11,7 +11,7 @@ public class SoundMenu : MonoBehaviour {
 
     public AudioMixer audioMixer;
 
-    private void Awake()
+    void OnEnable()
     {
         float value;
         audioMixer.GetFloat("GeneralVolume", out value);

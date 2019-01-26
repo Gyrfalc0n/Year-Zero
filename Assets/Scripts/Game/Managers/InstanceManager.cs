@@ -14,7 +14,8 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     void Awake()
     {
         instanceManager = this;
-        PhotonNetwork.OfflineMode = offlineMode;
+        if (offlineMode)
+            PhotonNetwork.OfflineMode = offlineMode;
     }
 
     #endregion

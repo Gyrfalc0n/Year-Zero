@@ -28,12 +28,31 @@ public class CreateGameMenu : MonoBehaviour {
     [SerializeField]
     private Transform scrollViewContent;
 
-    private void Start()
+    [SerializeField]
+    GameObject gameNameObj;
+    [SerializeField]
+    GameObject maxPlayerObj;
+
+    void Awake()
     {
         selectionBox.SetActive(false);
         InitMaxPlayerDropdown();
         InitMapButtons();
         CheckCreateGameButton();
+    }
+
+    void OnEnable()
+    {
+        CheckOffline();
+    }
+
+    void CheckOffline()
+    {
+        if (PhotonNetwork.OfflineMode)
+        {
+            gameNameObj.SetActive(false);
+            maxPlayerObj.SetActive(false);
+        }
     }
 
     private void InitMapButtons()
@@ -69,6 +88,11 @@ public class CreateGameMenu : MonoBehaviour {
             createGameButton.interactable = false;
         }
         else
+        {
+            createGameButton.interactable = true;
+        }
+
+        if (PhotonNetwork.OfflineMode)
         {
             createGameButton.interactable = true;
         }

@@ -8,13 +8,12 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     const string playerNamePrefKey = "PlayerName";
 
-    bool clickedSolo = false;
-    bool clickedMulti = false;
-
     string gameVersion = "1";
 
     [SerializeField]
     private GameObject mainMenu;
+    [SerializeField]
+    GameObject singleplayerMenu;
     [SerializeField]
     private GameObject multiplayerMenu;
     [SerializeField]
@@ -24,7 +23,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
     [SerializeField]
     private GameObject createGameMenu;
 
-    private void Awake()
+    void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
         mainMenu.SetActive(true);
@@ -46,33 +45,35 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     public void Singleplayer()
     {
-        clickedSolo = true;
         if (PhotonNetwork.IsConnected)
-            PhotonNetwork.Disconnect(); 
+            PhotonNetwork.Disconnect();
         else
         {
-            PhotonNetwork.OfflineMode = true;
-            PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 4 });
+            GotoSingleplayerMenu();
         }
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        if (clickedSolo)
-        {
-            PhotonNetwork.OfflineMode = true;
-            PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 4 });
-        }
+        GotoSingleplayerMenu();
+    }
+
+    void GotoSingleplayerMenu()
+    {
+        PhotonNetwork.OfflineMode = true;
+        mainMenu.SetActive(false);
+        singleplayerMenu.SetActive(true);
     }
 
     public void Multiplayer()
     {
-        clickedMulti = true;
         Connect();
     }
 
     private void Connect()
     {
+        if (PhotonNetwork.OfflineMode)
+            PhotonNetwork.OfflineMode = false;
         mainMenu.SetActive(false);
 
         if (PhotonNetwork.IsConnected)
@@ -96,7 +97,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     public override void OnConnectedToMaster()
     {
-        if (clickedMulti)
+        if (!PhotonNetwork.OfflineMode)
             JoinOrCreateGameMenu();
     }
 

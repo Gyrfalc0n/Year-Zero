@@ -14,7 +14,7 @@ public class JoinGameMenu : MonoBehaviourPunCallbacks {
     [SerializeField]
     private InputField gameNameInputField;
 
-    private void Start()
+    public override void OnEnable()
     {
         joinGameButton.interactable = false;
     }

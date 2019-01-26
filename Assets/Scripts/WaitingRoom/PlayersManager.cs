@@ -7,6 +7,8 @@ using ExitGames.Client.Photon;
 
 public class PlayersManager : MonoBehaviourPunCallbacks {
 
+    readonly int soloMaxPlayer = 3;
+
     Hashtable customProp;
     [SerializeField]
     StartGameButton startButton;
@@ -69,7 +71,14 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     public void CheckAddBot()
     {
-        addBotButton.SetActive(playersList.childCount < PhotonNetwork.CurrentRoom.MaxPlayers);
+        if (PhotonNetwork.OfflineMode)
+        {
+            addBotButton.SetActive(playersList.childCount < soloMaxPlayer);
+        }
+        else
+        {
+            addBotButton.SetActive(playersList.childCount < PhotonNetwork.CurrentRoom.MaxPlayers);
+        }
     }
 
     void Update()
