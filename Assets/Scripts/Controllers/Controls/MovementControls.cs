@@ -7,6 +7,9 @@ public class MovementControls : PlayerControls
 {
     [SerializeField]
     RectTransform img;
+    [SerializeField]
+    RectTransform minimapSquare;
+    Vector3 minimapVec = new Vector3(0,0,0);
 
     [SerializeField]
     Canvas cnvs;
@@ -27,6 +30,9 @@ public class MovementControls : PlayerControls
     float scaleX;
     float scaleZ;
 
+    float mainCamWidth;
+    float mainCamHeight;
+
     void Start()
     {
         scaleX = ground.localScale.x / (img.rect.width * cnvs.scaleFactor);
@@ -35,6 +41,8 @@ public class MovementControls : PlayerControls
         camBottom = img.position.y - img.rect.height * cnvs.scaleFactor / 2;
         camLeft = img.position.x - img.rect.width * cnvs.scaleFactor / 2;
         camRight = img.position.x + img.rect.width * cnvs.scaleFactor / 2;
+
+        SetSquareSize();
     }
 
     public override void RightClick()
@@ -57,6 +65,7 @@ public class MovementControls : PlayerControls
     {
         if (active)
         {
+            UpdateMinimapSquare();
             if (!MouseOverUI())
             {
                 if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
@@ -143,6 +152,40 @@ public class MovementControls : PlayerControls
             Debug.Log("Error");
         }
         return new Vector3(x, z, 0);
+    }
+
+    void SetSquareSize()
+    {
+        float top;
+        float left;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0,1,0)), out hit, Mathf.Infinity, groundLayer))
+        {
+            left = hit.point.x;
+            top = hit.point.z;
+            float bottom;
+            float right;
+            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(1, 0, 0)), out hit, Mathf.Infinity, groundLayer))
+            {
+                right = hit.point.x;
+                bottom = hit.point.z;
+
+                mainCamHeight = (top - bottom) / scaleZ;
+                mainCamWidth = (right - left) / scaleX;
+            }
+        }
+
+        minimapSquare.sizeDelta = new Vector2(mainCamWidth, mainCamHeight);
+    }
+
+    void UpdateMinimapSquare()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out hit, Mathf.Infinity, groundLayer))
+        {
+            minimapSquare.position = new Vector3(hit.point.x / scaleX + img.rect.width * cnvs.scaleFactor / 2 + camLeft, 
+                hit.point.z / scaleZ + img.rect.height * cnvs.scaleFactor / 2 + camBottom, 0);
+        }
     }
 
     void MoveCamera(Vector3 vec)

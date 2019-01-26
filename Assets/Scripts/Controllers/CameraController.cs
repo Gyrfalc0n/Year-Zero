@@ -10,14 +10,16 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     int border;
 
+    float limitZ;
+    float limitX;
     [SerializeField]
-    int limitZ;
-    [SerializeField]
-    int limitX;
+    Transform ground;
 
     private void Awake()
     {
         pos = transform.position;
+        limitX = ground.localScale[0]/2 - 5;
+        limitZ = ground.localScale[2]/2 - 5;
     }
 
     void Update()

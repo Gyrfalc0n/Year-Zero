@@ -10,6 +10,15 @@ public class MinimapMarkerControls : PlayerControls
     Transform minimapPanel;
     [SerializeField]
     Marker markerPrefab;
+    [SerializeField]
+    Camera minimapCam;
+    [SerializeField]
+    Transform ground;
+
+    void Start()
+    {
+        minimapCam.orthographicSize = ground.localScale[0] / 2;
+    }
 
     public override void Update()
     {
