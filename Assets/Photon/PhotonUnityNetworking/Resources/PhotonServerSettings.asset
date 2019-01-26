@@ -27,7 +27,7 @@ MonoBehaviour:
   StartInOfflineMode: 0
   PunLogging: 2
   EnableSupportLogger: 0
-  RunInBackground: 0
+  RunInBackground: 1
   RpcList:
   - DestroySpaceship
   - Fire
@@ -43,4 +43,5 @@ MonoBehaviour:
   - Init
   - CreateMarker
   - UpdateSlot
+  - SetParent
   DisableAutoOpenWizard: 1

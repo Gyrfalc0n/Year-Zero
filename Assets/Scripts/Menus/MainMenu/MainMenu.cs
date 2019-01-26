@@ -126,7 +126,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
     {
         Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room.");
 
-        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        if (PhotonNetwork.IsMasterClient)
         {
             Debug.Log("We load the waiting room");
             PhotonNetwork.LoadLevel("WaitingRoom");

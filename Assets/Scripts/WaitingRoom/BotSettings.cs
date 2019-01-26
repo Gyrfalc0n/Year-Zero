@@ -4,10 +4,8 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
+public class BotSettings : MonoBehaviourPunCallbacks, IPunObservable
 {
-    [SerializeField]
-    Text pseudoText;
     public Dropdown raceDropdown;
     public Dropdown teamDropdown;
     public Dropdown colorDropdown;
@@ -19,17 +17,13 @@ public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
         InitPanel();
     }
 
+
     public void InitPanel()
     {
         Transform playersList = GameObject.Find("PlayersList").transform;
-        if (playersList.childCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
-        {
-            PhotonNetwork.LeaveRoom();
-        }
         transform.SetParent(playersList);
         transform.localScale = new Vector3(1, 1, 1);
-        pseudoText.text = photonView.Owner.NickName;
-        kickButton.SetActive(PhotonNetwork.IsMasterClient && !photonView.IsMine);
+        kickButton.SetActive(PhotonNetwork.IsMasterClient);
         if (photonView.IsMine)
         {
             raceDropdown.interactable = true;
@@ -45,19 +39,17 @@ public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(raceDropdown.value);
             stream.SendNext(teamDropdown.value);
             stream.SendNext(colorDropdown.value);
-            stream.SendNext(pseudoText.text);
         }
         else
         {
             raceDropdown.value = (int)stream.ReceiveNext();
             teamDropdown.value = (int)stream.ReceiveNext();
             colorDropdown.value = (int)stream.ReceiveNext();
-            pseudoText.text = (string)stream.ReceiveNext();
         }
     }
 
     public void Kick()
     {
-        PhotonNetwork.CloseConnection(photonView.Owner);
+        PhotonNetwork.Destroy(photonView);
     }
 }

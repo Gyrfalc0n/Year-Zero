@@ -12,31 +12,44 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
     StartGameButton startButton;
     [SerializeField]
     Toggle readyToggle;
+    [SerializeField]
+    GameObject addBotButton;
+    [SerializeField]
+    Transform playersList;
+
+    [SerializeField]
+    List<Vector3> topLeft;
+    [SerializeField]
+    List<Vector3> bottomLeft;
+    [SerializeField]
+    List<Vector3> topRight;
+    [SerializeField]
+    List<Vector3> bottomRight;
+    List<Vector3>[] coords;
 
     #region customProp
 
     string isReady = "IsReady";
     string checkIsReady = "CheckIsReady";
-    string race = "Race";
-    string team = "Team";
-    string color = "Color";
-    string place = "Place";
 
     #endregion
 
-    [SerializeField]
-    List<PlayerSettings> playerSettings;
-
-    [SerializeField]
-    List<Vector3> coords = new List<Vector3>();
-
     void Start()
+    {
+        if (PhotonNetwork.IsMasterClient)
+            coords = new List<Vector3>[4] { topLeft, bottomLeft , topRight , bottomRight };
+        PhotonNetwork.Instantiate("UI/WaittingRoom/PlayerSettingsPrefab", Vector3.zero, Quaternion.identity);
+        InitSettings();
+    }
+
+    void InitSettings()
     {
         customProp = new Hashtable();
         if (!PhotonNetwork.IsMasterClient)
         {
             readyToggle.gameObject.SetActive(true);
             startButton.gameObject.SetActive(false);
+            addBotButton.SetActive(false);
             customProp.Add(isReady, false);
         }
         else
@@ -45,91 +58,79 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
             startButton.gameObject.SetActive(true);
             customProp.Add(isReady, true);
         }
-        InitSettings();
+        PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
         photonView.RPC(checkIsReady, RpcTarget.MasterClient);
     }
 
-    void InitSettings()
+    public void AddBot()
     {
-        int playerPlace = GetFirstAvailablePlace();
-        customProp.Add(race, 0);
-        customProp.Add(team, 0);
-        customProp.Add(color, 0);
-        customProp.Add(place, playerPlace);
-        playerSettings[playerPlace].InitPanel();
-        PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
+        PhotonNetwork.Instantiate("UI/WaittingRoom/BotSettingsPrefab", Vector3.zero, Quaternion.identity);
     }
 
-    public override void OnPlayerPropertiesUpdate(Player target, Hashtable changedProps)
+    public void CheckAddBot()
     {
-        UpdateSettings();
+        addBotButton.SetActive(playersList.childCount < PhotonNetwork.CurrentRoom.MaxPlayers);
     }
 
-    void UpdateSettings()
-    { 
-        foreach (Player player in PhotonNetwork.PlayerList)
-        {
-            playerSettings[(int)player.CustomProperties[place]].UpdatePanel(player);
-        }
-    }
-
-    int GetFirstAvailablePlace()
+    void Update()
     {
-        /*List<int> remainingPlace = new List<int>() { 0, 1, 2, 3 };
-        foreach (Player player in PhotonNetwork.PlayerListOthers)
-        {
-            int tmp = (int)player.CustomProperties[place];
-            remainingPlace.Remove(tmp);
-        }
-        return remainingPlace[0];*/
-
         if (PhotonNetwork.IsMasterClient)
-        {
-            return 0;
-        }
-
-        for (int i = 1; i < PhotonNetwork.CurrentRoom.MaxPlayers; i++)
-        {
-            if (!playerSettings[0].photonView.IsOwnerActive || playerSettings[0].photonView.Owner == PhotonNetwork.MasterClient)
-            {
-                return i;
-            }
-        }
-        return -1;
+            CheckAddBot();
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
     public void StartGame()
     {
-        foreach (Player player in PhotonNetwork.PlayerList)
-        {
-            int tmp = Random.Range(0, coords.Count - 1);
-            photonView.RPC("SetCoords", player, coords[tmp]);
-            coords.RemoveAt(tmp);
-        }
+        SetCustomPropForAll();
         string mapName = PlayerPrefs.GetString("MapName");
         PhotonNetwork.LoadLevel(mapName);
     }
 
-    [PunRPC]
-    public void SetCoords(Vector3 baseCoords)
+    void SetCustomPropForAll()
     {
-        customProp.Add("MyCoords", baseCoords);
-        PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
+        int i = 0;
+        foreach (Transform playerSettings in playersList)
+        {
+            if (playerSettings.GetComponent<PlayerSettings>() != null)
+            {
+                PlayerSettings settings = playerSettings.GetComponent<PlayerSettings>();
+                Hashtable table = new Hashtable();
+                table.Add("Race", settings.raceDropdown.value);
+                table.Add("Team", settings.teamDropdown.value);
+                table.Add("Color", settings.colorDropdown.value);
+                table.Add("MyCoords", SetCoords(settings.teamDropdown.value));
+                playerSettings.GetComponent<PhotonView>().Owner.SetCustomProperties(table);
+            }
+        }
+        Hashtable myTable = PhotonNetwork.LocalPlayer.CustomProperties;
+        foreach (Transform playerSettings in playersList)
+        {
+            if (playerSettings.GetComponent<BotSettings>() != null)
+            {
+                BotSettings settings = playerSettings.GetComponent<BotSettings>();
+                myTable.Add("Race" + i, settings.raceDropdown.value);
+                myTable.Add("Team" + i, settings.teamDropdown.value);
+                myTable.Add("Color" + i, settings.colorDropdown.value);
+                myTable.Add("MyCoords" + i, SetCoords(settings.teamDropdown.value));
+                i++;
+            }
+        }
+        PhotonNetwork.LocalPlayer.SetCustomProperties(myTable);
     }
+
+    public Vector3 SetCoords(int team)
+    {
+        int tmp = Random.Range(0, coords[team].Count - 1);
+        Vector3 res = coords[team][tmp];
+        coords[team].RemoveAt(tmp);
+        return res;
+    }
+
+
+
+
+
 
     public void ToggleReady(bool val)
     {
