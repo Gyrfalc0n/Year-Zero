@@ -40,6 +40,7 @@ public class JoblessConstructorsPanel : MonoBehaviour
         clickCounter = (clickCounter+1 >= builders.Count) ? 0 : ++clickCounter;
         SelectUnit.selectUnit.ClearSelection();
         SelectUnit.selectUnit.SelectObject(builders[clickCounter]);
+        SelectUnit.selectUnit.UpdateUI();
         cam.LookTo(builders[clickCounter].transform.position);
     }
 }
