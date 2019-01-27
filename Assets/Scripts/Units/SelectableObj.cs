@@ -19,8 +19,8 @@ public class SelectableObj : Interactable {
     public bool selected = false;
 
     protected Color32 myColor = new Color32(18, 255, 0, 255);
-    protected Color32 myHighlightColor = new Color32(18, 255, 0, 50);
-    protected Color32 othersColor = new Color32(91, 238, 161, 255);
+    protected Color32 teamColor = new Color32(170, 170, 0, 255);
+    protected Color32 enemyColor = new Color32(200, 60, 50, 255);
 
     public string objName;
     [TextArea(3,5)]
@@ -44,10 +44,23 @@ public class SelectableObj : Interactable {
     public void InitSelectionCircle()
     {
         selectionCircle = ((GameObject)Instantiate(Resources.Load(selectionCirclePath), transform)).GetComponent<SpriteRenderer>();
-        selectionCircle.color = myColor;
         selectionCircle.transform.localPosition = GetSelectionCirclePos();
         selectionCircle.transform.localScale = new Vector3(1, 1, 1);
         selectionCircle.gameObject.SetActive(false);
+
+        if (photonView.IsMine)
+        {
+            selectionCircle.color = myColor;
+        }
+        else if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
+        {
+            selectionCircle.color = teamColor;
+        }
+        else
+        {
+            selectionCircle.color = enemyColor;
+        }
+        
     }
 
     public virtual Vector3 GetSelectionCirclePos()
@@ -72,17 +85,22 @@ public class SelectableObj : Interactable {
 
     public void Highlight()
     {
-        if (selected)
-            return;
         highlighted = true;
-        selectionCircle.gameObject.SetActive(true);
-        selectionCircle.color = myHighlightColor;
+        if (!selected)
+        {
+            highlighted = true;
+            selectionCircle.gameObject.SetActive(true);
+            Color32 tmp = (Color32)selectionCircle.color;
+            selectionCircle.color = new Color32(tmp.r, tmp.g, tmp.b, 50);
+        }
+
     }
 
     public void Dehighlight()
     {
         highlighted = false;
-        selectionCircle.gameObject.SetActive(false);
+        if (!selected)
+            selectionCircle.gameObject.SetActive(false);
     }
 
     public virtual void Interact(Interactable obj) { }

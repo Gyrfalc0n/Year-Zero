@@ -58,6 +58,7 @@ public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     public void Kick()
     {
+        PhotonNetwork.CleanRpcBufferIfMine(photonView);
         PhotonNetwork.CloseConnection(photonView.Owner);
     }
 }

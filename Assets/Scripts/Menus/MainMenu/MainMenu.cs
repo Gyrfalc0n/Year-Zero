@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     string gameVersion = "1";
 
+    bool clickedMulti = false;
+
     [SerializeField]
     private GameObject mainMenu;
     [SerializeField]
@@ -67,6 +69,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     public void Multiplayer()
     {
+        clickedMulti = true;
         Connect();
     }
 
@@ -76,7 +79,11 @@ public class MainMenu : MonoBehaviourPunCallbacks {
             PhotonNetwork.OfflineMode = false;
         mainMenu.SetActive(false);
 
-        if (PhotonNetwork.IsConnected)
+        if (PhotonNetwork.IsConnected && !PhotonNetwork.InLobby)
+        {
+            PhotonNetwork.JoinLobby();
+        }
+        else if (PhotonNetwork.IsConnected && PhotonNetwork.InLobby)
         {
             JoinOrCreateGameMenu();
         }
@@ -97,8 +104,18 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     public override void OnConnectedToMaster()
     {
-        if (!PhotonNetwork.OfflineMode)
+        if (clickedMulti && !PhotonNetwork.OfflineMode)
+            PhotonNetwork.JoinLobby();
+    }
+
+    public override void OnJoinedLobby()
+    {
+        if (clickedMulti && !PhotonNetwork.OfflineMode)
+        {
             JoinOrCreateGameMenu();
+            clickedMulti = false;
+        }
+            
     }
 
     public void OptionsMenu()

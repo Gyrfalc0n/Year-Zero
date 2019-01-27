@@ -9,7 +9,6 @@ public class MovementControls : PlayerControls
     RectTransform img;
     [SerializeField]
     RectTransform minimapSquare;
-    Vector3 minimapVec = new Vector3(0,0,0);
 
     [SerializeField]
     Canvas cnvs;
@@ -158,23 +157,27 @@ public class MovementControls : PlayerControls
     {
         float top;
         float left;
+        float bottom;
+        float right;
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0,1,0)), out hit, Mathf.Infinity, groundLayer))
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f,1,0)), out hit, Mathf.Infinity, groundLayer))
         {
-            left = hit.point.x;
             top = hit.point.z;
-            float bottom;
-            float right;
+
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(1, 0, 0)), out hit, Mathf.Infinity, groundLayer))
             {
                 right = hit.point.x;
                 bottom = hit.point.z;
 
-                mainCamHeight = (top - bottom) / scaleZ;
-                mainCamWidth = (right - left) / scaleX;
+                if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0, 0, 0)), out hit, Mathf.Infinity, groundLayer))
+                {
+                    left = hit.point.x;
+
+                    mainCamHeight = (top - bottom) / scaleZ;
+                    mainCamWidth = (right - left) / scaleX;
+                }
             }
         }
-
         minimapSquare.sizeDelta = new Vector2(mainCamWidth, mainCamHeight);
     }
 

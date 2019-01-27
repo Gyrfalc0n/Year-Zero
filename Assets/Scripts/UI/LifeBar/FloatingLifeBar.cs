@@ -24,7 +24,7 @@ public class FloatingLifeBar : MonoBehaviour
         }
         else
         {
-            if (associatedUnit.selected || associatedUnit.highlighted)
+            if (associatedUnit.highlighted)
             {
                 obj.gameObject.SetActive(true);
                 tmp = associatedUnit.transform.position;
