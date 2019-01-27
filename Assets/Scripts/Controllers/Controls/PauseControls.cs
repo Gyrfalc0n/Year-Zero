@@ -6,11 +6,14 @@ using Photon.Pun;
 public class PauseControls : PlayerControls
 {
     [SerializeField]
-    private GameObject menu;
+    GameObject mainMenu;
+    [SerializeField]
+    GameObject obj;
 
     public void Init()
     {
-        menu.SetActive(true);
+        obj.SetActive(true);
+        mainMenu.SetActive(true);
         if (PhotonNetwork.OfflineMode)
         {
             Time.timeScale = 0;
@@ -32,7 +35,7 @@ public class PauseControls : PlayerControls
     public override void Cancel()
     {
         base.Cancel();
-        menu.SetActive(false);
+        obj.SetActive(false);
         if (PhotonNetwork.OfflineMode)
         {
             Time.timeScale = 1;
