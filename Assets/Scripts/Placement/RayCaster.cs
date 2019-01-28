@@ -5,7 +5,9 @@ using UnityEngine;
 public class RayCaster : MonoBehaviour {
 
     [SerializeField]
-    private LayerMask groundLayer;
+    LayerMask layerMasks;
+    [SerializeField]
+    LayerMask groundLayer;
     [SerializeField]
     private float distanceMax;
     [SerializeField]
@@ -15,7 +17,7 @@ public class RayCaster : MonoBehaviour {
     public bool IsAvailable()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, layerMasks))
         {
             if ((int) Mathf.Pow(2, hit.collider.gameObject.layer) == (int) groundLayer)
             {

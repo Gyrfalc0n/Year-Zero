@@ -31,8 +31,7 @@ public class SelectableObj : Interactable {
     string selectionCirclePath = "Units/SelectionCircle";
     SpriteRenderer selectionCircle;
 
-    [SerializeField]
-    FieldOfViewCollider fieldOfViewPrefab;
+    string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";
     FieldOfViewCollider fovCollider;
     bool visible;
 
@@ -146,7 +145,7 @@ public class SelectableObj : Interactable {
             Hide();
             return;
         }
-        fovCollider = Instantiate(fieldOfViewPrefab, transform);
+        fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
         fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
         if (GetComponent<MovableUnit>() != null)
         {
