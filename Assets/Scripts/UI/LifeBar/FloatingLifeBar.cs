@@ -22,7 +22,11 @@ public class FloatingLifeBar : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        UpdateBar();
+        else
+        {
+            UpdateBar();
+        }
+        
     }
 
     void UpdateBar()
