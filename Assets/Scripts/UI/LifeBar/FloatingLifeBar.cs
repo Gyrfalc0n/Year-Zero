@@ -22,22 +22,24 @@ public class FloatingLifeBar : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        UpdateBar();
+    }
+
+    void UpdateBar()
+    {
+        if (associatedUnit.highlighted)
+        {
+            obj.gameObject.SetActive(true);
+            tmp = associatedUnit.transform.position;
+            tmp.y += 1;
+            transform.position = tmp;
+            transform.rotation = Camera.main.transform.rotation;
+
+            obj.value = associatedUnit.GetLife() / associatedUnit.GetMaxlife() * obj.maxValue;
+        }
         else
         {
-            if (associatedUnit.highlighted)
-            {
-                obj.gameObject.SetActive(true);
-                tmp = associatedUnit.transform.position;
-                tmp.y += 1;
-                transform.position = tmp;
-                transform.rotation = Camera.main.transform.rotation;
-
-                obj.value = associatedUnit.GetLife() / associatedUnit.GetMaxlife() * obj.maxValue;
-            }
-            else
-            {
-                obj.gameObject.SetActive(false);
-            }
+            obj.gameObject.SetActive(false);
         }
     }
 }

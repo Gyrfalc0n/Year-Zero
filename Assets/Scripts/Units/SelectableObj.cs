@@ -31,6 +31,11 @@ public class SelectableObj : Interactable {
     string selectionCirclePath = "Units/SelectionCircle";
     SpriteRenderer selectionCircle;
 
+    [SerializeField]
+    FieldOfViewCollider fieldOfViewPrefab;
+    FieldOfViewCollider fovCollider;
+    bool visible;
+
     public virtual void Awake()
     {
         InitSelectionCircle();
@@ -39,6 +44,7 @@ public class SelectableObj : Interactable {
         {
             InstanceManager.instanceManager.mySelectableObjs.Add(this);
         }
+        InitFieldOfView();
     }
 
     public void InitSelectionCircle()
@@ -70,6 +76,8 @@ public class SelectableObj : Interactable {
 
     public virtual void Select()
     {
+        if (!visible)
+            return;
         if (highlighted)
             Dehighlight();
         selected = true;
@@ -85,6 +93,8 @@ public class SelectableObj : Interactable {
 
     public void Highlight()
     {
+        if (!visible)
+            return;
         highlighted = true;
         if (!selected)
         {
@@ -114,4 +124,53 @@ public class SelectableObj : Interactable {
     {
         return path;
     }
+
+    #region FOV
+
+    void InitFieldOfView()
+    {
+        if (PhotonNetwork.OfflineMode)
+        {
+            visible = true;
+        }
+        else
+        {
+            visible = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam();
+        }
+        if (visible)
+        {
+            UnHide();
+        }
+        else
+        {
+            Hide();
+            return;
+        }
+        fovCollider = Instantiate(fieldOfViewPrefab, transform);
+        fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
+        if (GetComponent<MovableUnit>() != null)
+        {
+            fovCollider.transform.localScale = new Vector3(2, 1, 2);
+        }
+        else if (GetComponent<ConstructedUnit>() != null || GetComponent<InConstructionUnit>() != null)
+        {
+            fovCollider.transform.localScale = new Vector3(3, 1, 3);
+        }
+    }
+
+    public void Hide()
+    {
+        visible = false;
+        GetComponent<MeshRenderer>().enabled = false;
+        Dehighlight();
+        Deselect();
+    }
+
+    public void UnHide()
+    {
+        visible = true;
+        GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    #endregion
 }
