@@ -98,26 +98,31 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
         if (changement)
         {
-            if (selected[0].GetComponent<MovableUnit>() != null)
+            UpdateUI(); 
+        }
+    }
+
+    public void UpdateUI()
+    {
+        if (selected[0].GetComponent<MovableUnit>() != null)
+        {
+            advancementBar.Reset();
+            taskBar.Reset();
+            cardsPanel.CheckCards();
+        }
+        else
+        {
+            cardsPanel.ClearCards();
+            toolsPanel.ClearTools();
+            if (selected[0].GetComponent<InConstructionUnit>() != null)
             {
-                advancementBar.Reset();
-                taskBar.Reset();
-                cardsPanel.CheckCards();
+                advancementBar.Init(selected[0].GetComponent<InConstructionUnit>());
             }
-            else
+            else if (selected[0].GetComponent<ConstructedUnit>() != null)
             {
-                cardsPanel.ClearCards();
-                toolsPanel.ClearTools();
-                if (selected[0].GetComponent<InConstructionUnit>() != null)
-                {
-                    advancementBar.Init(selected[0].GetComponent<InConstructionUnit>());
-                }
-                else if (selected[0].GetComponent<ConstructedUnit>() != null)
-                {
-                    toolsPanel.CheckTools(0);
-                    taskBar.Init(selected[0].GetComponent<ConstructedUnit>());
-                }
-            }   
+                toolsPanel.CheckTools(0);
+                taskBar.Init(selected[0].GetComponent<ConstructedUnit>());
+            }
         }
     }
 
