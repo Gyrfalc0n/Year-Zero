@@ -105,7 +105,9 @@ public class MovementControls : PlayerControls
         foreach (SelectableObj unit in SelectUnit.selectUnit.selected)
         {
             if (unit.GetComponent<MovableUnit>() != null)
+            {
                 unit.GetComponent<MovableUnit>().SetDestination(newPos, 1);
+            }
         }
     }
 

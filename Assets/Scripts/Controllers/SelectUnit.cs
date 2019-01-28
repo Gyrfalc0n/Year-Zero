@@ -19,24 +19,24 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     #endregion
 
     [SerializeField]
-    private LayerMask interactableLayer;
+    LayerMask interactableLayer;
 
     public List<SelectableObj> selected;
     public int underSelected = 0;
 
-    private Vector3 mousePos1;
-    private Vector3 mousePos2;
+    Vector3 mousePos1;
+    Vector3 mousePos2;
 
     [SerializeField]
-    private ToolsPanel toolsPanel;
+    ToolsPanel toolsPanel;
     [SerializeField]
-    private CardsPanel cardsPanel;
+    CardsPanel cardsPanel;
     [SerializeField]
-    private AdvancementBar advancementBar;
+    AdvancementBar advancementBar;
     [SerializeField]
     TaskBar taskBar;
 
-    private SelectionBox selectionBox;
+    SelectionBox selectionBox;
 
     bool isSelecting;
 
