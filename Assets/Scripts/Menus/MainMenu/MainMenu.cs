@@ -29,9 +29,6 @@ public class MainMenu : MonoBehaviourPunCallbacks {
     {
         PhotonNetwork.AutomaticallySyncScene = true;
         mainMenu.SetActive(true);
-        multiplayerMenu.SetActive(false);
-        optionsMenu.SetActive(false);
-
         CheckPseudo();
     }
 
@@ -69,8 +66,15 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     public void Multiplayer()
     {
-        clickedMulti = true;
-        Connect();
+        if (!NoInternet())
+        {
+            clickedMulti = true;
+            Connect();
+        }
+        else
+        {
+            GetComponentInChildren<NoInternetMessage>().Activate();
+        }
     }
 
     private void Connect()
@@ -115,7 +119,6 @@ public class MainMenu : MonoBehaviourPunCallbacks {
             JoinOrCreateGameMenu();
             clickedMulti = false;
         }
-            
     }
 
     public void OptionsMenu()
@@ -149,5 +152,10 @@ public class MainMenu : MonoBehaviourPunCallbacks {
             Debug.Log("We load the waiting room");
             PhotonNetwork.LoadLevel("WaitingRoom");
         }
+    }
+
+    bool NoInternet()
+    {
+        return (Application.internetReachability == NetworkReachability.NotReachable);
     }
 }
