@@ -20,6 +20,8 @@ public class MovementControls : PlayerControls
     CameraController cam;
     [SerializeField]
     LayerMask groundLayer;
+    [SerializeField]
+    LayerMask fakeGroundLayer;
 
     float camTop;
     float camBottom;
@@ -163,16 +165,16 @@ public class MovementControls : PlayerControls
         float bottom;
         float right;
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f,1,0)), out hit, Mathf.Infinity, groundLayer))
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f,1,0)), out hit, Mathf.Infinity, fakeGroundLayer))
         {
             top = hit.point.z;
 
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(1, 0, 0)), out hit, Mathf.Infinity, groundLayer))
+            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(1, 0, 0)), out hit, Mathf.Infinity, fakeGroundLayer))
             {
                 right = hit.point.x;
                 bottom = hit.point.z;
 
-                if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0, 0, 0)), out hit, Mathf.Infinity, groundLayer))
+                if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0, 0, 0)), out hit, Mathf.Infinity, fakeGroundLayer))
                 {
                     left = hit.point.x;
 
@@ -187,7 +189,7 @@ public class MovementControls : PlayerControls
     void UpdateMinimapSquare()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out hit, Mathf.Infinity, groundLayer))
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out hit, Mathf.Infinity, fakeGroundLayer))
         {
             minimapSquare.position = new Vector3(hit.point.x / scaleX + img.rect.width * cnvs.scaleFactor / 2 + camLeft, 
                 hit.point.z / scaleZ + img.rect.height * cnvs.scaleFactor / 2 + camBottom, 0);

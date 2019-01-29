@@ -16,6 +16,7 @@ public class MonoDescriptionPanel : MonoBehaviour
         nameText.text = unit.objName;
     }
 
+
     public void Reset()
     {
         obj.SetActive(false);
