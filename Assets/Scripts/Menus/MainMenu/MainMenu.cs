@@ -73,7 +73,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         }
         else
         {
-            GetComponentInChildren<NoInternetMessage>().Activate();
+            GetComponentInChildren<TemporaryMessage>().Activate();
         }
     }
 
