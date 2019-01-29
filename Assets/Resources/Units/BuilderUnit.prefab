@@ -24,7 +24,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acbbee7f6276fd41b8a750b15c2cb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &595
+--- !u!114 &596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   description: zefzr
   costs: 000000000000000000000000
   pop: 0
+  maxLife: 5
   card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
   home: {fileID: 0}
   buildings:
@@ -114,12 +115,12 @@ PrefabInstance:
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: viewIdField
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: InstantiationId
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2191311493941266332, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}

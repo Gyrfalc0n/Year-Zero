@@ -23,7 +23,14 @@ public class TaskSystem : MonoBehaviour
                 Remove(tasks[0]);
             }
             if (tasks.Count > 0)
+            {
                 tasks[0].UpdateTask();
+            }
+            else
+            {
+                SelectUnit.selectUnit.UpdateUI();
+            }
+                
         }
     }
 

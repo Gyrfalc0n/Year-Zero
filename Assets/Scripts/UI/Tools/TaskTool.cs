@@ -26,6 +26,7 @@ public class TaskTool : Tool
             task.FirstInit(associatedBuilding);
             task.Init(associatedUnit);
             associatedBuilding.GetComponent<TaskSystem>().Add(task);
+            SelectUnit.selectUnit.UpdateUI();
         }
     }
 

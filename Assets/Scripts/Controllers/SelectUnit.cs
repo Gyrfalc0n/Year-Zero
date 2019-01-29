@@ -35,6 +35,10 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     AdvancementBar advancementBar;
     [SerializeField]
     TaskBar taskBar;
+    [SerializeField]
+    PortraitPanel portraitPanel;
+    [SerializeField]
+    MonoDescriptionPanel monoDescriptionPanel;
 
     SelectionBox selectionBox;
 
@@ -103,14 +107,25 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     public void UpdateUI()
     {
+        if (selected[0].GetComponent<DestructibleUnit>() != null)
+            portraitPanel.Init(selected[0].GetComponent<DestructibleUnit>());
         if (selected[0].GetComponent<MovableUnit>() != null)
         {
             advancementBar.Reset();
             taskBar.Reset();
-            cardsPanel.CheckCards();
+            cardsPanel.ClearCards();
+            monoDescriptionPanel.Reset();
+            if (selected.Count > 1)
+                cardsPanel.CheckCards();
+            else
+            {
+                monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
+                toolsPanel.CheckTools(0);
+            }
         }
         else
         {
+            monoDescriptionPanel.Reset();
             cardsPanel.ClearCards();
             toolsPanel.ClearTools();
             if (selected[0].GetComponent<InConstructionUnit>() != null)
@@ -119,8 +134,12 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             }
             else if (selected[0].GetComponent<ConstructedUnit>() != null)
             {
+                monoDescriptionPanel.Reset();
                 toolsPanel.CheckTools(0);
-                taskBar.Init(selected[0].GetComponent<ConstructedUnit>());
+                if (selected[0].GetComponent<TaskSystem>().GetTasks().Count > 0)
+                    taskBar.Init(selected[0].GetComponent<ConstructedUnit>());
+                else
+                    monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
             }
         }
     }
@@ -274,6 +293,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     {
         underSelected = newVal;
         toolsPanel.CheckTools(underSelected);
+        portraitPanel.Init(selected[underSelected].GetComponent<DestructibleUnit>());
     }
 
     public bool InstantSelect()
