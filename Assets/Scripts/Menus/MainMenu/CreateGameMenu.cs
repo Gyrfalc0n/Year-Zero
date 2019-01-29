@@ -92,7 +92,7 @@ public class CreateGameMenu : MonoBehaviour {
             createGameButton.interactable = true;
         }
 
-        if (PhotonNetwork.OfflineMode)
+        if (PhotonNetwork.OfflineMode && mapName != null)
         {
             createGameButton.interactable = true;
         }
