@@ -24,7 +24,8 @@ public class CameraController : MonoBehaviour {
 
     void Update()
     {
-        CheckInputs();
+        if (!SelectUnit.selectUnit.isSelecting)
+            CheckInputs();
     }
 
     void CheckInputs()

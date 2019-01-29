@@ -38,7 +38,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     SelectionBox selectionBox;
 
-    bool isSelecting;
+    public bool isSelecting;
 
     void Start()
     {
@@ -54,7 +54,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     void CheckSelect()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!MouseOverUI() && Input.GetMouseButtonDown(0))
         {
             isSelecting = true;
             mousePos1 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -84,11 +84,10 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
             {
-                if (!Input.GetKey("left ctrl"))
-                    ClearSelection();
-
                 if (hit.collider.GetComponent<SelectableObj>() != null && hit.collider.GetComponent<SelectableObj>().photonView.IsMine)
                 {
+                    if (!Input.GetKey("left ctrl"))
+                        ClearSelection();
                     changement = SelectObject(hit.collider.GetComponent<SelectableObj>());
                 }
             }
@@ -292,6 +291,23 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             return true;
         }
         return false;
+    }
+
+    public bool MouseOverUI()
+    {
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        pointerEventData.position = Input.mousePosition;
+
+        List<RaycastResult> raycastResultList = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerEventData, raycastResultList);
+        for (int i = raycastResultList.Count - 1; i >= 0; i--)
+        {
+            if (raycastResultList[i].gameObject.GetComponent<MouseThrough>() != null)
+            {
+                raycastResultList.RemoveAt(i);
+            }
+        }
+        return raycastResultList.Count > 0;
     }
 }
     

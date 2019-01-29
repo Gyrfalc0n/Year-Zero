@@ -26,6 +26,9 @@ public class PlayerManager : MonoBehaviour {
 
     List<TownHall> homes = new List<TownHall>();
 
+    [SerializeField]
+    TemporaryMessage notEnoughResources;
+
     public void UpdateResourcesPanel()
     {
         resourcesPanel.UpdatePanel();
@@ -86,7 +89,9 @@ public class PlayerManager : MonoBehaviour {
         }
             
         if (!possible)
-            Debug.Log("Not enough resources");
+        {
+            notEnoughResources.Activate();
+        }
         return possible;
     }
 

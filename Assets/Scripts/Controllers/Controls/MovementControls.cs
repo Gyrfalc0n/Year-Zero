@@ -75,7 +75,7 @@ public class MovementControls : PlayerControls
                 {
                     RightClick();
                 }
-                SelectUnit.selectUnit.UpdateSelection();
+                
             }
             else if (MouseOnMinimap())
             {
@@ -88,6 +88,7 @@ public class MovementControls : PlayerControls
                     RightClick();
                 }
             }
+            SelectUnit.selectUnit.UpdateSelection();
         }
     }
 

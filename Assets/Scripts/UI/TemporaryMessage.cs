@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoInternetMessage : MonoBehaviour
+public class TemporaryMessage : MonoBehaviour
 {
     [SerializeField]
     GameObject obj;
     float time;
-    float maxTime = 5;
+    [SerializeField]
+    float maxTime;
 
     public void Activate()
     {
