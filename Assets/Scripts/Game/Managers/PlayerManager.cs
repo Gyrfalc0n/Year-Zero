@@ -106,7 +106,7 @@ public class PlayerManager : MonoBehaviour {
         return resources[index].GetValue();
     }
 
-    void Remove(int val, int index)
+    public void Remove(int val, int index)
     {
         resources[index].Remove(val);
         UpdateResourcesPanel();
