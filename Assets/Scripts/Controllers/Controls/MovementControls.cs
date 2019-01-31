@@ -93,7 +93,7 @@ public class MovementControls : PlayerControls
             SelectUnit.selectUnit.UpdateSelection();
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                GetComponent<PlayerController>().InitChatControls();
+                GetComponent<PlayerController>().InitChatPanelControls();
             }
         }
     }

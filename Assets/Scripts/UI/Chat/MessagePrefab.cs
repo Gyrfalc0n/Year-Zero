@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 using Photon.Realtime;
 
 public class MessagePrefab : MonoBehaviour
@@ -17,8 +18,17 @@ public class MessagePrefab : MonoBehaviour
     public void Init(Player sender, string message, bool disappear)
     {
         this.disappear = disappear;
-        playerName.color = InstanceManager.instanceManager.GetPlayerColor(sender);
-        playerName.text = sender.NickName;
+
+        if (PhotonNetwork.OfflineMode)
+        {
+            playerName.color = Color.white;
+            playerName.text = "Player";
+        }
+        else
+        {
+            playerName.color = InstanceManager.instanceManager.GetPlayerColor(sender);
+            playerName.text = sender.NickName;
+        }
         this.message.text = message;
     }
 

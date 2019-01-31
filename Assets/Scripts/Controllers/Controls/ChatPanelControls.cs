@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIMenuControls : PlayerControls
+public class ChatPanelControls : PlayerControls
 {
     [SerializeField]
     ChatPanel obj;
@@ -39,8 +39,15 @@ public class UIMenuControls : PlayerControls
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-            obj.Send();
-            Cancel();
+            if (!obj.InputEmpty())
+            {
+                obj.Send();
+                Cancel();
+            }
+            else
+            {
+                obj.ActivateInputField();
+            }
         }
     }
 }

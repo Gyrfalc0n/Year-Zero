@@ -11,7 +11,7 @@ using Photon.Pun;
 [RequireComponent(typeof(PatrolToolControls))]
 [RequireComponent(typeof(AttackToolControls))]
 [RequireComponent(typeof(MinimapMarkerControls))]
-[RequireComponent(typeof(UIMenuControls))]
+[RequireComponent(typeof(ChatPanelControls))]
 public class PlayerController : MonoBehaviour {
 
     MovementControls movementControls;
@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour {
     AttackToolControls attackToolControls;
     MoveToolControls moveToolControls;
     MinimapMarkerControls minimapMarkerControls;
+    ChatPanelControls chatPanelControls;
     PlayerControls currentPlayerControls;
-    UIMenuControls uiMenuControls;
 
     #region Singleton
 
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
         patrolToolControls = GetComponent<PatrolToolControls>();
         attackToolControls = GetComponent<AttackToolControls>();
         minimapMarkerControls = GetComponent<MinimapMarkerControls>();
-        uiMenuControls = GetComponent<UIMenuControls>();
+        chatPanelControls = GetComponent<ChatPanelControls>();
         currentPlayerControls = movementControls.Activate();
     }
 
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && currentPlayerControls != pauseControls)
+        if (Input.GetKeyDown(KeyCode.Escape) && currentPlayerControls != pauseControls && currentPlayerControls != chatPanelControls)
         {
             InitPauseControls();
         }
@@ -134,10 +134,16 @@ public class PlayerController : MonoBehaviour {
         currentPlayerControls = minimapMarkerControls.Activate();
     }
 
-    public void InitChatControls()
+    public void InitChatPanelControls()
     {
         ResetCurrentPlayerControls();
-        currentPlayerControls = uiMenuControls.Activate();
-        uiMenuControls.Init();
+        currentPlayerControls = chatPanelControls.Activate();
+        chatPanelControls.Init();
+    }
+
+    public bool CameraAvailable()
+    {
+        return (currentPlayerControls != pauseControls &&
+            currentPlayerControls != chatPanelControls);
     }
 }
