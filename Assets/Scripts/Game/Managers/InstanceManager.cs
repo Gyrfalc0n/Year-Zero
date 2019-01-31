@@ -93,8 +93,35 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         return race;
     }
 
-    public int GetColor()
+    public Color32 GetColor()
     {
-        return color;
+        return Int2Color(color);
+    }
+
+    public Color32 GetPlayerColor(Player player)
+    {
+        if (player == PhotonNetwork.LocalPlayer)
+        {
+            return Int2Color(color);
+        }
+        return Int2Color((int)player.CustomProperties["Color"]);
+    }
+
+    public Color32 Int2Color(int val)
+    {
+        Color32 res;
+        if (val == 0)
+        {
+            res = new Color32(255, 0, 0, 255);
+        }
+        else if (val == 1)
+        {
+            res = new Color32(0, 255, 0, 255);
+        }
+        else
+        {
+            res = new Color32(0, 0, 255, 255);
+        }
+        return res;
     }
 }

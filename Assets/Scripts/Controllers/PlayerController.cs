@@ -11,6 +11,7 @@ using Photon.Pun;
 [RequireComponent(typeof(PatrolToolControls))]
 [RequireComponent(typeof(AttackToolControls))]
 [RequireComponent(typeof(MinimapMarkerControls))]
+[RequireComponent(typeof(UIMenuControls))]
 public class PlayerController : MonoBehaviour {
 
     MovementControls movementControls;
@@ -20,8 +21,8 @@ public class PlayerController : MonoBehaviour {
     AttackToolControls attackToolControls;
     MoveToolControls moveToolControls;
     MinimapMarkerControls minimapMarkerControls;
-
     PlayerControls currentPlayerControls;
+    UIMenuControls uiMenuControls;
 
     #region Singleton
 
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour {
         patrolToolControls = GetComponent<PatrolToolControls>();
         attackToolControls = GetComponent<AttackToolControls>();
         minimapMarkerControls = GetComponent<MinimapMarkerControls>();
+        uiMenuControls = GetComponent<UIMenuControls>();
         currentPlayerControls = movementControls.Activate();
     }
 
@@ -130,5 +132,12 @@ public class PlayerController : MonoBehaviour {
     {
         ResetCurrentPlayerControls();
         currentPlayerControls = minimapMarkerControls.Activate();
+    }
+
+    public void InitChatControls()
+    {
+        ResetCurrentPlayerControls();
+        currentPlayerControls = uiMenuControls.Activate();
+        uiMenuControls.Init();
     }
 }
