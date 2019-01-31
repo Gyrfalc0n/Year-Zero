@@ -25,17 +25,27 @@ public class ChatPanel : MonoBehaviour
     public void HideEntry()
     {
         input.text = "";
-        chatEntryObj.SetActive(true);
+        chatEntryObj.SetActive(false);
     }
 
     public void ShowEntry()
     {
         chatEntryObj.SetActive(true);
-        input.Select();
+        input.ActivateInputField();
     }
 
     public void Send()
     {
         ChatManager.chatManager.AddMessage(input.text);
+    }
+
+    public bool InputEmpty()
+    {
+        return input.text == "";
+    }
+
+    public void ActivateInputField()
+    {
+        input.ActivateInputField();
     }
 }

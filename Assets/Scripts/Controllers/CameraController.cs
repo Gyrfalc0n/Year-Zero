@@ -15,8 +15,11 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     Transform ground;
 
-    private void Awake()
+    PlayerController playerController;
+
+    void Awake()
     {
+        playerController = PlayerController.playerController;
         pos = transform.position;
         limitX = ground.localScale[0]/2 - 5;
         limitZ = ground.localScale[2]/2 - 5;
@@ -24,7 +27,8 @@ public class CameraController : MonoBehaviour {
 
     void Update()
     {
-        if (!SelectUnit.selectUnit.isSelecting)
+        if (!SelectUnit.selectUnit.isSelecting &&
+            playerController.CameraAvailable())
             CheckInputs();
     }
 
