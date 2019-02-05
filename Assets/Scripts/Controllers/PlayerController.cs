@@ -12,6 +12,7 @@ using Photon.Pun;
 [RequireComponent(typeof(AttackToolControls))]
 [RequireComponent(typeof(MinimapMarkerControls))]
 [RequireComponent(typeof(ChatPanelControls))]
+[RequireComponent(typeof(AlliesPanelControls))]
 public class PlayerController : MonoBehaviour {
 
     MovementControls movementControls;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     MoveToolControls moveToolControls;
     MinimapMarkerControls minimapMarkerControls;
     ChatPanelControls chatPanelControls;
+    AlliesPanelControls alliesPanelControls;
     PlayerControls currentPlayerControls;
 
     #region Singleton
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour {
         attackToolControls = GetComponent<AttackToolControls>();
         minimapMarkerControls = GetComponent<MinimapMarkerControls>();
         chatPanelControls = GetComponent<ChatPanelControls>();
+        alliesPanelControls = GetComponent<AlliesPanelControls>();
         currentPlayerControls = movementControls.Activate();
     }
 
@@ -51,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && currentPlayerControls != pauseControls && currentPlayerControls != chatPanelControls)
+        if (Input.GetKeyDown(KeyCode.Escape) && currentPlayerControls != pauseControls && currentPlayerControls != chatPanelControls && currentPlayerControls != alliesPanelControls)
         {
             InitPauseControls();
         }
@@ -141,9 +144,17 @@ public class PlayerController : MonoBehaviour {
         chatPanelControls.Init();
     }
 
+    public void InitAlliesPanelControls()
+    {
+        ResetCurrentPlayerControls();
+        currentPlayerControls = alliesPanelControls.Activate();
+        alliesPanelControls.Init();
+    }
+
     public bool CameraAvailable()
     {
         return (currentPlayerControls != pauseControls &&
-            currentPlayerControls != chatPanelControls);
+            currentPlayerControls != chatPanelControls &&
+            currentPlayerControls != alliesPanelControls);
     }
 }

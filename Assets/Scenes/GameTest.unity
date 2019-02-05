@@ -1935,6 +1935,7 @@ GameObject:
   - component: {fileID: 304381200}
   - component: {fileID: 304381198}
   - component: {fileID: 304381199}
+  - component: {fileID: 304381201}
   m_Layer: 0
   m_Name: InstanceManager
   m_TagString: Untagged
@@ -1954,7 +1955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf2ca531cbb12e4f8c617ce2c0c2016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offlineMode: 0
+  offlineMode: 1
   allSelectableObjs: []
   mySelectableObjs: []
 --- !u!4 &304381188
@@ -2163,6 +2164,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1320322641}
+--- !u!114 &304381201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304381186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9048cf996bdea4cbae71ce8b30f63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 201253846}
 --- !u!224 &308914618 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
@@ -3741,7 +3755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &491013494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6457,7 +6471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000008057773, y: 889.4949}
+  m_AnchoredPosition: {x: -0.000017413324, y: 889.4949}
   m_SizeDelta: {x: 0, y: 968.4}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &839032932
@@ -12921,8 +12935,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 201253846}
-        m_MethodName: ShowPanel
+      - m_Target: {fileID: 304381192}
+        m_MethodName: InitAlliesPanelControls
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
