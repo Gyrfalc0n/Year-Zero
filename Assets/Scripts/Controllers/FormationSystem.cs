@@ -54,6 +54,14 @@ public class FormationSystem : MonoBehaviour
 
     }
 
+    public void ToggleFormation()
+    {
+        if (formation == Formation.NO)
+            formation = Formation.SQUARE;
+        else if (formation == Formation.SQUARE)
+            formation = Formation.NO;
+    }
+
     public enum Formation
     {
         NO,
