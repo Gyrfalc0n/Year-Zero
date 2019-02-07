@@ -22,6 +22,8 @@ public class ChatManager : MonoBehaviourPunCallbacks
 
     [SerializeField]
     ChatPanel panel;
+    [SerializeField]
+    ChatMenuPanel menu;
 
     public void AddMessage(string message)
     {
@@ -40,7 +42,8 @@ public class ChatManager : MonoBehaviourPunCallbacks
     {
         authors.Add(sender);
         messages.Add(message);
-        panel.InstantiateMessage(sender, message, true);
+        panel.InstantiateMessage(sender, message);
+        menu.InstantiateMessage(sender, message);
     }
 
     public List<Player> GetAuthors()
