@@ -392,8 +392,8 @@ RectTransform:
   m_Father: {fileID: 2136786997}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.00000012057518}
+  m_AnchorMax: {x: 1, y: 0.3566444}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1826,7 +1826,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 201253846}
+      - m_Target: {fileID: 304381201}
         m_MethodName: Cancel
         m_Mode: 1
         m_Arguments:
@@ -2088,7 +2088,9 @@ GameObject:
   - component: {fileID: 304381188}
   - component: {fileID: 304381187}
   - component: {fileID: 304381190}
+  - component: {fileID: 304381199}
   - component: {fileID: 304381192}
+  - component: {fileID: 304381203}
   - component: {fileID: 304381191}
   - component: {fileID: 304381189}
   - component: {fileID: 304381196}
@@ -2097,7 +2099,6 @@ GameObject:
   - component: {fileID: 304381193}
   - component: {fileID: 304381197}
   - component: {fileID: 304381200}
-  - component: {fileID: 304381199}
   - component: {fileID: 304381201}
   - component: {fileID: 304381202}
   - component: {fileID: 304381198}
@@ -2316,6 +2317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1320322641}
+  menu: {fileID: 1896923458}
 --- !u!114 &304381200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2355,6 +2357,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1896923458}
+--- !u!114 &304381203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304381186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35a1fc532e59404e99eb2323b55fa5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitPerRow: 4
+  unitDistance: 1
 --- !u!224 &308914618 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
@@ -4264,9 +4280,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &534424692
 MonoBehaviour:
@@ -4454,6 +4470,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 40
   border: 10
+  rotMax: 60
+  rotMin: 20
+  maxHeight: 10.5
+  minHeight: 7
   ground: {fileID: 12891965}
 --- !u!1 &546074752
 GameObject:
@@ -10880,7 +10900,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1896923458}
+      - m_Target: {fileID: 304381202}
         m_MethodName: Cancel
         m_Mode: 1
         m_Arguments:
@@ -14345,7 +14365,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1836094938}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1896923458}
+        m_MethodName: Send
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1836094938
@@ -14666,7 +14697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1873038110
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15026,6 +15057,7 @@ MonoBehaviour:
   obj: {fileID: 1873038109}
   scrollbar: {fileID: 795620520}
   content: {fileID: 2013267300}
+  entry: {fileID: 1374319672}
   messagePrefab: {fileID: 7738947135128503411, guid: bbfc27a636acc494395d9a254619dce4,
     type: 3}
 --- !u!1 &1897794352
