@@ -17,16 +17,7 @@ public class MoveToolControls : PlayerControls
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundLayer))
         {
-            MoveSelection(hit.point);
-        }
-    }
-
-    public void MoveSelection(Vector3 newPos)
-    {
-        foreach (SelectableObj unit in SelectUnit.selectUnit.selected)
-        {
-            if (unit.GetComponent<MovableUnit>() != null)
-                unit.GetComponent<MovableUnit>().SetDestination(newPos, 1);
+            GetComponent<FormationSystem>().MoveSelection(hit.point);
         }
     }
 }

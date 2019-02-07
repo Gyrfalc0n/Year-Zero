@@ -16,10 +16,10 @@ public class ChatPanel : MonoBehaviour
     [SerializeField]
     MessagePrefab messagePrefab;
 
-    public void InstantiateMessage(Player sender, string message, bool disappear)
+    public void InstantiateMessage(Player sender, string message)
     {
         MessagePrefab tmp = Instantiate(messagePrefab, content);
-        tmp.Init(sender, message, disappear);
+        tmp.Init(sender, message, true);
     }
 
     public void HideEntry()

@@ -5,10 +5,21 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     Vector3 pos;
+    Vector3 rot;
     [SerializeField]
     int panSpeed;
     [SerializeField]
     int border;
+
+    [SerializeField]
+    float rotMax;
+    [SerializeField]
+    float rotMin;
+
+    [SerializeField]
+    float maxHeight;
+    [SerializeField]
+    float minHeight;
 
     float limitZ;
     float limitX;
@@ -21,6 +32,7 @@ public class CameraController : MonoBehaviour {
     {
         playerController = PlayerController.playerController;
         pos = transform.position;
+        rot = transform.rotation.eulerAngles;
         limitX = ground.localScale[0]/2 - 5;
         limitZ = ground.localScale[2]/2 - 5;
     }
@@ -37,24 +49,38 @@ public class CameraController : MonoBehaviour {
         if (Input.GetKey(KeyCode.Z) || Input.mousePosition.y >= Screen.height - border)
         {
             pos.z += panSpeed * Time.deltaTime;
-            pos.z = Mathf.Clamp(pos.z, -limitZ, limitZ);
         }
         if (Input.GetKey(KeyCode.S) || Input.mousePosition.y <= border)
         {
             pos.z -= panSpeed * Time.deltaTime;
-            pos.z = Mathf.Clamp(pos.z, -limitZ, limitZ);
         }
         if (Input.GetKey(KeyCode.Q) || Input.mousePosition.x <= border)
         {
             pos.x -= panSpeed * Time.deltaTime;
-            pos.x = Mathf.Clamp(pos.x, -limitX, limitX);
         }
         if (Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - border)
         {
             pos.x += panSpeed * Time.deltaTime;
-            pos.x = Mathf.Clamp(pos.x, -limitX, limitX);
         }
-        transform.position = pos;
+
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 || Input.GetKey(KeyCode.KeypadPlus))
+        {
+            rot.x -= 1;
+            pos.y -= 0.1f;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 || Input.GetKey(KeyCode.KeypadMinus))
+        {
+            rot.x += 1;
+            pos.y += 0.1f;
+        }
+        rot.x = Mathf.Clamp(rot.x, rotMin, rotMax);
+        pos.y = Mathf.Clamp(pos.y, minHeight, maxHeight);
+
+        pos.z = Mathf.Clamp(pos.z, -limitZ, limitZ);
+        pos.x = Mathf.Clamp(pos.x, -limitX, limitX);
+
+        transform.SetPositionAndRotation(pos, Quaternion.Euler(rot));
     }
 
     public void LookTo(Vector3 obj)

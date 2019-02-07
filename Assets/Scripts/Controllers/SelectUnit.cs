@@ -42,6 +42,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     SelectionBox selectionBox;
 
+    [HideInInspector]
     public bool isSelecting;
 
     void Start()

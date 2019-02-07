@@ -46,6 +46,13 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         }
         PlayerManager.playerManager.AddHome(InstantiateUnit("Buildings/TownHall/TownHall", new Vector3(myCoords.x+2, 0.5f, myCoords.z+2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
         InstantiateUnit("Units/BuilderUnit", myCoords, Quaternion.Euler(0, 0, 0));
+        InstantiateUnit("Units/BuilderUnit", myCoords, Quaternion.Euler(0, 0, 0));
+        InstantiateUnit("Units/BuilderUnit", myCoords, Quaternion.Euler(0, 0, 0));
+        InstantiateUnit("Units/BuilderUnit", myCoords, Quaternion.Euler(0, 0, 0));
+        InstantiateUnit("Units/BuilderUnit", myCoords, Quaternion.Euler(0, 0, 0));
+        InstantiateUnit("Units/BuilderUnit", myCoords, Quaternion.Euler(0, 0, 0));
+        InstantiateUnit("Units/BuilderUnit", myCoords, Quaternion.Euler(0, 0, 0));
+        InstantiateUnit("Units/BuilderUnit", myCoords, Quaternion.Euler(0, 0, 0));
         //InstantiateUnit("Units/MovableUnit", new Vector3 (5, 0, 0), Quaternion.Euler(0, 0, 0));
         //InstantiateUnit("Units/CombatUnit", new Vector3(-5, 0, 0), Quaternion.Euler(0, 0, 0));
     }
