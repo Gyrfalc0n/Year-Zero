@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Photon.Pun;
+using Photon.Realtime;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(PatrolSystem))]
@@ -98,5 +100,21 @@ public class MovableUnit : DestructibleUnit {
     void OnReachedDestination()
     {
         GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>().UpdatePanel();
+    }
+
+    public void Hack()
+    {
+        if (photonView.IsMine || (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
+            return;
+
+        InstanceManager.instanceManager.mySelectableObjs.Add(this);
+        photonView.RPC("RPCHacked", photonView.Owner);
+        photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+    }
+
+    [PunRPC]
+    public void RPCHacked()
+    {
+        InstanceManager.instanceManager.mySelectableObjs.Remove(this);
     }
 }
