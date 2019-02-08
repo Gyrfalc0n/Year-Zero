@@ -54,7 +54,14 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        GotoSingleplayerMenu();
+        if (cause == DisconnectCause.DisconnectByClientLogic)
+            GotoSingleplayerMenu();
+        else
+        {
+            connection.SetActive(false);
+            mainMenu.SetActive(true);
+            GetComponentInChildren<TemporaryMessage>().Activate();
+        }
     }
 
     void GotoSingleplayerMenu()
