@@ -13,13 +13,15 @@ public class MiningSystem : MonoBehaviour
     float stoppingDistance;
 
     bool mining = false;
-    private float resourceAmount;
+    float resourceAmount;
     const int resourceMax = 50;
     private ResourceUnit currentResourceUnit;
+    Resources lastMinedResource;
     private float speedMining = 2f;
 
     void Start()
     {
+        lastMinedResource = Resources.NO;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -58,6 +60,14 @@ public class MiningSystem : MonoBehaviour
         mining = true;
         currentResourceUnit = resourceUnit;
         InitPatrol(home.GetComponent<BoxCollider>().ClosestPoint(transform.position), currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position), 1f);
+        if (resourceUnit.GetComponent<AsteroidResourceUnit>() != null)
+        {
+            lastMinedResource = Resources.ORE;
+        }
+        if (resourceUnit.GetComponent<FarmResourceUnit>() != null)
+        {
+            lastMinedResource = Resources.FOOD;
+        }
     }
 
     public void StoptMining()
@@ -80,7 +90,8 @@ public class MiningSystem : MonoBehaviour
                 else
                 {
                     GoBack();
-                    currentResourceUnit.OnNoMoreResources();
+                    if (currentResourceUnit != null)
+                        currentResourceUnit.OnNoMoreResources();
                 }
             }
             else
@@ -121,5 +132,22 @@ public class MiningSystem : MonoBehaviour
         {
             StoptMining();
         }
+    }
+
+    public float GetResourceAmount()
+    {
+        return resourceAmount;
+    }
+
+    public Resources GetLastResource()
+    {
+        return lastMinedResource;
+    }
+
+    public enum Resources
+    {
+        NO,
+        ORE,
+        FOOD
     }
 }

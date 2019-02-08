@@ -37,5 +37,9 @@ public class ChatMenuPanelControls : PlayerControls
         {
             Cancel();
         }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            obj.Send();
+        }
     }
 }

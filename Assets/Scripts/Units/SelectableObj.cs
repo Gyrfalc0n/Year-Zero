@@ -28,6 +28,9 @@ public class SelectableObj : Interactable {
     public int[] costs = new int[3];
     public int pop;
 
+    string minimapIconPrefabPath = "Units/MinimapIconPrefab";
+    SpriteRenderer minimapIcon;
+
     string selectionCirclePath = "Units/SelectionCircle";
     SpriteRenderer selectionCircle;
 
@@ -53,17 +56,23 @@ public class SelectableObj : Interactable {
         selectionCircle.transform.localScale = new Vector3(1, 1, 1);
         selectionCircle.gameObject.SetActive(false);
 
+        minimapIcon = ((GameObject)Instantiate(Resources.Load(minimapIconPrefabPath), transform)).GetComponent<SpriteRenderer>();
+        minimapIcon.transform.localPosition = new Vector3(0, 5, 0);
+
         if (photonView.IsMine)
         {
             selectionCircle.color = myColor;
+            minimapIcon.color = myColor;
         }
         else if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
         {
             selectionCircle.color = teamColor;
+            minimapIcon.color = teamColor;
         }
         else
         {
             selectionCircle.color = enemyColor;
+            minimapIcon.color = enemyColor;
         }
         
     }

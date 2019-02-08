@@ -25,8 +25,7 @@ MonoBehaviour:
   description: 
   costs: 0000000000000000000000000000000000000000
   pop: 0
-  fieldOfViewPrefab: {fileID: 2865810074278427579, guid: b2f8d702e3492ee40b9299b508b619b7,
-    type: 3}
+  maxLife: 5
   card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
   home: {fileID: 0}
 --- !u!114 &8875462194112808232
@@ -99,7 +98,7 @@ PrefabInstance:
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: viewIdField
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
