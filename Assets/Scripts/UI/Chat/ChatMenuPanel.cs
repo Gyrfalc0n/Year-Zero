@@ -22,7 +22,7 @@ public class ChatMenuPanel : MonoBehaviour
     [SerializeField]
     MessagePrefab messagePrefab;
 
-    private void Start()
+    void Start()
     {
         manager = ChatManager.chatManager;
         contentRect = content.GetComponent<RectTransform>();
@@ -32,6 +32,7 @@ public class ChatMenuPanel : MonoBehaviour
     public void ShowPanel()
     {
         obj.SetActive(true);
+        entry.ActivateInputField();
     }
 
     public void InstantiateMessage(Player sender, string message)
@@ -53,6 +54,7 @@ public class ChatMenuPanel : MonoBehaviour
         {
             manager.AddMessage(entry.text);
             entry.text = "";
+            entry.ActivateInputField();
         }
             
     }
