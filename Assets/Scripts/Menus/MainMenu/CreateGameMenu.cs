@@ -48,11 +48,8 @@ public class CreateGameMenu : MonoBehaviour {
 
     void CheckOffline()
     {
-        if (PhotonNetwork.OfflineMode)
-        {
-            gameNameObj.SetActive(false);
-            maxPlayerObj.SetActive(false);
-        }
+        gameNameObj.SetActive(!PhotonNetwork.OfflineMode);
+        maxPlayerObj.SetActive(!PhotonNetwork.OfflineMode);
     }
 
     private void InitMapButtons()
