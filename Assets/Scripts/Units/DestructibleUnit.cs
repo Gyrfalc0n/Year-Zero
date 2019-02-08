@@ -28,6 +28,21 @@ public class DestructibleUnit : SelectableObj {
         CheckLife();
     }
 
+    public void Health(int value)
+    {
+        RPCHealth(value);
+        if (!PhotonNetwork.OfflineMode)
+            photonView.RPC("RPCHealth", RpcTarget.Others, value);
+    }
+
+    [PunRPC]
+    void RPCHealth(int value)
+    {
+        lifeValue += value;
+        if (lifeValue > maxLife)
+            lifeValue = maxLife;
+    }
+
     private void CheckLife()
     {
         if (photonView.IsMine && lifeValue <= 0)

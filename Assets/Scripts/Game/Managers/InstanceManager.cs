@@ -131,4 +131,16 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         }
         return res;
     }
+
+    int colorLevel = 1;
+    public void ChangeColorLevel()
+    {
+        if (++colorLevel > 2)
+            colorLevel = 0;
+
+        foreach (SelectableObj obj in allSelectableObjs)
+        {
+            obj.ToggleColor(colorLevel);
+        }
+    }
 }

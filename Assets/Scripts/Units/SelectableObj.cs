@@ -41,6 +41,7 @@ public class SelectableObj : Interactable {
     public virtual void Awake()
     {
         InitSelectionCircle();
+        ToggleColor(1);
         InstanceManager.instanceManager.allSelectableObjs.Add(this);
         if (photonView.IsMine)
         {
@@ -62,19 +63,47 @@ public class SelectableObj : Interactable {
         if (photonView.IsMine)
         {
             selectionCircle.color = myColor;
-            minimapIcon.color = myColor;
         }
         else if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
         {
             selectionCircle.color = teamColor;
-            minimapIcon.color = teamColor;
         }
         else
         {
             selectionCircle.color = enemyColor;
             minimapIcon.color = enemyColor;
         }
-        
+    }
+
+    public void ToggleColor(int advancedLvl)
+    {
+        if (advancedLvl == 0)
+        {
+            if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
+            {
+                minimapIcon.color = myColor;
+            }
+        }
+        else if (advancedLvl == 1)
+        {
+            if (photonView.IsMine)
+            {
+                minimapIcon.color = InstanceManager.instanceManager.GetColor();
+            }
+            else if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
+            {
+                minimapIcon.color = teamColor;
+            }
+        }
+        else
+        {
+            if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
+            {
+                minimapIcon.color = InstanceManager.instanceManager.GetPlayerColor(photonView.Owner);
+            }
+        }
+
+
     }
 
     public virtual Vector3 GetSelectionCirclePos()

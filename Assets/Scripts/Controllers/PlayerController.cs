@@ -14,6 +14,7 @@ using Photon.Pun;
 [RequireComponent(typeof(ChatPanelControls))]
 [RequireComponent(typeof(AlliesPanelControls))]
 [RequireComponent(typeof(ChatMenuPanelControls))]
+[RequireComponent(typeof(HackToolControls))]
 public class PlayerController : MonoBehaviour {
 
     MovementControls movementControls;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour {
     ChatPanelControls chatPanelControls;
     AlliesPanelControls alliesPanelControls;
     ChatMenuPanelControls chatMenuPanelControls;
+    HackToolControls hackToolControls;
     PlayerControls currentPlayerControls;
 
     #region Singleton
@@ -159,6 +161,12 @@ public class PlayerController : MonoBehaviour {
         ResetCurrentPlayerControls();
         currentPlayerControls = chatMenuPanelControls.Activate();
         chatMenuPanelControls.Init();
+    }
+
+    public void InitHackToolControls()
+    {
+        ResetCurrentPlayerControls();
+        currentPlayerControls = hackToolControls.Activate();
     }
 
     public bool CameraAvailable()
