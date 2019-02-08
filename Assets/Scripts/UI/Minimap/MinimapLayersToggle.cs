@@ -17,7 +17,7 @@ public class MinimapLayersToggle : MonoBehaviour
     {
         if (groundLayer && interactableLayer)
         {
-            cam.cullingMask = (1 << LayerMask.NameToLayer("GroundLayer")) | (1 << LayerMask.NameToLayer("Interactable"));
+            cam.cullingMask = (1 << LayerMask.NameToLayer("GroundLayer")) | (1 << LayerMask.NameToLayer("Minimap Icon"));
         }
         else if (groundLayer)
         {
@@ -25,7 +25,7 @@ public class MinimapLayersToggle : MonoBehaviour
         }
         else if (interactableLayer)
         {
-            cam.cullingMask = (1 << LayerMask.NameToLayer("Interactable"));
+            cam.cullingMask = (1 << LayerMask.NameToLayer("Minimap Icon"));
         }
         else
         {
