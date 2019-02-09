@@ -2180,6 +2180,7 @@ GameObject:
   - component: {fileID: 304381200}
   - component: {fileID: 304381201}
   - component: {fileID: 304381202}
+  - component: {fileID: 304381204}
   - component: {fileID: 304381198}
   m_Layer: 0
   m_Name: InstanceManager
@@ -2449,6 +2450,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitDistance: 1
+--- !u!114 &304381204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304381186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7372d444458353945b077ff264d2ddd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  tooFar: {fileID: 1291392204}
 --- !u!224 &308914618 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
@@ -10611,7 +10628,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 256, y: 187.00006}
+  m_AnchoredPosition: {x: 256, y: 146}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1291392204
