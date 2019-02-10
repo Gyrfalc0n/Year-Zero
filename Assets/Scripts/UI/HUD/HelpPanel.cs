@@ -14,8 +14,11 @@ public class HelpPanel : MonoBehaviour
 
     public void Call(string text)
     {
-        obj.SetActive(true);
-        this.text.text = text;
+        if (PlayerPrefs.GetInt("helpBubble") == 1)
+        {
+            obj.SetActive(true);
+            this.text.text = text;
+        }
     }
 
     public void Hide()

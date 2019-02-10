@@ -29,11 +29,16 @@ public class TaskBar : MonoBehaviour
     {
         if (obj.activeInHierarchy)
         {
-            if (content.childCount > 0)
+            if (content.childCount > 0 && currentBuilding != null)
             {
                 if (!bar.gameObject.activeInHierarchy)
                     ShowBar();
                 UpdateBar();
+            }
+            else if (currentBuilding == null)
+            {
+                SelectUnit.selectUnit.ClearSelection();
+                SelectUnit.selectUnit.UpdateUI();
             }
             else
             {

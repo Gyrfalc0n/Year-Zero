@@ -46,23 +46,42 @@ public class CameraController : MonoBehaviour {
 
     void CheckInputs()
     {
-        if (Input.GetKey(KeyCode.Z) || Input.mousePosition.y >= Screen.height - border)
+        if (Input.GetKey(KeyCode.Z))
         {
-            pos.z += panSpeed * Time.deltaTime;
+            pos.z += PlayerPrefs.GetFloat("camMoveKeySpeed") * 2 * panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.S) || Input.mousePosition.y <= border)
+        if (Input.GetKey(KeyCode.S))
         {
-            pos.z -= panSpeed * Time.deltaTime;
+            pos.z -= PlayerPrefs.GetFloat("camMoveKeySpeed") * 2 * panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.Q) || Input.mousePosition.x <= border)
+        if (Input.GetKey(KeyCode.Q))
         {
-            pos.x -= panSpeed * Time.deltaTime;
+            pos.x -= PlayerPrefs.GetFloat("camMoveKeySpeed") * 2 * panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - border)
+        if (Input.GetKey(KeyCode.D))
         {
-            pos.x += panSpeed * Time.deltaTime;
+            pos.x += PlayerPrefs.GetFloat("camMoveKeySpeed") * 2 * panSpeed * Time.deltaTime;
         }
 
+        if (PlayerPrefs.GetInt("camMoveMouse") == 1)
+        {
+            if (Input.mousePosition.y >= Screen.height - border)
+            {
+                pos.z += PlayerPrefs.GetFloat("camMoveMouseSpeed") * 2 * panSpeed * Time.deltaTime;
+            }
+            if (Input.mousePosition.y <= border)
+            {
+                pos.z -= PlayerPrefs.GetFloat("camMoveMouseSpeed") * 2 * panSpeed * Time.deltaTime;
+            }
+            if (Input.mousePosition.x <= border)
+            {
+                pos.x -= PlayerPrefs.GetFloat("camMoveMouseSpeed") * 2 * panSpeed * Time.deltaTime;
+            }
+            if (Input.mousePosition.x >= Screen.width - border)
+            {
+                pos.x += PlayerPrefs.GetFloat("camMoveMouseSpeed") * 2 * panSpeed * Time.deltaTime;
+            }
+        }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0 || Input.GetKey(KeyCode.KeypadPlus))
         {

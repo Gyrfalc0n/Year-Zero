@@ -77,4 +77,9 @@ public class InConstructionUnit : BuildingUnit
     {
         return 1 - remainingTime / constructionTime;
     }
+
+    public ConstructedUnit GetAssociatedBuilding()
+    {
+        return associatedBuilding;
+    }
 }
