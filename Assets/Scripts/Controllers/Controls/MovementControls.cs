@@ -105,14 +105,7 @@ public class MovementControls : PlayerControls
     public void MoveToMousePoint()
     {
         RaycastHit hit;
-        if (!MouseOverUI())
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundLayer))
-            {
-                GetComponent<FormationSystem>().MoveSelection(hit.point);
-            }
-        }
-        else
+        if (MouseOnMinimap())
         {
             Vector3 tmp = MinimapToWorldSpaceCoords();
             tmp.y = 5;
@@ -122,6 +115,14 @@ public class MovementControls : PlayerControls
                 GetComponent<FormationSystem>().MoveSelection(hit.point);
             }
         }
+        else if (!MouseOverUI())
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundLayer))
+            {
+                GetComponent<FormationSystem>().MoveSelection(hit.point);
+            }
+        }
+
     }
 
     public void StopSelection()
