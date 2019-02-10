@@ -122,7 +122,6 @@ public class MovementControls : PlayerControls
                 GetComponent<FormationSystem>().MoveSelection(hit.point);
             }
         }
-
     }
 
     public void StopSelection()
@@ -152,7 +151,7 @@ public class MovementControls : PlayerControls
         return new Vector3(x, 0, z);
     }
 
-    public Vector3 WorldSpaceToMinimap()
+    public Vector3 MouseWorldSpaceToMinimap()
     {
         float x = 0;
         float z = 0;
@@ -166,6 +165,13 @@ public class MovementControls : PlayerControls
         {
             Debug.Log("Error");
         }
+        return new Vector3(x, z, 0);
+    }
+
+    public Vector3 WorldSpaceToMinimap(Vector3 pos)
+    {
+        float x = (pos.x / scaleX) + img.rect.width * cnvs.scaleFactor / 2 + camLeft;
+        float z = (pos.z / scaleZ) + img.rect.height * cnvs.scaleFactor / 2 + camBottom;
         return new Vector3(x, z, 0);
     }
 

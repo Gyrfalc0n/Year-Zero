@@ -189,6 +189,10 @@ public class SelectableObj : Interactable {
         {
             fovCollider.transform.localScale = new Vector3(2, 1, 2);
         }
+        else if (GetComponent<Radar>() != null)
+        {
+            fovCollider.transform.localScale = new Vector3(4, 1, 4);
+        }
         else if (GetComponent<ConstructedUnit>() != null || GetComponent<InConstructionUnit>() != null)
         {
             fovCollider.transform.localScale = new Vector3(3, 1, 3);

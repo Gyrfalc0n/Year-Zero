@@ -148,4 +148,9 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
             obj.ToggleColor(colorLevel);
         }
     }
+
+    public bool IsEnemy(Player player)
+    {
+        return (int)player.CustomProperties["Team"] != team;
+    }
 }

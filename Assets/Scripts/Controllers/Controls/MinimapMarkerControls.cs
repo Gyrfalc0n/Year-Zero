@@ -46,29 +46,34 @@ public class MinimapMarkerControls : PlayerControls
         }
         else if (!GetComponent<MovementControls>().MouseOverUI())
         {
-            pos = GetComponent<MovementControls>().WorldSpaceToMinimap();
+            pos = GetComponent<MovementControls>().MouseWorldSpaceToMinimap();
             mark = true;
         }
         if (mark)
         {
             CreateMarker(pos);
-            if (!PhotonNetwork.OfflineMode)
-            {
-                foreach (Player player in PhotonNetwork.PlayerList)
-                {
-                    Hashtable tmp = player.CustomProperties;
-                    if ((int)tmp["Team"] == InstanceManager.instanceManager.GetTeam() && player != PhotonNetwork.LocalPlayer)
-                    {
-                        photonView.RPC("CreateMarker", player, pos);
-                    }
-                }
-            }
         }
         Cancel();
     }
 
-    [PunRPC]
     public void CreateMarker(Vector3 pos)
+    {
+        RPCCreateMarker(pos);
+        if (!PhotonNetwork.OfflineMode)
+        {
+            foreach (Player player in PhotonNetwork.PlayerList)
+            {
+                Hashtable tmp = player.CustomProperties;
+                if ((int)tmp["Team"] == InstanceManager.instanceManager.GetTeam() && player != PhotonNetwork.LocalPlayer)
+                {
+                    photonView.RPC("RPCCreateMarker", player, pos);
+                }
+            }
+        }
+    }
+
+    [PunRPC]
+    public void RPCCreateMarker(Vector3 pos)
     {
         Marker tmp = Instantiate(markerPrefab, minimapPanel);
         tmp.Init(pos);
