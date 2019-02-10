@@ -23,7 +23,7 @@ public class MobileMedicalStation : MovableUnit
             medicRemainingTime = medicRequiredTime;
             if (other.GetComponent<MovableUnit>() != null && other.GetComponent<MovableUnit>().photonView.IsMine)
             {
-                other.GetComponent<MovableUnit>().Health(lifeGiven);
+                other.GetComponent<MovableUnit>().Heal(lifeGiven);
             }
         }
 
