@@ -24,6 +24,65 @@ public class ConstructedUnit : BuildingUnit
     {
         return ghost;
     }
+
+
+    float repairTimer;
+    List<BuilderUnit> repairers = new List<BuilderUnit>();
+
+    void Update()
+    {
+        CheckRepair();
+    }
+
+    void CheckRepair()
+    {
+        if (GetLife() < GetMaxlife())
+        {
+            if (repairTimer > 0)
+            {
+                repairTimer -= Time.deltaTime;
+            }
+            if (repairTimer <= 0)
+            {
+                Heal(repairers.Count);
+                repairTimer = 1f;
+            }
+        }
+        else
+        {
+            OnRepairFinished();
+        }
+    }
+
+    public virtual void OnRepairFinished()
+    {
+        RemoveAllRepairers();
+    }
+
+    public void AddRepairer(BuilderUnit repairer)
+    {
+        repairers.Add(repairer);
+    }
+
+    public void RemoveRepairer(BuilderUnit repairer)
+    {
+        repairers.Remove(repairer);
+    }
+
+    void RemoveAllRepairers()
+    {
+        for (int i = repairers.Count - 1; i >= 0; i--)
+        {
+            repairers[i].StopRepairing();
+        }
+    }
+
+    public override void OnDestroyed()
+    {
+        base.OnDestroyed();
+        RemoveAllRepairers();
+    }
+
 }
 
 

@@ -14,6 +14,11 @@ public class Tool : MonoBehaviour {
         PlayerController.playerController.StopSelection();
     }
 
+    public void RepairTool()
+    {
+        //PlayerController.playerController.InitRepairToolControls();
+    }
+
     public void ShowBuildings()
     {
         PlayerController.playerController.ShowBuildingTools();
