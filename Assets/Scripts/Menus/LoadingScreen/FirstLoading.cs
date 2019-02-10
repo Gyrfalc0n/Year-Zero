@@ -9,5 +9,4 @@ public class FirstLoading : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("MainMenu");
     }
-
 }
