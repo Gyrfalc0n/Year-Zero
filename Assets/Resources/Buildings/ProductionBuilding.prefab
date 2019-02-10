@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fda3702a1cd6e40a1671e54d7278b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: 
   requiredTime: 0
   tools: []
   highlighted: 0
@@ -19,8 +20,12 @@ MonoBehaviour:
   objName: TownHall
   description: 
   costs: 0000000000000000000000000000000000000000
+  pop: 0
+  maxLife: 5
   constructor: {fileID: 0}
   ghost: {fileID: 0}
+  lines: 0
+  columns: 0
 --- !u!114 &3354145167647749936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +52,7 @@ PrefabInstance:
     - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: viewIdField
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}

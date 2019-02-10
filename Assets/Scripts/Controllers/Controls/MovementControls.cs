@@ -56,6 +56,10 @@ public class MovementControls : PlayerControls
                 SelectUnit.selectUnit.selected[0].GetComponent<ProductionBuilding>().MoveBanner(hit.point);
             }
         }
+        else if (SelectUnit.selectUnit.selected[0].GetComponent<InConstructionUnit>() != null)
+        {
+            return;
+        }
         else if (!SelectUnit.selectUnit.InstantSelect())
         {
             MoveToMousePoint();
@@ -101,10 +105,24 @@ public class MovementControls : PlayerControls
     public void MoveToMousePoint()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundLayer))
+        if (MouseOnMinimap())
         {
-            GetComponent<FormationSystem>().MoveSelection(hit.point);
+            Vector3 tmp = MinimapToWorldSpaceCoords();
+            tmp.y = 5;
+            Ray ray = new Ray(tmp, Vector3.down);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+            {
+                GetComponent<FormationSystem>().MoveSelection(hit.point);
+            }
         }
+        else if (!MouseOverUI())
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundLayer))
+            {
+                GetComponent<FormationSystem>().MoveSelection(hit.point);
+            }
+        }
+
     }
 
     public void StopSelection()
