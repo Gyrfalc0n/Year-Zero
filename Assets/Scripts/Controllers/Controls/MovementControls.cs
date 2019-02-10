@@ -56,6 +56,10 @@ public class MovementControls : PlayerControls
                 SelectUnit.selectUnit.selected[0].GetComponent<ProductionBuilding>().MoveBanner(hit.point);
             }
         }
+        else if (SelectUnit.selectUnit.selected[0].GetComponent<InConstructionUnit>() != null)
+        {
+            return;
+        }
         else if (!SelectUnit.selectUnit.InstantSelect())
         {
             MoveToMousePoint();
