@@ -10,6 +10,8 @@ public class OptionsMenu : MonoBehaviour {
     private GameObject video;
     [SerializeField]
     private GameObject sound;
+    [SerializeField]
+    GameObject gameplay;
 
     public void ChangePseudoMenu()
     {
@@ -27,6 +29,12 @@ public class OptionsMenu : MonoBehaviour {
     public void SoundMenu()
     {
         sound.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void GameplayMenu()
+    {
+        gameplay.SetActive(true);
         gameObject.SetActive(false);
     }
 }

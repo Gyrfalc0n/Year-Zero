@@ -30,6 +30,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         PhotonNetwork.AutomaticallySyncScene = true;
         mainMenu.SetActive(true);
         CheckPseudo();
+        CheckGameplay();
     }
 
     void CheckPseudo()
@@ -39,7 +40,26 @@ public class MainMenu : MonoBehaviourPunCallbacks {
             PlayerPrefs.SetString(playerNamePrefKey, "Default Name");
         }
         PhotonNetwork.NickName = PlayerPrefs.GetString(playerNamePrefKey);
+    }
 
+    void CheckGameplay()
+    {
+        if (!PlayerPrefs.HasKey("camMoveMouseSpeed"))
+        {
+            PlayerPrefs.SetFloat("camMoveMouseSpeed", 0.5f);
+        }
+        if (!PlayerPrefs.HasKey("camMoveMouse"))
+        {
+            PlayerPrefs.SetInt("camMoveMouse", 1);
+        }
+        if (!PlayerPrefs.HasKey("camMoveKeySpeed"))
+        {
+            PlayerPrefs.SetFloat("camMoveKeySpeed", 0.5f);
+        }
+        if (!PlayerPrefs.HasKey("helpBubble"))
+        {
+            PlayerPrefs.SetInt("helpBubble", 1);
+        }
     }
 
     public void Singleplayer()
