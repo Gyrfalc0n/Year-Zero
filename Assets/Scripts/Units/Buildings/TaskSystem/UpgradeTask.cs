@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class UpgradeTask : Task
 {
-    public void Init()
+    ConstructedUnit previousBuilding;
+    ConstructedUnit nextBuilding;
+
+    public void Init(ConstructedUnit previous, ConstructedUnit next)
     {
-        //memorize what to upgrade and costs
+        previousBuilding = previous;
+        nextBuilding = next;
+        active = true;
+        remainingTime = next.GetRequiredTime();
+        requiredTime = next.GetRequiredTime();
     }
 
     public override void OnFinishedTask()
     {
         base.OnFinishedTask();
-        //Upgrade
-        //Check upgrade
+        InstanceManager.instanceManager.InstantiateUnit(nextBuilding.GetPath(), previousBuilding.transform.position, Quaternion.identity);
+        previousBuilding.KillUnit();
     }
-
     public override void Cancel()
     {
+        PlayerManager.playerManager.PayBack(nextBuilding.costs, nextBuilding.pop);
         base.Cancel();
-        //Check Upgrade
     }
 }

@@ -56,7 +56,11 @@ public class Radar : ConstructedUnit
                 if (obj.GetComponent<InConstructionUnit>().GetAssociatedBuilding().GetComponent<Radar>() != null)
                     count++;
             }
-            if (obj.GetComponent<TownHall>() != null)
+            if (obj.GetComponent<TownHallV2>() != null)
+            {
+                townHallLevel = Mathf.Max(townHallLevel, 2);
+            }
+            else if (obj.GetComponent<TownHall>() != null)
             {
                 townHallLevel = Mathf.Max(townHallLevel, 1);
             }

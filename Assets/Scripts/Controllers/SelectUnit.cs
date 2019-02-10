@@ -108,6 +108,16 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     public void UpdateUI()
     {
+        if (selected.Count == 0)
+        {
+            advancementBar.Reset();
+            taskBar.Reset();
+            cardsPanel.ClearCards();
+            monoDescriptionPanel.Reset();
+            toolsPanel.ClearTools();
+            return;
+        }
+
         if (selected[0].GetComponent<DestructibleUnit>() != null)
             portraitPanel.Init(selected[0].GetComponent<DestructibleUnit>());
         if (selected[0].GetComponent<MovableUnit>() != null)
