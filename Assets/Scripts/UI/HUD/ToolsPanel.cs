@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ToolsPanel : MonoBehaviour {
 
@@ -39,11 +40,13 @@ public class ToolsPanel : MonoBehaviour {
             {
                 TaskTool obj = Instantiate(taskToolPrefab, buttons);
                 obj.Init(SelectUnit.selectUnit.selected[0].GetComponent<ConstructedUnit>(), tool.GetComponent<MovableUnit>());
+                obj.GetComponent<Button>().interactable = tool.GetComponent<MovableUnit>().IsAvailable();
             }
             else if (tool.GetComponent<ConstructedUnit>() != null)
             {
                 BuildTool obj = Instantiate(buildToolPrefab, buttons);
                 obj.Init(tool.GetComponent<ConstructedUnit>());
+                obj.GetComponent<Button>().interactable = tool.GetComponent<ConstructedUnit>().IsAvailable();
             }
             else if (tool.GetComponent<Tool>() != null)
             {

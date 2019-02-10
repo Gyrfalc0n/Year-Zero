@@ -21,6 +21,7 @@ public class BuildTool : Tool
             BuilderUnit builder = SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<BuilderUnit>();
             PlayerController.playerController.InitBuildToolControls(associatedBuilding, builder);
         }
+        SelectUnit.selectUnit.UpdateUI();
     }
 
     public ConstructedUnit GetAssociatedBuilding()

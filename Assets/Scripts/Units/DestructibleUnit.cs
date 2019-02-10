@@ -85,4 +85,9 @@ public class DestructibleUnit : SelectableObj {
     {
         return maxLife;
     }
+
+    public virtual bool IsAvailable()
+    {
+        return true;
+    }
 }
