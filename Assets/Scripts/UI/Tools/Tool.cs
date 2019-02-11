@@ -16,7 +16,7 @@ public class Tool : MonoBehaviour {
 
     public void RepairTool()
     {
-        //PlayerController.playerController.InitRepairToolControls();
+       PlayerController.playerController.InitRepairToolControls();
     }
 
     public void ShowBuildings()
