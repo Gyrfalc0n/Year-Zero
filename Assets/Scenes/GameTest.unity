@@ -2177,6 +2177,7 @@ GameObject:
   - component: {fileID: 304381194}
   - component: {fileID: 304381193}
   - component: {fileID: 304381197}
+  - component: {fileID: 304381205}
   - component: {fileID: 304381200}
   - component: {fileID: 304381201}
   - component: {fileID: 304381202}
@@ -2466,6 +2467,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   tooFar: {fileID: 1291392204}
+--- !u!114 &304381205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304381186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff340dcb31c59644ab88d41583eae8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!224 &308914618 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
