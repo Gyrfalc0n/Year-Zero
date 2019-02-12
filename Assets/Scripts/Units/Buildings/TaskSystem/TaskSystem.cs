@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TaskSystem : MonoBehaviour
 {
+    readonly int maxTasks = 16;
     TaskBar tasksBar;
 
     List<Task> tasks = new List<Task>();
@@ -22,7 +23,14 @@ public class TaskSystem : MonoBehaviour
                 Remove(tasks[0]);
             }
             if (tasks.Count > 0)
+            {
                 tasks[0].UpdateTask();
+            }
+            else
+            {
+                SelectUnit.selectUnit.UpdateUI();
+            }
+                
         }
     }
 
@@ -61,5 +69,10 @@ public class TaskSystem : MonoBehaviour
     public bool Empty()
     {
         return tasks.Count == 0;
+    }
+
+    public bool Full()
+    {
+        return tasks.Count >= maxTasks;
     }
 }

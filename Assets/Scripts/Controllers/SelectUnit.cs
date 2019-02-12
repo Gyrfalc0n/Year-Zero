@@ -19,26 +19,31 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     #endregion
 
     [SerializeField]
-    private LayerMask interactableLayer;
+    LayerMask interactableLayer;
 
     public List<SelectableObj> selected;
     public int underSelected = 0;
 
-    private Vector3 mousePos1;
-    private Vector3 mousePos2;
+    Vector3 mousePos1;
+    Vector3 mousePos2;
 
     [SerializeField]
-    private ToolsPanel toolsPanel;
+    ToolsPanel toolsPanel;
     [SerializeField]
-    private CardsPanel cardsPanel;
+    CardsPanel cardsPanel;
     [SerializeField]
-    private AdvancementBar advancementBar;
+    AdvancementBar advancementBar;
     [SerializeField]
     TaskBar taskBar;
+    [SerializeField]
+    PortraitPanel portraitPanel;
+    [SerializeField]
+    MonoDescriptionPanel monoDescriptionPanel;
 
-    private SelectionBox selectionBox;
+    SelectionBox selectionBox;
 
-    bool isSelecting;
+    [HideInInspector]
+    public bool isSelecting;
 
     void Start()
     {
@@ -54,7 +59,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     void CheckSelect()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!MouseOverUI() && Input.GetMouseButtonDown(0))
         {
             isSelecting = true;
             mousePos1 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -84,11 +89,10 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
             {
-                if (!Input.GetKey("left ctrl"))
-                    ClearSelection();
-
                 if (hit.collider.GetComponent<SelectableObj>() != null && hit.collider.GetComponent<SelectableObj>().photonView.IsMine)
                 {
+                    if (!Input.GetKey("left ctrl"))
+                        ClearSelection();
                     changement = SelectObject(hit.collider.GetComponent<SelectableObj>());
                 }
             }
@@ -98,26 +102,56 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
         if (changement)
         {
-            if (selected[0].GetComponent<MovableUnit>() != null)
-            {
-                advancementBar.Reset();
-                taskBar.Reset();
+            UpdateUI(); 
+        }
+    }
+
+    public void UpdateUI()
+    {
+        if (selected.Count == 0)
+        {
+            advancementBar.Reset();
+            taskBar.Reset();
+            cardsPanel.ClearCards();
+            monoDescriptionPanel.Reset();
+            toolsPanel.ClearTools();
+            return;
+        }
+
+        if (selected[0].GetComponent<DestructibleUnit>() != null)
+            portraitPanel.Init(selected[0].GetComponent<DestructibleUnit>());
+        if (selected[0].GetComponent<MovableUnit>() != null)
+        {
+            advancementBar.Reset();
+            taskBar.Reset();
+            cardsPanel.ClearCards();
+            monoDescriptionPanel.Reset();
+            if (selected.Count > 1)
                 cardsPanel.CheckCards();
-            }
             else
             {
-                cardsPanel.ClearCards();
-                toolsPanel.ClearTools();
-                if (selected[0].GetComponent<InConstructionUnit>() != null)
-                {
-                    advancementBar.Init(selected[0].GetComponent<InConstructionUnit>());
-                }
-                else if (selected[0].GetComponent<ConstructedUnit>() != null)
-                {
-                    toolsPanel.CheckTools(0);
+                monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
+                toolsPanel.CheckTools(0);
+            }
+        }
+        else
+        {
+            monoDescriptionPanel.Reset();
+            cardsPanel.ClearCards();
+            toolsPanel.ClearTools();
+            if (selected[0].GetComponent<InConstructionUnit>() != null)
+            {
+                advancementBar.Init(selected[0].GetComponent<InConstructionUnit>());
+            }
+            else if (selected[0].GetComponent<ConstructedUnit>() != null)
+            {
+                monoDescriptionPanel.Reset();
+                toolsPanel.CheckTools(0);
+                if (selected[0].GetComponent<TaskSystem>().GetTasks().Count > 0)
                     taskBar.Init(selected[0].GetComponent<ConstructedUnit>());
-                }
-            }   
+                else
+                    monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
+            }
         }
     }
 
@@ -191,7 +225,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         return changement;
     }
 
-    bool SelectObject(SelectableObj hitObj)
+    public bool SelectObject(SelectableObj hitObj)
     {
         bool already = false;
         if (!selected.Contains(hitObj))
@@ -223,19 +257,16 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         RaycastHit hit;
         foreach (SelectableObj selectableObj in InstanceManager.instanceManager.allSelectableObjs)
         {
-            if (!selectableObj.selected)
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
             {
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
+                if (hit.collider.GetComponent<SelectableObj>() == selectableObj)
                 {
-                    if (hit.collider.GetComponent<SelectableObj>() == selectableObj && (!selectableObj.highlighted))
-                    {
-                        selectableObj.Highlight();
-                    }
+                    selectableObj.Highlight();
                 }
-                else if (selectableObj.highlighted)
-                {
-                    selectableObj.Dehighlight();
-                }
+            }
+            else if (selectableObj.highlighted)
+            {
+                selectableObj.Dehighlight();
             }
         }
     }
@@ -273,11 +304,12 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     {
         underSelected = newVal;
         toolsPanel.CheckTools(underSelected);
+        portraitPanel.Init(selected[underSelected].GetComponent<DestructibleUnit>());
     }
 
     public bool InstantSelect()
     {
-        if (selected.Count == 0 || selected[0].GetComponent<BuilderUnit>() == null)
+        if (selected.Count == 0 || selected[underSelected].GetComponent<BuilderUnit>() == null)
             return false;
 
         RaycastHit hit;
@@ -290,6 +322,23 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             return true;
         }
         return false;
+    }
+
+    public bool MouseOverUI()
+    {
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        pointerEventData.position = Input.mousePosition;
+
+        List<RaycastResult> raycastResultList = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerEventData, raycastResultList);
+        for (int i = raycastResultList.Count - 1; i >= 0; i--)
+        {
+            if (raycastResultList[i].gameObject.GetComponent<MouseThrough>() != null)
+            {
+                raycastResultList.RemoveAt(i);
+            }
+        }
+        return raycastResultList.Count > 0;
     }
 }
     

@@ -15,7 +15,7 @@ public class SelectionBox : MonoBehaviour {
 
     public void CheckBox()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!MouseOverUI() && Input.GetMouseButtonDown(0))
         {
             isSelecting = true;
             startPos = Input.mousePosition;
@@ -44,5 +44,22 @@ public class SelectionBox : MonoBehaviour {
 
             selectionBoxSprite.sizeDelta = new Vector2(sizeX, sizeY);
         }
+    }
+
+    public bool MouseOverUI()
+    {
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        pointerEventData.position = Input.mousePosition;
+
+        List<RaycastResult> raycastResultList = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerEventData, raycastResultList);
+        for (int i = raycastResultList.Count - 1; i >= 0; i--)
+        {
+            if (raycastResultList[i].gameObject.GetComponent<MouseThrough>() != null)
+            {
+                raycastResultList.RemoveAt(i);
+            }
+        }
+        return raycastResultList.Count > 0;
     }
 }

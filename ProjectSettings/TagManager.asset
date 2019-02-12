@@ -15,14 +15,14 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - SelectableLayer
+  - 
   - GroundLayer
   - FX
   - Interactable
-  - 
-  - 
-  - 
-  - 
+  - Fog Stencil
+  - Fog of War
+  - Fake Ground
+  - Minimap Icon
   - 
   - 
   - 
@@ -39,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Front
+    uniqueID: 1538881585
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Back
+    uniqueID: 555942663
     locked: 0

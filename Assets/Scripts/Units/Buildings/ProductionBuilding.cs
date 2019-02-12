@@ -10,6 +10,11 @@ public class ProductionBuilding : ConstructedUnit
     public override void Awake()
     {
         base.Awake();
+        Init();
+    }
+
+    public void Init()
+    {
         banner = transform.Find("Banner");
         spawnPoint = transform.Find("SpawnPoint");
         banner.gameObject.SetActive(false);
@@ -33,12 +38,17 @@ public class ProductionBuilding : ConstructedUnit
     public override void Select()
     {
         base.Select();
-        banner.gameObject.SetActive(true);
+        if (banner == null)
+            Init();
+        if (photonView.IsMine)
+            banner.gameObject.SetActive(true);
     }
 
     public override void Deselect()
     {
         base.Deselect();
+        if (banner == null)
+            Init();
         banner.gameObject.SetActive(false);
     }
 }

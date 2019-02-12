@@ -16,9 +16,22 @@ public class FloatingLifeBar : MonoBehaviour
         associatedUnit = unit;
     }
 
-    private void Update()
+    void Update()
     {
-        if (associatedUnit.selected || associatedUnit.highlighted)
+        if (associatedUnit == null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            UpdateBar();
+        }
+        
+    }
+
+    void UpdateBar()
+    {
+        if (associatedUnit.highlighted)
         {
             obj.gameObject.SetActive(true);
             tmp = associatedUnit.transform.position;

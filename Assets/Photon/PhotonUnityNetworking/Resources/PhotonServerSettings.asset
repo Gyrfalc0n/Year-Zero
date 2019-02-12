@@ -27,7 +27,7 @@ MonoBehaviour:
   StartInOfflineMode: 0
   PunLogging: 2
   EnableSupportLogger: 0
-  RunInBackground: 0
+  RunInBackground: 1
   RpcList:
   - DestroySpaceship
   - Fire
@@ -41,4 +41,15 @@ MonoBehaviour:
   - CheckIsReady
   - TakeDamage
   - Init
+  - CreateMarker
+  - UpdateSlot
+  - SetParent
+  - RPCSendResources
+  - RPCSendMessage
+  - RPCHealth
+  - Hacked
+  - RPCHacked
+  - RPCCreateMarker
+  - RPCHeal
   DisableAutoOpenWizard: 1
+  ShowSettings: 0

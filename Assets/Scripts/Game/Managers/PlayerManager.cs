@@ -20,11 +20,14 @@ public class PlayerManager : MonoBehaviour {
 
     GameResource[] resources = new GameResource[] { new GameResource("Energy")
 ,new GameResource("Ore")
-,new GameResource("Meat")};
+,new GameResource("Food")};
 
     Population population = new Population();
 
     List<TownHall> homes = new List<TownHall>();
+
+    [SerializeField]
+    TemporaryMessage notEnoughResources;
 
     public void UpdateResourcesPanel()
     {
@@ -86,7 +89,9 @@ public class PlayerManager : MonoBehaviour {
         }
             
         if (!possible)
-            Debug.Log("Not enough resources");
+        {
+            notEnoughResources.Activate();
+        }
         return possible;
     }
 
@@ -101,7 +106,7 @@ public class PlayerManager : MonoBehaviour {
         return resources[index].GetValue();
     }
 
-    void Remove(int val, int index)
+    public void Remove(int val, int index)
     {
         resources[index].Remove(val);
         UpdateResourcesPanel();

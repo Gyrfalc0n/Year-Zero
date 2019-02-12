@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e226df9e722ccd34687705c3ba79b977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: 
   requiredTime: 0
   tools:
   - {fileID: 2146817939600602931, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
@@ -23,9 +24,10 @@ MonoBehaviour:
   objName: 
   description: 
   costs: 0000000000000000000000000000000000000000
+  pop: 0
+  maxLife: 5
   card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
   home: {fileID: 0}
-  pop: 0
 --- !u!114 &8875462194112808232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,12 +98,12 @@ PrefabInstance:
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: viewIdField
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: InstantiationId
-      value: 13
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81608fa0d11a0f4aaf7a0d4ae52731b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: Buildings/EnergyFarm/EnergyFarm
   requiredTime: 5
   tools: []
   highlighted: 0
@@ -20,6 +21,7 @@ MonoBehaviour:
   description: rthrthr
   costs: 000000000000000000000000
   pop: 1
+  maxLife: 5
   constructor: {fileID: 6170874852707974697, guid: f28b98cd20793f74eaa248a7aa41c8cd,
     type: 3}
   ghost: {fileID: 1498426257654464, guid: 655aac4a903a5f14cb7a82205b702e47, type: 3}
@@ -35,6 +37,16 @@ PrefabInstance:
     - target: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_Name
       value: EnergyFarm
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: viewIdField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -79,16 +91,6 @@ PrefabInstance:
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: viewIdField
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: InstantiationId
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}

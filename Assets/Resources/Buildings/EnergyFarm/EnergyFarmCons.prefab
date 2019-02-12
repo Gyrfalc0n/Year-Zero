@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d09a9a8d26cbf246a7d325342c51547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: Buildings/EnergyFarm/EnergyFarmCons
   requiredTime: 0
   tools: []
   highlighted: 0
@@ -20,6 +21,7 @@ MonoBehaviour:
   description: 
   costs: 000000000000000000000000
   pop: 0
+  maxLife: 5
 --- !u!1001 &5584250835834564530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30,6 +32,16 @@ PrefabInstance:
     - target: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_Name
       value: EnergyFarmCons
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: viewIdField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -80,16 +92,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d5a0dc4e66d0b0f4bb851b929a4b3660, type: 2}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: viewIdField
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: InstantiationId
-      value: 12
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
     - {fileID: 1315701950554808790, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}

@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa8ebb57f22f8b41991abd8c9d0fe34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: 
   requiredTime: 0
   tools:
   - {fileID: 2146817939600602931, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
@@ -239,6 +240,9 @@ MonoBehaviour:
   objName: 
   description: 
   costs: 00000000000000000000000000000000
+  pop: 0
+  fieldOfViewPrefab: {fileID: 2865810074278427579, guid: b2f8d702e3492ee40b9299b508b619b7,
+    type: 3}
   card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
   home: {fileID: 0}
 --- !u!114 &2915407914779352324

@@ -14,6 +14,11 @@ public class Tool : MonoBehaviour {
         PlayerController.playerController.StopSelection();
     }
 
+    public void RepairTool()
+    {
+       PlayerController.playerController.InitRepairToolControls();
+    }
+
     public void ShowBuildings()
     {
         PlayerController.playerController.ShowBuildingTools();
@@ -32,5 +37,10 @@ public class Tool : MonoBehaviour {
     public void AttackTool()
     {
         PlayerController.playerController.InitAttackToolControls();
+    }
+
+    public void HackTool()
+    {
+        PlayerController.playerController.InitHackToolControls();
     }
 }

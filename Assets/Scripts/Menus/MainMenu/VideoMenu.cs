@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class VideoMenu : MonoBehaviour {
 
+    bool ready;
     [SerializeField]
     private Dropdown quality;
     [SerializeField]
@@ -14,8 +15,9 @@ public class VideoMenu : MonoBehaviour {
 
     private Resolution[] resolutions;
 
-    private void Awake()
+    void OnEnable()
     {
+        ready = false;
         InitResolutionDropDown();
         quality.value = QualitySettings.GetQualityLevel();
         fullscreen.isOn = Screen.fullScreen;
@@ -36,7 +38,7 @@ public class VideoMenu : MonoBehaviour {
                 resolutions[i].refreshRate + "Hz";
             options.Add(tmp);
 
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
                 currentResolutionIndex = i;
             }
@@ -45,12 +47,16 @@ public class VideoMenu : MonoBehaviour {
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        ready = true;
     }
 
     public void SetResolution(int index)
     {
-        Resolution tmp = resolutions[index];
-        Screen.SetResolution(tmp.width, tmp.height, Screen.fullScreen);
+        if (ready)
+        {
+            Resolution tmp = resolutions[index];
+            Screen.SetResolution(tmp.width, tmp.height, Screen.fullScreen);
+        }
     }
 
     public void SetQuality(int index)

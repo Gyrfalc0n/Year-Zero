@@ -18,6 +18,7 @@ public class EnergyFarm : ConstructedUnit
     {
         base.Awake();
         manager = PlayerManager.playerManager;
+        timer = timeReset;
     }
 
     void Update()
@@ -28,7 +29,7 @@ public class EnergyFarm : ConstructedUnit
     void AddResource()
     {
         timer -= Time.deltaTime;
-        if (timer >= 0)
+        if (timer <= 0)
         {
             manager.Add(value, resourceIndex);
             timer = timeReset;

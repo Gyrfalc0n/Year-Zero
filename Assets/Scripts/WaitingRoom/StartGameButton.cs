@@ -20,9 +20,4 @@ public class StartGameButton : MonoBehaviourPunCallbacks {
     {
         PhotonNetwork.LeaveRoom();
     }
-
-    public override void OnLeftRoom()
-    {
-        PhotonNetwork.LoadLevel("MainMenu");
-    }
 }

@@ -327,7 +327,8 @@ namespace Photon.Pun
 
         private static GameObject GetPrefabParent(GameObject mp)
         {
-            return PrefabUtility.GetCorrespondingObjectFromSource(mp) as GameObject;
+            //return PrefabUtility.GetPrefabParent(mp) as GameObject;
+            return PrefabUtility.GetCorrespondingObjectFromSource<GameObject>(mp);
         }
     }
 }

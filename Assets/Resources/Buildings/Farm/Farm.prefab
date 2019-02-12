@@ -23,6 +23,63 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farm
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: viewIdField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: costs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: requiredTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: objName
+      value: Space Farm
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: description
+      value: zdqefsf
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: constructor
+      value: 
+      objectReference: {fileID: 7691498719867797873, guid: 28ce4333498ca734d92563f84e5547c5,
+        type: 3}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 1498426257654464, guid: 4eca5026b9d11d14abfdae966f1225a9,
+        type: 3}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: lines
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: columns
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: path
+      value: Buildings/Farm/Farm
+      objectReference: {fileID: 0}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -72,58 +129,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7f1852c48ee30804eb651197b7e0262a, type: 2}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: viewIdField
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: InstantiationId
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: costs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: requiredTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: objName
-      value: Space Farm
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: description
-      value: zdqefsf
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: constructor
-      value: 
-      objectReference: {fileID: 7691498719867797873, guid: 28ce4333498ca734d92563f84e5547c5,
-        type: 3}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: ghost
-      value: 
-      objectReference: {fileID: 1498426257654464, guid: 4eca5026b9d11d14abfdae966f1225a9,
-        type: 3}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: lines
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: columns
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
 --- !u!1 &6020032728104618459 stripped

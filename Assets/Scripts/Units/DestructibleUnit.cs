@@ -12,18 +12,35 @@ public class DestructibleUnit : SelectableObj {
     public override void Awake()
     {
         base.Awake();
+        lifeValue = maxLife-1;
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
         flbPanel.AddLifeBar(this);
     }
 
+    [SerializeField]
     int maxLife = 5;
-    int lifeValue = 5;
+    int lifeValue;
 
     [PunRPC]
     void TakeDamage(int value)
     {
         lifeValue -= value;
         CheckLife();
+    }
+
+    public void Heal(int value)
+    {
+        RPCHeal(value);
+        if (!PhotonNetwork.OfflineMode)
+            photonView.RPC("RPCHeal", RpcTarget.Others, value);
+    }
+
+    [PunRPC]
+    void RPCHeal(int value)
+    {
+        lifeValue += value;
+        if (lifeValue > maxLife)
+            lifeValue = maxLife;
     }
 
     private void CheckLife()
@@ -40,7 +57,8 @@ public class DestructibleUnit : SelectableObj {
         {
             SelectUnit.selectUnit.selected.Remove(this);
         }
-        photonView.RPC("RemoveFromLists", RpcTarget.Others);
+        if (!PhotonNetwork.OfflineMode)
+            photonView.RPC("RemoveFromLists", RpcTarget.Others);
         RemoveFromLists();
         if (InstanceManager.instanceManager.mySelectableObjs.Contains(this))
         {
@@ -58,7 +76,7 @@ public class DestructibleUnit : SelectableObj {
 
     public virtual void OnDestroyed() { }
 
-    public int GetLife()
+    public float GetLife()
     {
         return lifeValue;
     }
@@ -66,5 +84,10 @@ public class DestructibleUnit : SelectableObj {
     public int GetMaxlife()
     {
         return maxLife;
+    }
+
+    public virtual bool IsAvailable()
+    {
+        return true;
     }
 }
