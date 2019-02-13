@@ -45,6 +45,10 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     [HideInInspector]
     public bool isSelecting;
 
+    [SerializeField]
+    float doubleClickTime = 0.3f;
+    float oneClick;
+
     void Start()
     {
         selectionBox = GetComponent<SelectionBox>();
@@ -59,10 +63,23 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     void CheckSelect()
     {
+        if (oneClick > 0)
+        {
+            oneClick -= Time.deltaTime;
+        }
+
         if (!MouseOverUI() && Input.GetMouseButtonDown(0))
         {
             isSelecting = true;
             mousePos1 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            if (oneClick > 0)
+            {
+                SelectKindOfUnit();
+                isSelecting = false;
+                oneClick = 0;
+                return;
+            }
+            oneClick = doubleClickTime;
         }
 
         if (isSelecting && Input.GetMouseButton(0))
@@ -339,6 +356,28 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             }
         }
         return raycastResultList.Count > 0;
+    }
+
+    void SelectKindOfUnit()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
+        {
+            if (hit.collider.GetComponent<MovableUnit>() != null && hit.collider.GetComponent<MovableUnit>().photonView.IsMine)
+            {
+                ClearSelection();
+                foreach (SelectableObj obj in InstanceManager.instanceManager.mySelectableObjs)
+                {
+                    if (obj.GetComponent<MovableUnit>() != null && obj.GetComponent<MovableUnit>().objName == hit.collider.GetComponent<MovableUnit>().objName)
+                    {
+                        if (Camera.main.rect.Contains(Camera.main.WorldToViewportPoint(obj.transform.position), true))
+                        {
+                            SelectObject(obj);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
     
