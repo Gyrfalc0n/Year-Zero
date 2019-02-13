@@ -203,6 +203,7 @@ public class SelectableObj : Interactable {
     {
         visible = false;
         GetComponent<MeshRenderer>().enabled = false;
+        minimapIcon.gameObject.SetActive(false);
         Dehighlight();
         Deselect();
     }
@@ -210,6 +211,7 @@ public class SelectableObj : Interactable {
     public void UnHide()
     {
         visible = true;
+        minimapIcon.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().enabled = true;
     }
 
