@@ -73,13 +73,6 @@ public class DescriptionPanel : MonoBehaviour {
                 Init(tmp.GetAssociatedUnit());
                 found = true;
             }
-            else if (raycastResultList[i].gameObject.GetComponent<UpgradeTaskTool>() != null)
-            {
-                UpgradeTaskTool tmp = raycastResultList[i].gameObject.GetComponent<UpgradeTaskTool>();
-                SelectableObj building = tmp.GetAssociatedBuilding().GetComponent<SelectableObj>();
-                Init(building);
-                found = true;
-            }
         }
         if (!found)
         {

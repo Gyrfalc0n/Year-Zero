@@ -1,45 +1,33 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &3706736077059058307
+--- !u!114 &7805057350475438892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6213249096781907981}
+  m_GameObject: {fileID: 330051702628202079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f223a585a037204ab9352ef611a2f29, type: 3}
+  m_Script: {fileID: 11500000, guid: 323965ef36001884ab2cb0e4b21d2a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7522943024352779701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6213249096781907981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1721c8f2769ac264cadd79d0de513cf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path: Buildings/Radar/Radar
-  requiredTime: 2
+  path: Buildings/Laboratory/Laboratory
+  requiredTime: 0
   tools: []
   highlighted: 0
   selected: 0
-  objName: Radar
+  objName: Laboratory
   description: 
   costs: 00000000000000000000000000000000
   pop: 0
   maxLife: 5
-  constructor: {fileID: 969832017721175581, guid: b33475f4782fa094ab36324f9dd2a815,
+  constructor: {fileID: 2487996386993575265, guid: 6fe6d5cf897f45149bd0da4ab6cbb0a2,
     type: 3}
-  ghost: {fileID: 1498426257654464, guid: c1d6028154ecc9d4b8cdc75ba35932d0, type: 3}
-  lines: 1
-  columns: 1
---- !u!1001 &6214043818400713421
+  ghost: {fileID: 1498426257654464, guid: 7e766d4b49cb29042b669509ccfb33d4, type: 3}
+  lines: 3
+  columns: 3
+--- !u!1001 &329262542983918751
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -48,44 +36,34 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_Name
-      value: Radar
+      value: Laboratory
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 6315328435479403047}
+      objectReference: {fileID: 363099029417305205}
     - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: path
-      value: Buildings/Radar/Radar
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: requiredTime
-      value: 5
+      value: Buildings/Laboratory
       objectReference: {fileID: 0}
     - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: objName
-      value: Radar
+      value: Laboratory
       objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: description
-      value: ezef
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: ghost
-      value: 
-      objectReference: {fileID: 1498426257654464, guid: c1d6028154ecc9d4b8cdc75ba35932d0,
-        type: 3}
     - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: constructor
       value: 
-      objectReference: {fileID: 969832017721175581, guid: b33475f4782fa094ab36324f9dd2a815,
+      objectReference: {fileID: 2487996386993575265, guid: 6fe6d5cf897f45149bd0da4ab6cbb0a2,
+        type: 3}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 1498426257654464, guid: 7e766d4b49cb29042b669509ccfb33d4,
         type: 3}
     - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
@@ -143,21 +121,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
-    - {fileID: 1315701950554808790, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
---- !u!1 &6213249096781907981 stripped
+--- !u!1 &330051702628202079 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203,
     type: 3}
-  m_PrefabInstance: {fileID: 6214043818400713421}
+  m_PrefabInstance: {fileID: 329262542983918751}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6315328435479403047 stripped
+--- !u!114 &363099029417305205 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114905757237956842, guid: 636fb200f2cdc914bb060a84a57f4203,
     type: 3}
-  m_PrefabInstance: {fileID: 6214043818400713421}
+  m_PrefabInstance: {fileID: 329262542983918751}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6213249096781907981}
+  m_GameObject: {fileID: 330051702628202079}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}

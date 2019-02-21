@@ -20,7 +20,8 @@ public class PlayerManager : MonoBehaviour {
 
     GameResource[] resources = new GameResource[] { new GameResource("Energy")
 ,new GameResource("Ore")
-,new GameResource("Food")};
+,new GameResource("Food")
+    ,new GameResource("Tech")};
 
     Population population = new Population();
 

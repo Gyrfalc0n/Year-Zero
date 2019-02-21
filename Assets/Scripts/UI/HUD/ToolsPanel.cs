@@ -11,8 +11,6 @@ public class ToolsPanel : MonoBehaviour {
     [SerializeField]
     TaskTool instantiateTaskToolPrefab;
     [SerializeField]
-    UpgradeTaskTool upgradeTaskToolPrefab;
-    [SerializeField]
     BuildTool buildToolPrefab;
 
     public void ClearTools()
@@ -46,17 +44,9 @@ public class ToolsPanel : MonoBehaviour {
             }
             else if (tool.GetComponent<ConstructedUnit>() != null)
             {
-                if (SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<MovableUnit>() != null)
-                {
-                    BuildTool obj = Instantiate(buildToolPrefab, buttons);
-                    obj.Init(tool.GetComponent<ConstructedUnit>());
-                    obj.GetComponent<Button>().interactable = tool.GetComponent<ConstructedUnit>().IsAvailable();
-                }
-                else
-                {
-                    UpgradeTaskTool obj = Instantiate(upgradeTaskToolPrefab, buttons);
-                    obj.Init(SelectUnit.selectUnit.selected[0].GetComponent<ConstructedUnit>(), tool.GetComponent<ConstructedUnit>());
-                }
+                BuildTool obj = Instantiate(buildToolPrefab, buttons);
+                obj.Init(tool.GetComponent<ConstructedUnit>());
+                obj.GetComponent<Button>().interactable = tool.GetComponent<ConstructedUnit>().IsAvailable();
             }
             else if (tool.GetComponent<Tool>() != null)
             {

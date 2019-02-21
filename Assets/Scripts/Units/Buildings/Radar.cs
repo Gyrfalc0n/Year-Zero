@@ -40,31 +40,4 @@ public class Radar : ConstructedUnit
             list.Remove(other.GetComponent<MovableUnit>());
         }
     }
-
-    public override bool IsAvailable()
-    {
-        int count = 0;
-        int townHallLevel = 0;
-        foreach (SelectableObj obj in InstanceManager.instanceManager.mySelectableObjs)
-        {
-            if (obj.GetComponent<Radar>() != null)
-            {
-                count++;
-            }
-            if (obj.GetComponent<InConstructionUnit>() != null)
-            {
-                if (obj.GetComponent<InConstructionUnit>().GetAssociatedBuilding().GetComponent<Radar>() != null)
-                    count++;
-            }
-            if (obj.GetComponent<TownHallV2>() != null)
-            {
-                townHallLevel = Mathf.Max(townHallLevel, 2);
-            }
-            else if (obj.GetComponent<TownHall>() != null)
-            {
-                townHallLevel = Mathf.Max(townHallLevel, 1);
-            }
-        }
-        return count < townHallLevel;
-    }
 }

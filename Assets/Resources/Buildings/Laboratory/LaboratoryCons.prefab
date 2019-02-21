@@ -15,10 +15,9 @@ GameObject:
   - component: {fileID: 65443113251953776}
   - component: {fileID: 114909607590321650}
   - component: {fileID: 114905757237956842}
-  - component: {fileID: 114676342713092854}
-  - component: {fileID: 1315701950554808790}
+  - component: {fileID: 2487996386993575265}
   m_Layer: 12
-  m_Name: ConstructionUnit
+  m_Name: LaboratoryCons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3867db377089ebe4fbae8906da7ee4a9, type: 2}
+  - {fileID: 2100000, guid: d5a0dc4e66d0b0f4bb851b929a4b3660, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,7 +148,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &114676342713092854
+--- !u!114 &2487996386993575265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,32 +157,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498426257654464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dee8086a8a56c64c95d8b9a75b64840, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d09a9a8d26cbf246a7d325342c51547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: 
+  path: Buildings/Laboratory/LaboratoryCons
   requiredTime: 0
   tools: []
   highlighted: 0
   selected: 0
-  objName: 
-  description: 
-  costs: 00000000000000000000000000000000
+  objName: NH
+  description: NH
+  costs: 
   pop: 0
   maxLife: 5
-  constructor: {fileID: 0}
-  ghost: {fileID: 0}
-  lines: 0
-  columns: 0
---- !u!114 &1315701950554808790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498426257654464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f223a585a037204ab9352ef611a2f29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
