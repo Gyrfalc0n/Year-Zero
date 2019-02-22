@@ -95,6 +95,11 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         PhotonNetwork.Disconnect();
     }
 
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        PhotonNetwork.Disconnect();
+    }
+
     public int GetTeam()
     {
         return team;
@@ -151,6 +156,14 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     public bool IsEnemy(Player player)
     {
-        return (int)player.CustomProperties["Team"] != team;
+        if (PhotonNetwork.OfflineMode)
+        {
+            return false;
+        }
+        else
+        {
+            return (int)player.CustomProperties["Team"] != team;
+        }
+        
     }
 }

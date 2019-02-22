@@ -38,9 +38,4 @@ public class Tool : MonoBehaviour {
     {
         PlayerController.playerController.InitAttackToolControls();
     }
-
-    public void HackTool()
-    {
-        PlayerController.playerController.InitHackToolControls();
-    }
 }

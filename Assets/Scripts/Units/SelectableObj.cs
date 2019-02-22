@@ -32,7 +32,7 @@ public class SelectableObj : Interactable {
     SpriteRenderer minimapIcon;
 
     string selectionCirclePath = "Units/SelectionCircle";
-    SpriteRenderer selectionCircle;
+    protected SpriteRenderer selectionCircle;
 
     string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";
     FieldOfViewCollider fovCollider;
@@ -73,6 +73,7 @@ public class SelectableObj : Interactable {
             selectionCircle.color = enemyColor;
             minimapIcon.color = enemyColor;
         }
+        
     }
 
     public void ToggleColor(int advancedLvl)

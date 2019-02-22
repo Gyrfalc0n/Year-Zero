@@ -12,6 +12,8 @@ public class ToolsPanel : MonoBehaviour {
     TaskTool instantiateTaskToolPrefab;
     [SerializeField]
     BuildTool buildToolPrefab;
+    [SerializeField]
+    SpellTool spellToolPrefab;
 
     public void ClearTools()
     {
@@ -28,12 +30,17 @@ public class ToolsPanel : MonoBehaviour {
         if (SelectUnit.selectUnit.selected.Count > x)
         {
             ShowToolsList(SelectUnit.selectUnit.selected[x].GetComponent<SelectableObj>().tools);
+            if (SelectUnit.selectUnit.selected[x].GetComponent<HackerUnit>() != null)
+            {
+                ShowToolsList(SelectUnit.selectUnit.selected[x].GetComponent<HackerUnit>().spells);
+            }
         }
     }
 
-    public void ShowToolsList(List<GameObject> list)
+    public void ShowToolsList(List<GameObject> list, bool clear = true)
     {
-        ClearTools();
+        if (clear)
+            ClearTools();
         foreach (GameObject tool in list)
         {
             if (tool.GetComponent<MovableUnit>() != null)
@@ -47,6 +54,11 @@ public class ToolsPanel : MonoBehaviour {
                 BuildTool obj = Instantiate(buildToolPrefab, buttons);
                 obj.Init(tool.GetComponent<ConstructedUnit>());
                 obj.GetComponent<Button>().interactable = tool.GetComponent<ConstructedUnit>().IsAvailable();
+            }
+            else if (tool.GetComponent<Spell>() != null)
+            {
+                SpellTool obj = Instantiate(spellToolPrefab, buttons);
+                obj.Init(tool.GetComponent<Spell>());
             }
             else if (tool.GetComponent<Tool>() != null)
             {

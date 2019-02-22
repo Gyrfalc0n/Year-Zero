@@ -1,20 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
 
-public class HackToolControls : PlayerControls
+public class HackSpell : Spell
 {
     [SerializeField]
     LayerMask interactableLayer;
-    [SerializeField]
-    TemporaryMessage tooFar;
 
-    public override void LeftClick()
+    public override void Effect()
     {
         SendRay();
-        Cancel();
     }
 
     void SendRay()
@@ -22,14 +17,17 @@ public class HackToolControls : PlayerControls
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer))
         {
-            if (hit.collider.GetComponent<MovableUnit>() != null && Vector3.Distance(SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].transform.position, hit.point) < 3)
+            if (hit.collider.GetComponent<MovableUnit>() != null && InstanceManager.instanceManager.IsEnemy(hit.collider.GetComponent<MovableUnit>().photonView.Owner) && Vector3.Distance(associatedUnit.transform.position, hit.point) < 3)
             {
+                print("Hacking");
                 hit.collider.GetComponent<MovableUnit>().Hack();
+                return;
             }
             else
             {
-                tooFar.Activate();
+                SendError();
             }
         }
+        print("Bad Hacking");
     }
 }

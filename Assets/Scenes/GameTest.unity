@@ -1862,7 +1862,7 @@ PrefabInstance:
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -2320,7 +2320,7 @@ GameObject:
   - component: {fileID: 304381200}
   - component: {fileID: 304381201}
   - component: {fileID: 304381202}
-  - component: {fileID: 304381204}
+  - component: {fileID: 304381206}
   - component: {fileID: 304381198}
   m_Layer: 0
   m_Name: InstanceManager
@@ -2341,7 +2341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf2ca531cbb12e4f8c617ce2c0c2016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offlineMode: 1
+  offlineMode: 0
   allSelectableObjs: []
   mySelectableObjs: []
 --- !u!4 &304381188
@@ -2590,22 +2590,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitDistance: 1
---- !u!114 &304381204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304381186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7372d444458353945b077ff264d2ddd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 4096
-  tooFar: {fileID: 1291392204}
 --- !u!114 &304381205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2621,6 +2605,21 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 4096
+--- !u!114 &304381206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304381186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f9e3a68659a154586d5d0438c5de92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!224 &308914618 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
@@ -3272,7 +3271,7 @@ PrefabInstance:
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -6986,9 +6985,9 @@ MonoBehaviour:
   buttons: {fileID: 581403623}
   instantiateTaskToolPrefab: {fileID: 5502829914954294225, guid: 47a9dbb7ac77db44291dbf74a009d61e,
     type: 3}
-  upgradeTaskToolPrefab: {fileID: 3710641938884003143, guid: 5cec60f5b13c04549aa99e11a6b7341b,
-    type: 3}
   buildToolPrefab: {fileID: 114425376557327472, guid: e8cb86fd702e80b42b20f51443888399,
+    type: 3}
+  spellToolPrefab: {fileID: 4379541162707855609, guid: 6da91bd2ca492bf42a119aac5a48158e,
     type: 3}
 --- !u!1 &790451348
 GameObject:
@@ -9712,7 +9711,7 @@ PrefabInstance:
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}

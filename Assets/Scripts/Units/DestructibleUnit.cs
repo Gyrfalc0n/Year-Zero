@@ -36,7 +36,7 @@ public class DestructibleUnit : SelectableObj {
     }
 
     [PunRPC]
-    void RPCHeal(int value)
+    public void RPCHeal(int value)
     {
         lifeValue += value;
         if (lifeValue > maxLife)

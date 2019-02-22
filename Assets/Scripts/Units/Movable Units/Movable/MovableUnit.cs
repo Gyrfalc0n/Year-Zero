@@ -110,11 +110,13 @@ public class MovableUnit : DestructibleUnit {
         InstanceManager.instanceManager.mySelectableObjs.Add(this);
         photonView.RPC("RPCHacked", photonView.Owner);
         photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+        selectionCircle.color = myColor;
     }
 
     [PunRPC]
     public void RPCHacked()
     {
         InstanceManager.instanceManager.mySelectableObjs.Remove(this);
+        selectionCircle.color = enemyColor;
     }
 }
