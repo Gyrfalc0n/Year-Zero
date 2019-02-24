@@ -18,8 +18,8 @@ public class SkilltreeManager : MonoBehaviour
     //DAMAGE
     public bool basicTroop = false;
     public bool basicTroopSpeedBoost = false;
-    public float bonusDamage = 1;
-    public float unitBonusLife = 1;
+    public float basicTroopBonusDamage = 1;
+    public float basicTroopBonusLife = 1;
 
     //DEFENSE
     public bool Bomber = false;

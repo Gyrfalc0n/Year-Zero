@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlliesPanelControls : PlayerControls
+public class SkilltreeControls : PlayerControls
 {
     [SerializeField]
-    AlliesMenu obj;
+    SkilltreePanel obj;
 
     public override void Init()
     {
-        obj.ShowPanel();
+        obj.Show();
     }
 
     public override void RightClick()
@@ -28,7 +28,7 @@ public class AlliesPanelControls : PlayerControls
     public override void Cancel()
     {
         base.Cancel();
-        obj.Cancel();
+        obj.Hide();
     }
 
     void CheckMenu()

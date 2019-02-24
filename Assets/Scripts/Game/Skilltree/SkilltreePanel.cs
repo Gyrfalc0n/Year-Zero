@@ -7,12 +7,12 @@ public class SkilltreePanel : MonoBehaviour
     [SerializeField]
     GameObject obj;
 
-    public void ShowPanel()
+    public void Show()
     {
         obj.SetActive(true);
     }
 
-    public void Cancel()
+    public void Hide()
     {
         obj.SetActive(false);
     }

@@ -6,7 +6,6 @@ public class Radar : ConstructedUnit
 {
     MinimapMarkerControls minimap;
     MovementControls movementControls;
-    TemporaryMessage message;
 
     List<MovableUnit> list = new List<MovableUnit>();
 
@@ -15,7 +14,6 @@ public class Radar : ConstructedUnit
         GameObject tmp = GameObject.Find("InstanceManager");
         minimap = tmp.GetComponent<MinimapMarkerControls>();
         movementControls = tmp.GetComponent<MovementControls>();
-        message = GameObject.Find("Attacked Message").GetComponent<TemporaryMessage>();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -27,7 +25,7 @@ public class Radar : ConstructedUnit
             if (empty)
             {
                 minimap.CreateMarker(movementControls.WorldSpaceToMinimap(other.transform.position));
-                message.Activate();
+                TemporaryMessage.temporaryMessage.Add("We are attacked!");
             }
         }
     }

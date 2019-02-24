@@ -67,7 +67,6 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         {
             oneClick -= Time.deltaTime;
         }
-
         if (!MouseOverUI() && Input.GetMouseButtonDown(0))
         {
             isSelecting = true;

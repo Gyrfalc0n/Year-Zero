@@ -7,7 +7,7 @@ public class ChatPanelControls : PlayerControls
     [SerializeField]
     ChatPanel obj;
 
-    public void Init()
+    public override void Init()
     {
         obj.ShowEntry();
     }

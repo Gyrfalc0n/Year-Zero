@@ -91,7 +91,7 @@ public class PlayerManager : MonoBehaviour {
             
         if (!possible)
         {
-            notEnoughResources.Activate();
+            TemporaryMessage.temporaryMessage.Add("Not Enough Resources");
         }
         return possible;
     }

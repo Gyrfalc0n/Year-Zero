@@ -10,7 +10,7 @@ public class PauseControls : PlayerControls
     [SerializeField]
     GameObject obj;
 
-    public void Init()
+    public override void Init()
     {
         obj.SetActive(true);
         mainMenu.SetActive(true);
