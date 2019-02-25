@@ -6,7 +6,7 @@
  public class MoveBack : MonoBehaviour
 {
 
-    public Vector3 pz;
+    Vector3 pz;
     public Vector3 StartPos;
 
     public int moveModifier;
@@ -22,10 +22,14 @@
     {
         Vector3 pz = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         pz.z = 0;
-        gameObject.transform.position = pz;
+        //transform.position = pz;
         //Debug.Log("Mouse Position: " + pz);
 
-        transform.position = new Vector3(StartPos.x + (pz.x * moveModifier), StartPos.y + (pz.y * moveModifier), 0);
+
+        StartPos = new Vector3(GetComponent<RectTransform>().sizeDelta[0] / 2 * GetComponentInParent<Canvas>().scaleFactor - 50, StartPos.y,
+            GetComponent<RectTransform>().sizeDelta[1] / 2 * GetComponentInParent<Canvas>().scaleFactor + 100);
+
+        transform.position = new Vector3(StartPos.x + ((pz.x - 0.5f )* moveModifier), StartPos.y + (pz.y * moveModifier), 0);
         //move based on the starting position and its modified value.
     }
 
