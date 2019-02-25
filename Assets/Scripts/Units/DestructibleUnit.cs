@@ -28,6 +28,11 @@ public class DestructibleUnit : SelectableObj {
         CheckLife();
     }
 
+    public void SetLife(float val)
+    {
+        lifeValue = (int)val;
+    }
+
     public void Heal(int value)
     {
         RPCHeal(value);

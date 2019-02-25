@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: Units/MobileMedicalStation
-  requiredTime: 2
   tools: []
   highlighted: 0
   selected: 0
   objName: Mobile Medical Station
   description: 
-  costs: 000000000000000000000000
+  costs: 00000000000000000000000000000000
   pop: 0
   maxLife: 5
   card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
@@ -135,6 +134,11 @@ PrefabInstance:
       propertyPath: InstantiationId
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 1621491143804134889}
     m_RemovedComponents:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
@@ -150,3 +154,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1663998876266776067}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1621491143804134889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114568784498713578, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1663998876266776067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662642892877366467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: 
-  requiredTime: 0
   tools: []
   highlighted: 0
   selected: 0
   objName: TownHall
   description: 
-  costs: 0000000000000000000000000000000000000000
+  costs: 00000000000000000000000000000000
   pop: 0
   maxLife: 5
   constructor: {fileID: 0}
@@ -59,6 +58,11 @@ PrefabInstance:
       propertyPath: InstantiationId
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 4309196059108019517}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -118,6 +122,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4203385474145148375}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4309196059108019517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114905757237956842, guid: 636fb200f2cdc914bb060a84a57f4203,
+    type: 3}
+  m_PrefabInstance: {fileID: 4203385474145148375}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4201926755012452119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7683318168319794513
 PrefabInstance:
   m_ObjectHideFlags: 0

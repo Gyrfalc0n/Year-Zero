@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: 
-  requiredTime: 0
   tools:
   - {fileID: 2146817939600602931, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
   - {fileID: 2998254043193242793, guid: 595081643c9d3e3469a07e89de86499d, type: 3}
@@ -23,7 +22,7 @@ MonoBehaviour:
   selected: 0
   objName: 
   description: 
-  costs: 0000000000000000000000000000000000000000
+  costs: 00000000000000000000000000000000
   pop: 0
   maxLife: 5
   card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
@@ -105,6 +104,11 @@ PrefabInstance:
       propertyPath: InstantiationId
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 6528844993859015052}
     m_RemovedComponents:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
@@ -114,3 +118,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6560647747847402086}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6528844993859015052 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114568784498713578, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6560647747847402086}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6559854125858058406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

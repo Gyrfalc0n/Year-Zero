@@ -8,9 +8,6 @@ public class SelectableObj : Interactable {
     [SerializeField]
     string path;
 
-    [SerializeField]
-    float requiredTime;
-
     public List<GameObject> tools;
 
     [HideInInspector]
@@ -152,11 +149,6 @@ public class SelectableObj : Interactable {
     }
 
     public virtual void Interact(Interactable obj) { }
-
-    public float GetRequiredTime()
-    {
-        return requiredTime;
-    }
 
     public string GetPath()
     {
