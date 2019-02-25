@@ -224,13 +224,17 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
         if (movable)
         {
-            for (int i = tmp.Count - 1; i >= 0; i--)
+            int nb = 0;
+            int i = 0;
+            while (i < tmp.Count && nb < 24)
             {
                 if (tmp[i].GetComponent<MovableUnit>() != null)
                 {
                     if (SelectObject(tmp[i]))
                         changement = true;
+                    nb++;
                 }
+                i++;
             }
         }
         else
@@ -365,16 +369,22 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             if (hit.collider.GetComponent<MovableUnit>() != null && hit.collider.GetComponent<MovableUnit>().photonView.IsMine)
             {
                 ClearSelection();
-                foreach (SelectableObj obj in InstanceManager.instanceManager.mySelectableObjs)
+
+                int nb = 0;
+                int i = 0;
+                while (i < InstanceManager.instanceManager.mySelectableObjs.Count && nb < 24)
                 {
-                    if (obj.GetComponent<MovableUnit>() != null && obj.GetComponent<MovableUnit>().objName == hit.collider.GetComponent<MovableUnit>().objName)
+                    if (InstanceManager.instanceManager.mySelectableObjs[i].GetComponent<MovableUnit>() != null && InstanceManager.instanceManager.mySelectableObjs[i].GetComponent<MovableUnit>().objName == hit.collider.GetComponent<MovableUnit>().objName)
                     {
-                        if (Camera.main.rect.Contains(Camera.main.WorldToViewportPoint(obj.transform.position), true))
+                        if (Camera.main.rect.Contains(Camera.main.WorldToViewportPoint(InstanceManager.instanceManager.mySelectableObjs[i].transform.position), true))
                         {
-                            SelectObject(obj);
+                            SelectObject(InstanceManager.instanceManager.mySelectableObjs[i]);
+                            nb++;
                         }
                     }
+                    i++;
                 }
+                UpdateUI();
             }
         }
     }

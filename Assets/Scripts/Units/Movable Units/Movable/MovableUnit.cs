@@ -16,6 +16,9 @@ public class MovableUnit : DestructibleUnit {
     [HideInInspector]
     public TownHall home;
 
+    [SerializeField]
+    float requiredTime;
+
     bool moving = false;
 
     public override void Awake()
@@ -36,6 +39,11 @@ public class MovableUnit : DestructibleUnit {
                 OnReachedDestination();
             }
         }
+    }
+
+    public float GetRequiredTime()
+    {
+        return requiredTime;
     }
 
     public void Init(Vector3 vec)
