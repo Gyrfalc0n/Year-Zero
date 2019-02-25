@@ -7,7 +7,7 @@ public class AlliesPanelControls : PlayerControls
     [SerializeField]
     AlliesMenu obj;
 
-    public void Init()
+    public override void Init()
     {
         obj.ShowPanel();
     }

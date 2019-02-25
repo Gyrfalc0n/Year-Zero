@@ -33,10 +33,15 @@ PrefabInstance:
       propertyPath: InstantiationId
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 5914945105126054897}
     - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: costs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
@@ -137,3 +142,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6020786110520199963}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5914945105126054897 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114905757237956842, guid: 636fb200f2cdc914bb060a84a57f4203,
+    type: 3}
+  m_PrefabInstance: {fileID: 6020786110520199963}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6020032728104618459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

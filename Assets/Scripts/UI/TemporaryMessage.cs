@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class TemporaryMessage : MonoBehaviour
 {
-    [SerializeField]
-    GameObject obj;
-    float time;
-    [SerializeField]
-    float maxTime;
+    #region Singleton
 
-    public void Activate()
+    public static TemporaryMessage temporaryMessage;
+
+    void Awake()
     {
-        obj.SetActive(true);
-        time = maxTime;
+        temporaryMessage = this;
     }
 
-    void Update()
+    #endregion
+
+    [SerializeField]
+    Transform content;
+    [SerializeField]
+    TemporaryMessagePrefab temporaryMessagePrefab;
+
+    public void Add(string message)
     {
-        if (time > 0)
-        {
-            time -= Time.deltaTime;
-            if (time <= 0)
-            {
-                obj.SetActive(false);
-            }
-        }
+        Instantiate(temporaryMessagePrefab, content).Init(message);
     }
 }

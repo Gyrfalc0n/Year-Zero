@@ -11,8 +11,8 @@ public class InstantiateTask : Task
     {
         associatedUnit = unit;
         active = true;
-        remainingTime = unit.GetRequiredTime();
-        requiredTime = unit.GetRequiredTime();
+        remainingTime = unit.GetMaxlife();
+        requiredTime = unit.GetMaxlife();
     }
 
     public override void OnFinishedTask()

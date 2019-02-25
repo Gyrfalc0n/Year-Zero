@@ -14,8 +14,9 @@ using Photon.Pun;
 [RequireComponent(typeof(ChatPanelControls))]
 [RequireComponent(typeof(AlliesPanelControls))]
 [RequireComponent(typeof(ChatMenuPanelControls))]
-[RequireComponent(typeof(HackToolControls))]
 [RequireComponent(typeof(RepairToolControls))]
+[RequireComponent(typeof(SpellToolControls))]
+[RequireComponent(typeof(SkilltreeControls))]
 public class PlayerController : MonoBehaviour {
 
     MovementControls movementControls;
@@ -28,8 +29,9 @@ public class PlayerController : MonoBehaviour {
     ChatPanelControls chatPanelControls;
     AlliesPanelControls alliesPanelControls;
     ChatMenuPanelControls chatMenuPanelControls;
-    HackToolControls hackToolControls;
     RepairToolControls repairToolControls;
+    SpellToolControls spellToolControls;
+    SkilltreeControls skilltreeControls;
     PlayerControls currentPlayerControls;
 
     #region Singleton
@@ -50,6 +52,8 @@ public class PlayerController : MonoBehaviour {
         alliesPanelControls = GetComponent<AlliesPanelControls>();
         chatMenuPanelControls = GetComponent<ChatMenuPanelControls>();
         repairToolControls = GetComponent<RepairToolControls>();
+        spellToolControls = GetComponent<SpellToolControls>();
+        skilltreeControls = GetComponent<SkilltreeControls>();
         currentPlayerControls = movementControls.Activate();
     }
 
@@ -111,7 +115,6 @@ public class PlayerController : MonoBehaviour {
     {
         ResetCurrentPlayerControls();
         currentPlayerControls = pauseControls.Activate();
-        pauseControls.Init();
     }
 
     public void InitPatrolToolControls()
@@ -149,27 +152,18 @@ public class PlayerController : MonoBehaviour {
     {
         ResetCurrentPlayerControls();
         currentPlayerControls = chatPanelControls.Activate();
-        chatPanelControls.Init();
     }
 
     public void InitAlliesPanelControls()
     {
         ResetCurrentPlayerControls();
         currentPlayerControls = alliesPanelControls.Activate();
-        alliesPanelControls.Init();
     }
 
     public void InitChatMenuPanelControls()
     {
         ResetCurrentPlayerControls();
         currentPlayerControls = chatMenuPanelControls.Activate();
-        chatMenuPanelControls.Init();
-    }
-
-    public void InitHackToolControls()
-    {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = hackToolControls.Activate();
     }
 
     public void InitRepairToolControls()
@@ -178,12 +172,26 @@ public class PlayerController : MonoBehaviour {
         currentPlayerControls = repairToolControls.Activate();
     }
 
+    public void InitSpellToolControls(Spell spell)
+    {
+        ResetCurrentPlayerControls();
+        currentPlayerControls = spellToolControls.Activate();
+        spellToolControls.Init(spell);
+    }
+
+    public void InitSkilltreePanelControls()
+    {
+        ResetCurrentPlayerControls();
+        currentPlayerControls = skilltreeControls.Activate();
+    }
+
     public bool CameraAvailable()
     {
         return (currentPlayerControls != pauseControls &&
             currentPlayerControls != chatPanelControls &&
             currentPlayerControls != alliesPanelControls &&
             currentPlayerControls != chatMenuPanelControls &&
-            currentPlayerControls != repairToolControls);
+            currentPlayerControls != repairToolControls &&
+            currentPlayerControls != skilltreeControls);
     }
 }

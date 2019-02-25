@@ -36,7 +36,7 @@ public class ConstructedUnit : BuildingUnit
 
     void CheckRepair()
     {
-        if (GetLife() < GetMaxlife())
+        if (GetLife() < GetMaxlife() && repairers.Count > 0)
         {
             if (repairTimer > 0)
             {

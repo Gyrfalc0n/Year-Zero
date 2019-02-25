@@ -28,6 +28,11 @@ public class DestructibleUnit : SelectableObj {
         CheckLife();
     }
 
+    public void SetLife(float val)
+    {
+        lifeValue = (int)val;
+    }
+
     public void Heal(int value)
     {
         RPCHeal(value);
@@ -36,7 +41,7 @@ public class DestructibleUnit : SelectableObj {
     }
 
     [PunRPC]
-    void RPCHeal(int value)
+    public void RPCHeal(int value)
     {
         lifeValue += value;
         if (lifeValue > maxLife)

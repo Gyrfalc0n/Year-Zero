@@ -25,13 +25,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: Buildings/House/House
-  requiredTime: 5
   tools: []
   highlighted: 0
   selected: 0
   objName: House
   description: dqzzqefefe
-  costs: 000000000000000000000000
+  costs: 00000000000000000000000000000000
   pop: 0
   maxLife: 5
   constructor: {fileID: 7857935253195583872, guid: 1c6e6275de2c1e041a35c879befc2639,
@@ -61,6 +60,11 @@ PrefabInstance:
       propertyPath: InstantiationId
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 3147816734298840967}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -115,3 +119,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3042023807884283757}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3147816734298840967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114905757237956842, guid: 636fb200f2cdc914bb060a84a57f4203,
+    type: 3}
+  m_PrefabInstance: {fileID: 3042023807884283757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3040530385692134829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

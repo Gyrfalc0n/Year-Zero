@@ -11,8 +11,11 @@ public class PlayerControls : MonoBehaviourPunCallbacks
     public PlayerControls Activate()
     {
         active = true;
+        Init();
         return this;
     }
+
+    public virtual void Init() { }
 
     public virtual void Update()
     {

@@ -7,8 +7,7 @@ public class InConstructionUnit : BuildingUnit
 {
     ConstructedUnit associatedBuilding;
 
-    float constructionTime;
-    float remainingTime;
+    float currentLife;
 
     private List<BuilderUnit> builders = new List<BuilderUnit>();
 
@@ -20,15 +19,15 @@ public class InConstructionUnit : BuildingUnit
     public void Init(ConstructedUnit building)
     {
         associatedBuilding = building;
-        constructionTime = building.GetRequiredTime();
-        remainingTime = constructionTime;
+        currentLife = 0;
     }
 
     private void CheckConstruction()
     {
-        if (remainingTime > 0)
+        if (currentLife < GetMaxlife())
         {
-            remainingTime -= Time.deltaTime * builders.Count;
+            currentLife += Time.deltaTime * builders.Count;
+            SetLife(currentLife);
         }
         else
         {
@@ -75,7 +74,7 @@ public class InConstructionUnit : BuildingUnit
 
     public override float GetCurrentActionAdvancement()
     {
-        return 1 - remainingTime / constructionTime;
+        return currentLife / GetMaxlife();
     }
 
     public ConstructedUnit GetAssociatedBuilding()

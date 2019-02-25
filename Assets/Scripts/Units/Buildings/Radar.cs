@@ -6,7 +6,6 @@ public class Radar : ConstructedUnit
 {
     MinimapMarkerControls minimap;
     MovementControls movementControls;
-    TemporaryMessage message;
 
     List<MovableUnit> list = new List<MovableUnit>();
 
@@ -15,7 +14,6 @@ public class Radar : ConstructedUnit
         GameObject tmp = GameObject.Find("InstanceManager");
         minimap = tmp.GetComponent<MinimapMarkerControls>();
         movementControls = tmp.GetComponent<MovementControls>();
-        message = GameObject.Find("Attacked Message").GetComponent<TemporaryMessage>();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -27,7 +25,7 @@ public class Radar : ConstructedUnit
             if (empty)
             {
                 minimap.CreateMarker(movementControls.WorldSpaceToMinimap(other.transform.position));
-                message.Activate();
+                TemporaryMessage.temporaryMessage.Add("We are attacked!");
             }
         }
     }
@@ -39,32 +37,5 @@ public class Radar : ConstructedUnit
         {
             list.Remove(other.GetComponent<MovableUnit>());
         }
-    }
-
-    public override bool IsAvailable()
-    {
-        int count = 0;
-        int townHallLevel = 0;
-        foreach (SelectableObj obj in InstanceManager.instanceManager.mySelectableObjs)
-        {
-            if (obj.GetComponent<Radar>() != null)
-            {
-                count++;
-            }
-            if (obj.GetComponent<InConstructionUnit>() != null)
-            {
-                if (obj.GetComponent<InConstructionUnit>().GetAssociatedBuilding().GetComponent<Radar>() != null)
-                    count++;
-            }
-            if (obj.GetComponent<TownHallV2>() != null)
-            {
-                townHallLevel = Mathf.Max(townHallLevel, 2);
-            }
-            else if (obj.GetComponent<TownHall>() != null)
-            {
-                townHallLevel = Mathf.Max(townHallLevel, 1);
-            }
-        }
-        return count < townHallLevel;
     }
 }

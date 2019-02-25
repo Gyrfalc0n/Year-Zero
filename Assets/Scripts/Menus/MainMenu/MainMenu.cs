@@ -80,7 +80,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         {
             connection.SetActive(false);
             mainMenu.SetActive(true);
-            GetComponentInChildren<TemporaryMessage>().Activate();
+            GetComponentInChildren<NoInternetMessage>().Activate();
         }
     }
 
@@ -100,7 +100,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         }
         else
         {
-            GetComponentInChildren<TemporaryMessage>().Activate();
+            GetComponentInChildren<NoInternetMessage>().Activate();
         }
     }
 

@@ -20,7 +20,8 @@ public class PlayerManager : MonoBehaviour {
 
     GameResource[] resources = new GameResource[] { new GameResource("Energy")
 ,new GameResource("Ore")
-,new GameResource("Food")};
+,new GameResource("Food")
+    ,new GameResource("Tech")};
 
     Population population = new Population();
 
@@ -90,7 +91,7 @@ public class PlayerManager : MonoBehaviour {
             
         if (!possible)
         {
-            notEnoughResources.Activate();
+            TemporaryMessage.temporaryMessage.Add("Not Enough Resources");
         }
         return possible;
     }

@@ -97,11 +97,11 @@ public class MovementControls : PlayerControls
             SelectUnit.selectUnit.UpdateSelection();
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                //GetComponent<PlayerController>().InitQuestControls();
+                GetComponent<PlayerController>().InitChatPanelControls();
             }
             if (Input.GetKeyDown(KeyCode.F9))
             {
-                GetComponent<PlayerController>().InitPauseControls();
+                //GetComponent<PlayerController>().InitQuestControls();
             }
             if (Input.GetKeyDown(KeyCode.F10))
             {

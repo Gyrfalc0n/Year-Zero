@@ -8,9 +8,6 @@ public class SelectableObj : Interactable {
     [SerializeField]
     string path;
 
-    [SerializeField]
-    float requiredTime;
-
     public List<GameObject> tools;
 
     [HideInInspector]
@@ -32,7 +29,7 @@ public class SelectableObj : Interactable {
     SpriteRenderer minimapIcon;
 
     string selectionCirclePath = "Units/SelectionCircle";
-    SpriteRenderer selectionCircle;
+    protected SpriteRenderer selectionCircle;
 
     string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";
     FieldOfViewCollider fovCollider;
@@ -73,6 +70,7 @@ public class SelectableObj : Interactable {
             selectionCircle.color = enemyColor;
             minimapIcon.color = enemyColor;
         }
+        
     }
 
     public void ToggleColor(int advancedLvl)
@@ -152,11 +150,6 @@ public class SelectableObj : Interactable {
 
     public virtual void Interact(Interactable obj) { }
 
-    public float GetRequiredTime()
-    {
-        return requiredTime;
-    }
-
     public string GetPath()
     {
         return path;
@@ -203,6 +196,7 @@ public class SelectableObj : Interactable {
     {
         visible = false;
         GetComponent<MeshRenderer>().enabled = false;
+        minimapIcon.gameObject.SetActive(false);
         Dehighlight();
         Deselect();
     }
@@ -210,6 +204,7 @@ public class SelectableObj : Interactable {
     public void UnHide()
     {
         visible = true;
+        minimapIcon.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().enabled = true;
     }
 
