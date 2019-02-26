@@ -22,8 +22,7 @@ public class CombatUnit : MovableUnit
     {
         if (obj.GetComponent<DestructibleUnit>() != null)
         {
-            Hashtable customProp = obj.photonView.Owner.CustomProperties;
-            if ((int)customProp["Team"] == InstanceManager.instanceManager.GetTeam())
+            if (InstanceManager.instanceManager.IsEnemy(obj.photonView.Owner))
             {
                 Attack(obj.GetComponent<DestructibleUnit>());
             }
