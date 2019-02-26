@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HackSpell : Spell
+public class HackerHackSpell : Spell
 {
     [SerializeField]
     LayerMask interactableLayer;
@@ -19,7 +19,6 @@ public class HackSpell : Spell
         {
             if (hit.collider.GetComponent<MovableUnit>() != null && InstanceManager.instanceManager.IsEnemy(hit.collider.GetComponent<MovableUnit>().photonView.Owner) && Vector3.Distance(associatedUnit.transform.position, hit.point) < 3)
             {
-                print("Hacking");
                 hit.collider.GetComponent<MovableUnit>().Hack();
                 return;
             }
@@ -28,6 +27,6 @@ public class HackSpell : Spell
                 SendError();
             }
         }
-        print("Bad Hacking");
+        TemporaryMessage.temporaryMessage.Add("Bad Hacking");
     }
 }

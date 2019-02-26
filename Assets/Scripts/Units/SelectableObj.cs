@@ -47,6 +47,11 @@ public class SelectableObj : Interactable {
         InitFieldOfView();
     }
 
+    public virtual void Start()
+    {
+
+    }
+
     public void InitSelectionCircle()
     {
         selectionCircle = ((GameObject)Instantiate(Resources.Load(selectionCirclePath), transform)).GetComponent<SpriteRenderer>();

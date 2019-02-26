@@ -13,6 +13,11 @@ public class SpellTool : Tool
 
     public void OnClicked()
     {
-        PlayerController.playerController.InitSpellToolControls(associatedSpell);
+        if (associatedSpell.needSpellControls)
+            PlayerController.playerController.InitSpellToolControls(associatedSpell);
+        else
+        {
+            associatedSpell.Use();
+        }
     }
 }

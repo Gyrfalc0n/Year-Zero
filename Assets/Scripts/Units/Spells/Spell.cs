@@ -13,13 +13,15 @@ public abstract class Spell : MonoBehaviour
     protected float remainingTimeSpeedBonus = 1;
     [SerializeField]
     protected string errorMessage;
+    [HideInInspector]
+    public bool needSpellControls = true;
 
-    private void Start()
+    public virtual void Start()
     {
         remainingTime = 0;
     }
 
-    public void Update()
+    public virtual void Update()
     {
         if (remainingTime > 0)
         {

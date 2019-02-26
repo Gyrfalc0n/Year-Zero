@@ -9,8 +9,9 @@ public class Radar : ConstructedUnit
 
     List<MovableUnit> list = new List<MovableUnit>();
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
         GameObject tmp = GameObject.Find("InstanceManager");
         minimap = tmp.GetComponent<MinimapMarkerControls>();
         movementControls = tmp.GetComponent<MovementControls>();

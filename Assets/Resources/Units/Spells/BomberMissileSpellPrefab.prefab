@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6103864077578648332}
-  - component: {fileID: 4464243682333981057}
+  - component: {fileID: 462916258159778725}
   m_Layer: 0
-  m_Name: VisionSpellPrefab
+  m_Name: BomberMissileSpellPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4464243682333981057
+--- !u!114 &462916258159778725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6697559889896168060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc75867c69e3504c93af879021dec09, type: 3}
+  m_Script: {fileID: 11500000, guid: 1827a5f3aa120804693c19fb754e9c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredTime: 2
+  associatedUnit: {fileID: 0}
+  requiredTime: 5
+  errorMessage: qzdqzd
+  needSpellControls: 1

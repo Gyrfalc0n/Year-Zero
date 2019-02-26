@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicTroopBonusLifeSkill : IncreaseValueSkill
+public class BomberSpeedSkill : IncreaseValueSkill
 {
     public override void Effect()
     {
-        Increase(ref SkilltreeManager.manager.basicTroopBonusLife);
+        SkilltreeManager.manager.bomberSpeed += increaseAmount;
     }
 }

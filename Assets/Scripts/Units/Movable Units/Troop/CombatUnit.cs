@@ -7,8 +7,9 @@ public class CombatUnit : MovableUnit
 {
     CombatSystem combatSystem;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         combatSystem = GetComponent<CombatSystem>();
     }
 

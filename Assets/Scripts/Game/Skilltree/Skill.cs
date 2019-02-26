@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Skill : MonoBehaviour
 {
     Button associatedButton;
-    public bool activatedByDefault;
     bool activated;
 
     public bool restrictive;
@@ -17,10 +16,14 @@ public class Skill : MonoBehaviour
 
     List<Skill> nextSkills = new List<Skill>();
 
+    public string skillName;
+    [TextArea(3, 5)]
+    public string description;
+
     void Start()
     {
-        activated = activatedByDefault;
-        associatedButton = GetComponent<Button>();
+        activated = false;
+        associatedButton = GetComponentInChildren<Button>();
         InitNextSkills();
     }
 
@@ -34,6 +37,7 @@ public class Skill : MonoBehaviour
             }
             else
                 Lock();
+            GetComponent<Image>().color = Color.green;
             UnlockChildren();
             Effect();
             activated = true;

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6103864077578648332}
-  - component: {fileID: 8132497630389065294}
+  - component: {fileID: 8146154240555827951}
   m_Layer: 0
-  m_Name: HackSpellPrefab
+  m_Name: LightTroopDamageSpellPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8132497630389065294
+--- !u!114 &8146154240555827951
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6697559889896168060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe67e7abc42acde4d8eeb09dd0538ba6, type: 3}
+  m_Script: {fileID: 11500000, guid: e359e18f1cca1894e80b608d30adba96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredTime: 2
-  errorMessage: 
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 4096
+  associatedUnit: {fileID: 0}
+  requiredTime: 3
+  errorMessage: qzdqz
+  needSpellControls: 1
