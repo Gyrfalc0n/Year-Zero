@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HackerUnit : MovableUnit
+public class Turrel : BuildingUnit
 {
     public override bool IsAvailable()
     {
-        return SkilltreeManager.manager.hacker;
+        return SkilltreeManager.manager.turrel;
     }
 }

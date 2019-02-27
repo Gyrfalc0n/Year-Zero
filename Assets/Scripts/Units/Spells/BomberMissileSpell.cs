@@ -33,4 +33,9 @@ public class BomberMissileSpell : Spell
             }
         }
     }
+
+    public override bool IsUnlocked()
+    {
+        return SkilltreeManager.manager.bomberMissileSpell > 0;
+    }
 }

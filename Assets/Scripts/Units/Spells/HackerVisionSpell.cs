@@ -23,4 +23,9 @@ public class HackerVisionSpell : Spell
             }
         }
     }
+
+    public override bool IsUnlocked()
+    {
+        return SkilltreeManager.manager.hackerVisionSpell > 0;
+    }
 }

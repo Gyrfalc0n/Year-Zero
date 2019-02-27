@@ -23,4 +23,9 @@ public class HackerIEMSpell : Spell
             }
         }
     }
+
+    public override bool IsUnlocked()
+    {
+        return SkilltreeManager.manager.hackerIEMSpell;
+    }
 }

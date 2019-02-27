@@ -21,10 +21,15 @@ public class MovableUnit : DestructibleUnit {
 
     bool moving = false;
 
+    public float defaultSpeed;
+    public float speed;
+
     public override void Awake()
     {
         base.Awake();
+        speed = defaultSpeed;
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed;
         patrolSystem = GetComponent<PatrolSystem>();
         DetermineHome();
     }

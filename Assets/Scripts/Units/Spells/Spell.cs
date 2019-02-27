@@ -52,7 +52,12 @@ public abstract class Spell : MonoBehaviour
 
     public bool IsAvailable()
     {
-        return remainingTime <= 0;
+        return IsUnlocked() && remainingTime <= 0;
+    }
+
+    public virtual bool IsUnlocked()
+    {
+        return true;
     }
 
     public void SendError()

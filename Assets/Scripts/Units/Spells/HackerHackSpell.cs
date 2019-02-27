@@ -29,4 +29,9 @@ public class HackerHackSpell : Spell
         }
         TemporaryMessage.temporaryMessage.Add("Bad Hacking");
     }
+
+    public override bool IsUnlocked()
+    {
+        return SkilltreeManager.manager.hackerHackSpell;
+    }
 }

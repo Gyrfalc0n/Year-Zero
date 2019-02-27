@@ -48,14 +48,13 @@ public class SelectableObj : Interactable
         InitFieldOfView();
     }
 
-
-    [SerializeField]
     Transform spellHolder;
     [HideInInspector]
     public List<GameObject> spells = new List<GameObject>();
 
     public virtual void Start()
     {
+        spellHolder = transform.Find("Spell Holder");
         foreach (GameObject obj in tools)
         {
             if (obj.GetComponent<Spell>() != null)

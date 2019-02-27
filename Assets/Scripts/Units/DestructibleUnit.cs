@@ -12,13 +12,13 @@ public class DestructibleUnit : SelectableObj {
     public override void Awake()
     {
         base.Awake();
-        lifeValue = maxLife-1;
+        lifeValue = maxLife;
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
         flbPanel.AddLifeBar(this);
     }
 
-    [SerializeField]
-    int maxLife = 5;
+    public int defaultMaxLife;
+    public int maxLife = 5;
     int lifeValue;
 
     [PunRPC]
