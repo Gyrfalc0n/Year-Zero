@@ -27,6 +27,7 @@ public class MovableUnit : DestructibleUnit {
     public override void Awake()
     {
         base.Awake();
+        defaultSpeed = 3.5f;
         speed = defaultSpeed;
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;
