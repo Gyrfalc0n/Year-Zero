@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: Buildings/ConquestStation/ConquestStationCons
-  requiredTime: 0
   tools: []
   highlighted: 0
   selected: 0
@@ -21,6 +20,8 @@ MonoBehaviour:
   description: 
   costs: 000000000000000000000000
   pop: 0
+  spellHolder: {fileID: 0}
+  spells: []
   maxLife: 5
 --- !u!1001 &773000481643476483
 PrefabInstance:
@@ -33,6 +34,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConquestStationCons
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 802210258234664681}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -82,11 +88,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d5a0dc4e66d0b0f4bb851b929a4b3660, type: 2}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 802210258234664681}
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
     - {fileID: 1315701950554808790, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
