@@ -18,17 +18,17 @@ public class SkilltreeManager : MonoBehaviour
     //LIGHT ATTACK
     public bool lightTroop = false; 
     public bool lightTroopDamageSpell = false; 
-    public float lightTroopDamageSpellDamage = 1; //Missing combat
+    public float lightTroopDamageSpellDamage = 1;
     public float lightTroopBonusLife = 1; 
     public float lightTroopBonusSpeed = 1; 
-    public float lightTroopBonusDamage = 1;//Missing combat
+    public float lightTroopBonusDamage = 1;
     public bool mobileMedicalStation = false; 
 
 
     //HEAVY ATTACK
     public bool bomber = false; 
-    public float bomberMissileSpell = 0;//Missing combat
-    public float bomberBonusDamage = 1;//Missing combat
+    public float bomberMissileSpell = 0;
+    public float bomberBonusDamage = 1;
     public float bomberBonusLife = 1; 
     public float bomberProductionSpeed = 1; 
 
@@ -54,7 +54,7 @@ public class SkilltreeManager : MonoBehaviour
     //DEFENSE
     public float radar = 0;
     public float radarRange = 1; 
-    public bool turrel = false; 
-    public float turrelDamage = 1;//Missing combat
-    public float turrelRange = 1; //Missing Combat
+    public bool turrel = false;
+    public float turrelDamage = 1;
+    public float turrelRange = 1;
 }

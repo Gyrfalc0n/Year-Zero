@@ -16,8 +16,12 @@ public class LightTroopDamageSpell : Spell
     public override void Effect()
     {
         time = maxTime;
-        //increase damage per second
-        throw new System.NotImplementedException();
+        associatedUnit.GetComponent<LightTroop>().damage = associatedUnit.GetComponent<LightTroop>().damage * 1.5f * SkilltreeManager.manager.lightTroopDamageSpellDamage;
+    }
+
+    public void Deffect()
+    {
+        associatedUnit.GetComponent<LightTroop>().damage = associatedUnit.GetComponent<LightTroop>().damage / 1.5f / SkilltreeManager.manager.lightTroopDamageSpellDamage;
     }
 
     public override void Update()
@@ -28,7 +32,7 @@ public class LightTroopDamageSpell : Spell
             time -= Time.deltaTime;
             if (time <= 0)
             {
-                //Decrease
+                Deffect();
             }
         }
     }

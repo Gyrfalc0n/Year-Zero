@@ -7,6 +7,7 @@ public class Bomber : MovableUnit
     public override void Awake()
     {
         maxLife = defaultMaxLife + (int)(defaultMaxLife * SkilltreeManager.manager.bomberBonusLife);
+        damage = damage + (int)(defaultDamage * SkilltreeManager.manager.bomberBonusDamage);
         base.Awake();
     }
 

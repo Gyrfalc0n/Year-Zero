@@ -7,11 +7,13 @@ using Photon.Realtime;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(PatrolSystem))]
+[RequireComponent(typeof(CombatSystem))]
 public class MovableUnit : DestructibleUnit {
 
     protected NavMeshAgent agent;
     public Card card;
     protected PatrolSystem patrolSystem;
+    protected CombatSystem combatSystem;
 
     [HideInInspector]
     public TownHall home;
@@ -19,7 +21,7 @@ public class MovableUnit : DestructibleUnit {
     [SerializeField]
     float requiredTime;
 
-    bool moving = false;
+    public bool moving = false;
 
     public float defaultSpeed;
     public float speed;
@@ -32,6 +34,8 @@ public class MovableUnit : DestructibleUnit {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;
         patrolSystem = GetComponent<PatrolSystem>();
+        combatSystem = GetComponent<CombatSystem>();
+        damage = defaultDamage;
         DetermineHome();
     }
 
@@ -41,7 +45,6 @@ public class MovableUnit : DestructibleUnit {
         {
             if (Vector3.Distance(agent.destination, transform.position) <= agent.stoppingDistance)
             {
-                moving = false;
                 OnReachedDestination();
             }
         }
@@ -99,11 +102,18 @@ public class MovableUnit : DestructibleUnit {
         patrolSystem.StopPatrol();
     }
 
+    public virtual void StopAttack()
+    {
+        combatSystem.StopAttack();
+    }
+
     public virtual void ResetAction()
     {
         ResetDestination();
         if (patrolSystem.IsPatroling())
             StopPatrol();
+        if (combatSystem.IsAttacking())
+            StopAttack();
     }
 
     public override Vector3 GetSelectionCirclePos()
@@ -113,6 +123,7 @@ public class MovableUnit : DestructibleUnit {
 
     void OnReachedDestination()
     {
+        moving = false;
         GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>().UpdatePanel();
     }
 
@@ -157,5 +168,36 @@ public class MovableUnit : DestructibleUnit {
         boosted = false;
         atkBoost = 0;
         maxLife -= (int)(defaultMaxLife * lifeBoost);
+    }
+
+
+    public override void Interact(Interactable obj)
+    {
+        base.Interact(obj);
+        if (obj.GetComponent<DestructibleUnit>() != null)
+        {
+            if (InstanceManager.instanceManager.IsEnemy(obj.photonView.Owner))
+            {
+                Attack(obj.GetComponent<DestructibleUnit>());
+            }
+        }
+    }
+
+
+    public float defaultDamage;
+    [HideInInspector]
+    public float damage;
+
+    public void OnEnemyEnters(DestructibleUnit enemy)
+    {
+        if (!moving)
+        {
+            combatSystem.OnEnemyEnters(enemy);
+        }
+    }
+
+    public void Attack(DestructibleUnit unit)
+    {
+        combatSystem.InitAttack(unit);
     }
 }

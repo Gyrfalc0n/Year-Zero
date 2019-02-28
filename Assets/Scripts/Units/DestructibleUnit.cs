@@ -21,11 +21,22 @@ public class DestructibleUnit : SelectableObj {
     public int maxLife = 5;
     int lifeValue;
 
+    public void TakeDamage(int value)
+    {
+        RPCTakeDamage(value);
+        if (!PhotonNetwork.OfflineMode)
+        {
+            photonView.RPC("RPCTakeDamage", RpcTarget.Others, value);
+        }
+        CheckLife();
+
+    }
+
     [PunRPC]
-    void TakeDamage(int value)
+    void RPCTakeDamage(int value)
     {
         lifeValue -= value;
-        CheckLife();
+        
     }
 
     public void SetLife(float val)

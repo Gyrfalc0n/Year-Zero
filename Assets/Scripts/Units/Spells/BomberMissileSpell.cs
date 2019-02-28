@@ -7,6 +7,8 @@ public class BomberMissileSpell : Spell
     float time;
     float maxTime = 5;
 
+    float tmpDamage;
+
     public override void Start()
     {
         base.Start();
@@ -17,8 +19,15 @@ public class BomberMissileSpell : Spell
     public override void Effect()
     {
         time = maxTime;
-        //increase missile per second
-        throw new System.NotImplementedException();
+        tmpDamage = associatedUnit.GetComponent<Bomber>().damage;
+        associatedUnit.GetComponent<Bomber>().damage = associatedUnit.GetComponent<Bomber>().damage * 1.5f * SkilltreeManager.manager.bomberMissileSpell;
+        associatedUnit.GetComponent<CombatSystem>().attackRate *= 2;
+    }
+
+    public void Deffect()
+    {
+        associatedUnit.GetComponent<LightTroop>().damage = tmpDamage;
+        associatedUnit.GetComponent<CombatSystem>().attackRate /= 2;
     }
 
     public override void Update()
@@ -29,7 +38,7 @@ public class BomberMissileSpell : Spell
             time -= Time.deltaTime;
             if (time <= 0)
             {
-                //Decrease
+                Deffect();
             }
         }
     }

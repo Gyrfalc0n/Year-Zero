@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turrel : BuildingUnit
+public class Turrel : ConstructedUnit
 {
     public override bool IsAvailable()
     {
