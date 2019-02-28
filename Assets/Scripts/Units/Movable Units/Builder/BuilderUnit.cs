@@ -28,6 +28,7 @@ public class BuilderUnit : MovableUnit {
 
     public override void Interact(Interactable obj)
     {
+        base.Interact(obj);
         if (obj.GetComponent<InConstructionUnit>() != null)
         {
             Build(obj.GetComponent<InConstructionUnit>());

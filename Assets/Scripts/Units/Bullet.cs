@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviourPunCallbacks
     float speed;
     float damage;
     Rigidbody rb;
+    float time;
 
     public void Init(float speed, float damage)
     {
@@ -17,16 +18,35 @@ public class Bullet : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * speed;
+        if (photonView.IsMine)
+        {
+            time = 5f;
+            rb = GetComponent<Rigidbody>();
+            rb.velocity = transform.forward * speed;
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.collider.GetComponent<DestructibleUnit>() != null && InstanceManager.instanceManager.IsEnemy(collision.collider.GetComponent<DestructibleUnit>().photonView.Owner))
+        if (photonView.IsMine)
         {
-            collision.collider.GetComponent<DestructibleUnit>().TakeDamage((int)damage);
-            PhotonNetwork.Destroy(this.photonView);
+            time -= Time.deltaTime;
+            if (time <= 0)
+            {
+                PhotonNetwork.Destroy(this.gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (photonView.IsMine)
+        {
+            if (other.GetComponent<DestructibleUnit>() != null && InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>().photonView.Owner))
+            {
+                other.GetComponent<DestructibleUnit>().TakeDamage((int)damage);
+                PhotonNetwork.Destroy(this.gameObject);
+            }
         }
     }
 }
