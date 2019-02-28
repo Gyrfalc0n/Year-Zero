@@ -6,6 +6,6 @@ public class BomberSpeedSkill : IncreaseValueSkill
 {
     public override void Effect()
     {
-        SkilltreeManager.manager.bomberSpeed += increaseAmount;
+        SkilltreeManager.manager.bomberProductionSpeed += increaseAmount;
     }
 }

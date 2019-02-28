@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DestroyerSupportSpell : Spell
 {
+    float time;
+    float maxTime = 5;
+
+    bool activated;
+
     public override void Start()
     {
         base.Start();
@@ -12,7 +17,26 @@ public class DestroyerSupportSpell : Spell
 
     public override void Effect()
     {
-        //Activate buff
+        time = maxTime;
+        activated = true;
         throw new System.NotImplementedException();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+            if (time <= 0)
+            {
+                activated = false;
+            }
+        }
+    }
+
+    public bool Activated()
+    {
+        return activated;
     }
 }

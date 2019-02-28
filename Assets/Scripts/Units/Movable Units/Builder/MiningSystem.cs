@@ -85,7 +85,7 @@ public class MiningSystem : MonoBehaviour
             {
                 if (currentResourceUnit.StillResource())
                 {
-                    resourceAmount += currentResourceUnit.TakeResource(speedMining);
+                    resourceAmount += currentResourceUnit.TakeResource(speedMining * SkilltreeManager.manager.miningSpeed);
                 }
                 else
                 {

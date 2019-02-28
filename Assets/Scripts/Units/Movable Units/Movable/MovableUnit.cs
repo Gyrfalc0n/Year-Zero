@@ -47,7 +47,7 @@ public class MovableUnit : DestructibleUnit {
         }
     }
 
-    public float GetRequiredTime()
+    public virtual float GetRequiredTime()
     {
         return requiredTime;
     }
@@ -132,5 +132,30 @@ public class MovableUnit : DestructibleUnit {
     {
         InstanceManager.instanceManager.mySelectableObjs.Remove(this);
         selectionCircle.color = enemyColor;
+    }
+
+    bool boosted;
+    public float atkBoost;
+    float lifeBoost;
+
+    public void AddBoost(float atk, float life)
+    {
+        if (boosted)
+            return;
+
+        boosted = true;
+        atkBoost = atk;
+        lifeBoost = life;
+        maxLife += (int)(defaultMaxLife * life);
+    }
+
+    public void RemoveBoost()
+    {
+        if (!boosted)
+            return;
+
+        boosted = false;
+        atkBoost = 0;
+        maxLife -= (int)(defaultMaxLife * lifeBoost);
     }
 }

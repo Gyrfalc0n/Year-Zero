@@ -7,6 +7,9 @@ public class HackerVisionSpell : Spell
     [SerializeField]
     LayerMask groundLayer;
 
+    [SerializeField]
+    VisionSpellObj prefab;
+
     public override void Effect()
     {
         SendRay();
@@ -19,7 +22,7 @@ public class HackerVisionSpell : Spell
         {
             if (Vector3.Distance(associatedUnit.transform.position, hit.point) < 3)
             {
-                //Create temp vision
+                Instantiate(prefab, hit.point, Quaternion.identity);
             }
         }
     }

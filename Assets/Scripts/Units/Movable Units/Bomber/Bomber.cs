@@ -14,4 +14,9 @@ public class Bomber : MovableUnit
     {
         return SkilltreeManager.manager.bomber;
     }
+
+    public override float GetRequiredTime()
+    {
+        return base.GetRequiredTime() * SkilltreeManager.manager.bomberProductionSpeed;
+    }
 }

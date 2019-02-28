@@ -33,7 +33,7 @@ public class SelectableObj : Interactable
     protected SpriteRenderer selectionCircle;
 
     string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";
-    FieldOfViewCollider fovCollider;
+    public FieldOfViewCollider fovCollider;
     bool visible;
 
     public virtual void Awake()

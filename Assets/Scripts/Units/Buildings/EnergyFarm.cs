@@ -31,7 +31,7 @@ public class EnergyFarm : ConstructedUnit
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            manager.Add(value, resourceIndex);
+            manager.Add((int)(value * SkilltreeManager.manager.energyFarmSpeed), resourceIndex);
             timer = timeReset;
         }
     }

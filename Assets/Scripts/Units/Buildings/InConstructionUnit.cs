@@ -26,7 +26,7 @@ public class InConstructionUnit : BuildingUnit
     {
         if (currentLife < GetMaxlife())
         {
-            currentLife += Time.deltaTime * builders.Count;
+            currentLife += Time.deltaTime * builders.Count * SkilltreeManager.manager.constructionSpeed;
             SetLife(currentLife);
         }
         else
