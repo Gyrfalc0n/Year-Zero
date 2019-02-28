@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &591
+--- !u!114 &845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7340233006026223709}
+  m_GameObject: {fileID: 6885301352519462882}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 422753dff18f15c40b36a5970d8ea087, type: 3}
@@ -42,21 +42,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TownHall
       objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: viewIdField
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: InstantiationId
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 7224011183984337527}
     - target: {fileID: 4180616217713247157, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_Enabled
@@ -117,6 +102,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: viewIdField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 6885301352519462043}
     - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: ghost
@@ -143,19 +143,19 @@ PrefabInstance:
     - {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
     - {fileID: 2888816329839541249, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
---- !u!1 &7340233006026223709 stripped
+--- !u!1 &6885301352519462882 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4201926755012452119, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
     type: 3}
   m_PrefabInstance: {fileID: 6885301352519462730}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7224011183984337527 stripped
+--- !u!114 &6885301352519462043 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4309196059108019517, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
     type: 3}
   m_PrefabInstance: {fileID: 6885301352519462730}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7340233006026223709}
+  m_GameObject: {fileID: 6885301352519462882}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
