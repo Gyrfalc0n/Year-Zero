@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class SelectableObj : Interactable {
+public class SelectableObj : Interactable
+{
 
     [SerializeField]
     string path;
@@ -20,7 +21,7 @@ public class SelectableObj : Interactable {
     protected Color32 enemyColor = new Color32(200, 60, 50, 255);
 
     public string objName;
-    [TextArea(3,5)]
+    [TextArea(3, 5)]
     public string description;
     public int[] costs = new int[3];
     public int pop;
@@ -32,7 +33,7 @@ public class SelectableObj : Interactable {
     protected SpriteRenderer selectionCircle;
 
     string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";
-    FieldOfViewCollider fovCollider;
+    public FieldOfViewCollider fovCollider;
     bool visible;
 
     public virtual void Awake()
@@ -45,6 +46,24 @@ public class SelectableObj : Interactable {
             InstanceManager.instanceManager.mySelectableObjs.Add(this);
         }
         InitFieldOfView();
+    }
+
+    Transform spellHolder;
+    [HideInInspector]
+    public List<GameObject> spells = new List<GameObject>();
+
+    public virtual void Start()
+    {
+        spellHolder = transform.Find("Spell Holder");
+        foreach (GameObject obj in tools)
+        {
+            if (obj.GetComponent<Spell>() != null)
+            {
+                GameObject tmp = Instantiate(obj, spellHolder);
+                tmp.GetComponent<Spell>().associatedUnit = this;
+                spells.Add(tmp);
+            }
+        }
     }
 
     public void InitSelectionCircle()
@@ -70,7 +89,7 @@ public class SelectableObj : Interactable {
             selectionCircle.color = enemyColor;
             minimapIcon.color = enemyColor;
         }
-        
+
     }
 
     public void ToggleColor(int advancedLvl)

@@ -30,10 +30,6 @@ public class ToolsPanel : MonoBehaviour {
         if (SelectUnit.selectUnit.selected.Count > x)
         {
             ShowToolsList(SelectUnit.selectUnit.selected[x].GetComponent<SelectableObj>().tools);
-            if (SelectUnit.selectUnit.selected[x].GetComponent<HackerUnit>() != null)
-            {
-                ShowToolsList(SelectUnit.selectUnit.selected[x].GetComponent<HackerUnit>().spells);
-            }
         }
     }
 

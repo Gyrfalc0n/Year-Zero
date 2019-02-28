@@ -9,8 +9,9 @@ public class Radar : ConstructedUnit
 
     List<MovableUnit> list = new List<MovableUnit>();
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
         GameObject tmp = GameObject.Find("InstanceManager");
         minimap = tmp.GetComponent<MinimapMarkerControls>();
         movementControls = tmp.GetComponent<MovementControls>();
@@ -37,5 +38,18 @@ public class Radar : ConstructedUnit
         {
             list.Remove(other.GetComponent<MovableUnit>());
         }
+    }
+
+    public override bool IsAvailable()
+    {
+        int amount = 0;
+        foreach (SelectableObj obj in InstanceManager.instanceManager.mySelectableObjs)
+        {
+            if (obj.GetComponent<Radar>() != null)
+            {
+                amount++;
+            }
+        }
+        return amount < SkilltreeManager.manager.radar;
     }
 }

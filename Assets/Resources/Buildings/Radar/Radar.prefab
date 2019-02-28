@@ -25,7 +25,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: Buildings/Radar/Radar
-  requiredTime: 2
   tools: []
   highlighted: 0
   selected: 0
@@ -33,6 +32,8 @@ MonoBehaviour:
   description: 
   costs: 00000000000000000000000000000000
   pop: 0
+  spellHolder: {fileID: 0}
+  spells: []
   maxLife: 5
   constructor: {fileID: 969832017721175581, guid: b33475f4782fa094ab36324f9dd2a815,
     type: 3}

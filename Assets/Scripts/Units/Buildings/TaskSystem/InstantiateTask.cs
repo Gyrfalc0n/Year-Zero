@@ -11,15 +11,35 @@ public class InstantiateTask : Task
     {
         associatedUnit = unit;
         active = true;
-        remainingTime = unit.GetMaxlife();
-        requiredTime = unit.GetMaxlife();
+        remainingTime = unit.GetRequiredTime();
+        requiredTime = unit.GetRequiredTime();
     }
 
     public override void OnFinishedTask()
     {
         base.OnFinishedTask();
-        GameObject unit = InstanceManager.instanceManager.InstantiateUnit(associatedUnit.GetPath(), associatedBuilding.GetComponent<ProductionBuilding>().GetSpawnPointCoords(), Quaternion.identity);
-        unit.GetComponent<MovableUnit>().Init(associatedBuilding.GetComponent<ProductionBuilding>().GetBannerCoords());
+        Destroyer destroyer = null;
+        int i = 0;
+        while (destroyer == null && i < InstanceManager.instanceManager.mySelectableObjs.Count)
+        {
+            if (InstanceManager.instanceManager.mySelectableObjs[i].GetComponent<Destroyer>() != null)
+            {
+                destroyer = InstanceManager.instanceManager.mySelectableObjs[i].GetComponent<Destroyer>();
+            }
+            i++;
+        }
+
+        if (destroyer != null)
+        {
+            GameObject unit = InstanceManager.instanceManager.InstantiateUnit(associatedUnit.GetPath(), destroyer.transform.position + new Vector3 (-5,0,0), Quaternion.identity);
+            unit.GetComponent<MovableUnit>().Init(destroyer.transform.position + new Vector3(-10,0,0));
+        }
+        else
+        {
+            GameObject unit = InstanceManager.instanceManager.InstantiateUnit(associatedUnit.GetPath(), associatedBuilding.GetComponent<ProductionBuilding>().GetSpawnPointCoords(), Quaternion.identity);
+            unit.GetComponent<MovableUnit>().Init(associatedBuilding.GetComponent<ProductionBuilding>().GetBannerCoords());
+        }
+            
     }
     public override void Cancel()
     {

@@ -18,7 +18,7 @@ public class AttackToolControls : PlayerControls
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer))
         {
-            SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<CombatUnit>().Attack(hit.collider.GetComponent<DestructibleUnit>());
+            SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<MovableUnit>().Attack(hit.collider.GetComponent<DestructibleUnit>());
         }
     }
 }

@@ -26,6 +26,10 @@ public class MobileMedicalStation : MovableUnit
                 other.GetComponent<MovableUnit>().Heal(lifeGiven);
             }
         }
+    }
 
+    public override bool IsAvailable()
+    {
+        return SkilltreeManager.manager.mobileMedicalStation;
     }
 }

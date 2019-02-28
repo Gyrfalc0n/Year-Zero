@@ -12,20 +12,31 @@ public class DestructibleUnit : SelectableObj {
     public override void Awake()
     {
         base.Awake();
-        lifeValue = maxLife-1;
+        lifeValue = maxLife;
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
         flbPanel.AddLifeBar(this);
     }
 
-    [SerializeField]
-    int maxLife = 5;
+    public int defaultMaxLife;
+    public int maxLife = 5;
     int lifeValue;
 
+    public void TakeDamage(int value)
+    {
+        RPCTakeDamage(value);
+        if (!PhotonNetwork.OfflineMode)
+        {
+            photonView.RPC("RPCTakeDamage", RpcTarget.Others, value);
+        }
+        CheckLife();
+
+    }
+
     [PunRPC]
-    void TakeDamage(int value)
+    void RPCTakeDamage(int value)
     {
         lifeValue -= value;
-        CheckLife();
+        
     }
 
     public void SetLife(float val)
