@@ -5,13 +5,15 @@ using Photon.Pun;
 
 public class Bullet : MonoBehaviourPunCallbacks
 {
+    DestructibleUnit associatedUnit;
     float speed;
     float damage;
     Rigidbody rb;
     float time;
 
-    public void Init(float speed, float damage)
+    public void Init(float speed, float damage, DestructibleUnit unit)
     {
+        associatedUnit = unit;
         this.speed = speed;
         this.damage = damage;
     }
@@ -44,7 +46,7 @@ public class Bullet : MonoBehaviourPunCallbacks
         {
             if (other.GetComponent<DestructibleUnit>() != null && InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>().photonView.Owner))
             {
-                other.GetComponent<DestructibleUnit>().TakeDamage((int)damage);
+                other.GetComponent<DestructibleUnit>().TakeDamage((int)damage, associatedUnit);
                 PhotonNetwork.Destroy(this.gameObject);
             }
         }

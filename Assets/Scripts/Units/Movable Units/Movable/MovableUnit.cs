@@ -200,4 +200,10 @@ public class MovableUnit : DestructibleUnit {
     {
         combatSystem.InitAttack(unit);
     }
+
+    public override void OnDamageTaken(DestructibleUnit shooter)
+    {
+        base.OnDamageTaken(shooter);
+        OnEnemyEnters(shooter);
+    }
 }

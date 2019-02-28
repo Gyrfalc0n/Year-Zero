@@ -50,7 +50,9 @@ MonoBehaviour:
   description: zefzr
   costs: 00000000000000000000000000000000
   pop: 0
-  fovCollider: {fileID: 0}
+  fieldOfViewPrefabPath: VFX/FogOfWar/FieldOfViewPrefabForMV
+  fovCollider: {fileID: 2865810074278427579, guid: df27dcc2612078148b7318ca8c2ec301,
+    type: 3}
   spells: []
   defaultMaxLife: 0
   maxLife: 1
@@ -97,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: Units/BulletPrefab
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 5203917149712624226}
   range: 3
   attackRate: 0
 --- !u!1001 &6365286697518465740
