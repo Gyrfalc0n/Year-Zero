@@ -394,8 +394,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.5099907, y: -15.1}
-  m_SizeDelta: {x: 207.21, y: 119.44}
+  m_AnchoredPosition: {x: 0, y: -7.77}
+  m_SizeDelta: {x: 252.63, y: 140.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &15031624
 MonoBehaviour:
@@ -833,8 +833,9 @@ MonoBehaviour:
   restrictive: 1
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
+  skillName: Unlock Destroyer
+  description: Unlock a powerful destroyer that can improve near units and become
+    spawnpoint for every production building
 --- !u!1 &45708570
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,215 +918,6 @@ Transform:
   m_Father: {fileID: 304381188}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &46981882
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1723268068}
-    m_Modifications:
-    - target: {fileID: 3229985203437534867, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_Name
-      value: Population
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 57.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 72.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 101.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 15.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880297160653925902, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880297160653925902, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880297160653925902, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880297160653925902, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880297160653925902, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880297160653925902, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 9146380459097190595, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9146380459097190595, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9146380459097190595, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 9146380459097190595, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9146380459097190595, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 9146380459097190595, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2855831945681698146, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Tech :'
-      objectReference: {fileID: 0}
-    - target: {fileID: 8873063280786915355, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_CellSize.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8873063280786915355, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f0b522c5df6208a4288377a4c7b38b26, type: 3}
 --- !u!1 &59473250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,15 +1451,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -1844,8 +1636,8 @@ MonoBehaviour:
   restrictive: 0
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
+  skillName: Unlock Turrel
+  description: Defense building that shoot near enemy units
 --- !u!1001 &103102741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2396,15 +2188,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -2436,9 +2228,9 @@ MonoBehaviour:
   restrictive: 1
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Improve Support Mode
+  description: Support mode increases 20% more near units damages
+  increaseAmount: 0.2
 --- !u!1001 &153892777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2595,9 +2387,9 @@ MonoBehaviour:
   restrictive: 0
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Turrel Range
+  description: Turrel's shoot range increases
+  increaseAmount: 2
 --- !u!1001 &155823611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2730,6 +2522,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: forcedNext.Array.size
@@ -2744,11 +2541,6 @@ PrefabInstance:
         type: 3}
       propertyPath: forcedNext.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -3840,14 +3632,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -4269,9 +4061,9 @@ MonoBehaviour:
   - {fileID: 1403881784}
   - {fileID: 764665495}
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Bonus Life
+  description: Destroyer has 10% more life
+  increaseAmount: 0.1
 --- !u!1 &296169619
 GameObject:
   m_ObjectHideFlags: 0
@@ -4964,15 +4756,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -5055,24 +4847,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315453710}
   m_CullTransparentMesh: 0
---- !u!224 &316753804 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
-    type: 3}
-  m_PrefabInstance: {fileID: 46981882}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &316753805 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3414223423966037775, guid: f0b522c5df6208a4288377a4c7b38b26,
-    type: 3}
-  m_PrefabInstance: {fileID: 46981882}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5fd65f0392716743887bf1c27cbdbaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &317199927
 GameObject:
   m_ObjectHideFlags: 0
@@ -5241,15 +5015,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4225758106654420756, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -5485,15 +5259,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -6776,9 +6550,9 @@ MonoBehaviour:
   restrictive: 0
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Radar Range
+  description: Radar range increases
+  increaseAmount: 2
 --- !u!1 &420880027
 GameObject:
   m_ObjectHideFlags: 0
@@ -7152,9 +6926,9 @@ MonoBehaviour:
   restrictive: 0
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Unlock Radar
+  description: Radars can be placed to unhide an area and warn when enemy units approach
+  increaseAmount: 1
 --- !u!1 &466743039
 GameObject:
   m_ObjectHideFlags: 0
@@ -8527,9 +8301,9 @@ MonoBehaviour:
   - {fileID: 673011731}
   - {fileID: 1834360810}
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Construction Speed
+  description: Builders build 10% faster
+  increaseAmount: 0.1
 --- !u!1 &536327093
 GameObject:
   m_ObjectHideFlags: 0
@@ -9072,15 +8846,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4225758106654420756, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -10279,9 +10053,9 @@ MonoBehaviour:
   restrictive: 0
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Laboraty Speed
+  description: Laboraties search 10% faster
+  increaseAmount: 0.1
 --- !u!1001 &680277212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10414,15 +10188,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4225758106654420756, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -11146,9 +10920,9 @@ MonoBehaviour:
   restrictive: 0
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Mining Speed
+  description: Builders mine 10% faster
+  increaseAmount: 0.1
 --- !u!1001 &755587258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11276,15 +11050,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -11450,9 +11224,9 @@ MonoBehaviour:
   restrictive: 1
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Improve Support Mode
+  description: Support mode increases 20% more near units damages
+  increaseAmount: 0.2
 --- !u!1001 &766283875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12475,15 +12249,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4225758106654420756, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -12678,9 +12452,9 @@ MonoBehaviour:
   - {fileID: 673011731}
   - {fileID: 1834360810}
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Mining Speed
+  description: Builders mine 10% faster
+  increaseAmount: 0.1
 --- !u!1 &803111475
 GameObject:
   m_ObjectHideFlags: 0
@@ -13459,9 +13233,9 @@ MonoBehaviour:
   restrictive: 1
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Improve Support Mode
+  description: Support mode increases 20% more near units damages
+  increaseAmount: 0.2
 --- !u!1 &865123546 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
@@ -13696,9 +13470,9 @@ MonoBehaviour:
   forcedNext:
   - {fileID: 939886753}
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Bonus Life
+  description: Destroyer has 10% more life
+  increaseAmount: 0.1
 --- !u!1 &906975126
 GameObject:
   m_ObjectHideFlags: 0
@@ -13733,8 +13507,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.9, y: 72.5}
-  m_SizeDelta: {x: 160, y: 16.43}
+  m_AnchoredPosition: {x: -30.61, y: 74.775}
+  m_SizeDelta: {x: 199.78, y: 10.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &906975128
 MonoBehaviour:
@@ -13758,11 +13532,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 9
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 100
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -14003,9 +13777,9 @@ MonoBehaviour:
   restrictive: 0
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Construction Speed
+  description: Builders build 10% faster
+  increaseAmount: 0.1
 --- !u!1001 &927510411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14268,15 +14042,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -14308,9 +14082,9 @@ MonoBehaviour:
   restrictive: 1
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Energy Farm Speed
+  description: Energy Farms product 10% faster
+  increaseAmount: 0.1
 --- !u!1 &934064093 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
@@ -14430,8 +14204,8 @@ MonoBehaviour:
   restrictive: 0
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
+  skillName: Unlock Banner
+  description: New units now spawn near the destroyer
 --- !u!1 &950466428
 GameObject:
   m_ObjectHideFlags: 0
@@ -15032,6 +14806,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: forcedNext.Array.size
@@ -15051,11 +14830,6 @@ PrefabInstance:
         type: 3}
       propertyPath: restrictive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -15909,9 +15683,9 @@ MonoBehaviour:
   restrictive: 0
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Radar + 1
+  description: You can now have 2 Radars
+  increaseAmount: 1
 --- !u!224 &1087526898 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
@@ -16877,15 +16651,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -17294,15 +17068,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4225758106654420756, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -17677,12 +17451,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6bacacb4ebf564da68f25e9cd1deea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restrictive: 0
+  restrictive: 1
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Turrel Damages
+  description: Turrels do 15% more damages
+  increaseAmount: 0.15
 --- !u!1 &1250845552
 GameObject:
   m_ObjectHideFlags: 0
@@ -18385,15 +18159,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -18425,9 +18199,9 @@ MonoBehaviour:
   restrictive: 1
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Energy Farm Speed
+  description: Energy Farms product 10% faster
+  increaseAmount: 0.1
 --- !u!1 &1305938514
 GameObject:
   m_ObjectHideFlags: 0
@@ -19537,7 +19311,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 226.93, y: 168.2}
+  m_SizeDelta: {x: 267.03, y: 168.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1350542537
 MonoBehaviour:
@@ -20318,9 +20092,9 @@ MonoBehaviour:
   - {fileID: 1602619921}
   - {fileID: 1656830316}
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Bonus Life
+  description: Destroyer has 10% more life
+  increaseAmount: 0.1
 --- !u!1 &1428308857
 GameObject:
   m_ObjectHideFlags: 0
@@ -22222,9 +21996,9 @@ MonoBehaviour:
   - {fileID: 885356231}
   - {fileID: 147381294}
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Bonus Life
+  description: Destroyer has 10% more life
+  increaseAmount: 0.1
 --- !u!1 &1614030370
 GameObject:
   m_ObjectHideFlags: 0
@@ -22592,15 +22366,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -22967,9 +22741,9 @@ MonoBehaviour:
   restrictive: 1
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Improve Support Mode
+  description: Support mode increases 20% more near units damages
+  increaseAmount: 0.2
 --- !u!1 &1677647789
 GameObject:
   m_ObjectHideFlags: 0
@@ -23519,7 +23293,7 @@ RectTransform:
   - {fileID: 1350542536}
   - {fileID: 906975127}
   - {fileID: 15031623}
-  - {fileID: 316753804}
+  - {fileID: 417538210495373581}
   m_Father: {fileID: 1744424442}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23879,15 +23653,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -23919,9 +23693,9 @@ MonoBehaviour:
   restrictive: 1
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Turrel Damages
+  description: Turrels do 15% more damages
+  increaseAmount: 0.15
 --- !u!1 &1737668498
 GameObject:
   m_ObjectHideFlags: 0
@@ -24303,7 +24077,7 @@ MonoBehaviour:
   obj: {fileID: 1723268067}
   skillName: {fileID: 906975128}
   description: {fileID: 15031624}
-  cost: {fileID: 316753805}
+  cost: {fileID: 3414223424004597237}
 --- !u!1 &1776763673
 GameObject:
   m_ObjectHideFlags: 0
@@ -25407,9 +25181,9 @@ MonoBehaviour:
   restrictive: 0
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Energy Farm Speed
+  description: Energy Farms product 10% faster
+  increaseAmount: 0.1
 --- !u!1 &1836094935
 GameObject:
   m_ObjectHideFlags: 0
@@ -26048,9 +25822,9 @@ MonoBehaviour:
   - {fileID: 2012077045}
   - {fileID: 1305730550}
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Mining Speed
+  description: Builders mine 10% faster
+  increaseAmount: 0.1
 --- !u!1 &1873038109
 GameObject:
   m_ObjectHideFlags: 0
@@ -28109,9 +27883,9 @@ MonoBehaviour:
   - {fileID: 2012077045}
   - {fileID: 1305730550}
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Laboraty Speed
+  description: Laboraties search 10% faster
+  increaseAmount: 0.1
 --- !u!1 &1973210524
 GameObject:
   m_ObjectHideFlags: 0
@@ -28521,9 +28295,9 @@ MonoBehaviour:
   - {fileID: 673011731}
   - {fileID: 1834360810}
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Laboraty Speed
+  description: Laboraties search 10% faster
+  increaseAmount: 0.1
 --- !u!1 &2013267299
 GameObject:
   m_ObjectHideFlags: 0
@@ -29083,9 +28857,9 @@ MonoBehaviour:
   - {fileID: 2012077045}
   - {fileID: 1305730550}
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Construction Speed
+  description: Builders build 10% faster
+  increaseAmount: 0.1
 --- !u!1 &2064606148
 GameObject:
   m_ObjectHideFlags: 0
@@ -29968,15 +29742,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Buy
       objectReference: {fileID: 0}
-    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: restrictive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: restrictive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5884156242002226641, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
@@ -30008,9 +29782,9 @@ MonoBehaviour:
   restrictive: 1
   forcedNext: []
   cost: 0
-  skillName: 
-  description: 
-  increaseAmount: 0
+  skillName: Radar + 1
+  description: You can now have 2 Radars
+  increaseAmount: 1
 --- !u!1 &2136786996
 GameObject:
   m_ObjectHideFlags: 0
@@ -30229,6 +30003,45 @@ GameObject:
   - component: {fileID: 3033041686142778926}
   m_Layer: 5
   m_Name: Fill Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &417538210495373581
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3229985203466640489}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1880297160675626228}
+  - {fileID: 9146380459142484537}
+  m_Father: {fileID: 1723268068}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 101.5, y: 74.775}
+  m_SizeDelta: {x: 56.86, y: 10.97}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &463311103627584197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880297160675626228}
+  - component: {fileID: 6520192585786202990}
+  - component: {fileID: 2855831945711787928}
+  m_Layer: 5
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30618,6 +30431,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!224 &1880297160675626228
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463311103627584197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 417538210495373581}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 14.7, y: -5.5}
+  m_SizeDelta: {x: 29.4, y: 11}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2070922835658914601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30704,6 +30536,40 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: -10}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2855831945711787928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463311103627584197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 9
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 9
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Tech :'
 --- !u!224 &3033041686142778926
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30771,6 +30637,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &3229985203466640489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 417538210495373581}
+  - component: {fileID: 3414223424004597237}
+  m_Layer: 5
+  m_Name: Population
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &3301147238474667361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9146380459142484537}
+  - component: {fileID: 5209948890715986926}
+  - component: {fileID: 3349049807080894736}
+  m_Layer: 5
+  m_Name: Value
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &3349049807080894736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3301147238474667361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 9
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 9
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 9999
 --- !u!114 &3350423559623794206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30819,6 +30754,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 8.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3414223424004597237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3229985203466640489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fd65f0392716743887bf1c27cbdbaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: {fileID: 2855831945711787928}
+  value: {fileID: 3349049807080894736}
 --- !u!224 &3531159708571864094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31134,6 +31083,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!222 &5209948890715986926
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3301147238474667361}
+  m_CullTransparentMesh: 0
 --- !u!114 &5370488322512591672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31360,6 +31317,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!222 &6520192585786202990
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463311103627584197}
+  m_CullTransparentMesh: 0
 --- !u!222 &6679387618321853382
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31818,6 +31783,25 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -23.5}
   m_SizeDelta: {x: 160, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &9146380459142484537
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3301147238474667361}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 417538210495373581}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 41.009964, y: -5.500003}
+  m_SizeDelta: {x: 31.7, y: 11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9193203000264042217
 MonoBehaviour:
