@@ -7,19 +7,36 @@ using UnityEngine.UI;
 public class SoundMenu : MonoBehaviour {
 
     [SerializeField]
-    private Slider generalSlider;
+    Slider generalSlider;
+    [SerializeField]
+    Slider soundSlider;
+    [SerializeField]
+    Slider musicSlider;
 
     public AudioMixer audioMixer;
 
     void OnEnable()
     {
-        float value;
-        audioMixer.GetFloat("GeneralVolume", out value);
-        generalSlider.value = value;
+        SetMasterVolume(PlayerPrefs.GetFloat("GeneralAudio"));
+        SetSoundVolume(PlayerPrefs.GetFloat("SoundAudio"));
+        SetMusicVolume(PlayerPrefs.GetFloat("MusicAudio"));
     }
 
     public void SetMasterVolume(float value)
     {
         audioMixer.SetFloat("GeneralVolume", value);
+        PlayerPrefs.SetFloat("GeneralAudio", value);
+    }
+
+    public void SetSoundVolume(float value)
+    {
+        audioMixer.SetFloat("SoundVolume", value);
+        PlayerPrefs.SetFloat("SoundAudio", value);
+    }
+
+    public void SetMusicVolume(float value)
+    {
+        audioMixer.SetFloat("MusicVolume", value);
+        PlayerPrefs.SetFloat("MusicAudio", value);
     }
 }

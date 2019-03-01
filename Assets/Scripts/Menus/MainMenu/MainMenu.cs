@@ -31,6 +31,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         mainMenu.SetActive(true);
         CheckPseudo();
         CheckGameplay();
+        CheckSound();
     }
 
     void CheckPseudo()
@@ -59,6 +60,22 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         if (!PlayerPrefs.HasKey("helpBubble"))
         {
             PlayerPrefs.SetInt("helpBubble", 1);
+        }
+    }
+
+    void CheckSound()
+    {
+        if (!PlayerPrefs.HasKey("GeneralAudio"))
+        {
+            PlayerPrefs.SetFloat("GeneralAudio", 0.5f);
+        }
+        if (!PlayerPrefs.HasKey("SoundAudio"))
+        {
+            PlayerPrefs.SetFloat("SoundAudio", 0.5f);
+        }
+        if (!PlayerPrefs.HasKey("MusicAudio"))
+        {
+            PlayerPrefs.SetFloat("MusicAudio", 0.5f);
         }
     }
 

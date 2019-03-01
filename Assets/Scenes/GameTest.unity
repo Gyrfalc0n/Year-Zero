@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.36313, g: 0.30830973, b: 0.34969908, a: 1}
+  m_IndirectSpecularColor: {r: 0.10897482, g: 0.11245222, b: 0.1429064, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -151,7 +151,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12891961}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4198,7 +4198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf2ca531cbb12e4f8c617ce2c0c2016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offlineMode: 0
+  offlineMode: 1
   allSelectableObjs: []
   mySelectableObjs: []
 --- !u!4 &304381188
