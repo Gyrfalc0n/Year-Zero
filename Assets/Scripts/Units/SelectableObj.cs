@@ -146,11 +146,15 @@ public class SelectableObj : Interactable
         selectionCircle.gameObject.SetActive(false);
     }
 
-    public void Highlight()
+    [HideInInspector]
+    public bool groupHighlight = false;
+
+    public void Highlight(bool group)
     {
         if (!visible)
             return;
         highlighted = true;
+        groupHighlight = group;
         if (!selected)
         {
             highlighted = true;

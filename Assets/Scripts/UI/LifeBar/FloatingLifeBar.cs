@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class FloatingLifeBar : MonoBehaviour
 {
     [SerializeField]
-    Slider obj;
+    Image obj;
+    [SerializeField]
+    GameObject bg;
     DestructibleUnit associatedUnit;
 
     Vector3 tmp;
@@ -31,19 +33,21 @@ public class FloatingLifeBar : MonoBehaviour
 
     void UpdateBar()
     {
-        if (associatedUnit.highlighted)
+        if (associatedUnit.highlighted && !associatedUnit.groupHighlight)
         {
             obj.gameObject.SetActive(true);
+            bg.SetActive(true);
             tmp = associatedUnit.transform.position;
             tmp.y += 1;
             transform.position = tmp;
             transform.rotation = Camera.main.transform.rotation;
 
-            obj.value = associatedUnit.GetLife() / associatedUnit.GetMaxlife() * obj.maxValue;
+            obj.fillAmount = associatedUnit.GetLife() / associatedUnit.GetMaxlife();
         }
         else
         {
             obj.gameObject.SetActive(false);
+            bg.SetActive(false);
         }
     }
 }

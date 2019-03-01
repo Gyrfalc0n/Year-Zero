@@ -28,8 +28,6 @@ public class CombatSystem : MonoBehaviour
 
     public void InitAttack(DestructibleUnit unit)
     {
-        print("Attacking");
-
         target = unit;
     }
 
