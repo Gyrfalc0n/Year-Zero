@@ -48,6 +48,7 @@ MonoBehaviour:
   description: 
   costs: 000000000000000000000000
   pop: 0
+  fieldOfViewPrefabPath: 
   fovCollider: {fileID: 0}
   spells: []
   defaultMaxLife: 0
@@ -139,6 +140,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroyer
       objectReference: {fileID: 0}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1112697515474037819}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -193,11 +199,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 1112697515474037819}
     m_RemovedComponents:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
     - {fileID: 2915407914779352324, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}

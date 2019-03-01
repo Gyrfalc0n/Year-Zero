@@ -5,7 +5,6 @@ using Photon.Pun;
 
 public class SelectableObj : Interactable
 {
-
     [SerializeField]
     string path;
 

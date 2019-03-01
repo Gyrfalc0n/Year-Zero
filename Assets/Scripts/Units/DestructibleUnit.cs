@@ -18,7 +18,8 @@ public class DestructibleUnit : SelectableObj {
     }
 
     public int defaultMaxLife;
-    public int maxLife = 5;
+    [HideInInspector]
+    public int maxLife;
     int lifeValue;
 
     public void TakeDamage(int value, DestructibleUnit shooter)

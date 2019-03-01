@@ -21,9 +21,11 @@ public class MovableUnit : DestructibleUnit {
     [SerializeField]
     float requiredTime;
 
+    [HideInInspector]
     public bool moving = false;
 
     public float defaultSpeed;
+    [HideInInspector]
     public float speed;
 
     public override void Awake()
@@ -146,6 +148,7 @@ public class MovableUnit : DestructibleUnit {
     }
 
     bool boosted;
+    [HideInInspector]
     public float atkBoost;
     float lifeBoost;
 
