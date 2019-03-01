@@ -17,26 +17,32 @@ public class SoundMenu : MonoBehaviour {
 
     void OnEnable()
     {
-        SetMasterVolume(PlayerPrefs.GetFloat("GeneralAudio"));
-        SetSoundVolume(PlayerPrefs.GetFloat("SoundAudio"));
-        SetMusicVolume(PlayerPrefs.GetFloat("MusicAudio"));
+        generalSlider.value = PlayerPrefs.GetFloat("GeneralAudio");
+        soundSlider.value = PlayerPrefs.GetFloat("SoundAudio");
+        musicSlider.value = PlayerPrefs.GetFloat("MusicAudio");
+        SetMasterVolume();
+        SetSoundVolume();
+        SetMusicVolume();
     }
 
-    public void SetMasterVolume(float value)
+    public void SetVolume(string exposeName, string prefName, float value)
     {
-        audioMixer.SetFloat("GeneralVolume", value);
-        PlayerPrefs.SetFloat("GeneralAudio", value);
+        audioMixer.SetFloat(exposeName, value);
+        PlayerPrefs.SetFloat(prefName, value);
     }
 
-    public void SetSoundVolume(float value)
+    public void SetMasterVolume()
     {
-        audioMixer.SetFloat("SoundVolume", value);
-        PlayerPrefs.SetFloat("SoundAudio", value);
+        SetVolume("GeneralVolume", "GeneralAudio", generalSlider.value);
     }
 
-    public void SetMusicVolume(float value)
+    public void SetSoundVolume()
     {
-        audioMixer.SetFloat("MusicVolume", value);
-        PlayerPrefs.SetFloat("MusicAudio", value);
+        SetVolume("SoundVolume", "SoundAudio", soundSlider.value);
+    }
+
+    public void SetMusicVolume()
+    {
+        SetVolume("MusicVolume", "MusicAudio", musicSlider.value);
     }
 }

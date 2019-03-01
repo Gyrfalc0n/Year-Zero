@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -25,7 +26,10 @@ public class MainMenu : MonoBehaviourPunCallbacks {
     [SerializeField]
     private GameObject createGameMenu;
 
-    void Awake()
+    [SerializeField]
+    AudioMixer audioMixer;
+
+    private void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
         mainMenu.SetActive(true);
@@ -77,6 +81,10 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         {
             PlayerPrefs.SetFloat("MusicAudio", 0.5f);
         }
+
+        audioMixer.SetFloat("GeneralVolume", PlayerPrefs.GetFloat("GeneralAudio"));
+        audioMixer.SetFloat("SoundVolume", PlayerPrefs.GetFloat("SoundAudio"));
+        audioMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicAudio"));
     }
 
     public void Singleplayer()
