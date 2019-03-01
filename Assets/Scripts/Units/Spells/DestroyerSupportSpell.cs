@@ -19,7 +19,6 @@ public class DestroyerSupportSpell : Spell
     {
         time = maxTime;
         activated = true;
-        throw new System.NotImplementedException();
     }
 
     public override void Update()
