@@ -23,7 +23,8 @@ public class Skill : MonoBehaviour
     void Start()
     {
         activated = false;
-        associatedButton = GetComponentInChildren<Button>();
+        associatedButton = transform.Find("Button").GetComponent<Button>();
+        associatedButton.onClick.AddListener(Buy);
         InitNextSkills();
     }
 
@@ -37,7 +38,7 @@ public class Skill : MonoBehaviour
             }
             else
                 Lock();
-            GetComponent<Image>().color = Color.green;
+            associatedButton.GetComponent<Image>().color = Color.green;
             UnlockChildren();
             Effect();
             activated = true;
@@ -53,7 +54,7 @@ public class Skill : MonoBehaviour
     {
         foreach (Transform skill in transform)
         {
-            if (skill.GetComponent<Skill>() != null)
+            if (skill.name != "Button" && skill.GetComponent<Skill>() != null)
             {
                 nextSkills.Add(skill.GetComponent<Skill>());
             }

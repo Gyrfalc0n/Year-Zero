@@ -12,7 +12,7 @@ public class SkillHelpModule : MonoBehaviour
 
     public void OnPointerEnter()
     {
-        panel.Show(GetComponent<Skill>());
+        panel.Show(GetComponentInParent<Skill>());
     }
 
     public void OnPointerExit()
