@@ -65,4 +65,9 @@ public class AlliesMenu : MonoBehaviourPunCallbacks
     {
         PlayerManager.playerManager.Add(value, index);
     }
+
+    public bool Activated()
+    {
+        return obj.activeInHierarchy;
+    }
 }

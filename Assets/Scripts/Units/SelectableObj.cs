@@ -31,8 +31,7 @@ public class SelectableObj : Interactable
     string selectionCirclePath = "Units/SelectionCircle";
     protected SpriteRenderer selectionCircle;
 
-    [SerializeField]
-    string fieldOfViewPrefabPath;
+    protected string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";
     [HideInInspector]
     public FieldOfViewCollider fovCollider;
     bool visible;

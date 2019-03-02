@@ -31,6 +31,7 @@ public class MovableUnit : DestructibleUnit {
     public override void Awake()
     {
         base.Awake();
+        fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefabForMV";
         defaultSpeed = 3.5f;
         speed = defaultSpeed;
         agent = GetComponent<NavMeshAgent>();

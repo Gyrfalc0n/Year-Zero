@@ -3859,7 +3859,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 304381201}
+      - m_Target: {fileID: 201253846}
         m_MethodName: Cancel
         m_Mode: 1
         m_Arguments:
@@ -4198,7 +4198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf2ca531cbb12e4f8c617ce2c0c2016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offlineMode: 0
+  offlineMode: 1
   allSelectableObjs: []
   mySelectableObjs: []
 --- !u!4 &304381188
@@ -27375,7 +27375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f1aa47d0382bc4d8b2e613876684be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: Select non active builders
   panel: {fileID: 536327095}
 --- !u!1 &1958395688
 GameObject:

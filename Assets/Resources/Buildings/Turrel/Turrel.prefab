@@ -30,11 +30,12 @@ MonoBehaviour:
   selected: 0
   objName: Turrel
   description: 
-  costs: 000000000000000000000000
+  costs: 00000000000000000000000000000000
   pop: 0
   fovCollider: {fileID: 2865810074278427579, guid: 3cd7ac9cb6d8009468ab14ccc6ac6bb7,
     type: 3}
   spells: []
+  groupHighlight: 0
   defaultMaxLife: 0
   maxLife: 5
   constructor: {fileID: 2487996386993575265, guid: abf1225dd43421c46aa3bd7776d0c9cc,
@@ -53,11 +54,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turrel
       objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 6137002704854191189}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -102,6 +98,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 6137002704854191189}
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
     - {fileID: 1315701950554808790, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
