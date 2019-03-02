@@ -386,5 +386,10 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             }
         }
     }
+
+    public void ReloadTools()
+    {
+        toolsPanel.ReloadTools();
+    }
 }
     

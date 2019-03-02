@@ -42,6 +42,7 @@ public class Skill : MonoBehaviour
             UnlockChildren();
             Effect();
             activated = true;
+            SelectUnit.selectUnit.ReloadTools();
         }
         else
         {

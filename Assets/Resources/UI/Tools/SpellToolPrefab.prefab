@@ -87,18 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd3a5f36487e1146bd925c3d96da598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4379541162707855609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8593430693177879743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 829e2f878a059334e81e9efe8663e01a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1450388991738183547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +97,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -146154839, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4379541162707855609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8593430693177879743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829e2f878a059334e81e9efe8663e01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8594847453649533677
@@ -227,6 +227,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114063785424869692, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114014468917716348, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -262,10 +267,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 114063785424869692, guid: 37b0bb7757687cb44af7df486cd63dcf,
+    - target: {fileID: 114014468917716348, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114547213410525244, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}

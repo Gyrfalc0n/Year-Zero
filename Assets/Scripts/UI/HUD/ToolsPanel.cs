@@ -78,4 +78,19 @@ public class ToolsPanel : MonoBehaviour {
             }
         }
     }
+
+    public void ReloadTools()
+    {
+        foreach (Transform tool in buttons)
+        {
+            if (tool.GetComponent<TaskTool>() != null)
+            {
+                tool.GetComponent<Button>().interactable = tool.GetComponent<TaskTool>().GetAssociatedUnit().IsAvailable();
+            }
+            else if (tool.GetComponent<BuildTool>() != null)
+            {
+                tool.GetComponent<Button>().interactable = tool.GetComponent<BuildTool>().GetAssociatedBuilding().IsAvailable();
+            }
+        }
+    }
 }
