@@ -16,4 +16,9 @@ public class SkilltreePanel : MonoBehaviour
     {
         obj.SetActive(false);
     }
+
+    public bool Activated()
+    {
+        return obj.activeInHierarchy;
+    }
 }
