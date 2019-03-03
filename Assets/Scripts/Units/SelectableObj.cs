@@ -5,9 +5,6 @@ using Photon.Pun;
 
 public class SelectableObj : Interactable
 {
-    [SerializeField]
-    string path;
-
     public List<GameObject> tools;
 
     [HideInInspector]
@@ -173,9 +170,9 @@ public class SelectableObj : Interactable
 
     public virtual void Interact(Interactable obj) { }
 
-    public string GetPath()
+    public virtual string GetPath()
     {
-        return path;
+        return "none";
     }
 
     #region FOV

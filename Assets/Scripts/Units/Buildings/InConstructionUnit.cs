@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using Photon.Pun;
 
 public class InConstructionUnit : BuildingUnit
@@ -80,5 +81,13 @@ public class InConstructionUnit : BuildingUnit
     public ConstructedUnit GetAssociatedBuilding()
     {
         return associatedBuilding;
+    }
+}
+
+[CustomEditor(typeof(InConstructionUnit))]
+public class InConstructionUnitEditor : Editor
+{
+    override public void OnInspectorGUI()
+    {
     }
 }

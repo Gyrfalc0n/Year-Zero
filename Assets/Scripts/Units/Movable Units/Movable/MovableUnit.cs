@@ -11,7 +11,6 @@ using Photon.Realtime;
 public class MovableUnit : DestructibleUnit {
 
     protected NavMeshAgent agent;
-    public Card card;
     protected PatrolSystem patrolSystem;
     protected CombatSystem combatSystem;
 
@@ -51,6 +50,11 @@ public class MovableUnit : DestructibleUnit {
                 OnReachedDestination();
             }
         }
+    }
+
+    public override string GetPath()
+    {
+        return "Units/" + name;
     }
 
     public virtual float GetRequiredTime()

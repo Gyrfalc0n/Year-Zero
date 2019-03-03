@@ -7,22 +7,32 @@ using Photon.Realtime;
 [RequireComponent(typeof(TaskSystem))]
 public class ConstructedUnit : BuildingUnit
 {
-    [SerializeField]
-    InConstructionUnit constructor;
-    [SerializeField]
-    GameObject ghost;
-
+    [HideInInspector]
     public int lines;
+    [HideInInspector]
     public int columns;
+    public int size;
 
-    public InConstructionUnit GetConstructor()
+    public override void Start()
     {
-        return constructor;
+        base.Start();
+        lines = size;
+        columns = size;
+    }
+
+    public override string GetPath()
+    {
+        return "Buildings/" + name + "/" + name;
+    }
+
+    public string GetConstructorPath()
+    {
+        return GetPath() + "Cons";
     }
 
     public GameObject GetGhost()
     {
-        return ghost;
+        return ((GameObject)Resources.Load(GetPath() + "Ghost"));
     }
 
 
