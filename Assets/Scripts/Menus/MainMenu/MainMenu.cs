@@ -210,4 +210,12 @@ public class MainMenu : MonoBehaviourPunCallbacks {
     {
         return (Application.internetReachability == NetworkReachability.NotReachable);
     }
+
+    [SerializeField]
+    GameObject creditsMenu;
+    public void Credits()
+    {
+        mainMenu.SetActive(false);
+        creditsMenu.SetActive(true);
+    }
 }
