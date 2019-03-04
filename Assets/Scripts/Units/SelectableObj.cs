@@ -22,10 +22,10 @@ public class SelectableObj : Interactable
     public int[] costs = new int[3];
     public int pop;
 
-    string minimapIconPrefabPath = "Units/MinimapIconPrefab";
+    string minimapIconPrefabPath = "Units/Others/MinimapIconPrefab";
     SpriteRenderer minimapIcon;
 
-    string selectionCirclePath = "Units/SelectionCircle";
+    string selectionCirclePath = "Units/Others/SelectionCircle";
     protected SpriteRenderer selectionCircle;
 
     protected string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";

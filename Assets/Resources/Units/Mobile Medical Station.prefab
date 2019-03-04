@@ -12,8 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e78ee5a6c5b334eb4b3392c7fcb059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Units/MobileMedicalStation
-  tools: []
+  tools:
+  - {fileID: 2146817939600602931, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
+  - {fileID: 2998254043193242793, guid: 595081643c9d3e3469a07e89de86499d, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 3522613447464678148, guid: a85f33f8274a5f74cbaa2194e5bb9b94, type: 3}
+  - {fileID: 5952819384617243677, guid: e4b97814700c90449a9b6c7866f8c8db, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
   highlighted: 0
   selected: 0
   objName: Mobile Medical Station
@@ -22,9 +33,9 @@ MonoBehaviour:
   pop: 0
   fovCollider: {fileID: 0}
   spells: []
+  groupHighlight: 0
   defaultMaxLife: 0
   maxLife: 5
-  card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
   home: {fileID: 0}
   requiredTime: 0
   moving: 0
@@ -104,7 +115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1498426257654464, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_Name
-      value: MobileMedicalStation
+      value: Mobile Medical Station
       objectReference: {fileID: 0}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -165,16 +176,21 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[0]
       value: 
       objectReference: {fileID: 1621491143804134889}
-    - target: {fileID: 7382188653647537440, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 538668049942933165}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: projectile
+      value: Units/Bullets/BulletPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382188653647537440, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}

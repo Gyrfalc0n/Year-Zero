@@ -40,20 +40,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b87fa7c96bd5142a454354fd3abb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: 
-  tools: []
+  tools:
+  - {fileID: 2146817939600602931, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
+  - {fileID: 2998254043193242793, guid: 595081643c9d3e3469a07e89de86499d, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 3522613447464678148, guid: a85f33f8274a5f74cbaa2194e5bb9b94, type: 3}
+  - {fileID: 5952819384617243677, guid: e4b97814700c90449a9b6c7866f8c8db, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6697559889896168060, guid: 5327642705d755145840bf814de87900, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
+  - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
   highlighted: 0
   selected: 0
   objName: 
   description: 
   costs: 000000000000000000000000
   pop: 0
-  fieldOfViewPrefabPath: 
   fovCollider: {fileID: 0}
   spells: []
+  groupHighlight: 0
   defaultMaxLife: 0
   maxLife: 5
-  card: {fileID: 0}
   home: {fileID: 0}
   requiredTime: 0
   moving: 0
@@ -140,11 +150,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroyer
       objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 1112697515474037819}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -194,6 +199,16 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[0]
       value: 
       objectReference: {fileID: 2200028590359865215}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1112697515474037819}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: projectile
+      value: Units/Bullets/BulletPrefab
+      objectReference: {fileID: 0}
     - target: {fileID: 1183898688568993966, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_RootOrder

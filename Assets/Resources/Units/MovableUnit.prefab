@@ -232,7 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa8ebb57f22f8b41991abd8c9d0fe34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: 
   tools:
   - {fileID: 2146817939600602931, guid: 0456beb7285d7d64893d2f1856f990d1, type: 3}
   - {fileID: 2998254043193242793, guid: 595081643c9d3e3469a07e89de86499d, type: 3}
@@ -246,9 +245,9 @@ MonoBehaviour:
   fovCollider: {fileID: 2865810074278427579, guid: df27dcc2612078148b7318ca8c2ec301,
     type: 3}
   spells: []
+  groupHighlight: 0
   defaultMaxLife: 0
   maxLife: 5
-  card: {fileID: 114766322279861498, guid: 9e7012dee3d1a0c499c39b47d93140ae, type: 3}
   home: {fileID: 0}
   requiredTime: 0
   moving: 0
@@ -281,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b94e045ae6cbc4180cd9e721ecfa0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: Units/BulletPrefab
+  projectile: Units/Bullets/BulletPrefab
   firePoint: {fileID: 1183898688568993966}
   range: 5
   attackRate: 3

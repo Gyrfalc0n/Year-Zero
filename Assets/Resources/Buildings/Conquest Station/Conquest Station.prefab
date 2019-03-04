@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 4201926755012452119, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_Name
-      value: ConquestStation
+      value: Conquest Station
       objectReference: {fileID: 0}
     - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
@@ -79,6 +79,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
+      propertyPath: tools.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
       propertyPath: path
       value: ConquestStation
       objectReference: {fileID: 0}
@@ -124,6 +129,24 @@ PrefabInstance:
       propertyPath: fieldOfViewPrefabPath
       value: VFX/FogOfWar/FieldOfViewPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: tools.Array.data[0]
+      value: 
+      objectReference: {fileID: 2398293628918808410, guid: 24d01e45bed692a44aabe1f6da2855b0,
+        type: 3}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: tools.Array.data[1]
+      value: 
+      objectReference: {fileID: 5371575594413408597, guid: db3014db6964fe04397c922dca31666d,
+        type: 3}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: tools.Array.data[2]
+      value: 
+      objectReference: {fileID: 2241181987109979733, guid: 815e6567a631163428d0b212d1c43913,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 3354145167647749936, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
