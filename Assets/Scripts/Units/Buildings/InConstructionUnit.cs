@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using Photon.Pun;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class InConstructionUnit : BuildingUnit
 {
@@ -84,6 +87,7 @@ public class InConstructionUnit : BuildingUnit
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(InConstructionUnit))]
 public class InConstructionUnitEditor : Editor
 {
@@ -91,3 +95,4 @@ public class InConstructionUnitEditor : Editor
     {
     }
 }
+#endif
