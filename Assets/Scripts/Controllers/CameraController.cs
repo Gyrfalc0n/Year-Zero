@@ -85,13 +85,13 @@ public class CameraController : MonoBehaviour {
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0 || Input.GetKey(KeyCode.KeypadPlus))
         {
-            rot.x -= 1;
-            pos.y -= 0.1f;
+            rot.x -= 2;
+            pos.y -= 0.5f;
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0 || Input.GetKey(KeyCode.KeypadMinus))
         {
-            rot.x += 1;
-            pos.y += 0.1f;
+            rot.x += 2;
+            pos.y += 0.5f;
         }
         rot.x = Mathf.Clamp(rot.x, rotMin, rotMax);
         pos.y = Mathf.Clamp(pos.y, minHeight, maxHeight);
