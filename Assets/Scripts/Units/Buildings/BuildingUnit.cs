@@ -13,6 +13,7 @@ public class BuildingUnit : DestructibleUnit
 
     public override Vector3 GetSelectionCirclePos()
     {
-        return new Vector3(0, 0.01f, 0);
+        return new Vector3(0, -GetComponent<BoxCollider>().size.y / 2 + 0.01f, 0);
+        //return new Vector3(0, 0.01f, 0);
     }
 }

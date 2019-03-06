@@ -7,7 +7,6 @@ using Photon.Pun;
 using UnityEditor;
 #endif
 
-
 public class InConstructionUnit : BuildingUnit
 {
     ConstructedUnit associatedBuilding;
@@ -87,6 +86,7 @@ public class InConstructionUnit : BuildingUnit
         return associatedBuilding;
     }
 }
+
 #if UNITY_EDITOR
 [CustomEditor(typeof(InConstructionUnit))]
 public class InConstructionUnitEditor : Editor
