@@ -8,8 +8,12 @@ public class SendHelp : MonoBehaviour
     [SerializeField]
     string description;
 
-    [SerializeField]
     HelpPanel panel;
+
+    private void Start()
+    {
+        panel = HelpPanel.helpPanel;
+    }
 
     public void CallHelpPanel()
     {

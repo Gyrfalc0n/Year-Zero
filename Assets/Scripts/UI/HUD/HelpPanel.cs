@@ -6,6 +6,17 @@ using UnityEngine.EventSystems;
 
 public class HelpPanel : MonoBehaviour
 {
+    #region Singleton
+
+    public static HelpPanel helpPanel;
+
+    private void Awake()
+    {
+        helpPanel = this;
+    }
+
+    #endregion
+
     [SerializeField]
     GameObject obj;
 
