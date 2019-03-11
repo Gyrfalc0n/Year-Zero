@@ -4,11 +4,14 @@ using System.Linq;
 using TMPro;
 using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    private bool w8 = false;
+    private bool waitForFirstWorker = false;
+    private bool waitForSelection = false;
+    private bool waitForCombatStation = false;
     private int step = 0;
     public Text tutoText;
     public bool runningTutorial = true;
@@ -28,12 +31,41 @@ public class Tutorial : MonoBehaviour
         {
             TutoEvent();
         }
-        if (w8 && InstanceManager.instanceManager.mySelectableObjs.Count == 2)
+        if (waitForFirstWorker && InstanceManager.instanceManager.mySelectableObjs.Count == 2)
         {
             Time.timeScale = 0;
             TutoPause.SetActive(true);
+            waitForFirstWorker = false;
             step++;
         }
+        if (waitForSelection && SelectUnit.selectUnit.selected.Count != 0)
+        {
+            foreach (SelectableObj selected in SelectUnit.selectUnit.selected)
+            {
+                if (selected.GetComponent<BuilderUnit>()!=null)
+                {
+                    Time.timeScale = 0;
+                    TutoPause.SetActive(true);
+                    waitForSelection = false;
+                    step++;
+                }
+            }    
+        }
+
+        if (waitForCombatStation)
+        {
+            foreach (SelectableObj selected in InstanceManager.instanceManager.mySelectableObjs)
+            {
+                /*if (selected.GetComponent<>()!=null)
+                {
+                    Time.timeScale = 0;
+                    TutoPause.SetActive(true);
+                    waitForSelection = false;
+                    step++;
+                }*/
+            }
+        }
+
         //  InstanceManager.instanceManager.mySelectableObjs  pour trouver la liste des objets selectionnables à nous
         //   SelectUnit.selectUnit.selected
         //   Time.timeScale = 0;      
@@ -58,25 +90,44 @@ public class Tutorial : MonoBehaviour
                 step++;
                 break;
             case 3:
-                tutoText.text = "Now Select the SpaceStation and click on the worker button to create one.";
-                w8 = true;
+                tutoText.text = "Now Select the SpaceStation by drawing a square around it and click on the builder button to create one.";
+                waitForFirstWorker = true;
                 TutoPause.SetActive(false);
                 Time.timeScale = 1;
-                w8 = false;
                 break;
             case 4 :
                 tutoText.text ="Every unit cost a certain amount of resources, and take a certain time to be produced.";
                 step++;
                 break;
             case 5:
-                tutoText.text = "Good management of these resources is the key (for/to?) victory";
+                tutoText.text = "Good management of these resources is the key to victory";
                 step++;
                 break;
             case 6:
                 tutoText.text = "Now select the worker";
+                waitForSelection = true;
+                TutoPause.SetActive(false);
+                Time.timeScale = 1;
+                break;
+            case 7:
+                tutoText.text = "The worker can build building, and repair them";
                 step++;
                 break;
-                
-        }           
+            case 8:
+                tutoText.text = "Click on build and try to build a Combat Station";
+                waitForCombatStation = true;
+                TutoPause.SetActive(false);
+                Time.timeScale = 1;
+                break;
+            case 9:
+                tutoText.text = "The Combat station allows you to create combat unit";
+                step++;
+                break;
+            case 10:
+                tutoText.text = "Select the Combat Station and create a basic troop ";
+                //verification
+                step++;
+                break;
+        }    
     }
 }
