@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class CardsPanel : MonoBehaviour {
 
     [SerializeField]
+    Card cardPrefab;
+    [SerializeField]
     private Transform content;
 
     public void ClearCards()
@@ -33,8 +35,8 @@ public class CardsPanel : MonoBehaviour {
         {
             if (unit.GetComponent<MovableUnit>() != null)
             {
-                Card card = Instantiate(unit.GetComponent<MovableUnit>().card, content);
-                card.Init(unit.GetComponent<MovableUnit>());
+                Card tmp = Instantiate(cardPrefab, content);
+                tmp.Init(unit.GetComponent<MovableUnit>());
             }
         }
         SelectCard(0);

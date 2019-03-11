@@ -13,7 +13,6 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
     [SerializeField]
     LayerMask groundLayer;
     ConstructedUnit associatedBuilding;
-    InConstructionUnit buildingCons;
 
     BuilderUnit builder;
 
@@ -26,7 +25,6 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
     {
         this.builder = builder;
         associatedBuilding = building;
-        buildingCons = building.GetConstructor();
         this.lines = building.lines;
         this.columns = building.columns;
         CreateGrid();
@@ -105,7 +103,7 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
 
     private void Construct()
     {
-        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(buildingCons.GetPath(), GetCenter(), Quaternion.identity);
+        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(associatedBuilding.GetConstructorPath(), GetCenter(), Quaternion.identity);
         obj.GetComponent<InConstructionUnit>().Init(associatedBuilding);
         PlayerManager.playerManager.Pay(associatedBuilding.costs, associatedBuilding.pop);
         builder.Build(obj.GetComponent<InConstructionUnit>());

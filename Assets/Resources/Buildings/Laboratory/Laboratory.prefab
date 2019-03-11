@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: Buildings/Laboratory/Laboratory
-  requiredTime: 0
   tools: []
   highlighted: 0
   selected: 0
@@ -21,6 +20,10 @@ MonoBehaviour:
   description: 
   costs: 00000000000000000000000000000000
   pop: 0
+  fovCollider: {fileID: 0}
+  spells: []
+  groupHighlight: 0
+  defaultMaxLife: 0
   maxLife: 5
   constructor: {fileID: 2487996386993575265, guid: 6fe6d5cf897f45149bd0da4ab6cbb0a2,
     type: 3}
@@ -37,43 +40,6 @@ PrefabInstance:
     - target: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_Name
       value: Laboratory
-      objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 363099029417305205}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: path
-      value: Buildings/Laboratory
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: objName
-      value: Laboratory
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: constructor
-      value: 
-      objectReference: {fileID: 2487996386993575265, guid: 6fe6d5cf897f45149bd0da4ab6cbb0a2,
-        type: 3}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: ghost
-      value: 
-      objectReference: {fileID: 1498426257654464, guid: 7e766d4b49cb29042b669509ccfb33d4,
-        type: 3}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: lines
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: columns
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -118,6 +84,43 @@ PrefabInstance:
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 363099029417305205}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: path
+      value: Buildings/Laboratory
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: objName
+      value: Laboratory
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: constructor
+      value: 
+      objectReference: {fileID: 2487996386993575265, guid: 6fe6d5cf897f45149bd0da4ab6cbb0a2,
+        type: 3}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 1498426257654464, guid: 7e766d4b49cb29042b669509ccfb33d4,
+        type: 3}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: lines
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: columns
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}

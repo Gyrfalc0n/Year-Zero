@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -25,12 +26,16 @@ public class MainMenu : MonoBehaviourPunCallbacks {
     [SerializeField]
     private GameObject createGameMenu;
 
-    void Awake()
+    [SerializeField]
+    AudioMixer audioMixer;
+
+    private void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
         mainMenu.SetActive(true);
         CheckPseudo();
         CheckGameplay();
+        CheckSound();
     }
 
     void CheckPseudo()
@@ -60,6 +65,26 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         {
             PlayerPrefs.SetInt("helpBubble", 1);
         }
+    }
+
+    void CheckSound()
+    {
+        if (!PlayerPrefs.HasKey("GeneralAudio"))
+        {
+            PlayerPrefs.SetFloat("GeneralAudio", 0.5f);
+        }
+        if (!PlayerPrefs.HasKey("SoundAudio"))
+        {
+            PlayerPrefs.SetFloat("SoundAudio", 0.5f);
+        }
+        if (!PlayerPrefs.HasKey("MusicAudio"))
+        {
+            PlayerPrefs.SetFloat("MusicAudio", 0.5f);
+        }
+
+        audioMixer.SetFloat("GeneralVolume", PlayerPrefs.GetFloat("GeneralAudio"));
+        audioMixer.SetFloat("SoundVolume", PlayerPrefs.GetFloat("SoundAudio"));
+        audioMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicAudio"));
     }
 
     public void Singleplayer()
@@ -184,5 +209,13 @@ public class MainMenu : MonoBehaviourPunCallbacks {
     bool NoInternet()
     {
         return (Application.internetReachability == NetworkReachability.NotReachable);
+    }
+
+    [SerializeField]
+    GameObject creditsMenu;
+    public void Credits()
+    {
+        mainMenu.SetActive(false);
+        creditsMenu.SetActive(true);
     }
 }

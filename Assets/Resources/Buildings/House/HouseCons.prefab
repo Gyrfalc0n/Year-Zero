@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d09a9a8d26cbf246a7d325342c51547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Buildings/House/HouseCons
   tools: []
   highlighted: 0
   selected: 0
@@ -168,6 +167,8 @@ MonoBehaviour:
   description: 
   costs: 0000000000000000000000000000000000000000
   pop: 0
-  spellHolder: {fileID: 0}
+  fovCollider: {fileID: 0}
   spells: []
+  groupHighlight: 0
+  defaultMaxLife: 0
   maxLife: 5

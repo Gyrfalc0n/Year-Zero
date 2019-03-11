@@ -11,7 +11,6 @@ using Photon.Realtime;
 public class MovableUnit : DestructibleUnit {
 
     protected NavMeshAgent agent;
-    public Card card;
     protected PatrolSystem patrolSystem;
     protected CombatSystem combatSystem;
 
@@ -21,14 +20,17 @@ public class MovableUnit : DestructibleUnit {
     [SerializeField]
     float requiredTime;
 
+    [HideInInspector]
     public bool moving = false;
 
     public float defaultSpeed;
+    [HideInInspector]
     public float speed;
 
     public override void Awake()
     {
         base.Awake();
+        fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefabForMV";
         defaultSpeed = 3.5f;
         speed = defaultSpeed;
         agent = GetComponent<NavMeshAgent>();
@@ -48,6 +50,11 @@ public class MovableUnit : DestructibleUnit {
                 OnReachedDestination();
             }
         }
+    }
+
+    public override string GetPath()
+    {
+        return "Units/" + name;
     }
 
     public virtual float GetRequiredTime()
@@ -146,6 +153,7 @@ public class MovableUnit : DestructibleUnit {
     }
 
     bool boosted;
+    [HideInInspector]
     public float atkBoost;
     float lifeBoost;
 
@@ -199,5 +207,11 @@ public class MovableUnit : DestructibleUnit {
     public void Attack(DestructibleUnit unit)
     {
         combatSystem.InitAttack(unit);
+    }
+
+    public override void OnDamageTaken(DestructibleUnit shooter)
+    {
+        base.OnDamageTaken(shooter);
+        OnEnemyEnters(shooter);
     }
 }

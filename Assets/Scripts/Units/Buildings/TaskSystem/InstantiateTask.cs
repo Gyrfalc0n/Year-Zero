@@ -39,6 +39,8 @@ public class InstantiateTask : Task
             GameObject unit = InstanceManager.instanceManager.InstantiateUnit(associatedUnit.GetPath(), associatedBuilding.GetComponent<ProductionBuilding>().GetSpawnPointCoords(), Quaternion.identity);
             unit.GetComponent<MovableUnit>().Init(associatedBuilding.GetComponent<ProductionBuilding>().GetBannerCoords());
         }
+
+        Destroy(gameObject);
             
     }
     public override void Cancel()

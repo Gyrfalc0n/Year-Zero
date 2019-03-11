@@ -5,10 +5,6 @@ using Photon.Pun;
 
 public class SelectableObj : Interactable
 {
-
-    [SerializeField]
-    string path;
-
     public List<GameObject> tools;
 
     [HideInInspector]
@@ -26,13 +22,14 @@ public class SelectableObj : Interactable
     public int[] costs = new int[3];
     public int pop;
 
-    string minimapIconPrefabPath = "Units/MinimapIconPrefab";
+    string minimapIconPrefabPath = "Units/Others/MinimapIconPrefab";
     SpriteRenderer minimapIcon;
 
-    string selectionCirclePath = "Units/SelectionCircle";
+    string selectionCirclePath = "Units/Others/SelectionCircle";
     protected SpriteRenderer selectionCircle;
 
-    string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";
+    protected string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";
+    [HideInInspector]
     public FieldOfViewCollider fovCollider;
     bool visible;
 
@@ -145,11 +142,15 @@ public class SelectableObj : Interactable
         selectionCircle.gameObject.SetActive(false);
     }
 
-    public void Highlight()
+    [HideInInspector]
+    public bool groupHighlight = false;
+
+    public void Highlight(bool group)
     {
         if (!visible)
             return;
         highlighted = true;
+        groupHighlight = group;
         if (!selected)
         {
             highlighted = true;
@@ -169,9 +170,9 @@ public class SelectableObj : Interactable
 
     public virtual void Interact(Interactable obj) { }
 
-    public string GetPath()
+    public virtual string GetPath()
     {
-        return path;
+        return "none";
     }
 
     #region FOV

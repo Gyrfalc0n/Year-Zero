@@ -25,7 +25,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     int color;
 
     string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
-    string[] builders = new string[2] { "Units/BuilderUnit", "Units/BuilderUnit" };
+    string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
 
     void Start()
     {

@@ -28,8 +28,6 @@ public class CombatSystem : MonoBehaviour
 
     public void InitAttack(DestructibleUnit unit)
     {
-        print("Attacking");
-
         target = unit;
     }
 
@@ -66,7 +64,7 @@ public class CombatSystem : MonoBehaviour
         {
             time = attackRate;
             GameObject obj = PhotonNetwork.Instantiate(projectile, firePoint.position, firePoint.rotation);
-            obj.GetComponent<Bullet>().Init(1f, GetComponent<MovableUnit>().damage);
+            obj.GetComponent<Bullet>().Init(1f, GetComponent<MovableUnit>().damage, GetComponent<DestructibleUnit>());
         }
     }
 
@@ -88,6 +86,6 @@ public class CombatSystem : MonoBehaviour
         Vector3 lookPos = destination - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.1f);
     }
 }

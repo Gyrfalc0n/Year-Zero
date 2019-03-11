@@ -8,7 +8,7 @@ public class Card : MonoBehaviour {
     [SerializeField]
     GameObject hl;
     [SerializeField]
-    Slider lifeBar;
+    Image lifeBar;
     MovableUnit associatedUnit;
 
     public void Init(MovableUnit unit)
@@ -23,7 +23,7 @@ public class Card : MonoBehaviour {
 
     void Update()
     {
-        lifeBar.value = associatedUnit.GetLife() / associatedUnit.GetMaxlife();
+        lifeBar.fillAmount = associatedUnit.GetLife() / associatedUnit.GetMaxlife();
     }
 
     public void Highlight()

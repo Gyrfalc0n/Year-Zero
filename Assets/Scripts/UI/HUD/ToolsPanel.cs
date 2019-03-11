@@ -30,6 +30,7 @@ public class ToolsPanel : MonoBehaviour {
         if (SelectUnit.selectUnit.selected.Count > x)
         {
             ShowToolsList(SelectUnit.selectUnit.selected[x].GetComponent<SelectableObj>().tools);
+            ShowSpellsList(SelectUnit.selectUnit.selected[x].GetComponent<SelectableObj>().spells);
         }
     }
 
@@ -51,18 +52,44 @@ public class ToolsPanel : MonoBehaviour {
                 obj.Init(tool.GetComponent<ConstructedUnit>());
                 obj.GetComponent<Button>().interactable = tool.GetComponent<ConstructedUnit>().IsAvailable();
             }
-            else if (tool.GetComponent<Spell>() != null)
-            {
-                SpellTool obj = Instantiate(spellToolPrefab, buttons);
-                obj.Init(tool.GetComponent<Spell>());
-            }
             else if (tool.GetComponent<Tool>() != null)
             {
                 Instantiate(tool, buttons);
             }
+            else if (tool.GetComponent<Spell>() != null)
+            {
+                continue;
+            }
             else
             {
                 Debug.LogError("Wrong gameobject in tools");
+            }
+        }
+    }
+
+    public void ShowSpellsList(List<GameObject> list)
+    {
+        foreach (GameObject tool in list)
+        {
+            if (tool.GetComponent<Spell>() != null)
+            {
+                SpellTool obj = Instantiate(spellToolPrefab, buttons);
+                obj.Init(tool.GetComponent<Spell>());
+            }
+        }
+    }
+
+    public void ReloadTools()
+    {
+        foreach (Transform tool in buttons)
+        {
+            if (tool.GetComponent<TaskTool>() != null)
+            {
+                tool.GetComponent<Button>().interactable = tool.GetComponent<TaskTool>().GetAssociatedUnit().IsAvailable();
+            }
+            else if (tool.GetComponent<BuildTool>() != null)
+            {
+                tool.GetComponent<Button>().interactable = tool.GetComponent<BuildTool>().GetAssociatedBuilding().IsAvailable();
             }
         }
     }

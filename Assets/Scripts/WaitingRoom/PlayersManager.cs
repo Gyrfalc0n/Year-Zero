@@ -91,6 +91,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     public void StartGame()
     {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
         SetCustomPropForAll();
         string mapName = PlayerPrefs.GetString("MapName");
         PhotonNetwork.LoadLevel(mapName);

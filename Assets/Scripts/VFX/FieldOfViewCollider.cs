@@ -18,9 +18,12 @@ public class FieldOfViewCollider : MonoBehaviour
     private void Start()
     {
         Vector3 tmp = GetRange();
-        tmp.x = SkilltreeManager.manager.radarRange;
-        tmp.z = SkilltreeManager.manager.radarRange;
-        SetRange(tmp);
+        if (GetComponentInParent<Radar>() != null)
+        {
+            tmp.x = SkilltreeManager.manager.radarRange;
+            tmp.z = SkilltreeManager.manager.radarRange;
+            SetRange(tmp);
+        }
     }
 
     void OnTriggerStay(Collider collision)
