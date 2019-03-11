@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1961081022781010, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}
       propertyPath: m_Name
-      value: ToolMoveSelectionPrefab
+      value: MoveToolPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 224655561362021626, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
@@ -146,13 +146,41 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114014468917716348, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 2042607238141786205}
     - target: {fileID: 114547213410525244, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: m_Text
       value: Move
       objectReference: {fileID: 0}
+    - target: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f645f410b2dd3dd489bbbee93154e664,
+        type: 3}
+    - target: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}
+--- !u!114 &2042607238141786205 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114063785424869692, guid: 37b0bb7757687cb44af7df486cd63dcf,
+    type: 3}
+  m_PrefabInstance: {fileID: 2147636606531101025}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2041768297793046771 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114878553697462674, guid: 37b0bb7757687cb44af7df486cd63dcf,
