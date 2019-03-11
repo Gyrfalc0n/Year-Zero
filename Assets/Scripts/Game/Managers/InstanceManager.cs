@@ -20,16 +20,36 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     #endregion
 
-    int race;
-    int team;
-    int color;
+    protected int race;
+    protected int team;
+    protected int color;
 
-    string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
-    string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
+    [SerializeField]
+    GameObject botPrefab;
+
+    protected string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
+    protected string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
+
+    protected int botIndex;
 
     void Start()
     {
+        botIndex = -1;
         InitStartingTroops(InitProp());
+        if (PhotonNetwork.IsMasterClient)
+            InitBots();
+    }
+
+    void InitBots()
+    {
+        int i = 1;
+        Hashtable myTable = PhotonNetwork.LocalPlayer.CustomProperties;
+        while (myTable.ContainsKey("Race" + i))
+        {
+            IAManager bot = Instantiate(botPrefab).GetComponent<IAManager>();
+            bot.Init(i, (int)myTable["Race"+i], (int)myTable["Team" + i], (int)myTable["Color" + i], (int)myTable["Mycoords" + i]);
+            i++;
+        }
     }
 
     Vector3 InitProp()
@@ -62,7 +82,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
     }
 
-    void CheckDeath()
+    protected void CheckDeath()
     {
         if (mySelectableObjs.Count == 0)
         {
@@ -84,7 +104,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public List<SelectableObj> allSelectableObjs = new List<SelectableObj>();
     public List<SelectableObj> mySelectableObjs = new List<SelectableObj>();
 
-    public GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
+    public virtual GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
     {
         GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
         return obj;
@@ -124,6 +144,11 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         return Int2Color((int)player.CustomProperties["Color"]);
     }
 
+    public Color32 GetBotColor(int index)
+    {
+        return GameObject.Find("Bot" + index).GetComponent<IAManager>().GetColor();
+    }
+
     public Color32 Int2Color(int val)
     {
         Color32 res;
@@ -142,7 +167,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         return res;
     }
 
-    int colorLevel = 1;
+    protected int colorLevel = 1;
     public void ChangeColorLevel()
     {
         if (++colorLevel > 2)
@@ -164,6 +189,18 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         {
             return (int)player.CustomProperties["Team"] != team;
         }
-        
+    }
+
+    public bool IsBotEnemy(int index)
+    {
+        /*if (PhotonNetwork.OfflineMode)
+        {
+            return false;
+        }
+        else
+        {
+            return (int)player.CustomProperties["Team"] != team;
+        }*/
+        return false;
     }
 }

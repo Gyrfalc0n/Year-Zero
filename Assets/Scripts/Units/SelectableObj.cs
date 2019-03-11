@@ -33,8 +33,11 @@ public class SelectableObj : Interactable
     public FieldOfViewCollider fovCollider;
     bool visible;
 
+    public int botIndex;
+
     public virtual void Awake()
     {
+        botIndex = 0;
         InitSelectionCircle();
         ToggleColor(1);
         InstanceManager.instanceManager.allSelectableObjs.Add(this);
@@ -43,6 +46,19 @@ public class SelectableObj : Interactable
             InstanceManager.instanceManager.mySelectableObjs.Add(this);
         }
         InitFieldOfView();
+    }
+
+    public void SetBotIndex(int index)
+    {
+        RPCSetBotIndex(index);
+        if (!PhotonNetwork.OfflineMode)
+            photonView.RPC("RPCSetbotIndex", RpcTarget.Others, index);
+    }
+
+    [PunRPC]
+    public void RPCSetBotIndex(int index)
+    {
+        botIndex = index;
     }
 
     Transform spellHolder;
