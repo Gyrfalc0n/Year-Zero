@@ -99,7 +99,6 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     void SetCustomPropForAll()
     {
-        int i = 0;
         foreach (Transform playerSettings in playersList)
         {
             if (playerSettings.GetComponent<PlayerSettings>() != null)
@@ -113,6 +112,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
                 playerSettings.GetComponent<PhotonView>().Owner.SetCustomProperties(table);
             }
         }
+        int i = 1;
         Hashtable myTable = PhotonNetwork.LocalPlayer.CustomProperties;
         foreach (Transform playerSettings in playersList)
         {
