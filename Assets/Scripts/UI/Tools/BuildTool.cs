@@ -11,7 +11,7 @@ public class BuildTool : Tool
     public void Init(ConstructedUnit building)
     {
         associatedBuilding = building;
-        GetComponent<Image>().sprite = building.iconSprite;
+        GetComponentInChildren<Image>().sprite = building.iconSprite;
         GetComponentInChildren<Text>().text = building.objName;
     }
 
