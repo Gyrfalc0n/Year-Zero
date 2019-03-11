@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class DestructibleUnit : SelectableObj {
 
@@ -21,6 +22,8 @@ public class DestructibleUnit : SelectableObj {
     [HideInInspector]
     public int maxLife;
     int lifeValue;
+
+    public Sprite iconSprite;
 
     public void TakeDamage(int value, DestructibleUnit shooter)
     {

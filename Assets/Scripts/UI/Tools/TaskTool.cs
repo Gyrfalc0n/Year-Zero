@@ -15,6 +15,7 @@ public class TaskTool : Tool
     {
         associatedBuilding = building;
         associatedUnit = unit;
+        GetComponent<Image>().sprite = unit.iconSprite;
         GetComponentInChildren<Text>().text = associatedUnit.objName;
     }
 
