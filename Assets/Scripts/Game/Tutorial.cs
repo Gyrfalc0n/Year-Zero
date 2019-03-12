@@ -15,6 +15,7 @@ public class Tutorial : MonoBehaviour
     private bool waitForSelection = false;
     private bool waitForCombatStation = false;
     private bool waitForBasicTroop = false;
+    private bool waitForMining = false;
     private int step = 0;
     public Text tutoText;
     public bool runningTutorial = true;
@@ -88,6 +89,23 @@ public class Tutorial : MonoBehaviour
             waitForTreeSkill = false;
             step++;
         }
+        if (waitForMining)
+        {
+            foreach (SelectableObj selected in InstanceManager.instanceManager.mySelectableObjs)
+            {
+                if (selected.GetComponent<BuilderUnit>() != null)
+                {
+                    if (selected.GetComponent<BuilderUnit>().IsMining())
+                    {
+                        Time.timeScale = 0;
+                        TutoPause.SetActive(true);
+                        waitForMining = false;
+                        step++; 
+                    }
+                }
+            }
+            
+        }
 
         //  InstanceManager.instanceManager.mySelectableObjs  pour trouver la liste des objets selectionnables à nous
         //   SelectUnit.selectUnit.selected
@@ -138,60 +156,66 @@ public class Tutorial : MonoBehaviour
                 break;
             case 8:
                 tutoText.text = "Click on build and try to build a Combat Station";
-                waitForCombatStation = true;
+                waitForMining = true;
                 TutoPause.SetActive(false);
                 Time.timeScale = 1;
                 break;
             case 9:
+                tutoText.text = "Click on build and try to build a Combat Station";
+                waitForCombatStation = true;
+                TutoPause.SetActive(false);
+                Time.timeScale = 1;
+                break;
+            case 10:
                 tutoText.text = "The Combat station allows you to create combat unit";
                 step++;
                 break;
-            case 10:
+            case 11:
                 tutoText.text = "Select the Combat Station and create a basic troop ";
                 waitForBasicTroop = true;
                 TutoPause.SetActive(false);
                 Time.timeScale = 1;
                 break;
-            case 11:
+            case 12:
                 tutoText.text = "Every building or unit works the same as builders";
                 step++;
                 break;
-            case 12:
+            case 13:
                 tutoText.text = "In the right bottom area you can use its features";
                 step++;
                 break;
-            case 13 :
+            case 14 :
                 tutoText.text = "Another primary topic in Year Zero is the skill tree";
                 step++;
                 break;
-            case 14:
+            case 15:
                 tutoText.text = "You can open it with the button in the top middle ";
                 waitForTreeSkill = true;
                 TutoPause.SetActive(false);
                 Time.timeScale = 1;
                 break;
-            case 15:
+            case 16:
                 tutoText.text = "There you can choose from various upgrades";
                 step++;
                 break;
-            case 16:
+            case 17:
                 tutoText.text = "but be careful, once one is selected its neighbours can't";
                 step++;
                 break;
-            case 17:
+            case 18:
                 TreeSkill.Hide();
                 tutoText.text = "The last thing is the map";
                 step++;
                 break;
-            case 18:
+            case 19:
                 tutoText.text = "it allows you to see the whole game and to travel ";
                 step++;
                 break;
-            case 19:
+            case 20:
                 tutoText.text = "Now you learned how to play Year Zero ";
                 step++;
                 break;
-            case 20:
+            case 21:
                 tutoText.text = "Prepare to fight many epic battles!";
                 PlayerPrefs.SetInt("tutoCleared",1);
                 PhotonNetwork.LoadLevel("MainMenu");
