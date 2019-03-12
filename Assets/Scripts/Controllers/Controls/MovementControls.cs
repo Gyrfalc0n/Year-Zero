@@ -48,6 +48,8 @@ public class MovementControls : PlayerControls
 
     public override void RightClick()
     {
+        if (SelectUnit.selectUnit.selected.Count == 0)
+            return;
         if (SelectUnit.selectUnit.selected[0].GetComponent<ProductionBuilding>() != null && !MouseOverUI())
         {
             RaycastHit hit;
