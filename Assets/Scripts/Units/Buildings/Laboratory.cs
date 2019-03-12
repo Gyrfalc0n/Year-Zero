@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Laboratory : ConstructedUnit
 {
@@ -33,5 +34,10 @@ public class Laboratory : ConstructedUnit
             manager.Add((int)(value * SkilltreeManager.manager.laboratorySpeed), resourceIndex);
             timer = timeReset;
         }
+    }
+    
+    public override bool IsAvailable()
+    {
+        return SceneManager.GetActiveScene().name!="Tutorial";
     }
 }

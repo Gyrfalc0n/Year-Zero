@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TownHall : ProductionBuilding
 {
@@ -14,5 +15,10 @@ public class TownHall : ProductionBuilding
     {
         base.OnDestroyed();
         PlayerManager.playerManager.RemoveHome(this);
+    }
+    
+    public override bool IsAvailable()
+    {
+        return SceneManager.GetActiveScene().name!="Tutorial";
     }
 }
