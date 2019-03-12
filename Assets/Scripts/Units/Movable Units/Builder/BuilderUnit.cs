@@ -105,4 +105,9 @@ public class BuilderUnit : MovableUnit {
         bool immobile = Vector3.Distance(agent.destination, transform.position) <= 1;
         return (!patrolSystem.IsPatroling() && !miningSystem.IsMining() && !buildingSystem.IsBuilding() && immobile && !repairingSystem.IsRepairing());
     }
+
+    public bool IsMining()
+    {
+        return miningSystem.IsMining();
+    }
 }
