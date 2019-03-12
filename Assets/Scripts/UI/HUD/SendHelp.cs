@@ -8,20 +8,13 @@ public class SendHelp : MonoBehaviour
     [SerializeField]
     string description;
 
-    HelpPanel panel;
-
-    private void Start()
-    {
-        panel = HelpPanel.helpPanel;
-    }
-
     public void CallHelpPanel()
     {
-        panel.Call(description);
+        HelpPanel.helpPanel.Call(description);
     }
 
     public void Hide()
     {
-        panel.Hide();
+        HelpPanel.helpPanel.Hide();
     }
 }
