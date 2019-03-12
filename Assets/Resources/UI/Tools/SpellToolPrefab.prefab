@@ -118,6 +118,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114063785424869692, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1961081022781010, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}
       propertyPath: m_Name
       value: SpellToolPrefab
@@ -227,11 +232,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114063785424869692, guid: 37b0bb7757687cb44af7df486cd63dcf,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114014468917716348, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -276,6 +276,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Spell
+      objectReference: {fileID: 0}
+    - target: {fileID: 468302805420864707, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638985947089155290, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114878553697462674, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}

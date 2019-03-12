@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1961081022781010, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}
       propertyPath: m_Name
-      value: ToolRepairPrefab
+      value: RepairToolPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 224655561362021626, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
@@ -155,6 +155,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Repair
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2ce675952659c9a438fe39aacfa1499c,
+        type: 3}
+    - target: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638985947089155290, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: description
+      value: Repair the selected building
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}

@@ -8,9 +8,12 @@ public class BuildTool : Tool
 {
     ConstructedUnit associatedBuilding;
 
+    public Sprite defaultSprite;
+
     public void Init(ConstructedUnit building)
     {
         associatedBuilding = building;
+        SetButtonSprite(building);
         GetComponentInChildren<Text>().text = building.objName;
     }
 
@@ -27,5 +30,11 @@ public class BuildTool : Tool
     public ConstructedUnit GetAssociatedBuilding()
     {
         return associatedBuilding;
+    }
+
+    void SetButtonSprite(DestructibleUnit unit)
+    {
+        if (unit.iconSprite)
+            GetComponentInChildren<Image>().sprite = unit.iconSprite;
     }
 }

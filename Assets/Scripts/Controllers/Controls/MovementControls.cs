@@ -48,7 +48,7 @@ public class MovementControls : PlayerControls
 
     public override void RightClick()
     {
-        if (SelectUnit.selectUnit.selected[0].GetComponent<ProductionBuilding>() != null)
+        if (SelectUnit.selectUnit.selected[0].GetComponent<ProductionBuilding>() != null && !MouseOverUI())
         {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundLayer))

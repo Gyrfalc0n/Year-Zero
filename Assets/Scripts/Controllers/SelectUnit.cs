@@ -278,7 +278,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         bool gotHit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value);
         foreach (SelectableObj selectableObj in InstanceManager.instanceManager.allSelectableObjs)
         {
-            if (gotHit && hit.collider.GetComponent<SelectableObj>() == selectableObj)
+            if (gotHit && hit.collider.GetComponent<SelectableObj>() == selectableObj && !MouseOverUI())
             {
                 selectableObj.Highlight(false);
             }

@@ -8,6 +8,8 @@ public class TaskTool : Tool
     [SerializeField]
     GameObject instantiateTaskPrefab;
 
+    public Sprite defaultSprite;
+
     ConstructedUnit associatedBuilding;
     MovableUnit associatedUnit;
 
@@ -15,6 +17,7 @@ public class TaskTool : Tool
     {
         associatedBuilding = building;
         associatedUnit = unit;
+        SetButtonSprite(unit);
         GetComponentInChildren<Text>().text = associatedUnit.objName;
     }
 
@@ -33,5 +36,11 @@ public class TaskTool : Tool
     public MovableUnit GetAssociatedUnit()
     {
         return associatedUnit;
+    }
+
+    void SetButtonSprite(DestructibleUnit unit)
+    {
+        if (unit.iconSprite)
+            GetComponentInChildren<Image>().sprite = unit.iconSprite;
     }
 }
