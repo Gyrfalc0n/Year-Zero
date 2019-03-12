@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour {
     void Update()
     {
         if (!SelectUnit.selectUnit.isSelecting &&
-            playerController.CameraAvailable())
+            PlayerController.playerController.CameraAvailable())
             CheckInputs();
     }
 
