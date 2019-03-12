@@ -57,13 +57,15 @@ MonoBehaviour:
   selected: 0
   objName: 
   description: 
-  costs: 000000000000000000000000
+  costs: 00000000000000000000000000000000
   pop: 0
   fovCollider: {fileID: 0}
+  botIndex: 0
   spells: []
   groupHighlight: 0
   defaultMaxLife: 0
   maxLife: 5
+  iconSprite: {fileID: 0}
   home: {fileID: 0}
   requiredTime: 0
   moving: 0
@@ -150,6 +152,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroyer
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 2200028590359865215}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -194,11 +201,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 2200028590359865215}
     - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: firePoint

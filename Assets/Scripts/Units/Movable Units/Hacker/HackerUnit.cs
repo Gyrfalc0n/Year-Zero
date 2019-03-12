@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HackerUnit : MovableUnit
 {
-    public override void Awake()
+    public override void Start()
     {
         agent.speed = speed + (int)(defaultSpeed * SkilltreeManager.manager.hackerBonusSpeed);
-        base.Awake();
+        base.Start();
     }
 
     public override bool IsAvailable()
