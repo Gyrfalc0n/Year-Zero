@@ -26,11 +26,10 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     Transform ground;
 
-    PlayerController playerController;
+    
 
     void Awake()
     {
-        playerController = PlayerController.playerController;
         pos = transform.position;
         rot = transform.rotation.eulerAngles;
         limitX = ground.localScale[0]/2 - 5;
@@ -40,7 +39,7 @@ public class CameraController : MonoBehaviour {
     void Update()
     {
         if (!SelectUnit.selectUnit.isSelecting &&
-            playerController.CameraAvailable())
+            PlayerController.playerController.CameraAvailable())
             CheckInputs();
     }
 
