@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &196876810604388176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418685162370409378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa882fa4eace8944b5484c8e0ebba66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tools:
+  - {fileID: 2398293628918808410, guid: 24d01e45bed692a44aabe1f6da2855b0, type: 3}
+  - {fileID: 5371575594413408597, guid: db3014db6964fe04397c922dca31666d, type: 3}
+  - {fileID: 2241181987109979733, guid: 815e6567a631163428d0b212d1c43913, type: 3}
+  highlighted: 0
+  selected: 0
+  objName: Conquest Station
+  description: 
+  costs: 00000000000000000000000000000000
+  pop: 0
+  fovCollider: {fileID: 0}
+  botIndex: 0
+  spells: []
+  groupHighlight: 0
+  defaultMaxLife: 0
+  maxLife: 0
+  iconSprite: {fileID: 0}
+  lines: 0
+  columns: 0
+  size: 0
 --- !u!1001 &5418685162370409301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12,11 +44,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Conquest Station
       objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 8142050240063680104}
     - target: {fileID: 4198717423202766145, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,6 +99,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 5418685162370410427}
     - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: costs.Array.size
@@ -149,14 +181,21 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents:
     - {fileID: 3354145167647749936, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
+    - {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
---- !u!114 &8142050240063680104 stripped
+--- !u!1 &5418685162370409378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4201926755012452119, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5418685162370409301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5418685162370410427 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4309196059108019517, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
     type: 3}
   m_PrefabInstance: {fileID: 5418685162370409301}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 5418685162370409378}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
