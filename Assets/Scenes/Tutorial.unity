@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.25559768, g: 0.17504665, b: 0.30769378, a: 1}
+  m_IndirectSpecularColor: {r: 0.2550182, g: 0.17492571, b: 0.30694187, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1184,7 +1184,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Show/Hide Unit
-  panel: {fileID: 536327095}
 --- !u!1 &76968991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,6 +1951,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 286014979}
   - {fileID: 1590453016}
   - {fileID: 1004666083}
   m_Father: {fileID: 124251921}
@@ -4144,6 +4144,131 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276468037}
   m_CullTransparentMesh: 0
+--- !u!1001 &286014978
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 117349997}
+    m_Modifications:
+    - target: {fileID: 4561776147451410758, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_Name
+      value: Loading Screen Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b80c1305d4304e4468f1c941f2dac575, type: 3}
+--- !u!224 &286014979 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4561776147451410757, guid: b80c1305d4304e4468f1c941f2dac575,
+    type: 3}
+  m_PrefabInstance: {fileID: 286014978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &292829529
 GameObject:
   m_ObjectHideFlags: 0
@@ -4434,6 +4559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offlineMode: 1
+  botPrefab: {fileID: 0}
   allSelectableObjs: []
   mySelectableObjs: []
 --- !u!4 &304381188
@@ -15565,7 +15691,7 @@ RectTransform:
   - {fileID: 1896923457}
   - {fileID: 1308049043}
   m_Father: {fileID: 117349997}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -22981,7 +23107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Place a Marker
-  panel: {fileID: 536327095}
 --- !u!1 &1589671297
 GameObject:
   m_ObjectHideFlags: 0
@@ -23100,7 +23225,7 @@ RectTransform:
   - {fileID: 536327094}
   - {fileID: 1566273811}
   m_Father: {fileID: 117349997}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -24310,7 +24435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Change Color Mode
-  panel: {fileID: 536327095}
 --- !u!114 &1689484725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28041,7 +28165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Enable/Disable Troop Formation
-  panel: {fileID: 536327095}
 --- !u!1 &1907082514
 GameObject:
   m_ObjectHideFlags: 0
@@ -28898,7 +29021,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Select non active builders
-  panel: {fileID: 536327095}
 --- !u!1 &1954940081
 GameObject:
   m_ObjectHideFlags: 0
@@ -29160,7 +29282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Show/Hide Ground
-  panel: {fileID: 536327095}
 --- !u!1001 &1971307684
 PrefabInstance:
   m_ObjectHideFlags: 0

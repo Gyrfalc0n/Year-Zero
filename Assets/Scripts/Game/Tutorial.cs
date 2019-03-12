@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Photon.Pun;
 using TMPro;
 using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
@@ -17,7 +18,6 @@ public class Tutorial : MonoBehaviour
     public bool runningTutorial = true;
     [SerializeField] private GameObject TutoPause;
     [SerializeField] private GameObject Camera;
-    [SerializeField] private GameObject SpaceStationButton;
 
 
     void Start()
@@ -54,16 +54,20 @@ public class Tutorial : MonoBehaviour
 
         if (waitForCombatStation)
         {
-            foreach (SelectableObj selected in InstanceManager.instanceManager.mySelectableObjs)
+            Time.timeScale = 0;
+            TutoPause.SetActive(true);
+            waitForCombatStation= false;
+            step++;
+            /*foreach (SelectableObj selected in InstanceManager.instanceManager.mySelectableObjs)
             {
-                /*if (selected.GetComponent<>()!=null)
+                if (selected.name == "CombatStation")
                 {
                     Time.timeScale = 0;
                     TutoPause.SetActive(true);
                     waitForSelection = false;
                     step++;
-                }*/
-            }
+                }
+            }*/
         }
 
         //  InstanceManager.instanceManager.mySelectableObjs  pour trouver la liste des objets selectionnables à nous
@@ -128,6 +132,50 @@ public class Tutorial : MonoBehaviour
                 //verification
                 step++;
                 break;
+            case 11:
+                tutoText.text = "Every building or unit works the same as builders";
+                step++;
+                break;
+            case 12:
+                tutoText.text = "In the right bottom area you can use its features";
+                step++;
+                break;
+            case 13 :
+                tutoText.text = "Another primary topic in Year Zero is the skill tree";
+                step++;
+                break;
+            case 14:
+                tutoText.text = "You can open it with the button in the top middle ";
+                step++;
+                // check open
+                break;
+            case 15:
+                tutoText.text = "There you can choose from various upgrades";
+                step++;
+                break;
+            case 16:
+                tutoText.text = "but be careful, once one is selected its neighbours can't";
+                step++;
+                break;
+            case 17:
+                tutoText.text = "The last thing is the map";
+                step++;
+                break;
+            case 18:
+                tutoText.text = "it allows you to see the whole game and to travel ";
+                step++;
+                break;
+            case 19:
+                tutoText.text = "Now you learned how to play Year Zero ";
+                step++;
+                break;
+            case 20:
+                tutoText.text = "Prepare to fight many epic battles!";
+                PlayerPrefs.SetInt("tutoCleared",1);
+                PhotonNetwork.LoadLevel("MainMenu");
+                
+                break;
+            
         }    
     }
 }
