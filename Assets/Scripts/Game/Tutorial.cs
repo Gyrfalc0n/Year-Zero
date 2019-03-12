@@ -155,7 +155,7 @@ public class Tutorial : MonoBehaviour
                 step++;
                 break;
             case 8:
-                tutoText.text = "Click on build and try to build a Combat Station";
+                tutoText.text = "Order him to harvest from the asteroid to gain ores";
                 waitForMining = true;
                 TutoPause.SetActive(false);
                 Time.timeScale = 1;
