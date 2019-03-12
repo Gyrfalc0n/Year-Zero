@@ -1,24 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2173879248518586073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6020786110520200072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56584a8b2bd96714b8a636b166b66044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &675244720695250344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6020786110520200072}
+  m_GameObject: {fileID: 6020032728104618459}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53104a6e6db02e44b899cd8423f3b990, type: 3}
@@ -29,7 +17,7 @@ MonoBehaviour:
   selected: 0
   objName: Space Farm
   description: 
-  costs: 000000000000000000000000
+  costs: 00000000000000000000000000000000
   pop: 0
   fovCollider: {fileID: 0}
   botIndex: 0
@@ -41,6 +29,18 @@ MonoBehaviour:
   lines: 0
   columns: 0
   size: 0
+--- !u!114 &2173879248518586073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6020032728104618459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56584a8b2bd96714b8a636b166b66044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6020786110520199963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 6020786110520201037}
+      objectReference: {fileID: 5914945105126054897}
     - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: costs.Array.size
@@ -166,19 +166,19 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
---- !u!1 &6020786110520200072 stripped
+--- !u!1 &6020032728104618459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203,
     type: 3}
   m_PrefabInstance: {fileID: 6020786110520199963}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6020786110520201037 stripped
+--- !u!114 &5914945105126054897 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114905757237956842, guid: 636fb200f2cdc914bb060a84a57f4203,
     type: 3}
   m_PrefabInstance: {fileID: 6020786110520199963}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6020786110520200072}
+  m_GameObject: {fileID: 6020032728104618459}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
