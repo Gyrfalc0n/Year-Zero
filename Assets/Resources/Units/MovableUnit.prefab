@@ -244,10 +244,12 @@ MonoBehaviour:
   pop: 0
   fovCollider: {fileID: 2865810074278427579, guid: df27dcc2612078148b7318ca8c2ec301,
     type: 3}
+  botIndex: 0
   spells: []
   groupHighlight: 0
   defaultMaxLife: 0
   maxLife: 5
+  iconSprite: {fileID: 0}
   home: {fileID: 0}
   requiredTime: 0
   moving: 0
@@ -323,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7382188653647537440}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Spell Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

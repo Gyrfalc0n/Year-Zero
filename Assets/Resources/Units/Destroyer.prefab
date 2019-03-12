@@ -55,7 +55,7 @@ MonoBehaviour:
   - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
   highlighted: 0
   selected: 0
-  objName: 
+  objName: Destroyer
   description: 
   costs: 00000000000000000000000000000000
   pop: 0
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8928650108843486611}
   - component: {fileID: 3197495647000533940}
   - component: {fileID: 7559584840516434399}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: SupportSpellZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,6 +215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
