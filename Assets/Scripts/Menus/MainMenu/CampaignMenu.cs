@@ -8,8 +8,7 @@ public class CampaignMenu : MonoBehaviour
     
      public void StartTuto()
      {
-         SceneManager.LoadSceneAsync(4);
-        // PhotonNetwork.LoadLevel(4);
+        PhotonNetwork.LoadLevel(4);
               
      }
  

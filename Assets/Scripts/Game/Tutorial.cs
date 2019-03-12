@@ -10,14 +10,17 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
+    private bool waitForTreeSkill = false;
     private bool waitForFirstWorker = false;
     private bool waitForSelection = false;
     private bool waitForCombatStation = false;
+    private bool waitForBasicTroop = false;
     private int step = 0;
     public Text tutoText;
     public bool runningTutorial = true;
     [SerializeField] private GameObject TutoPause;
     [SerializeField] private GameObject Camera;
+    [SerializeField] private SkilltreePanel TreeSkill;
 
 
     void Start()
@@ -54,20 +57,36 @@ public class Tutorial : MonoBehaviour
 
         if (waitForCombatStation)
         {
-            Time.timeScale = 0;
-            TutoPause.SetActive(true);
-            waitForCombatStation= false;
-            step++;
-            /*foreach (SelectableObj selected in InstanceManager.instanceManager.mySelectableObjs)
+            foreach (SelectableObj selected in InstanceManager.instanceManager.mySelectableObjs)
             {
-                if (selected.name == "CombatStation")
+                if (selected.GetComponent<CombatStation>()!= null)
                 {
                     Time.timeScale = 0;
                     TutoPause.SetActive(true);
-                    waitForSelection = false;
+                    waitForCombatStation = false;
                     step++;
                 }
-            }*/
+            }
+        }
+        if (waitForBasicTroop)
+        {
+            foreach (SelectableObj selected in InstanceManager.instanceManager.mySelectableObjs)
+            {
+                if (selected.GetComponent<BasicTroop>()!= null)
+                {
+                    Time.timeScale = 0;
+                    TutoPause.SetActive(true);
+                    waitForBasicTroop = false;
+                    step++;
+                }
+            }
+        }
+        if (waitForTreeSkill && TreeSkill.Activated())
+        {
+            Time.timeScale = 0;
+            TutoPause.SetActive(true);
+            waitForTreeSkill = false;
+            step++;
         }
 
         //  InstanceManager.instanceManager.mySelectableObjs  pour trouver la liste des objets selectionnables à nous
@@ -129,8 +148,9 @@ public class Tutorial : MonoBehaviour
                 break;
             case 10:
                 tutoText.text = "Select the Combat Station and create a basic troop ";
-                //verification
-                step++;
+                waitForBasicTroop = true;
+                TutoPause.SetActive(false);
+                Time.timeScale = 1;
                 break;
             case 11:
                 tutoText.text = "Every building or unit works the same as builders";
@@ -146,8 +166,9 @@ public class Tutorial : MonoBehaviour
                 break;
             case 14:
                 tutoText.text = "You can open it with the button in the top middle ";
-                step++;
-                // check open
+                waitForTreeSkill = true;
+                TutoPause.SetActive(false);
+                Time.timeScale = 1;
                 break;
             case 15:
                 tutoText.text = "There you can choose from various upgrades";
@@ -158,6 +179,7 @@ public class Tutorial : MonoBehaviour
                 step++;
                 break;
             case 17:
+                TreeSkill.Hide();
                 tutoText.text = "The last thing is the map";
                 step++;
                 break;

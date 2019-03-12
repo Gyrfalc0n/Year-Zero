@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ccb1b3f-4772-4fa4-bc37-0f68b9028203" name="Default Changelist" comment="" />
+    <list default="true" id="1ccb1b3f-4772-4fa4-bc37-0f68b9028203" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.year-zero/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.year-zero/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Buildings/Combat Station/Combat Station.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Buildings/Combat Station/Combat Station.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Buildings/Combat Station/Combat StationCons.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Buildings/Combat Station/Combat StationCons.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Buildings/TownHall/TownHall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Buildings/TownHall/TownHall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Units/Basic Troop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Units/Basic Troop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Units/Builder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Units/Builder.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tutorial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +38,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="207" />
+          <entry key="cs" value="429" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="207" />
+          <entry key="C#" value="429" />
         </counts>
       </usages-collector>
     </session>
@@ -100,42 +110,47 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Game/Tutorial.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="175" column="16" selection-start-line="175" selection-start-column="16" selection-end-line="175" selection-end-column="16" />
+            <state relative-caret-position="158">
+              <caret line="181" column="33" selection-start-line="181" selection-start-column="33" selection-end-line="181" selection-end-column="33" />
               <folding>
-                <marker date="1552387984527" expanded="true" signature="6:231" ph="..." />
-                <marker date="1552387984527" expanded="true" signature="270:6169" ph="{...}" />
-                <marker date="1552387984527" expanded="true" signature="617:665" ph="{...}" />
-                <marker date="1552387984527" expanded="true" signature="684:2271" ph="{...}" />
-                <marker date="1552387984527" expanded="true" signature="738:783" ph="{...}" />
-                <marker date="1552387984527" expanded="true" signature="878:1029" ph="{...}" />
-                <marker date="1552387984527" expanded="true" signature="1104:1496" ph="{...}" />
-                <marker date="1552387984527" expanded="true" signature="1193:1482" ph="{...}" />
-                <marker date="1552387984527" expanded="true" signature="1271:1468" ph="{...}" />
-                <marker date="1552387984527" expanded="true" signature="1531:2063" ph="{...}" />
-                <marker date="1552387984527" expanded="true" signature="1686:2053" ph="/* foreach (SelectableObj selected in InstanceManager.instanceManager.mySelectableObjs) ... */" />
-                <marker date="1552387984527" expanded="true" signature="2073:2265" ph="/* InstanceManager.instanceManager.mySelectableObjs  pour trouver la liste des objets selectionnables à nous ... */" />
-                <marker date="1552387984527" expanded="true" signature="2294:6167" ph="{...}" />
-                <marker date="1552387984527" expanded="true" signature="2322:6157" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="6:231" ph="..." />
+                <marker date="1552394317100" expanded="true" signature="270:7002" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="759:807" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="826:2936" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="880:925" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="1020:1171" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="1246:1638" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="1335:1624" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="1413:1610" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="1673:2086" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="1780:2076" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="1861:2062" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="2117:2524" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="2224:2514" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="2302:2500" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="2579:2728" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="2738:2930" ph="/* InstanceManager.instanceManager.mySelectableObjs  pour trouver la liste des objets selectionnables à nous ... */" />
+                <marker date="1552394317100" expanded="true" signature="2959:7000" ph="{...}" />
+                <marker date="1552394317100" expanded="true" signature="2987:6990" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+            <state relative-caret-position="75">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
               <folding>
-                <marker date="1552389367493" expanded="false" signature="6:131" ph="..." />
-                <marker date="1552389367493" expanded="true" signature="173:514" ph="{...}" />
-                <marker date="1552389367493" expanded="true" signature="210:319" ph="{...}" />
-                <marker date="1552389367493" expanded="true" signature="353:511" ph="{...}" />
-                <marker date="1552389367493" expanded="true" signature="415:504" ph="{...}" />
+                <marker date="1552392592994" expanded="false" signature="6:131" ph="..." />
+                <marker date="1552392592994" expanded="true" signature="173:470" ph="{...}" />
+                <marker date="1552392592994" expanded="true" signature="210:275" ph="{...}" />
+                <marker date="1552392592994" expanded="true" signature="309:467" ph="{...}" />
+                <marker date="1552392592994" expanded="true" signature="371:460" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -215,8 +230,8 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/CampaignMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/SingleplayerMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/InstanceManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Tutorial.cs" />
       </list>
     </option>
@@ -401,7 +416,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22616000" />
+    <option name="totallyTimeSpent" value="24942000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -634,20 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-          <folding>
-            <marker date="1552389367493" expanded="false" signature="6:131" ph="..." />
-            <marker date="1552389367493" expanded="true" signature="173:514" ph="{...}" />
-            <marker date="1552389367493" expanded="true" signature="210:319" ph="{...}" />
-            <marker date="1552389367493" expanded="true" signature="353:511" ph="{...}" />
-            <marker date="1552389367493" expanded="true" signature="415:504" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Menus/InGame/GameMenu.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -663,25 +664,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding>
+            <marker date="1552392592994" expanded="false" signature="6:131" ph="..." />
+            <marker date="1552392592994" expanded="true" signature="173:470" ph="{...}" />
+            <marker date="1552392592994" expanded="true" signature="210:275" ph="{...}" />
+            <marker date="1552392592994" expanded="true" signature="309:467" ph="{...}" />
+            <marker date="1552392592994" expanded="true" signature="371:460" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Game/Tutorial.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="175" column="16" selection-start-line="175" selection-start-column="16" selection-end-line="175" selection-end-column="16" />
+        <state relative-caret-position="158">
+          <caret line="181" column="33" selection-start-line="181" selection-start-column="33" selection-end-line="181" selection-end-column="33" />
           <folding>
-            <marker date="1552387984527" expanded="true" signature="6:231" ph="..." />
-            <marker date="1552387984527" expanded="true" signature="270:6169" ph="{...}" />
-            <marker date="1552387984527" expanded="true" signature="617:665" ph="{...}" />
-            <marker date="1552387984527" expanded="true" signature="684:2271" ph="{...}" />
-            <marker date="1552387984527" expanded="true" signature="738:783" ph="{...}" />
-            <marker date="1552387984527" expanded="true" signature="878:1029" ph="{...}" />
-            <marker date="1552387984527" expanded="true" signature="1104:1496" ph="{...}" />
-            <marker date="1552387984527" expanded="true" signature="1193:1482" ph="{...}" />
-            <marker date="1552387984527" expanded="true" signature="1271:1468" ph="{...}" />
-            <marker date="1552387984527" expanded="true" signature="1531:2063" ph="{...}" />
-            <marker date="1552387984527" expanded="true" signature="1686:2053" ph="/* foreach (SelectableObj selected in InstanceManager.instanceManager.mySelectableObjs) ... */" />
-            <marker date="1552387984527" expanded="true" signature="2073:2265" ph="/* InstanceManager.instanceManager.mySelectableObjs  pour trouver la liste des objets selectionnables à nous ... */" />
-            <marker date="1552387984527" expanded="true" signature="2294:6167" ph="{...}" />
-            <marker date="1552387984527" expanded="true" signature="2322:6157" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="6:231" ph="..." />
+            <marker date="1552394317100" expanded="true" signature="270:7002" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="759:807" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="826:2936" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="880:925" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="1020:1171" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="1246:1638" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="1335:1624" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="1413:1610" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="1673:2086" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="1780:2076" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="1861:2062" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="2117:2524" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="2224:2514" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="2302:2500" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="2579:2728" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="2738:2930" ph="/* InstanceManager.instanceManager.mySelectableObjs  pour trouver la liste des objets selectionnables à nous ... */" />
+            <marker date="1552394317100" expanded="true" signature="2959:7000" ph="{...}" />
+            <marker date="1552394317100" expanded="true" signature="2987:6990" ph="{...}" />
           </folding>
         </state>
       </provider>
