@@ -6,26 +6,23 @@ using Photon.Pun;
 public class Bullet : MonoBehaviourPunCallbacks
 {
     DestructibleUnit associatedUnit;
-    float speed;
     float damage;
-    Rigidbody rb;
     float time;
 
     public void Init(float speed, float damage, DestructibleUnit unit)
     {
+        time = 5f;
         associatedUnit = unit;
-        this.speed = speed;
         this.damage = damage;
+        SetForce(transform.forward * speed);
+        if (!PhotonNetwork.OfflineMode)
+            photonView.RPC("SetForce", RpcTarget.Others, transform.forward * speed);
     }
 
-    void Start()
+    [PunRPC]
+    public void SetForce(Vector3 force)
     {
-        if (photonView.IsMine)
-        {
-            time = 5f;
-            rb = GetComponent<Rigidbody>();
-            rb.velocity = transform.forward * speed;
-        }
+        GetComponent<Rigidbody>().velocity = force;
     }
 
     private void Update()

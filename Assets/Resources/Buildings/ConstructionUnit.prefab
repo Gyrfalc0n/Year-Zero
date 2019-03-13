@@ -161,8 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dee8086a8a56c64c95d8b9a75b64840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: 
-  requiredTime: 0
   tools: []
   highlighted: 0
   selected: 0
@@ -170,11 +168,16 @@ MonoBehaviour:
   description: 
   costs: 00000000000000000000000000000000
   pop: 0
+  fovCollider: {fileID: 0}
+  botIndex: 0
+  spells: []
+  groupHighlight: 0
+  defaultMaxLife: 0
   maxLife: 5
-  constructor: {fileID: 0}
-  ghost: {fileID: 0}
+  iconSprite: {fileID: 0}
   lines: 0
   columns: 0
+  size: 0
 --- !u!114 &1315701950554808790
 MonoBehaviour:
   m_ObjectHideFlags: 0
