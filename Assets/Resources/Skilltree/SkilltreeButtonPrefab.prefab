@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6737723321211777155}
   - component: {fileID: 7550421002462218089}
-  - component: {fileID: 5884156242002226641}
   m_Layer: 5
   m_Name: SkilltreeButtonPrefab
   m_TagString: Untagged
@@ -46,23 +45,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521026169199736224}
   m_CullTransparentMesh: 0
---- !u!114 &5884156242002226641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521026169199736224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6aef64532865774fa98276d1af81983, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restrictive: 0
-  forcedNext: []
-  cost: 0
-  skillName: 
-  description: 
 --- !u!1 &5151725753049688597
 GameObject:
   m_ObjectHideFlags: 0
