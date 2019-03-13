@@ -26,6 +26,8 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     Transform ground;
 
+    
+
     void Awake()
     {
         pos = transform.position;

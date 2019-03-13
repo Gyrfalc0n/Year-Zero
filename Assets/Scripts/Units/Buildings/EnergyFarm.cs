@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnergyFarm : ConstructedUnit
 {
@@ -34,5 +35,10 @@ public class EnergyFarm : ConstructedUnit
             manager.Add((int)(value * SkilltreeManager.manager.energyFarmSpeed), resourceIndex);
             timer = timeReset;
         }
+    }
+    
+    public override bool IsAvailable()
+    {
+        return SceneManager.GetActiveScene().name!="Tutorial";
     }
 }

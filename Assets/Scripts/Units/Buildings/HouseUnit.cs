@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HouseUnit : ConstructedUnit {
 
@@ -17,5 +18,9 @@ public class HouseUnit : ConstructedUnit {
     {
         base.OnDestroyed();
         PlayerManager.playerManager.RemovePopulation(popValue);
+    }
+    public override bool IsAvailable()
+    {
+        return SceneManager.GetActiveScene().name!="Tutorial";
     }
 }
