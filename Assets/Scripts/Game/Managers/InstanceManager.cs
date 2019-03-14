@@ -80,6 +80,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     {
         PlayerManager.playerManager.AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
         InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
+        Camera.main.GetComponent<CameraController>().LookTo(PlayerManager.playerManager.GetHomes()[0].transform.position);
     }
 
     protected void CheckDeath()

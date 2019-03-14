@@ -24,7 +24,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb7fe4df111d08439751d239c81e9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Buildings/Turrel/Turrel
   tools: []
   highlighted: 0
   selected: 0
@@ -34,15 +33,15 @@ MonoBehaviour:
   pop: 0
   fovCollider: {fileID: 2865810074278427579, guid: 3cd7ac9cb6d8009468ab14ccc6ac6bb7,
     type: 3}
+  botIndex: 0
   spells: []
   groupHighlight: 0
   defaultMaxLife: 0
   maxLife: 5
-  constructor: {fileID: 2487996386993575265, guid: abf1225dd43421c46aa3bd7776d0c9cc,
-    type: 3}
-  ghost: {fileID: 1498426257654464, guid: db7ff68699b9c30429aaae4efac0c1a1, type: 3}
+  iconSprite: {fileID: 0}
   lines: 0
   columns: 0
+  size: 0
 --- !u!1001 &6103284989642857663
 PrefabInstance:
   m_ObjectHideFlags: 0
