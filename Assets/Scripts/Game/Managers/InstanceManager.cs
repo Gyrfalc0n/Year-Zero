@@ -79,7 +79,8 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     void InitStartingTroops(Vector3 coords)
     {
         PlayerManager.playerManager.AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
-        //InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
+        InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
+        Camera.main.GetComponent<CameraController>().LookTo(PlayerManager.playerManager.GetHomes()[0].transform.position);
     }
 
     protected void CheckDeath()
@@ -202,5 +203,16 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
             return (int)player.CustomProperties["Team"] != team;
         }*/
         return false;
+    }
+
+    public void AllSelectableRemoveAt(int i)
+    {
+        photonView.RPC("RPCAllSelectableRemoveAt", RpcTarget.Others, i);
+    }
+
+    [PunRPC]
+    public void RPCAllSelectableRemoveAt(int i)
+    {
+        allSelectableObjs.RemoveAt(i);
     }
 }

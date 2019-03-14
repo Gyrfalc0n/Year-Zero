@@ -44,11 +44,6 @@ public class Skill : MonoBehaviour
             activated = true;
             SelectUnit.selectUnit.ReloadTools();
         }
-        else
-        {
-            Debug.Log("Not enough resources");
-            //Not enough resources Message
-        }
     }
 
     void InitNextSkills()

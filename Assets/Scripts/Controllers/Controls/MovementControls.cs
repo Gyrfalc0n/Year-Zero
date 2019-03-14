@@ -64,7 +64,8 @@ public class MovementControls : PlayerControls
         }
         else if (!SelectUnit.selectUnit.InstantSelect())
         {
-            MoveToMousePoint();
+            if (SelectUnit.selectUnit.selected[0].GetComponent<MovableUnit>() != null)
+                MoveToMousePoint();
         }
     }
 
