@@ -170,6 +170,7 @@ public class SelectableObj : Interactable
         if (!selected)
         {
             highlighted = true;
+            print(name);
             selectionCircle.gameObject.SetActive(true);
             Color32 tmp = (Color32)selectionCircle.color;
             selectionCircle.color = new Color32(tmp.r, tmp.g, tmp.b, 50);

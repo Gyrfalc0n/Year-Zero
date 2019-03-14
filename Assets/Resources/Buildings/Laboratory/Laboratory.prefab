@@ -20,10 +20,12 @@ MonoBehaviour:
   costs: 00000000000000000000000000000000
   pop: 0
   fovCollider: {fileID: 0}
+  botIndex: 0
   spells: []
   groupHighlight: 0
   defaultMaxLife: 0
   maxLife: 5
+  iconSprite: {fileID: 0}
   lines: 3
   columns: 3
   size: 0
@@ -34,10 +36,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
-      propertyPath: m_Name
-      value: Laboratory
-      objectReference: {fileID: 0}
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -81,6 +79,10 @@ PrefabInstance:
     - target: {fileID: 4991307429433494, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498426257654464, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}
+      propertyPath: m_Name
+      value: Laboratory
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
