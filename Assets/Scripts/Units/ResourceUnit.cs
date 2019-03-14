@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ResourceUnit : Interactable
+public class ResourceUnit : Interactable, IPunObservable
 {
     protected int resourceIndex;
     protected float resources;
@@ -43,6 +43,19 @@ public class ResourceUnit : Interactable
 
     protected void Destroy()
     {
-        PhotonNetwork.Destroy(gameObject);
+        if (photonView.IsMine)
+            PhotonNetwork.Destroy(gameObject);
+    }
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(resources);
+        }
+        else
+        {
+            resources = (float)stream.ReceiveNext();
+        }
     }
 }
