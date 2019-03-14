@@ -203,4 +203,15 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         }*/
         return false;
     }
+
+    public void AllSelectableRemoveAt(int i)
+    {
+        photonView.RPC("RPCAllSelectableRemoveAt", RpcTarget.Others, i);
+    }
+
+    [PunRPC]
+    public void RPCAllSelectableRemoveAt(int i)
+    {
+        allSelectableObjs.RemoveAt(i);
+    }
 }
