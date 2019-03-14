@@ -18,6 +18,4 @@ public class FarmResourceUnit : ResourceUnit
     {
         resources = (resources + add > maxResources) ? maxResources : resources +add;
     }
-    
-    
 }
