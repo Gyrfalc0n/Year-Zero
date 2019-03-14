@@ -1,11 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Photon.Pun;
-using TMPro;
-using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
@@ -155,7 +151,7 @@ public class Tutorial : MonoBehaviour
                 step++;
                 break;
             case 8:
-                tutoText.text = "Click on build and try to build a Combat Station";
+                tutoText.text = "Order him to harvest from the asteroid to gain ores";
                 waitForMining = true;
                 TutoPause.SetActive(false);
                 Time.timeScale = 1;
