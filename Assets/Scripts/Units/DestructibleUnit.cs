@@ -68,31 +68,34 @@ public class DestructibleUnit : SelectableObj {
     {
         if (photonView.IsMine && lifeValue <= 0)
         {
+            print("no life");
             KillUnit();
         }
     }
 
     public void KillUnit()
     {
+        print("killed");
         if (SelectUnit.selectUnit.selected.Contains(this))
         {
             SelectUnit.selectUnit.selected.Remove(this);
         }
-        if (!PhotonNetwork.OfflineMode)
-            photonView.RPC("RemoveFromLists", RpcTarget.Others);
-        RemoveFromLists();
         if (InstanceManager.instanceManager.mySelectableObjs.Contains(this))
         {
             InstanceManager.instanceManager.mySelectableObjs.Remove(this);
         }
         OnDestroyed();
-        PhotonNetwork.Destroy(this.gameObject);
+        if (!PhotonNetwork.OfflineMode)
+            photonView.RPC("RemoveFromLists", RpcTarget.Others);
+        RemoveFromLists();
     }
 
     [PunRPC]
     void RemoveFromLists()
     {
+        print("removed");
         InstanceManager.instanceManager.allSelectableObjs.Remove(this);
+        Destroy(this);
     }
 
     public virtual void OnDestroyed() { }
