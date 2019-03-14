@@ -3,6 +3,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using UnityEngine.SceneManagement;
 
 public class InstanceManager : MonoBehaviourPunCallbacks {
 
@@ -79,7 +80,10 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     void InitStartingTroops(Vector3 coords)
     {
         PlayerManager.playerManager.AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
-        InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
+        if (SceneManager.GetActiveScene().name!="Tutorial")
+        {
+            InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
+        }
         Camera.main.GetComponent<CameraController>().LookTo(PlayerManager.playerManager.GetHomes()[0].transform.position);
     }
 

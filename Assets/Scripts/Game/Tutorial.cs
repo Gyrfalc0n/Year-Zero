@@ -214,8 +214,10 @@ public class Tutorial : MonoBehaviour
             case 21:
                 tutoText.text = "Prepare to fight many epic battles!";
                 PlayerPrefs.SetInt("tutoCleared",1);
+                step++;
+                break;
+            case 22:
                 PhotonNetwork.LoadLevel("MainMenu");
-                
                 break;
             
         }    
