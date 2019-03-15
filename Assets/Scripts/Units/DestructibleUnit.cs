@@ -10,9 +10,9 @@ public class DestructibleUnit : SelectableObj {
     FloatingLifeBarPanel flbPanel;
     FloatingLifeBar lifeBar;
 
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
+        base.InitUnit(botIndex);
         lifeValue = maxLife;
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
         flbPanel.AddLifeBar(this);

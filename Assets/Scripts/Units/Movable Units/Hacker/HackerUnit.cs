@@ -6,7 +6,8 @@ public class HackerUnit : MovableUnit
 {
     public override void Start()
     {
-        agent.speed = speed + (int)(defaultSpeed * SkilltreeManager.manager.hackerBonusSpeed);
+        if (botIndex == -1)
+            agent.speed = speed + (int)(defaultSpeed * SkilltreeManager.manager.hackerBonusSpeed);
         base.Start();
     }
 

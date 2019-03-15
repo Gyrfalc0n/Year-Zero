@@ -36,15 +36,23 @@ public class SelectableObj : Interactable
 
     public int botIndex;
 
-    public virtual void Awake()
+    public virtual void InitUnit(int botIndex)
     {
-        botIndex = 0;
+        SetBotIndex(botIndex);
         InitSelectionCircle();
         ToggleColor(1);
         InstanceManager.instanceManager.allSelectableObjs.Add(this);
         if (photonView.IsMine)
         {
-            InstanceManager.instanceManager.mySelectableObjs.Add(this);
+            if (botIndex == -1)
+            {
+                InstanceManager.instanceManager.mySelectableObjs.Add(this);
+            }
+            else
+            {
+                InstanceManager.instanceManager.GetBot(botIndex).mySelectableObjs.Add(this);
+            }
+
         }
         InitFieldOfView();
     }
@@ -92,7 +100,24 @@ public class SelectableObj : Interactable
 
         if (photonView.IsMine)
         {
-            selectionCircle.color = myColor;
+            if (botIndex == -1)
+            {
+                selectionCircle.color = myColor;
+            }
+            else
+            {
+                int tmpteam = InstanceManager.instanceManager.GetBot(botIndex).GetTeam();        
+                if (tmpteam == InstanceManager.instanceManager.GetTeam())
+                {
+                    selectionCircle.color = teamColor;
+                }
+                else
+                {
+                    selectionCircle.color = enemyColor;
+                    minimapIcon.color = enemyColor;
+                }
+            }
+
         }
         else if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
         {
@@ -108,9 +133,12 @@ public class SelectableObj : Interactable
 
     public void ToggleColor(int advancedLvl)
     {
+        int tmpteam = (botIndex == -1) ? InstanceManager.instanceManager.GetTeam() : InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
+        Color32 tmpColor = (botIndex == -1) ? InstanceManager.instanceManager.GetColor() : InstanceManager.instanceManager.GetBot(botIndex).GetColor();
+
         if (advancedLvl == 0)
         {
-            if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
+            if ((int)photonView.Owner.CustomProperties["Team"] == tmpteam)
             {
                 minimapIcon.color = myColor;
             }
@@ -119,16 +147,16 @@ public class SelectableObj : Interactable
         {
             if (photonView.IsMine)
             {
-                minimapIcon.color = InstanceManager.instanceManager.GetColor();
+                minimapIcon.color = tmpColor;
             }
-            else if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
+            else if ((int)photonView.Owner.CustomProperties["Team"] == tmpteam)
             {
                 minimapIcon.color = teamColor;
             }
         }
         else
         {
-            if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
+            if ((int)photonView.Owner.CustomProperties["Team"] == tmpteam)
             {
                 minimapIcon.color = InstanceManager.instanceManager.GetPlayerColor(photonView.Owner);
             }
@@ -196,23 +224,26 @@ public class SelectableObj : Interactable
 
     void InitFieldOfView()
     {
-        if (PhotonNetwork.OfflineMode || SceneManager.GetActiveScene().name == "Tutorial")
+        if (PhotonNetwork.OfflineMode)
         {
             visible = true;
+            if (botIndex == -1)
+            {
+                visible = true;
+            }
+            else
+                visible = InstanceManager.instanceManager.GetTeam() == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
         }
         else
         {
-            visible = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam();
+            if (botIndex == -1)
+            {
+                visible = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam();
+            }
+            else
+                visible = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
         }
-        if (visible)
-        {
-            UnHide();
-        }
-        else
-        {
-            Hide();
-            return;
-        }
+
         fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
         fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
         if (GetComponent<MovableUnit>() != null)
@@ -227,6 +258,20 @@ public class SelectableObj : Interactable
         {
             fovCollider.transform.localScale = new Vector3(3, 1, 3);
         }
+
+        if (visible)
+        {
+            UnHide();
+        }
+        else
+        {
+            Hide();
+            if (botIndex != -1)
+            {
+                fovCollider.GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+
     }
 
     public void Hide()

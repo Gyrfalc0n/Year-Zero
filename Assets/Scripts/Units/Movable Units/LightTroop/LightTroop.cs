@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class LightTroop : MovableUnit
 {
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
-        maxLife = defaultMaxLife + (int)(defaultMaxLife * SkilltreeManager.manager.lightTroopBonusLife);
-        agent.speed = speed + (int)(defaultSpeed * SkilltreeManager.manager.lightTroopBonusSpeed);
-        damage = damage + (int)(defaultDamage * SkilltreeManager.manager.lightTroopBonusDamage);
+        base.InitUnit(botIndex);
+        if (botIndex == -1)
+        {
+            maxLife = defaultMaxLife + (int)(defaultMaxLife * SkilltreeManager.manager.lightTroopBonusLife);
+            agent.speed = speed + (int)(defaultSpeed * SkilltreeManager.manager.lightTroopBonusSpeed);
+            damage = damage + (int)(defaultDamage * SkilltreeManager.manager.lightTroopBonusDamage);
+        }
     }
 
     public override bool IsAvailable()

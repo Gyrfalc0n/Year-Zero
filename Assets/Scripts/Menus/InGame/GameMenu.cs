@@ -36,10 +36,10 @@ public class GameMenu : MonoBehaviour {
 
     public void MainMenu()
     {
-        if (!PhotonNetwork.InRoom)
-            PhotonNetwork.LoadLevel("MainMenu");
-        else
+        if (PhotonNetwork.InRoom)
             PhotonNetwork.LeaveRoom();
+        else
+            PhotonNetwork.LoadLevel("MainMenu");
     }
 
     public void ExitGame()

@@ -17,7 +17,7 @@ public class HackerHackSpell : Spell
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer))
         {
-            if (hit.collider.GetComponent<MovableUnit>() != null && InstanceManager.instanceManager.IsEnemy(hit.collider.GetComponent<MovableUnit>().photonView.Owner) && Vector3.Distance(associatedUnit.transform.position, hit.point) < 3)
+            if (hit.collider.GetComponent<MovableUnit>() != null && InstanceManager.instanceManager.IsEnemy(hit.collider.GetComponent<MovableUnit>()) && Vector3.Distance(associatedUnit.transform.position, hit.point) < 3)
             {
                 hit.collider.GetComponent<MovableUnit>().Hack();
                 return;

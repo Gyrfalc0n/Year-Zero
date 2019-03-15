@@ -15,10 +15,13 @@ public class EnergyFarm : ConstructedUnit
 
     readonly int value = 1;
 
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
-        manager = PlayerManager.playerManager;
+        base.InitUnit(botIndex);
+        if (botIndex == -1)
+        {
+            manager = PlayerManager.playerManager;
+        }
         timer = timeReset;
     }
 

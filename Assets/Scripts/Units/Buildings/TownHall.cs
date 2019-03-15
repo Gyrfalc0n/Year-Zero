@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class TownHall : ProductionBuilding
 {
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
-        PlayerManager.playerManager.AddHome(this);
+        base.InitUnit(botIndex);
+        if (botIndex == -1)
+            PlayerManager.playerManager.AddHome(this);
     }
 
     public override void OnDestroyed()

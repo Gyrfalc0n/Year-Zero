@@ -33,7 +33,7 @@ public class TurrelFOV : MonoBehaviour
     {
         if (target == null)
         {
-            if (other.GetComponent<DestructibleUnit>() != null && !InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>().photonView.Owner))
+            if (other.GetComponent<DestructibleUnit>() != null && !InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>()))
             {
                 target = other.GetComponent<DestructibleUnit>();
             }

@@ -16,14 +16,17 @@ public class BuilderUnit : MovableUnit {
     RepairingSystem repairingSystem;
     JoblessConstructorsPanel jobless;
 
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
+        base.InitUnit(botIndex);
         miningSystem = GetComponent<MiningSystem>();
         buildingSystem = GetComponent<BuildingSystem>();
         repairingSystem = GetComponent<RepairingSystem>();
-        jobless = GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>();
-        jobless.UpdatePanel();
+        if (botIndex == -1)
+        {
+            jobless = GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>();
+            jobless.UpdatePanel();
+        }
     }
 
     public override void Interact(Interactable obj)

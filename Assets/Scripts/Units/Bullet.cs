@@ -41,10 +41,13 @@ public class Bullet : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-            if (other.GetComponent<DestructibleUnit>() != null && InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>().photonView.Owner))
+            if (other.GetComponent<DestructibleUnit>() != null)
             {
-                other.GetComponent<DestructibleUnit>().TakeDamage((int)damage, associatedUnit);
-                PhotonNetwork.Destroy(this.gameObject);
+                if (associatedUnit.botIndex == -1 && InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>()) || associatedUnit.botIndex != -1 && InstanceManager.instanceManager.GetBot(associatedUnit.botIndex).IsEnemy(other.GetComponent<DestructibleUnit>()))
+                {
+                    other.GetComponent<DestructibleUnit>().TakeDamage((int)damage, associatedUnit);
+                    PhotonNetwork.Destroy(this.gameObject);
+                }
             }
         }
     }

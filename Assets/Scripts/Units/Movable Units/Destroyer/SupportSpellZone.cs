@@ -48,7 +48,7 @@ public class SupportSpellZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<MovableUnit>() != null && !InstanceManager.instanceManager.IsEnemy(other.GetComponent<MovableUnit>().photonView.Owner) && !units.Contains(other.GetComponent<MovableUnit>()))
+        if (other.GetComponent<MovableUnit>() != null && !InstanceManager.instanceManager.IsEnemy(other.GetComponent<MovableUnit>()) && !units.Contains(other.GetComponent<MovableUnit>()))
         {
             units.Add(other.GetComponent<MovableUnit>());
             if (spell.Activated())

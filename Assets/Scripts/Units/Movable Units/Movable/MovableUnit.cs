@@ -27,10 +27,10 @@ public class MovableUnit : DestructibleUnit {
     [HideInInspector]
     public float speed;
 
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
         fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefabForMV";
+        base.InitUnit(botIndex);
         defaultSpeed = 3.5f;
         speed = defaultSpeed;
         agent = GetComponent<NavMeshAgent>();
@@ -39,6 +39,10 @@ public class MovableUnit : DestructibleUnit {
         combatSystem = GetComponent<CombatSystem>();
         damage = defaultDamage;
         DetermineHome();
+        if (botIndex != -1)
+        {
+            InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().Add(this);
+        }
     }
 
     public virtual void Update()
@@ -83,15 +87,18 @@ public class MovableUnit : DestructibleUnit {
 
     void DetermineHome()
     {
-        TownHall nearest = PlayerManager.playerManager.GetHomes()[0];
-        foreach (TownHall townHall in PlayerManager.playerManager.GetHomes())
+        if (botIndex == -1)
         {
-            if (Vector3.Distance(townHall.transform.position, transform.position) < (Vector3.Distance(nearest.transform.position, transform.position)))
+            TownHall nearest = PlayerManager.playerManager.GetHomes()[0];
+            foreach (TownHall townHall in PlayerManager.playerManager.GetHomes())
             {
-                nearest = townHall;
+                if (Vector3.Distance(townHall.transform.position, transform.position) < (Vector3.Distance(nearest.transform.position, transform.position)))
+                {
+                    nearest = townHall;
+                }
             }
+            home = nearest;
         }
-        home = nearest;
     }
 
     public virtual void Patrol(Vector3 pos1, Vector3 pos2, float stoppingDistance)
@@ -184,7 +191,7 @@ public class MovableUnit : DestructibleUnit {
         base.Interact(obj);
         if (obj.GetComponent<DestructibleUnit>() != null)
         {
-            if (InstanceManager.instanceManager.IsEnemy(obj.photonView.Owner))
+            if (InstanceManager.instanceManager.IsEnemy(obj.GetComponent<DestructibleUnit>()))
             {
                 Attack(obj.GetComponent<DestructibleUnit>());
             }
