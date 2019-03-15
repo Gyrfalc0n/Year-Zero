@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class FieldOfViewCollider : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class FieldOfViewCollider : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<SelectableObj>() != null)
         {
-            if (!PhotonNetwork.OfflineMode)
+            if (!PhotonNetwork.OfflineMode && SceneManager.GetActiveScene().name != "Tutorial")
             {
                 if ((int)collision.gameObject.GetComponent<SelectableObj>().photonView.Owner.CustomProperties["Team"] != InstanceManager.instanceManager.GetTeam())
                 {
@@ -48,7 +49,7 @@ public class FieldOfViewCollider : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<SelectableObj>() != null)
         {
-            if (!PhotonNetwork.OfflineMode)
+            if (!PhotonNetwork.OfflineMode && SceneManager.GetActiveScene().name != "Tutorial")
             {
                 if ((int)collision.gameObject.GetComponent<SelectableObj>().photonView.Owner.CustomProperties["Team"] != InstanceManager.instanceManager.GetTeam())
                 {

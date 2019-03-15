@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class SelectableObj : Interactable
 {
@@ -195,7 +196,7 @@ public class SelectableObj : Interactable
 
     void InitFieldOfView()
     {
-        if (PhotonNetwork.OfflineMode)
+        if (PhotonNetwork.OfflineMode || SceneManager.GetActiveScene().name == "Tutorial")
         {
             visible = true;
         }
