@@ -12,14 +12,17 @@ public class Radar : ConstructedUnit
     public override void Start()
     {
         base.Start();
-        GameObject tmp = GameObject.Find("InstanceManager");
-        minimap = tmp.GetComponent<MinimapMarkerControls>();
-        movementControls = tmp.GetComponent<MovementControls>();
+        if (botIndex == -1)
+        {
+            GameObject tmp = GameObject.Find("InstanceManager");
+            minimap = tmp.GetComponent<MinimapMarkerControls>();
+            movementControls = tmp.GetComponent<MovementControls>();
+        }
     }
     void OnTriggerEnter(Collider other)
     {
         bool empty = list.Count == 0;
-        if (other.GetComponent<MovableUnit>() != null && InstanceManager.instanceManager.IsEnemy(other.GetComponent<MovableUnit>().photonView.Owner) &&
+        if (other.GetComponent<MovableUnit>() != null && InstanceManager.instanceManager.IsEnemy(other.GetComponent<MovableUnit>()) &&
             !list.Contains(other.GetComponent<MovableUnit>()))
         {
             list.Add(other.GetComponent<MovableUnit>());
@@ -33,7 +36,7 @@ public class Radar : ConstructedUnit
 
     void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<MovableUnit>() != null && InstanceManager.instanceManager.IsEnemy(other.GetComponent<MovableUnit>().photonView.Owner) &&
+        if (other.GetComponent<MovableUnit>() != null && InstanceManager.instanceManager.IsEnemy(other.GetComponent<MovableUnit>()) &&
     list.Contains(other.GetComponent<MovableUnit>()))
         {
             list.Remove(other.GetComponent<MovableUnit>());

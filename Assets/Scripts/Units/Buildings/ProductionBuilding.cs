@@ -7,9 +7,9 @@ public class ProductionBuilding : ConstructedUnit
     Transform banner;
     Transform spawnPoint;
 
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
+        base.InitUnit(botIndex);
         Init();
     }
 

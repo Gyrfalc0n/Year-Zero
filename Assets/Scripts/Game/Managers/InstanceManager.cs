@@ -48,7 +48,15 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         while (myTable.ContainsKey("Race" + i))
         {
             IAManager bot = Instantiate(botPrefab).GetComponent<IAManager>();
-            bot.Init(i, (int)myTable["Race"+i], (int)myTable["Team" + i], (int)myTable["Color" + i], (int)myTable["Mycoords" + i]);
+            bot.gameObject.name = "Bot" + i;
+            bot.Init(i, (int)myTable["Race"+ i], (int)myTable["Team" + i], (int)myTable["Color" + i], (Vector3)myTable["MyCoords" + i]);
+            i++;
+        }
+        if (offlineMode)
+        {
+            IAManager bot = Instantiate(botPrefab).GetComponent<IAManager>();
+            bot.gameObject.name = "Bot0";
+            bot.Init(0, 1, 1, 1, new Vector3 (10, 1, 10));
             i++;
         }
     }
@@ -111,6 +119,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public virtual GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
     {
         GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
+        obj.GetComponent<SelectableObj>().InitUnit(-1);
         return obj;
     }
 
@@ -183,29 +192,23 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         }
     }
 
-    public bool IsEnemy(Player player)
+    public bool IsEnemy(SelectableObj unit)
     {
-        if (PhotonNetwork.OfflineMode)
+        if (unit.botIndex == -1)
         {
-            return false;
+            if (PhotonNetwork.OfflineMode)
+            {
+                return false;
+            }
+            else
+            {
+                return (int)unit.photonView.Owner.CustomProperties["Team"] != team;
+            }
         }
         else
         {
-            return (int)player.CustomProperties["Team"] != team;
+            return (GetTeam() != GetBot(unit.botIndex).GetTeam());
         }
-    }
-
-    public bool IsBotEnemy(int index)
-    {
-        /*if (PhotonNetwork.OfflineMode)
-        {
-            return false;
-        }
-        else
-        {
-            return (int)player.CustomProperties["Team"] != team;
-        }*/
-        return false;
     }
 
     public void AllSelectableRemoveAt(int i)
@@ -217,5 +220,10 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public void RPCAllSelectableRemoveAt(int i)
     {
         allSelectableObjs.RemoveAt(i);
+    }
+
+    public IAManager GetBot(int index)
+    {
+        return GameObject.Find("Bot" + index).GetComponent<IAManager>();
     }
 }

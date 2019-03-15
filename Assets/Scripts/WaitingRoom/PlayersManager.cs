@@ -119,14 +119,30 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
             if (playerSettings.GetComponent<BotSettings>() != null)
             {
                 BotSettings settings = playerSettings.GetComponent<BotSettings>();
-                myTable.Add("Race" + i, settings.raceDropdown.value);
-                myTable.Add("Team" + i, settings.teamDropdown.value);
-                myTable.Add("Color" + i, settings.colorDropdown.value);
-                myTable.Add("MyCoords" + i, SetCoords(settings.teamDropdown.value));
+                AddOrReplaceInt(myTable, "Race" + i, settings.raceDropdown.value);
+                AddOrReplaceInt(myTable, "Team" + i, settings.teamDropdown.value);
+                AddOrReplaceInt(myTable, "Color" + i, settings.colorDropdown.value);
+                AddOrReplaceVect(myTable, "MyCoords" + i, SetCoords(settings.teamDropdown.value));
                 i++;
             }
         }
         PhotonNetwork.LocalPlayer.SetCustomProperties(myTable);
+    }
+
+    public void AddOrReplaceInt(Hashtable table, string key, int val)
+    {
+        if (table.ContainsKey(key))
+            table[key] = val;
+        else
+            table.Add(key, val);
+    }
+
+    public void AddOrReplaceVect(Hashtable table, string key, Vector3 val)
+    {
+        if (table.ContainsKey(key))
+            table[key] = val;
+        else
+            table.Add(key, val);
     }
 
     public Vector3 SetCoords(int team)
