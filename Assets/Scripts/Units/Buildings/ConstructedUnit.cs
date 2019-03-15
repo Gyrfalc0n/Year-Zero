@@ -7,18 +7,8 @@ using Photon.Realtime;
 [RequireComponent(typeof(TaskSystem))]
 public class ConstructedUnit : BuildingUnit
 {
-    [HideInInspector]
     public int lines;
-    [HideInInspector]
     public int columns;
-    public int size;
-
-    public override void Start()
-    {
-        base.Start();
-        lines = size;
-        columns = size;
-    }
 
     public override string GetPath()
     {
