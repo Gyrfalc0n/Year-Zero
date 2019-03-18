@@ -39,7 +39,7 @@ public class MovableUnit : DestructibleUnit {
         combatSystem = GetComponent<CombatSystem>();
         damage = defaultDamage;
         DetermineHome();
-        if (botIndex != -1)
+        if (botIndex != -1 && GetComponent<BuilderUnit>() == null)
         {
             InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().Add(this);
         }

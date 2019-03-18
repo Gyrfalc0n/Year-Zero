@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6950816422369222848}
   - component: {fileID: 6950816422369222855}
   - component: {fileID: 7711781779843668963}
+  - component: {fileID: 1241708681375075499}
   m_Layer: 0
   m_Name: BotPrefab
   m_TagString: Untagged
@@ -127,6 +128,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8839ca0df750de0408ccfcaf2112abe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1241708681375075499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950816422369222851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5189c0ed7be77e4e8f4aecd08591e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingDistance: 2
 --- !u!1 &6950816422765698232
 GameObject:
   m_ObjectHideFlags: 0

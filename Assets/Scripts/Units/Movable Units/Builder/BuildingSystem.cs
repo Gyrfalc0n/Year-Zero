@@ -19,7 +19,7 @@ public class BuildingSystem : MonoBehaviour
 
     void Update()
     {
-        if (currentAction == CurrentBuildingAction.goingToBuild && Vector3.Distance(transform.position, agent.destination) <= agent.stoppingDistance)
+        if (currentAction == CurrentBuildingAction.goingToBuild && Vector3.Distance(transform.position, agent.destination) <= agent.stoppingDistance + 0.1f)
         {
             OnReachedDestination();
         }

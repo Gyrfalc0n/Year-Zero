@@ -26,7 +26,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     protected int color;
 
     [SerializeField]
-    GameObject botPrefab;
+    string botPrefab;
 
     protected string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
     protected string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
@@ -47,16 +47,16 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         Hashtable myTable = PhotonNetwork.LocalPlayer.CustomProperties;
         while (myTable.ContainsKey("Race" + i))
         {
-            IAManager bot = Instantiate(botPrefab).GetComponent<IAManager>();
+            IAManager bot = PhotonNetwork.Instantiate(botPrefab, Vector3.zero, Quaternion.identity).GetComponent<IAManager>();
             bot.gameObject.name = "Bot" + i;
-            bot.Init(i, (int)myTable["Race"+ i], (int)myTable["Team" + i], (int)myTable["Color" + i], (Vector3)myTable["MyCoords" + i]);
+            bot.Init(i, (int)myTable["Race"+ i], (int)myTable["Team" + i], (int)myTable["Color" + i], (Vector3)myTable["MyCoords" + i], true);
             i++;
         }
         if (offlineMode)
         {
-            IAManager bot = Instantiate(botPrefab).GetComponent<IAManager>();
+            IAManager bot = Instantiate((GameObject)Resources.Load(botPrefab)).GetComponent<IAManager>();
             bot.gameObject.name = "Bot0";
-            bot.Init(0, 1, 1, 1, new Vector3 (10, 1, 10));
+            bot.Init(0, 1, 0, 1, new Vector3 (10, 1, 10), true);
             i++;
         }
     }

@@ -18,13 +18,22 @@ public class IAManager : MonoBehaviourPunCallbacks
     public Transform movableUnits;
     public Transform buildingUnits;
 
-    public void Init(int index, int race, int team, int color, Vector3 coords)
+    public void Init(int index, int race, int team, int color, Vector3 coords, bool townhall)
+    {
+        botIndex = index;
+        SetParameters(index, race, team, color);
+        if (!PhotonNetwork.OfflineMode)
+            photonView.RPC("SetParameters", RpcTarget.Others, index, race, team, color);
+        InitStartingTroops(coords, townhall);
+    }
+
+    [PunRPC]
+    public void SetParameters(int index, int race, int team, int color)
     {
         botIndex = index;
         this.race = race;
         this.team = team;
         this.color = color;
-        InitStartingTroops(coords);
     }
 
     void CheckDeath()
@@ -35,9 +44,14 @@ public class IAManager : MonoBehaviourPunCallbacks
         }
     }
 
-    void InitStartingTroops(Vector3 coords)
+    void InitStartingTroops(Vector3 coords, bool townhall)
     {
-        GetComponent<BotManager>().AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
+        if (townhall)
+        {
+            GetComponent<BotManager>().AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
+            GetComponent<BotConstructionManager>().InitPos(GetComponent<BotManager>().GetHomes()[0].transform.position);
+        }
+
         InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
     }
 
@@ -135,23 +149,15 @@ public class IAManager : MonoBehaviourPunCallbacks
     }
 
 
-    #region BotTools
-
-    Vector3 lastBuildingPos = Vector3.zero;
-    public void Construct(ConstructedUnit building, BuilderUnit builder)
+    public BuilderUnit GetJoblessBuilder()
     {
-        Vector3 newPos = GenerateNewPos();
-        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(building.GetConstructorPath(), newPos, Quaternion.identity);
-        obj.GetComponent<InConstructionUnit>().Init(building);
-        GetComponent<BotManager>().Pay(building.costs, building.pop);
-        builder.Build(obj.GetComponent<InConstructionUnit>());
+        foreach (SelectableObj obj in mySelectableObjs)
+        {
+            if (obj.GetComponent<BuilderUnit>() != null && obj.GetComponent<BuilderUnit>().IsDoingNothing())
+            {
+                return obj.GetComponent<BuilderUnit>();
+            }
+        }
+        return null;
     }
-
-    //int currentSize = 1;
-    public Vector3 GenerateNewPos()
-    { 
-        return lastBuildingPos;
-    }
-
-    #endregion
 }
