@@ -36,7 +36,7 @@ public class BotConstructionManager : MonoBehaviour
 
     public void InitPos(Vector3 home)
     {
-        currentSize = 0;
+        currentSize = 1;
         currentSide = 3;
         currentIndex = 0;
         lastBuildingPos = home;
@@ -48,8 +48,8 @@ public class BotConstructionManager : MonoBehaviour
         currentIndex++;
         if (currentIndex >= currentSize)
         {
-            currentIndex = 0;
             currentSide++;
+            currentIndex = (currentSide == 1 || currentSide == 2) ? 1 : 2;       
         }
         if (currentSide >= 4)
         {
@@ -59,6 +59,7 @@ public class BotConstructionManager : MonoBehaviour
             lastCorner = lastCorner - new Vector3(buildingDistance, 0, buildingDistance);
             lastBuildingPos = lastCorner - new Vector3(0, 0, buildingDistance);
         }
+        print(currentIndex);
 
         switch (currentSide)
         {

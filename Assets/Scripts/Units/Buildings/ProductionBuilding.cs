@@ -51,4 +51,17 @@ public class ProductionBuilding : ConstructedUnit
             Init();
         banner.gameObject.SetActive(false);
     }
+
+    public bool CanProduct(MovableUnit unit)
+    {
+        bool res = false;
+
+        for (int i = 0; i < tools.Count && !res; i++)
+        {
+            if (tools[i] == unit)
+                res = true;
+        }
+
+        return res;
+    }
 }
