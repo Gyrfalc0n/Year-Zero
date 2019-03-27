@@ -115,6 +115,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     public List<SelectableObj> allSelectableObjs = new List<SelectableObj>();
     public List<SelectableObj> mySelectableObjs = new List<SelectableObj>();
+    public List<ResourceUnit> allResourceUnits = new List<ResourceUnit>();
 
     public virtual GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
     {
@@ -227,5 +228,18 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public IAManager GetBot(int index)
     {
         return GameObject.Find("Bot" + index).GetComponent<IAManager>();
+    }
+
+    public void AllResourceUnitsRemoveAt(int i)
+    {
+        if (PhotonNetwork.OfflineMode)
+            return;
+        photonView.RPC("RPCAllResourceUnitsRemoveAt", RpcTarget.Others, i);
+    }
+
+    [PunRPC]
+    public void RPCAllResourceUnitsRemoveAt(int i)
+    {
+        allResourceUnits.RemoveAt(i);
     }
 }

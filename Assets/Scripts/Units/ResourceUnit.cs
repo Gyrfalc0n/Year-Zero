@@ -8,6 +8,11 @@ public class ResourceUnit : Interactable, IPunObservable
     protected int resourceIndex;
     protected float resources;
 
+    void Start()
+    {
+        InstanceManager.instanceManager.allResourceUnits.Add(this);
+    }
+
     public float TakeResource(float val)
     {
         float res;
@@ -44,7 +49,10 @@ public class ResourceUnit : Interactable, IPunObservable
     protected void Destroy()
     {
         if (photonView.IsMine)
+        {
+            InstanceManager.instanceManager.AllResourceUnitsRemoveAt(InstanceManager.instanceManager.allResourceUnits.IndexOf(this));
             PhotonNetwork.Destroy(gameObject);
+        }
     }
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

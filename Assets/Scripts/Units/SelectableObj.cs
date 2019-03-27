@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class SelectableObj : Interactable
 {
     public List<GameObject> tools;
+    [SerializeField]
+    public int team { get; private set; }
 
     [HideInInspector]
     public bool highlighted = false;
@@ -39,6 +41,7 @@ public class SelectableObj : Interactable
     public virtual void InitUnit(int botIndex)
     {
         SetBotIndex(botIndex);
+        team = MultiplayerTools.GetTeamOf(this);
         InitSelectionCircle();
         ToggleColor(1);
         InstanceManager.instanceManager.allSelectableObjs.Add(this);
@@ -76,6 +79,7 @@ public class SelectableObj : Interactable
 
     public virtual void Start()
     {
+        SetHolder();
         spellHolder = transform.Find("Spell Holder");
         foreach (GameObject obj in tools)
         {
@@ -86,6 +90,24 @@ public class SelectableObj : Interactable
                 spells.Add(tmp);
             }
         }
+    }
+
+    void SetHolder()
+    {
+        string tmp = (GetComponent<MovableUnit>() != null) ? "Movable" : "Buildings";
+        string parentName = "Holder";
+        if (PhotonNetwork.OfflineMode)
+            parentName += (botIndex == -1) ? "Player" : botIndex.ToString();
+        else
+            parentName += (botIndex == -1) ? photonView.Owner.NickName : botIndex.ToString();
+        GameObject newParent = GameObject.Find(parentName);
+        if (newParent == null)
+        {
+            newParent = Instantiate((GameObject)Resources.Load("IA/HolderPrefab"));
+            newParent.name = parentName;
+            newParent.GetComponent<Holder>().team = MultiplayerTools.GetTeamOf(this);
+        }
+        transform.SetParent(newParent.transform.GetChild(0).Find(tmp));
     }
 
     public void InitSelectionCircle()

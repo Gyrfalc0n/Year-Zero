@@ -126,6 +126,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
                 i++;
             }
         }
+        PlayerPrefs.SetInt("BotNumber", i - 1);
         PhotonNetwork.LocalPlayer.SetCustomProperties(myTable);
     }
 

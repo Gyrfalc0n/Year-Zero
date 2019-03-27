@@ -6,8 +6,10 @@ public class BotInstantiationManager : MonoBehaviour
 {
     [SerializeField]
     GameObject instantiateTaskPrefab;
+    int remaining;
+    int currentUnitIndex;
 
-    string[] unitList = new string[]
+    string[] troopList = new string[]
 {
         "Units/Basic Troop",
         "Units/Bomber",
@@ -32,27 +34,70 @@ public class BotInstantiationManager : MonoBehaviour
         return res;
     }
 
+    private void Update()
+    {
+        CheckProduction();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            AskForUnits(2, 3);
+        }
+    }
+
+    void AskForUnits(int index, int number)
+    {
+        if (remaining != 0)
+            return;
+
+        remaining = number;
+        currentUnitIndex = index;
+    }
+
+    void CheckProduction()
+    {
+        if (remaining > 0)
+        {
+            remaining = CreateUnit(currentUnitIndex, remaining);
+        }
+    }
+
     public int CreateUnit(int unitIndex, int number)
     {
-        MovableUnit unit =((GameObject)Resources.Load(unitList[unitIndex])).GetComponent<MovableUnit>();
+        MovableUnit unit =((GameObject)Resources.Load(troopList[unitIndex])).GetComponent<MovableUnit>();
         int remaining = number;
         List<ProductionBuilding> buildings = GetAvailableProductionBuilding(unit);
-
-        bool allFull = false;
-        for (int i = 0; remaining > 0 && !allFull; i++)
+        bool cannotContinue = true;
+        bool stop = false;
+        for (int i = 0; remaining > 0 && !stop; i++)
         {
             if (i == buildings.Count)
-                i = 0;
-
-            allFull = true;
-            if (CreateInstantiateTask(buildings[i], unit))
             {
-                allFull = false;
+                i = 0;
+                stop = cannotContinue;
+                cannotContinue = true;
+            }
+
+            if (!stop && CreateInstantiateTask(buildings[i], unit))
+            {
+                cannotContinue = false;
                 remaining--;
             }
         }
-
         return remaining;
+    }
+
+    List<ProductionBuilding> GetCompatibleProductionBuildings(ProductionBuilding building, MovableUnit unit)
+    {
+        List<ProductionBuilding> res = new List<ProductionBuilding>();
+
+        IAManager m = GetComponent<IAManager>();
+        for (int i = 0; i < m.mySelectableObjs.Count; i++)
+        {
+            if (m.mySelectableObjs[i].GetComponent<ProductionBuilding>() != null && m.mySelectableObjs[i].GetComponent<ProductionBuilding>().CanProduct(unit))
+            {
+                res.Add(m.mySelectableObjs[i].GetComponent<ProductionBuilding>());
+            }
+        }
+        return res;
     }
 
     public bool CreateInstantiateTask(ProductionBuilding building, MovableUnit unit)
@@ -66,8 +111,6 @@ public class BotInstantiationManager : MonoBehaviour
             SelectUnit.selectUnit.UpdateUI();
             return true;
         }
-        if (!PlayerManager.playerManager.PayCheck(unit.costs, unit.pop))
-            Debug.LogError("Problem");
         return false;
     }
 }

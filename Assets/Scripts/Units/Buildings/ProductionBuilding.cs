@@ -58,7 +58,7 @@ public class ProductionBuilding : ConstructedUnit
 
         for (int i = 0; i < tools.Count && !res; i++)
         {
-            if (tools[i] == unit)
+            if (tools[i] == unit.gameObject)
                 res = true;
         }
 

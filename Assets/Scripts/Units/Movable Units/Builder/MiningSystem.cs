@@ -116,7 +116,10 @@ public class MiningSystem : MonoBehaviour
 
     void GiveResources()
     {
-        PlayerManager.playerManager.Add((int)resourceAmount, currentResourceUnit.GetResourceIndex());
+        if (GetComponent<MovableUnit>().botIndex == -1)
+            PlayerManager.playerManager.Add((int)resourceAmount, currentResourceUnit.GetResourceIndex());
+        else
+            InstanceManager.instanceManager.GetBot(GetComponent<MovableUnit>().botIndex).GetComponent<BotManager>().Add((int)resourceAmount, currentResourceUnit.GetResourceIndex());
         resourceAmount = 0;
 
     }

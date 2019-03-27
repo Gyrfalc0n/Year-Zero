@@ -19,6 +19,7 @@ public class IAObjectivesManager : MonoBehaviour
 
     private void Start()
     {
+        return;
         //To be changed
         arrays = GetComponentInChildren<ObjectivesArraysManager>();
         currentArray = arrays.arrays[0];
@@ -28,6 +29,7 @@ public class IAObjectivesManager : MonoBehaviour
 
     private void Update()
     {
+        return;
         if (time > 0) time -= Time.deltaTime;
         if (time <= 0) CheckCurrentObjective();
     }

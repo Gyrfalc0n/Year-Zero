@@ -87,18 +87,18 @@ public class MovableUnit : DestructibleUnit {
 
     void DetermineHome()
     {
-        if (botIndex == -1)
+        List<TownHall> tmpHomes;
+        tmpHomes = (botIndex == -1) ? PlayerManager.playerManager.GetHomes() : InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().GetHomes();
+
+        TownHall nearest = PlayerManager.playerManager.GetHomes()[0];
+        foreach (TownHall townHall in tmpHomes)
         {
-            TownHall nearest = PlayerManager.playerManager.GetHomes()[0];
-            foreach (TownHall townHall in PlayerManager.playerManager.GetHomes())
+            if (Vector3.Distance(townHall.transform.position, transform.position) < (Vector3.Distance(nearest.transform.position, transform.position)))
             {
-                if (Vector3.Distance(townHall.transform.position, transform.position) < (Vector3.Distance(nearest.transform.position, transform.position)))
-                {
-                    nearest = townHall;
-                }
+                nearest = townHall;
             }
-            home = nearest;
         }
+        home = nearest;
     }
 
     public virtual void Patrol(Vector3 pos1, Vector3 pos2, float stoppingDistance)

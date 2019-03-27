@@ -62,10 +62,6 @@ public class IAManager : MonoBehaviourPunCallbacks
     public GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
     {
         GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
-        if (obj.GetComponent<MovableUnit>() != null)
-            obj.transform.SetParent(movableUnits);
-        else
-            obj.transform.SetParent(buildingUnits);
         obj.GetComponent<SelectableObj>().InitUnit(botIndex);
         return obj;
     }
@@ -159,5 +155,18 @@ public class IAManager : MonoBehaviourPunCallbacks
             }
         }
         return null;
+    }
+
+    public List<BuilderUnit> GetJoblessBuilders()
+    {
+        List<BuilderUnit> res = new List<BuilderUnit>();
+        foreach (SelectableObj obj in mySelectableObjs)
+        {
+            if (obj.GetComponent<BuilderUnit>() != null && obj.GetComponent<BuilderUnit>().IsDoingNothing())
+            {
+                res.Add(obj.GetComponent<BuilderUnit>());
+            }
+        }
+        return res;
     }
 }
