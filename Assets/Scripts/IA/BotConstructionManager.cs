@@ -25,13 +25,16 @@ public class BotConstructionManager : MonoBehaviour
         "Buildings/Turrel/Turrel"
     };
 
-    public void Construct(int index, BuilderUnit builder)
+    public int Construct(int index, BuilderUnit builder)
     {
         ConstructedUnit building = ((GameObject)Resources.Load(buildingList[index])).GetComponent<ConstructedUnit>();
+        bool res = GetComponent<BotManager>().PayCheck(building.costs, building.pop) ? true : false;
+        if (!res) return 1;
         GameObject obj = InstanceManager.instanceManager.InstantiateUnit(building.GetConstructorPath(), GenerateNewPos(), Quaternion.identity);
         obj.GetComponent<InConstructionUnit>().Init(building);
         GetComponent<BotManager>().Pay(building.costs, building.pop);
         builder.Build(obj.GetComponent<InConstructionUnit>());
+        return 0;
     }
 
     public void InitPos(Vector3 home)
@@ -43,7 +46,7 @@ public class BotConstructionManager : MonoBehaviour
         lastCorner = home;
     }
 
-    public Vector3 GenerateNewPos()
+    Vector3 GenerateNewPos()
     {
         currentIndex++;
         if (currentIndex >= currentSize)
@@ -79,7 +82,7 @@ public class BotConstructionManager : MonoBehaviour
         return lastBuildingPos;
     }
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {

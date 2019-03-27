@@ -7,7 +7,18 @@ public class BotInstantiationManager : MonoBehaviour
     [SerializeField]
     GameObject instantiateTaskPrefab;
 
-    public List<ProductionBuilding> GetAvailableProductionBuilding(MovableUnit unit)
+    string[] unitList = new string[]
+{
+        "Units/Basic Troop",
+        "Units/Bomber",
+        "Units/Builder",
+        "Units/Destroyer",
+        "Units/Hacker",
+        "Units/Light Troop",
+        "Units/Mobile Medical Station",
+};
+
+    List<ProductionBuilding> GetAvailableProductionBuilding(MovableUnit unit)
     {
         List<ProductionBuilding> res = new List<ProductionBuilding>();
 
@@ -21,8 +32,9 @@ public class BotInstantiationManager : MonoBehaviour
         return res;
     }
 
-    public int CreateUnit(MovableUnit unit, int number)
+    public int CreateUnit(int unitIndex, int number)
     {
+        MovableUnit unit =((GameObject)Resources.Load(unitList[unitIndex])).GetComponent<MovableUnit>();
         int remaining = number;
         List<ProductionBuilding> buildings = GetAvailableProductionBuilding(unit);
 
