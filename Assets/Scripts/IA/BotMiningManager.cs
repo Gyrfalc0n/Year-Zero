@@ -4,20 +4,9 @@ using UnityEngine;
 
 public class BotMiningManager : MonoBehaviour
 {
-    void Update()
+    public void SendToMine(BuilderUnit builder, int index)
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SendToMine(GetComponent<IAManager>().GetJoblessBuilders(), 1);
-        }
-    }
-
-    void SendToMine(List<BuilderUnit> builders, int index)
-    {
-        for (int i = 0; i < builders.Count; i++)
-        {
-            builders[i].Mine(GetNearestAvailableResourceUnit(builders[i], index));
-        }
+        builder.Mine(GetNearestAvailableResourceUnit(builder, index));
     }
 
     ResourceUnit GetNearestAvailableResourceUnit(BuilderUnit unit1, int index)

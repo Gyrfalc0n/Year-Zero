@@ -4,23 +4,43 @@ using UnityEngine;
 
 public class IAObjective : MonoBehaviour
 {
-    protected bool activated = false;
-
-    protected int returnValue;
+    public ObjectiveState state = ObjectiveState.Deactivated;
 
     public virtual void Activate()
     {
-        returnValue = -1;
-        activated = true;
+        if (state == ObjectiveState.Deactivated)
+        {
+            state = ObjectiveState.Activated;
+        }
+    }
+
+    public virtual void Deactivate()
+    {
+        state = ObjectiveState.Deactivated;
     }
 
     public bool IsActivated()
     {
-        return activated;
+        return state == ObjectiveState.Activated;
     }
 
-    public int GetResult()
+    public bool Finished()
     {
-        return returnValue;
+        return state == ObjectiveState.Done;
     }
+}
+
+public enum ObjectiveState
+{
+    Activated,
+    Done,
+    NeedBuilder,
+    NeedBuilding,
+    NeedEnergy,
+    NeedOre,
+    NeedFood,
+    NeedPop,
+    NeedWait,
+    SuicideTroop,
+    Deactivated
 }

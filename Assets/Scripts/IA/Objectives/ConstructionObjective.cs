@@ -4,27 +4,66 @@ using UnityEngine;
 
 public class ConstructionObjective : IAObjective
 {
-    public BuilderUnit builder { get; private set; }
+    public BuilderUnit builder;
     public int buildingIndex;
+
+    InConstructionUnit inConstructionUnit;
 
     public void Init(int buildingIndex)
     {
-        returnValue = -1;
+        state = ObjectiveState.Deactivated;
         this.buildingIndex = buildingIndex;
     }
 
     public void SetBuilder()
     {
-        BuilderUnit builder = GetComponentInParent<IAManager>().GetJoblessBuilder();
-        if (builder != null)
-            this.builder = builder;
-        else
-            returnValue = 1;
+        state = GetComponentInParent<BotBuilderManager>().GetOneBuilder(out builder, buildingIndex == 4, false);
+    }
+
+    void Update()
+    {
+        if (state == ObjectiveState.Activated)
+        {
+            if (inConstructionUnit == null)
+            {
+                state = ObjectiveState.Done;
+            }
+            else if (inConstructionUnit.HasNoMoreBuilder())
+            {
+                inConstructionUnit.KillUnit();
+                state = ObjectiveState.Done;
+            }
+        }
     }
 
     public override void Activate()
     {
-        base.Activate();
-        returnValue = GetComponentInParent<BotConstructionManager>().Construct(buildingIndex, builder);
+        print(buildingIndex);
+        SetBuilder();
+        print(state);
+        if (state == ObjectiveState.NeedBuilder || state == ObjectiveState.NeedWait || state == ObjectiveState.NeedPop)
+            return;
+
+        int res = GetComponentInParent<BotConstructionManager>().Construct(buildingIndex, builder, out inConstructionUnit);
+
+        if (res != -1)
+        {
+            if (res == -3)
+                state = ObjectiveState.NeedBuilding;
+            else if (res == -2)
+                state = ObjectiveState.NeedPop;
+            else if (res == 0)
+                state = ObjectiveState.NeedEnergy;
+            else if (res == 1)
+                state = ObjectiveState.NeedOre;
+            else if (res == 2)
+                state = ObjectiveState.NeedFood;
+            else
+                print("wtf");
+        }
+        else
+        {
+            base.Activate();
+        }
     }
 }

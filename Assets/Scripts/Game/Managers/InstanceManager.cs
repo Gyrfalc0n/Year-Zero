@@ -87,9 +87,9 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     void InitStartingTroops(Vector3 coords)
     {
-        PlayerManager.playerManager.AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
+        PlayerManager.playerManager.AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0), -1).GetComponent<TownHall>());
         if (SceneManager.GetActiveScene().name != "Tutorial")
-            InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
+            InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0), -1);
         Camera.main.GetComponent<CameraController>().LookTo(PlayerManager.playerManager.GetHomes()[0].transform.position);
     }
 
@@ -117,11 +117,19 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public List<SelectableObj> mySelectableObjs = new List<SelectableObj>();
     public List<ResourceUnit> allResourceUnits = new List<ResourceUnit>();
 
-    public virtual GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
+    public virtual GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot, int botIndex)
     {
-        GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
-        obj.GetComponent<SelectableObj>().InitUnit(-1);
-        return obj;
+        if (botIndex == -1)
+        {
+            GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
+            obj.GetComponent<SelectableObj>().InitUnit(-1);
+            return obj;
+        }
+        else
+        {
+            return GetBot(botIndex).InstantiateUnit(prefab, pos, rot);
+        }
+
     }
 
     public override void OnMasterClientSwitched(Player newMasterClient)

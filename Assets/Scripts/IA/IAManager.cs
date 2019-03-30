@@ -13,7 +13,7 @@ public class IAManager : MonoBehaviourPunCallbacks
     string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
     string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
 
-    int botIndex;
+    public int botIndex { get; private set; }
 
     public Transform movableUnits;
     public Transform buildingUnits;
@@ -142,31 +142,5 @@ public class IAManager : MonoBehaviourPunCallbacks
     public void RPCAllSelectableRemoveAt(int i)
     {
         allSelectableObjs.RemoveAt(i);
-    }
-
-
-    public BuilderUnit GetJoblessBuilder()
-    {
-        foreach (SelectableObj obj in mySelectableObjs)
-        {
-            if (obj.GetComponent<BuilderUnit>() != null && obj.GetComponent<BuilderUnit>().IsDoingNothing())
-            {
-                return obj.GetComponent<BuilderUnit>();
-            }
-        }
-        return null;
-    }
-
-    public List<BuilderUnit> GetJoblessBuilders()
-    {
-        List<BuilderUnit> res = new List<BuilderUnit>();
-        foreach (SelectableObj obj in mySelectableObjs)
-        {
-            if (obj.GetComponent<BuilderUnit>() != null && obj.GetComponent<BuilderUnit>().IsDoingNothing())
-            {
-                res.Add(obj.GetComponent<BuilderUnit>());
-            }
-        }
-        return res;
     }
 }

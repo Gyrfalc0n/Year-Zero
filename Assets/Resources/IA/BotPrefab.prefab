@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2683462901673353348}
   - component: {fileID: 1241708681375075499}
   - component: {fileID: 5384363323877394395}
+  - component: {fileID: 203087147687499176}
   - component: {fileID: 8181537328689224289}
   - component: {fileID: 6950816422369222855}
   m_Layer: 0
@@ -149,6 +150,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instantiateTaskPrefab: {fileID: 2435338677811070794, guid: 34fc7537abb30c049ab65d2f02cd82df,
     type: 3}
+--- !u!114 &203087147687499176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950816422369222851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a869ee7f6682e04479dc1e13be16838f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8181537328689224289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +178,9 @@ MonoBehaviour:
     type: 3}
   instantiationObjectivePrefab: {fileID: 4658484240797380332, guid: fd67a7ca86916334e877272313365ac7,
     type: 3}
+  sendToMineObjectivePrefab: {fileID: 855024860870695458, guid: fc575a26cc3ea434b864d69627105dac,
+    type: 3}
+  arrays: {fileID: 4511923764347780610}
 --- !u!114 &6950816422369222855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,20 +420,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8511479473179136581}
     m_Modifications:
+    - target: {fileID: 5055691532335406481, guid: fd67a7ca86916334e877272313365ac7,
+        type: 3}
+      propertyPath: m_Name
+      value: InstantiationObjectivePrefab
+      objectReference: {fileID: 0}
     - target: {fileID: 4658484240797380332, guid: fd67a7ca86916334e877272313365ac7,
         type: 3}
       propertyPath: unitIndex
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4658484240797380332, guid: fd67a7ca86916334e877272313365ac7,
         type: 3}
       propertyPath: amount
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055691532335406481, guid: fd67a7ca86916334e877272313365ac7,
-        type: 3}
-      propertyPath: m_Name
-      value: InstantiationObjectivePrefab
       objectReference: {fileID: 0}
     - target: {fileID: 7465305545804030877, guid: fd67a7ca86916334e877272313365ac7,
         type: 3}

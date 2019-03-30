@@ -6,8 +6,6 @@ public class BotInstantiationManager : MonoBehaviour
 {
     [SerializeField]
     GameObject instantiateTaskPrefab;
-    int remaining;
-    int currentUnitIndex;
 
     string[] troopList = new string[]
 {
@@ -27,6 +25,8 @@ public class BotInstantiationManager : MonoBehaviour
         IAManager m = GetComponent<IAManager>();
         for (int i = 0; i < m.mySelectableObjs.Count; i++)
         {
+            if (m.mySelectableObjs[i] == null)
+                continue;
             if (m.mySelectableObjs[i].GetComponent<ProductionBuilding>() != null && m.mySelectableObjs[i].GetComponent<ProductionBuilding>().CanProduct(unit))
                 res.Add(m.mySelectableObjs[i].GetComponent<ProductionBuilding>());
         }
@@ -34,55 +34,19 @@ public class BotInstantiationManager : MonoBehaviour
         return res;
     }
 
-    private void Update()
+    public int CreateUnit(int unitIndex, out InstantiateTask task)
     {
-        CheckProduction();
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AskForUnits(2, 3);
-        }
-    }
-
-    void AskForUnits(int index, int number)
-    {
-        if (remaining != 0)
-            return;
-
-        remaining = number;
-        currentUnitIndex = index;
-    }
-
-    void CheckProduction()
-    {
-        if (remaining > 0)
-        {
-            remaining = CreateUnit(currentUnitIndex, remaining);
-        }
-    }
-
-    public int CreateUnit(int unitIndex, int number)
-    {
+        task = null;
         MovableUnit unit =((GameObject)Resources.Load(troopList[unitIndex])).GetComponent<MovableUnit>();
-        int remaining = number;
+        int pay = GetComponent<BotManager>().GetPayLimiterIndex(unit.costs, unit.pop);
+        if (pay != -1) return pay;
         List<ProductionBuilding> buildings = GetAvailableProductionBuilding(unit);
-        bool cannotContinue = true;
-        bool stop = false;
-        for (int i = 0; remaining > 0 && !stop; i++)
+        foreach (ProductionBuilding building in buildings)
         {
-            if (i == buildings.Count)
-            {
-                i = 0;
-                stop = cannotContinue;
-                cannotContinue = true;
-            }
-
-            if (!stop && CreateInstantiateTask(buildings[i], unit))
-            {
-                cannotContinue = false;
-                remaining--;
-            }
+            if (CreateInstantiateTask(building, unit, out task))
+                return -1;
         }
-        return remaining;
+        return -3;
     }
 
     List<ProductionBuilding> GetCompatibleProductionBuildings(ProductionBuilding building, MovableUnit unit)
@@ -100,17 +64,23 @@ public class BotInstantiationManager : MonoBehaviour
         return res;
     }
 
-    public bool CreateInstantiateTask(ProductionBuilding building, MovableUnit unit)
+    public bool CreateInstantiateTask(ProductionBuilding building, MovableUnit unit, out InstantiateTask task)
     {
-        if (!building.GetComponent<TaskSystem>().Full() && PlayerManager.playerManager.Pay(unit.costs, unit.pop))
-        {
-            InstantiateTask task = Instantiate(instantiateTaskPrefab).GetComponent<InstantiateTask>();
-            task.FirstInit(building);
-            task.Init(unit);
-            building.GetComponent<TaskSystem>().Add(task);
-            SelectUnit.selectUnit.UpdateUI();
-            return true;
-        }
-        return false;
+        task = null;
+        if (building.GetComponent<TaskSystem>().Full())
+            return false;
+        if (!GetComponent<BotManager>().Pay(unit.costs, unit.pop))
+            print("wtf");
+        task = Instantiate(instantiateTaskPrefab).GetComponent<InstantiateTask>();
+        task.FirstInit(building);
+        task.Init(unit);
+        building.GetComponent<TaskSystem>().Add(task);
+        SelectUnit.selectUnit.UpdateUI();
+        return true;
+    }
+
+    public MovableUnit GetUnitOfIndex(int index)
+    {
+        return ((GameObject)Resources.Load(troopList[index])).GetComponent<MovableUnit>();
     }
 }

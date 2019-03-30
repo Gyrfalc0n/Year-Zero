@@ -27,6 +27,10 @@ public class BuilderUnit : MovableUnit {
             jobless = GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>();
             UpdateJoblessPanel();
         }
+        else
+        {
+            InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotBuilderManager>().Add(this);
+        }
     }
 
     public override void Interact(Interactable obj)
@@ -109,9 +113,19 @@ public class BuilderUnit : MovableUnit {
         return (!patrolSystem.IsPatroling() && !miningSystem.IsMining() && !buildingSystem.IsBuilding() && immobile && !repairingSystem.IsRepairing());
     }
 
+    public bool IsDoingNothingEceptMoving()
+    {
+        return (!patrolSystem.IsPatroling() && !miningSystem.IsMining() && !buildingSystem.IsBuilding() && !repairingSystem.IsRepairing());
+    }
+
     public bool IsMining()
     {
         return miningSystem.IsMining();
+    }
+
+    public bool IsBuilding()
+    {
+        return buildingSystem.IsBuilding();
     }
 
     public void UpdateJoblessPanel()

@@ -25,16 +25,18 @@ public class BotConstructionManager : MonoBehaviour
         "Buildings/Turrel/Turrel"
     };
 
-    public int Construct(int index, BuilderUnit builder)
+    public int Construct(int index, BuilderUnit builder, out InConstructionUnit inConstructionUnit)
     {
+        inConstructionUnit = null;
         ConstructedUnit building = ((GameObject)Resources.Load(buildingList[index])).GetComponent<ConstructedUnit>();
-        bool res = GetComponent<BotManager>().PayCheck(building.costs, building.pop) ? true : false;
-        if (!res) return 1;
-        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(building.GetConstructorPath(), GenerateNewPos(), Quaternion.identity);
+        int pay = GetComponent<BotManager>().GetPayLimiterIndex(building.costs, building.pop);
+        if (pay != -1) return pay;
+        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(building.GetConstructorPath(), GenerateNewPos(), Quaternion.identity, GetComponent<IAManager>().botIndex);
         obj.GetComponent<InConstructionUnit>().Init(building);
         GetComponent<BotManager>().Pay(building.costs, building.pop);
         builder.Build(obj.GetComponent<InConstructionUnit>());
-        return 0;
+        inConstructionUnit = obj.GetComponent<InConstructionUnit>();
+        return -1;
     }
 
     public void InitPos(Vector3 home)
@@ -62,7 +64,6 @@ public class BotConstructionManager : MonoBehaviour
             lastCorner = lastCorner - new Vector3(buildingDistance, 0, buildingDistance);
             lastBuildingPos = lastCorner - new Vector3(0, 0, buildingDistance);
         }
-        print(currentIndex);
 
         switch (currentSide)
         {
@@ -82,15 +83,43 @@ public class BotConstructionManager : MonoBehaviour
         return lastBuildingPos;
     }
 
-    void Update()
+    public int GetHouseCount()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        int res = 0;
+        foreach (SelectableObj obj in GetComponent<IAManager>().mySelectableObjs)
         {
-            BuilderUnit tmp = GetComponent<IAManager>().GetJoblessBuilder();
-            if (tmp != null)
-            {
-                Construct(0, tmp);
-            }
+            if (obj != null && obj.GetComponent<HouseUnit>() != null)
+                res++;
         }
+        return res;
+    }
+
+    public int GetFarmCount()
+    {
+        int res = 0;
+        foreach (SelectableObj obj in GetComponent<IAManager>().mySelectableObjs)
+        {
+            if (obj != null && obj.GetComponent<Farm>() != null)
+                res++;
+        }
+        return res;
+    }
+
+    public int GetBuildingIndexFor(int unitIndex)
+    {
+        MovableUnit unit = GetComponent<BotInstantiationManager>().GetUnitOfIndex(unitIndex);
+        for (int i = 0; i < buildingList.Length; i++)
+        {
+            if (GetBuildingOfIndex(i).GetComponent<ProductionBuilding>() != null && GetBuildingOfIndex(i).GetComponent<ProductionBuilding>().CanProduct(unit))
+                return i;
+        }
+        print(unitIndex);
+        print("wtf");
+        return -1;
+    }
+
+    public ConstructedUnit GetBuildingOfIndex(int index)
+    {
+        return ((GameObject)Resources.Load(buildingList[index])).GetComponent<ConstructedUnit>();
     }
 }

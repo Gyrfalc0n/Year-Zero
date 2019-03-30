@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class EnergyFarm : ConstructedUnit
 {
     PlayerManager manager;
+    BotManager botManager;
 
     int resourceIndex = 0;
 
@@ -22,6 +23,10 @@ public class EnergyFarm : ConstructedUnit
         {
             manager = PlayerManager.playerManager;
         }
+        else
+        {
+            botManager = InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>();
+        }
         timer = timeReset;
     }
 
@@ -35,7 +40,10 @@ public class EnergyFarm : ConstructedUnit
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            manager.Add((int)(value * SkilltreeManager.manager.energyFarmSpeed), resourceIndex);
+            if (botIndex == -1)
+                manager.Add((int)(value * SkilltreeManager.manager.energyFarmSpeed), resourceIndex);
+            else
+                botManager.Add((int)(value * SkilltreeManager.manager.energyFarmSpeed), resourceIndex);
             timer = timeReset;
         }
     }

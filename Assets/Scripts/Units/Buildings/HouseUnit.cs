@@ -13,6 +13,8 @@ public class HouseUnit : ConstructedUnit {
         base.InitUnit(botIndex);
         if (botIndex == -1)
             PlayerManager.playerManager.AddMaxPopulation(popValue);
+        else
+            InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().AddMaxPopulation(popValue);
     }
 
     public override void OnDestroyed()

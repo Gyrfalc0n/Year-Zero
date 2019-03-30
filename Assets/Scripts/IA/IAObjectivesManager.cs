@@ -8,126 +8,198 @@ public class IAObjectivesManager : MonoBehaviour
     ConstructionObjective constructionObjectivePrefab;
     [SerializeField]
     InstantationObjective instantiationObjectivePrefab;
+    float waittingTime;
+    [SerializeField]
+    SendToMineObjective sendToMineObjectivePrefab;
 
-    ObjectivesArraysManager arrays;
-    ObjectiveArray currentArray;
+    public int step { get; private set; }
 
-    List<IAObjective> currentList = new List<IAObjective>();
+    public IAObjective currentObjective { get; private set; }
+    public ObjectivesArraysManager arrays;
+    Stack<IAObjective> objectives = new Stack<IAObjective>();
 
-    float time;
-    float timeMax;
+    bool stop;
 
-    private void Start()
+    void Start()
     {
-        //To be changed
-        arrays = GetComponentInChildren<ObjectivesArraysManager>();
-        currentArray = arrays.arrays[0];
-        timeMax = 1;
-        time = timeMax;
+        step = 1;
+        stop = false;
+        waittingTime = 0;
+        GenerateObjectiveStack();
+        currentObjective = objectives.Pop();
+        currentObjective.Activate();
     }
 
-    private void Update()
+    void Update()
     {
-        if (time > 0) time -= Time.deltaTime;
-        if (time <= 0) CheckCurrentObjective();
-    }
-
-    void CheckCurrentObjective()
-    {
-        if (currentList.Count == 0)
-            GenerateObjectivesList(currentArray.objectives);
-        if (!currentList[0].IsActivated())
-            return;
-        int result = currentList[0].GetResult();
-        if (result == -1)
-            return;
-        else if (result != 0)
-        {
-            if (currentList[0].GetComponents<ConstructionObjective>() != null)
-            {
-                if (result != 2)
-                    ReAddTask(currentList[0]);
-                NextObjective();
-            }
-            else if (currentList[0].GetComponents<InstantationObjective>() != null)
-            {
-                if (result == -2)
-                {
-                    ConstructionObjective tmp = Instantiate(constructionObjectivePrefab, transform);
-                    tmp.Init(4);
-                    currentList.Add(tmp);
-                }
-                else
-                {
-                    ReAddTask(currentList[0]);
-                    NextObjective();
-                }
-            }
-        }
+        if (waittingTime <= 0)
+            Check();
         else
+            waittingTime -= Time.deltaTime;
+    }
+
+    void Check()
+    {
+        if (stop) return;
+
+        if (currentObjective == null)
         {
             NextObjective();
         }
+        switch (currentObjective.state)
+        {
+            case (ObjectiveState.Deactivated):
+                print("wtf");
+                break;
+            case (ObjectiveState.Activated):
+                break;
+            case (ObjectiveState.Done):
+                NextObjective();
+                break;
+            case (ObjectiveState.NeedBuilder):
+                NeedBuilder();
+                break;
+            case (ObjectiveState.NeedBuilding):
+                NeedBuilding();
+                break;
+            case (ObjectiveState.NeedEnergy):
+                NeedEnergy();
+                break;
+            case (ObjectiveState.NeedOre):
+                NeedOre();
+                break;
+            case (ObjectiveState.NeedFood):
+                NeedFood();
+                break;
+            case (ObjectiveState.NeedPop):
+                NeedPop();
+                break;
+            case (ObjectiveState.NeedWait):
+                waittingTime = 10;
+                break;
+            case (ObjectiveState.SuicideTroop):
+                SuicideTroop();
+                break;
+        }
+    }
 
+    void GenerateObjectiveStack()
+    {
+        foreach (IAObjective obj in arrays.arrays[step - 1].objectives)
+        {
+            objectives.Push(obj);
+        }
     }
 
     void NextObjective()
     {
-        GameObject tmp = currentList[0].gameObject;
-        currentList.RemoveAt(0);
-        Destroy(tmp);
-        time = timeMax;
-        if (currentList.Count > 0)
-            currentList[0].Activate();
-    }
-
-    void LaunchNewList()
-    {
-        currentList[0].Activate();
-    }
-
-    void ReAddTask(IAObjective newObjective)
-    {
-        IAObjective tmp = CopyObjective(newObjective);
-        if (tmp.GetComponent<InstantationObjective>() != null)
+        if (currentObjective != null)
         {
-            tmp.GetComponent<InstantationObjective>().amount = newObjective.GetComponent<InstantationObjective>().GetResult();
+            Destroy(currentObjective.gameObject);
         }
-        currentList.Add(tmp);
-    }
 
-    void GenerateObjectivesList(IAObjective[] ObjectiveArray)
-    {
-        currentList.Clear();
-        foreach (IAObjective obj in ObjectiveArray)
+        if (objectives.Count > 0)
         {
-            currentList.Add(CopyObjective(obj));
-        }
-        LaunchNewList();
-    }
-
-    IAObjective CopyObjective(IAObjective objective)
-    {
-        IAObjective obj = null;
-        if (objective.GetComponent<ConstructionObjective>() != null)
-        {
-            ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
-            ConstructionObjective model = objective.GetComponent<ConstructionObjective>();
-            newObj.Init(model.buildingIndex);
-            obj = newObj;
-        }
-        else if (objective.GetComponent<InstantationObjective>() != null)
-        {
-            InstantationObjective newObj = Instantiate(instantiationObjectivePrefab, transform);
-            InstantationObjective model = objective.GetComponent<InstantationObjective>();
-            newObj.Init(model.unitIndex, model.amount);
-            obj = newObj;
+            currentObjective = objectives.Pop();
+            currentObjective.Activate();
         }
         else
         {
-            print("wtf");
+            NextStep();
         }
-        obj.transform.SetParent(transform);
-        return obj.GetComponent<IAObjective>();
+    }
+
+    void NextStep()
+    {
+        GetComponent<BotArmyManager>().SendArmy();
+        step++;
+        if (step - 1 >= arrays.arrays.Length)
+        {
+            print("Finished!");
+            stop = true;
+        }
+
+        else
+            GenerateObjectiveStack();
+    }
+
+    void PutBack()
+    {
+        currentObjective.Deactivate();
+        objectives.Push(currentObjective);
+        currentObjective = null;
+    }
+
+    void NeedBuilder()
+    {
+        PutBack();
+        InstantationObjective newObj = Instantiate(instantiationObjectivePrefab, transform);
+        newObj.Init(2);
+        currentObjective = newObj;
+        currentObjective.Activate();
+    }
+
+    void NeedBuilding()
+    {
+        int buildingIndex = GetComponent<BotConstructionManager>().GetBuildingIndexFor(currentObjective.GetComponent<InstantationObjective>().unitIndex);
+        PutBack();
+        ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
+        newObj.Init(buildingIndex);
+        currentObjective = newObj;
+        currentObjective.Activate();
+    }
+
+    void NeedEnergy()
+    {
+        PutBack();
+        ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
+        newObj.Init(2);
+        currentObjective = newObj;
+        currentObjective.Activate();
+    }
+
+    void NeedPop()
+    {
+        PutBack();
+        ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
+        newObj.Init(4);
+        currentObjective = newObj;
+        currentObjective.Activate();
+    }
+
+    void SuicideTroop()
+    {
+        if (!GetComponent<BotArmyManager>().SuicideTroop())
+            PutBack();
+        else
+            waittingTime = 100;
+    }
+
+    void NeedOre()
+    {
+        PutBack();
+        SendToMineObjective newObj = Instantiate(sendToMineObjectivePrefab, transform);
+        newObj.Init(1);
+        currentObjective = newObj;
+        currentObjective.Activate();
+    }
+
+    void NeedFood()
+    {
+        PutBack();
+        IAObjective newObj;
+        if (GetComponent<BotConstructionManager>().GetFarmCount() < GetComponent<IAObjectivesManager>().step + 2 * GetComponent<IAObjectivesManager>().step)
+        {
+            newObj = Instantiate(constructionObjectivePrefab, transform).GetComponent<ConstructionObjective>();
+            newObj.GetComponent<ConstructionObjective>().Init(3);
+        }
+        else
+        {
+            newObj = Instantiate(sendToMineObjectivePrefab, transform).GetComponent<SendToMineObjective>();
+            newObj.GetComponent<SendToMineObjective>().Init(2);
+        }
+        currentObjective = newObj;
+        currentObjective.Activate();
+
     }
 }

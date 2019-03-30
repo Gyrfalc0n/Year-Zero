@@ -72,4 +72,27 @@ public class BotArmyManager : MonoBehaviour
         }
         return enemies;
     }
+
+    public bool SuicideTroop()
+    {
+        if (army.Count == 0)
+            return false;
+
+        army[0].KillUnit();
+
+        return true;
+    }
+
+    public void SendArmy()
+    {
+        DestructibleUnit target = GetNearestEnemy();
+
+        if (target == null)
+            return;
+
+        foreach (MovableUnit troop in army)
+        {
+            troop.Attack(target);
+        }
+    }
 }

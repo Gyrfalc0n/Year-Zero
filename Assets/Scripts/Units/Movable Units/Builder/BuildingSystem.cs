@@ -17,7 +17,7 @@ public class BuildingSystem : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         currentAction = CurrentBuildingAction.nothing;
-        constructionDistance = (GetComponent<SelectableObj>().botIndex == -1) ? 0.1f : 0.2f;
+        constructionDistance = (GetComponent<SelectableObj>().botIndex == -1) ? 0.1f : 0.5f;
     }
 
     void Update()
@@ -49,7 +49,6 @@ public class BuildingSystem : MonoBehaviour
         {
             StopBuilding();
         }
-
         SetDestination(building.GetComponent<BoxCollider>().ClosestPoint(transform.position), 0.5f);
         aimedBuilding = building;
         currentAction = CurrentBuildingAction.goingToBuild;

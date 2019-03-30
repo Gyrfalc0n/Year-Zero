@@ -14,6 +14,7 @@ public class InConstructionUnit : BuildingUnit
     float currentLife;
 
     private List<BuilderUnit> builders = new List<BuilderUnit>();
+    public int buildersCount { get; private set; }
 
     void Update()
     {
@@ -24,6 +25,7 @@ public class InConstructionUnit : BuildingUnit
     {
         associatedBuilding = building;
         currentLife = 0;
+        buildersCount = 0;
     }
 
     private void CheckConstruction()
@@ -42,17 +44,20 @@ public class InConstructionUnit : BuildingUnit
     public virtual void OnConstructionFinished()
     {
         RemoveAllBuilders();
-        InstanceManager.instanceManager.InstantiateUnit(associatedBuilding.GetPath(), transform.position, Quaternion.identity);
+        InstanceManager.instanceManager.InstantiateUnit(associatedBuilding.GetPath(), transform.position, Quaternion.identity, botIndex);
         KillUnit();
     }
 
     public void AddBuilder(BuilderUnit builder)
     {
+        hadBuilder = true;
+        buildersCount++;
         builders.Add(builder);
     }
 
     public void RemoveBuilder(BuilderUnit builder)
     {
+        buildersCount--;
         builders.Remove(builder);
     }
 
@@ -84,6 +89,12 @@ public class InConstructionUnit : BuildingUnit
     public ConstructedUnit GetAssociatedBuilding()
     {
         return associatedBuilding;
+    }
+
+    bool hadBuilder = false;
+    public bool HasNoMoreBuilder()
+    {
+        return hadBuilder && builders.Count == 0;
     }
 }
 

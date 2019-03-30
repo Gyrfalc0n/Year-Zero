@@ -26,6 +26,7 @@ public class BotManager : MonoBehaviour
             population.Add(pop);
             return true;
         }
+        print("wtf");
         return false;
     }
 
@@ -44,6 +45,22 @@ public class BotManager : MonoBehaviour
             possible = false;
         }
         return possible;
+    }
+
+    public int GetPayLimiterIndex(int[] costs, int pop)
+    {
+        int res = -1;
+        if (!PayCheck(costs, pop))
+        {
+            for (int i = 0; i < costs.Length; i++)
+            {
+                if (resources[i].GetValue() < costs[i])
+                    return i;
+            }
+            if (population.GetCurrentMaxValue() < population.GetValue() + pop)
+                return -2;
+        }
+        return res;
     }
 
     public void Add(int val, int index)
