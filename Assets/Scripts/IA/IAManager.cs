@@ -135,6 +135,8 @@ public class IAManager : MonoBehaviourPunCallbacks
 
     public void AllSelectableRemoveAt(int i)
     {
+        if (PhotonNetwork.OfflineMode)
+            return;
         photonView.RPC("RPCAllSelectableRemoveAt", RpcTarget.Others, i);
     }
 
@@ -142,5 +144,20 @@ public class IAManager : MonoBehaviourPunCallbacks
     public void RPCAllSelectableRemoveAt(int i)
     {
         allSelectableObjs.RemoveAt(i);
+    }
+
+    public void CleanLists()
+    {
+        for (int i = allSelectableObjs.Count-1; i >=0; i--)
+        {
+            print(i);
+            if (allSelectableObjs[i] == null)
+                allSelectableObjs.RemoveAt(i);
+        }
+        for (int i = mySelectableObjs.Count - 1; i >= 0; i--)
+        {
+            if (mySelectableObjs[i] == null)
+                mySelectableObjs.RemoveAt(i);
+        }
     }
 }

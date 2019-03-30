@@ -28,7 +28,7 @@ public class BotBuilderManager : MonoBehaviour
         if (builder != null)
             return ObjectiveState.Activated;
 
-        if (builders.Count >= m.GetMaxPopulation() || builders.Count/m.GetMaxPopulation()*100 >= 25)
+        if ((float)builders.Count >= m.GetMaxPopulation() || (float)builders.Count/m.GetMaxPopulation()*100 >= 25)
         {
             float inConstruction = InConstructionBuilders();
             if (inConstruction == builders.Count || inConstruction/builders.Count*10 > 35)
@@ -119,9 +119,10 @@ public class BotBuilderManager : MonoBehaviour
 
     BuilderUnit GetMiningBuilder()
     {
+        int index = (OreMiningBuilders() < MiningBuilders()) ? 2 : 1;
         foreach (BuilderUnit builder in builders)
         {
-            if (builder.IsMining())
+            if (builder.IsMining() && builder.GetComponent<MiningSystem>().currentResourceUnit.GetResourceIndex() == index)
             {
                 return builder;
             }
@@ -135,6 +136,17 @@ public class BotBuilderManager : MonoBehaviour
         foreach (BuilderUnit builder in builders)
         {
             if (builder.IsMining())
+                res++;
+        }
+        return res;
+    }
+
+    float OreMiningBuilders()
+    {
+        float res = 0;
+        foreach (BuilderUnit builder in builders)
+        {
+            if (builder.IsMining() && builder.GetComponent<MiningSystem>().currentResourceUnit.GetResourceIndex() == 1)
                 res++;
         }
         return res;

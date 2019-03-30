@@ -15,7 +15,7 @@ public class MiningSystem : MonoBehaviour
     bool mining = false;
     float resourceAmount;
     const int resourceMax = 50;
-    private ResourceUnit currentResourceUnit;
+    public ResourceUnit currentResourceUnit { get; private set; }
     Resources lastMinedResource;
     private float speedMining = 2f;
 

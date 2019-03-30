@@ -105,6 +105,17 @@ public class BotConstructionManager : MonoBehaviour
         return res;
     }
 
+    public int GetEnergyFarmCount()
+    {
+        int res = 0;
+        foreach (SelectableObj obj in GetComponent<IAManager>().mySelectableObjs)
+        {
+            if (obj != null && obj.GetComponent<EnergyFarm>() != null)
+                res++;
+        }
+        return res;
+    }
+
     public int GetBuildingIndexFor(int unitIndex)
     {
         MovableUnit unit = GetComponent<BotInstantiationManager>().GetUnitOfIndex(unitIndex);
@@ -113,7 +124,6 @@ public class BotConstructionManager : MonoBehaviour
             if (GetBuildingOfIndex(i).GetComponent<ProductionBuilding>() != null && GetBuildingOfIndex(i).GetComponent<ProductionBuilding>().CanProduct(unit))
                 return i;
         }
-        print(unitIndex);
         print("wtf");
         return -1;
     }

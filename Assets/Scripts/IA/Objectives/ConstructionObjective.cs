@@ -27,20 +27,20 @@ public class ConstructionObjective : IAObjective
             if (inConstructionUnit == null)
             {
                 state = ObjectiveState.Done;
+                GetComponentInParent<IAManager>().CleanLists();
             }
             else if (inConstructionUnit.HasNoMoreBuilder())
             {
                 inConstructionUnit.KillUnit();
                 state = ObjectiveState.Done;
+                GetComponentInParent<IAManager>().CleanLists();
             }
         }
     }
 
     public override void Activate()
     {
-        print(buildingIndex);
         SetBuilder();
-        print(state);
         if (state == ObjectiveState.NeedBuilder || state == ObjectiveState.NeedWait || state == ObjectiveState.NeedPop)
             return;
 

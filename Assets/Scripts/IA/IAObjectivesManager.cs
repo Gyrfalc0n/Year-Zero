@@ -152,10 +152,17 @@ public class IAObjectivesManager : MonoBehaviour
     void NeedEnergy()
     {
         PutBack();
-        ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
-        newObj.Init(2);
-        currentObjective = newObj;
-        currentObjective.Activate();
+        if (GetComponent<BotConstructionManager>().GetEnergyFarmCount() < GetComponent<IAObjectivesManager>().step + 2 * GetComponent<IAObjectivesManager>().step)
+        {
+            ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
+            newObj.Init(2);
+            currentObjective = newObj;
+            currentObjective.Activate();
+        }
+        else
+        {
+            waittingTime = 10f;
+        }
     }
 
     void NeedPop()
