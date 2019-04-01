@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class InstantationObjective : IAObjective
 {
+    public InstantiationUnit unit = InstantiationUnit.None;
+    [HideInInspector]
     public int unitIndex;
 
     InstantiateTask task;
+
+    private void Start()
+    {
+        if (unit != InstantiationUnit.None)
+            unitIndex = (int)unit;
+    }
 
     public void Init(int unitIndex)
     {
@@ -44,4 +52,16 @@ public class InstantationObjective : IAObjective
             base.Activate();
         }
     }
+}
+
+public enum InstantiationUnit
+{
+        BasicTroop,
+        Bomber,
+        Builder,
+        Destroyer,
+        Hacker,
+        LightTroop,
+        MobileMedicalStation,
+        None
 }

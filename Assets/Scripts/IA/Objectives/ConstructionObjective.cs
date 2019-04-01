@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class ConstructionObjective : IAObjective
 {
+    public BuildingUnits buildingUnits = BuildingUnits.None;
+    [HideInInspector]
     public BuilderUnit builder;
+    [HideInInspector]
     public int buildingIndex;
 
     InConstructionUnit inConstructionUnit;
+
+    private void Start()
+    {
+        if (buildingUnits != BuildingUnits.None)
+            buildingIndex = (int)buildingUnits;
+    }
 
     public void Init(int buildingIndex)
     {
@@ -66,4 +75,18 @@ public class ConstructionObjective : IAObjective
             base.Activate();
         }
     }
+}
+
+public enum BuildingUnits
+{
+        CombatStation,
+        ConquestStation,
+        EnergyFarm,
+        Farm,
+        House,
+        Laboratory,
+        Radar,
+        TownHall,
+        Turrel,
+        None
 }

@@ -425,16 +425,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InstantiationObjectivePrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 4658484240797380332, guid: fd67a7ca86916334e877272313365ac7,
-        type: 3}
-      propertyPath: unitIndex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4658484240797380332, guid: fd67a7ca86916334e877272313365ac7,
-        type: 3}
-      propertyPath: amount
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7465305545804030877, guid: fd67a7ca86916334e877272313365ac7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,6 +478,21 @@ PrefabInstance:
     - target: {fileID: 7465305545804030877, guid: fd67a7ca86916334e877272313365ac7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658484240797380332, guid: fd67a7ca86916334e877272313365ac7,
+        type: 3}
+      propertyPath: unitIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658484240797380332, guid: fd67a7ca86916334e877272313365ac7,
+        type: 3}
+      propertyPath: amount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658484240797380332, guid: fd67a7ca86916334e877272313365ac7,
+        type: 3}
+      propertyPath: unit
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IAObjective : MonoBehaviour
 {
+    [HideInInspector]
     public ObjectiveState state = ObjectiveState.Deactivated;
 
     public virtual void Activate()
