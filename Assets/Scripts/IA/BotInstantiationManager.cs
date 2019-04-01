@@ -34,22 +34,24 @@ public class BotInstantiationManager : MonoBehaviour
         return res;
     }
 
-    public int CreateUnit(int unitIndex, out InstantiateTask task)
+    public ObjectiveState CreateUnit(int unitIndex, out InstantiateTask task)
     {
         task = null;
         MovableUnit unit =((GameObject)Resources.Load(troopList[unitIndex])).GetComponent<MovableUnit>();
-        int pay = GetComponent<BotManager>().GetPayLimiterIndex(unit.costs, unit.pop);
-        if (pay != -1) return pay;
-        List<ProductionBuilding> buildings = GetAvailableProductionBuilding(unit);
+        List<ProductionBuilding> buildings = GetCompatibleProductionBuildings(unit);
+        if (buildings.Count == 0)
+            return ObjectiveState.NeedBuilding;
+        ObjectiveState pay = GetComponent<BotManager>().ResourceLimiterToObjectiveState(unit.costs, unit.pop);
+        if (pay != ObjectiveState.Activated) return pay;
         foreach (ProductionBuilding building in buildings)
         {
             if (CreateInstantiateTask(building, unit, out task))
-                return -1;
+                return ObjectiveState.Activated;
         }
-        return -3;
+        return ObjectiveState.NeedBuilding;
     }
 
-    List<ProductionBuilding> GetCompatibleProductionBuildings(ProductionBuilding building, MovableUnit unit)
+    List<ProductionBuilding> GetCompatibleProductionBuildings(MovableUnit unit)
     {
         List<ProductionBuilding> res = new List<ProductionBuilding>();
 

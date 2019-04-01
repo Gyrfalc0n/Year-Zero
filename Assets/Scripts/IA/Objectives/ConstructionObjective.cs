@@ -49,31 +49,15 @@ public class ConstructionObjective : IAObjective
 
     public override void Activate()
     {
-        SetBuilder();
-        if (state == ObjectiveState.NeedBuilder || state == ObjectiveState.NeedWait || state == ObjectiveState.NeedPop)
+        state = GetComponentInParent<BotConstructionManager>().CanConstruct(buildingIndex);
+        if (state != ObjectiveState.Activated)
             return;
 
-        int res = GetComponentInParent<BotConstructionManager>().Construct(buildingIndex, builder, out inConstructionUnit);
+        SetBuilder();
+        if (builder == null)
+            return;
 
-        if (res != -1)
-        {
-            if (res == -3)
-                state = ObjectiveState.NeedBuilding;
-            else if (res == -2)
-                state = ObjectiveState.NeedPop;
-            else if (res == 0)
-                state = ObjectiveState.NeedEnergy;
-            else if (res == 1)
-                state = ObjectiveState.NeedOre;
-            else if (res == 2)
-                state = ObjectiveState.NeedFood;
-            else
-                print("wtf");
-        }
-        else
-        {
-            base.Activate();
-        }
+        GetComponentInParent<BotConstructionManager>().Construct(buildingIndex, builder, out inConstructionUnit);
     }
 }
 

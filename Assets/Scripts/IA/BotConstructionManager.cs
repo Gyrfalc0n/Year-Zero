@@ -25,18 +25,22 @@ public class BotConstructionManager : MonoBehaviour
         "Buildings/Turrel/Turrel"
     };
 
-    public int Construct(int index, BuilderUnit builder, out InConstructionUnit inConstructionUnit)
+    public ObjectiveState CanConstruct(int index)
+    {
+        ConstructedUnit building = ((GameObject)Resources.Load(buildingList[index])).GetComponent<ConstructedUnit>();
+        ObjectiveState pay = GetComponent<BotManager>().ResourceLimiterToObjectiveState(building.costs, building.pop);
+        return pay;
+    }
+
+    public void Construct(int index, BuilderUnit builder, out InConstructionUnit inConstructionUnit)
     {
         inConstructionUnit = null;
         ConstructedUnit building = ((GameObject)Resources.Load(buildingList[index])).GetComponent<ConstructedUnit>();
-        int pay = GetComponent<BotManager>().GetPayLimiterIndex(building.costs, building.pop);
-        if (pay != -1) return pay;
         GameObject obj = InstanceManager.instanceManager.InstantiateUnit(building.GetConstructorPath(), GenerateNewPos(), Quaternion.identity, GetComponent<IAManager>().botIndex);
         obj.GetComponent<InConstructionUnit>().Init(building);
         GetComponent<BotManager>().Pay(building.costs, building.pop);
         builder.Build(obj.GetComponent<InConstructionUnit>());
         inConstructionUnit = obj.GetComponent<InConstructionUnit>();
-        return -1;
     }
 
     public void InitPos(Vector3 home)

@@ -15,9 +15,6 @@ public class IAManager : MonoBehaviourPunCallbacks
 
     public int botIndex { get; private set; }
 
-    public Transform movableUnits;
-    public Transform buildingUnits;
-
     public void Init(int index, int race, int team, int color, Vector3 coords, bool townhall)
     {
         botIndex = index;

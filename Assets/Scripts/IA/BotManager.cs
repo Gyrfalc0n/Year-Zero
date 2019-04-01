@@ -63,6 +63,27 @@ public class BotManager : MonoBehaviour
         return res;
     }
 
+    public ObjectiveState ResourceLimiterToObjectiveState(int[] costs, int pop)
+    {
+        int res = GetPayLimiterIndex(costs, pop);
+        switch (res)
+        {
+            case (-2):
+                return ObjectiveState.NeedPop;
+            case (-1):
+                return ObjectiveState.Activated;
+            case (0):
+                return ObjectiveState.NeedEnergy;
+            case (1):
+                return ObjectiveState.NeedOre;
+            case (2):
+                return ObjectiveState.NeedFood;
+            default:
+                print("wtf");
+                return ObjectiveState.Done;
+        }
+    }
+
     public void Add(int val, int index)
     {
         resources[index].Add(val);

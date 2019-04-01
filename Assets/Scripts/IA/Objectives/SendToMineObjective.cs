@@ -28,7 +28,7 @@ public class SendToMineObjective : IAObjective
     public override void Activate()
     {
         SetBuilder();
-        if (state == ObjectiveState.NeedBuilder || state == ObjectiveState.Done)
+        if (builder == null)
             return;
 
         GetComponentInParent<BotMiningManager>().SendToMine(builder, resourceIndex);
