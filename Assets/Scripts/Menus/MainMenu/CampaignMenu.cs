@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
-public class CampaignMenu : MonoBehaviour
+public class CampaignMenu : MonoBehaviourPunCallbacks
  {
     
      public void StartTuto()
      {
-        PhotonNetwork.LoadLevel(4);
-              
+        //SceneManager.LoadScene(4); 
+        PhotonNetwork.CreateRoom("Tutoz", new Photon.Realtime.RoomOptions { MaxPlayers = 1 });
      }
  
      public void StartMission()
@@ -20,4 +20,10 @@ public class CampaignMenu : MonoBehaviour
                          
          }
      }
- }
+
+    public override void OnCreatedRoom()
+    {
+        base.OnCreatedRoom();
+        PhotonNetwork.LoadLevel(4);
+    }
+}

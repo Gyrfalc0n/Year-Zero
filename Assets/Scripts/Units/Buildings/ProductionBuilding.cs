@@ -7,9 +7,9 @@ public class ProductionBuilding : ConstructedUnit
     Transform banner;
     Transform spawnPoint;
 
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
+        base.InitUnit(botIndex);
         Init();
     }
 
@@ -50,5 +50,18 @@ public class ProductionBuilding : ConstructedUnit
         if (banner == null)
             Init();
         banner.gameObject.SetActive(false);
+    }
+
+    public bool CanProduct(MovableUnit unit)
+    {
+        bool res = false;
+
+        for (int i = 0; i < tools.Count && !res; i++)
+        {
+            if (tools[i] == unit.gameObject)
+                res = true;
+        }
+
+        return res;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class FieldOfViewCollider : MonoBehaviour
 {
@@ -28,36 +29,62 @@ public class FieldOfViewCollider : MonoBehaviour
 
     void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.GetComponent<SelectableObj>() != null)
+        if (GetComponentInParent<SelectableObj>().botIndex == -1 && collision.gameObject.GetComponent<SelectableObj>() != null)
         {
             if (!PhotonNetwork.OfflineMode)
             {
-                if ((int)collision.gameObject.GetComponent<SelectableObj>().photonView.Owner.CustomProperties["Team"] != InstanceManager.instanceManager.GetTeam())
+                if (collision.GetComponent<SelectableObj>().botIndex == -1)
+                {
+                    if ((int)collision.gameObject.GetComponent<SelectableObj>().photonView.Owner.CustomProperties["Team"] != InstanceManager.instanceManager.GetTeam())
+                    {
+                        collision.gameObject.GetComponent<SelectableObj>().UnHide();
+                    }
+                }
+                else if (InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
                 {
                     collision.gameObject.GetComponent<SelectableObj>().UnHide();
                 }
             }
             else
             {
-                //Need bot system
+                if (collision.GetComponent<SelectableObj>().botIndex != -1)
+                {
+                    if (InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
+                    {
+                        collision.gameObject.GetComponent<SelectableObj>().UnHide();
+                    }
+                }
             }
         }
     }
 
     void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.GetComponent<SelectableObj>() != null)
+        if (collision.gameObject.GetComponent<SelectableObj>() != null && collision.gameObject.GetComponent<SelectableObj>() != null)
         {
             if (!PhotonNetwork.OfflineMode)
             {
-                if ((int)collision.gameObject.GetComponent<SelectableObj>().photonView.Owner.CustomProperties["Team"] != InstanceManager.instanceManager.GetTeam())
+                if (collision.GetComponent<SelectableObj>().botIndex == -1)
+                {
+                    if ((int)collision.gameObject.GetComponent<SelectableObj>().photonView.Owner.CustomProperties["Team"] != InstanceManager.instanceManager.GetTeam())
+                    {
+                        collision.gameObject.GetComponent<SelectableObj>().Hide();
+                    }
+                }
+                else if (InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
                 {
                     collision.gameObject.GetComponent<SelectableObj>().Hide();
                 }
             }
             else
             {
-                //Need bot system
+                if (collision.GetComponent<SelectableObj>().botIndex != -1)
+                {
+                    if (InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
+                    {
+                        collision.gameObject.GetComponent<SelectableObj>().Hide();
+                    }
+                }
             }
         }
     }

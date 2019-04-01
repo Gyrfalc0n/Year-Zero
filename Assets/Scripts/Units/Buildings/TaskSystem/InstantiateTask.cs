@@ -31,12 +31,12 @@ public class InstantiateTask : Task
 
         if (destroyer != null)
         {
-            GameObject unit = InstanceManager.instanceManager.InstantiateUnit(associatedUnit.GetPath(), destroyer.transform.position + new Vector3 (-5,0,0), Quaternion.identity);
+            GameObject unit = InstanceManager.instanceManager.InstantiateUnit(associatedUnit.GetPath(), destroyer.transform.position + new Vector3 (-5,0,0), Quaternion.identity, associatedBuilding.botIndex);
             unit.GetComponent<MovableUnit>().Init(destroyer.transform.position + new Vector3(-10,0,0));
         }
         else
         {
-            GameObject unit = InstanceManager.instanceManager.InstantiateUnit(associatedUnit.GetPath(), associatedBuilding.GetComponent<ProductionBuilding>().GetSpawnPointCoords(), Quaternion.identity);
+            GameObject unit = InstanceManager.instanceManager.InstantiateUnit(associatedUnit.GetPath(), associatedBuilding.GetComponent<ProductionBuilding>().GetSpawnPointCoords(), Quaternion.identity, associatedBuilding.botIndex);
             unit.GetComponent<MovableUnit>().Init(associatedBuilding.GetComponent<ProductionBuilding>().GetBannerCoords());
         }
 

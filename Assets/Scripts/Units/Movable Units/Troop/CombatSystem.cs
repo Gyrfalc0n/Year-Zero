@@ -48,7 +48,7 @@ public class CombatSystem : MonoBehaviour
             if (Vector3.Distance(transform.position, target.transform.position) <= range)
             {
                 FaceTarget(target.transform.position);
-                agent.isStopped = true;
+                agent.ResetPath();
                 Shoot();
             }
             else

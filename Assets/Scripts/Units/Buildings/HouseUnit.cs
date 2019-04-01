@@ -8,10 +8,13 @@ public class HouseUnit : ConstructedUnit {
     [SerializeField]
     private int popValue;
 
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
-        PlayerManager.playerManager.AddMaxPopulation(popValue);
+        base.InitUnit(botIndex);
+        if (botIndex == -1)
+            PlayerManager.playerManager.AddMaxPopulation(popValue);
+        else
+            InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().AddMaxPopulation(popValue);
     }
 
     public override void OnDestroyed()

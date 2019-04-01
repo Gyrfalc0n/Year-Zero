@@ -11,15 +11,18 @@ public class BuildingSystem : MonoBehaviour
     InConstructionUnit aimedBuilding;
     InConstructionUnit whatIsBuilding;
 
+    float constructionDistance;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         currentAction = CurrentBuildingAction.nothing;
+        constructionDistance = (GetComponent<SelectableObj>().botIndex == -1) ? 0.1f : 0.5f;
     }
 
     void Update()
     {
-        if (currentAction == CurrentBuildingAction.goingToBuild && Vector3.Distance(transform.position, agent.destination) <= agent.stoppingDistance)
+        if (currentAction == CurrentBuildingAction.goingToBuild && Vector3.Distance(transform.position, agent.destination) <= agent.stoppingDistance + constructionDistance)
         {
             OnReachedDestination();
         }
@@ -46,7 +49,6 @@ public class BuildingSystem : MonoBehaviour
         {
             StopBuilding();
         }
-
         SetDestination(building.GetComponent<BoxCollider>().ClosestPoint(transform.position), 0.5f);
         aimedBuilding = building;
         currentAction = CurrentBuildingAction.goingToBuild;

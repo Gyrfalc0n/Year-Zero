@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Bomber : MovableUnit
 {
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        maxLife = defaultMaxLife + (int)(defaultMaxLife * SkilltreeManager.manager.bomberBonusLife);
-        damage = damage + (int)(defaultDamage * SkilltreeManager.manager.bomberBonusDamage);
-        base.Awake();
+        if (botIndex == -1)
+        {
+            maxLife = defaultMaxLife + (int)(defaultMaxLife * SkilltreeManager.manager.bomberBonusLife);
+            damage = damage + (int)(defaultDamage * SkilltreeManager.manager.bomberBonusDamage);
+        }
+        base.InitUnit(botIndex);
     }
 
     public override bool IsAvailable()

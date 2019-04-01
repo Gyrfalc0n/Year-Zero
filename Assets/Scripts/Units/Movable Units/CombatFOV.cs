@@ -15,9 +15,22 @@ public class CombatFOV : MonoBehaviour
     {
         if (parent != null)
         {
-            if (other.GetComponent<DestructibleUnit>() != null && InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>().photonView.Owner))
+            if (other.GetComponent<DestructibleUnit>() != null)
             {
-                parent.OnEnemyEnters(other.GetComponent<DestructibleUnit>());
+                if (parent.botIndex == -1)
+                {
+                    if (InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>()))
+                    {
+                        parent.OnEnemyEnters(other.GetComponent<DestructibleUnit>());
+                    }
+                }
+                else
+                {
+                    if (InstanceManager.instanceManager.GetBot(parent.botIndex).IsEnemy(other.GetComponent<DestructibleUnit>()))
+                    {
+                        parent.OnEnemyEnters(other.GetComponent<DestructibleUnit>());
+                    }
+                }
             }
         }
     }

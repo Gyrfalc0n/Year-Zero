@@ -16,14 +16,21 @@ public class BuilderUnit : MovableUnit {
     RepairingSystem repairingSystem;
     JoblessConstructorsPanel jobless;
 
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
+        base.InitUnit(botIndex);
         miningSystem = GetComponent<MiningSystem>();
         buildingSystem = GetComponent<BuildingSystem>();
         repairingSystem = GetComponent<RepairingSystem>();
-        jobless = GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>();
-        jobless.UpdatePanel();
+        if (botIndex == -1)
+        {
+            jobless = GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>();
+            UpdateJoblessPanel();
+        }
+        else
+        {
+            InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotBuilderManager>().Add(this);
+        }
     }
 
     public override void Interact(Interactable obj)
@@ -41,53 +48,53 @@ public class BuilderUnit : MovableUnit {
         {
             Repair(obj.GetComponent<ConstructedUnit>());
         }
-        jobless.UpdatePanel();
+        UpdateJoblessPanel();
     }
 
     public void Build(InConstructionUnit obj)
     {
         ResetAction();
         buildingSystem.InitBuild(obj);
-        jobless.UpdatePanel();
+        UpdateJoblessPanel();
     }
 
     public void StopBuild()
     {
         buildingSystem.StopBuilding();
-        jobless.UpdatePanel();
+        UpdateJoblessPanel();
     }
 
     public void Mine(ResourceUnit obj)
     {
         ResetAction();
         miningSystem.InitMining(home, obj);
-        jobless.UpdatePanel();
+        UpdateJoblessPanel();
     }
 
     public void StopMine()
     {
         miningSystem.StoptMining();
-        jobless.UpdatePanel();
+        UpdateJoblessPanel();
     }
 
     public void Repair(ConstructedUnit obj)
     {
         ResetAction();
         repairingSystem.InitRepair(obj);
-        jobless.UpdatePanel();
+        UpdateJoblessPanel();
     }
 
     public void StopRepairing()
     {
         repairingSystem.StopRepairing();
-        jobless.UpdatePanel();
+        UpdateJoblessPanel();
     }
 
     public override void Patrol(Vector3 pos1, Vector3 pos2, float stoppingDistance)
     {
         ResetAction();
         base.Patrol(pos1, pos2, stoppingDistance);
-        jobless.UpdatePanel();
+        UpdateJoblessPanel();
     }
 
     public override void ResetAction()
@@ -97,7 +104,7 @@ public class BuilderUnit : MovableUnit {
             StopMine();
         if (buildingSystem.IsBuilding())
             StopBuild();
-        jobless.UpdatePanel();
+        UpdateJoblessPanel();
     }
 
     public bool IsDoingNothing()
@@ -106,8 +113,24 @@ public class BuilderUnit : MovableUnit {
         return (!patrolSystem.IsPatroling() && !miningSystem.IsMining() && !buildingSystem.IsBuilding() && immobile && !repairingSystem.IsRepairing());
     }
 
+    public bool IsDoingNothingEceptMoving()
+    {
+        return (!patrolSystem.IsPatroling() && !miningSystem.IsMining() && !buildingSystem.IsBuilding() && !repairingSystem.IsRepairing());
+    }
+
     public bool IsMining()
     {
         return miningSystem.IsMining();
+    }
+
+    public bool IsBuilding()
+    {
+        return buildingSystem.IsBuilding();
+    }
+
+    public void UpdateJoblessPanel()
+    {
+        if (botIndex == -1)
+            jobless.UpdatePanel();
     }
 }

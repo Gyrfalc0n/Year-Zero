@@ -156,17 +156,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: Stop
       objectReference: {fileID: 0}
-    - target: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5864f5fdeaf667340a3ae1cb69b0c062,
-        type: 3}
-    - target: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 468302805420864707, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -177,10 +166,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1638985947089155290, guid: 37b0bb7757687cb44af7df486cd63dcf,
+    - target: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
-      propertyPath: description
-      value: Stop the selected unit
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5864f5fdeaf667340a3ae1cb69b0c062,
+        type: 3}
+    - target: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}

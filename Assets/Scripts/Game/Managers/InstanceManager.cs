@@ -26,7 +26,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     protected int color;
 
     [SerializeField]
-    GameObject botPrefab;
+    string botPrefab;
 
     protected string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
     protected string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
@@ -47,8 +47,16 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         Hashtable myTable = PhotonNetwork.LocalPlayer.CustomProperties;
         while (myTable.ContainsKey("Race" + i))
         {
-            IAManager bot = Instantiate(botPrefab).GetComponent<IAManager>();
-            bot.Init(i, (int)myTable["Race"+i], (int)myTable["Team" + i], (int)myTable["Color" + i], (int)myTable["Mycoords" + i]);
+            IAManager bot = PhotonNetwork.Instantiate(botPrefab, Vector3.zero, Quaternion.identity).GetComponent<IAManager>();
+            bot.gameObject.name = "Bot" + i;
+            bot.Init(i, (int)myTable["Race"+ i], (int)myTable["Team" + i], (int)myTable["Color" + i], (Vector3)myTable["MyCoords" + i], true);
+            i++;
+        }
+        if (offlineMode)
+        {
+            IAManager bot = Instantiate((GameObject)Resources.Load(botPrefab)).GetComponent<IAManager>();
+            bot.gameObject.name = "Bot0";
+            bot.Init(0, 1, 0, 1, new Vector3 (10, 1, 10), true);
             i++;
         }
     }
@@ -56,7 +64,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     Vector3 InitProp()
     {
         Vector3 myCoords;
-        if (!offlineMode)
+        if (!PhotonNetwork.OfflineMode && SceneManager.GetActiveScene().name != "Tutorial")
         {
             myCoords = (Vector3)PhotonNetwork.LocalPlayer.CustomProperties["MyCoords"];
 
@@ -79,11 +87,9 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     void InitStartingTroops(Vector3 coords)
     {
-        PlayerManager.playerManager.AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
-        if (SceneManager.GetActiveScene().name!="Tutorial")
-        {
-            InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
-        }
+        PlayerManager.playerManager.AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0), -1).GetComponent<TownHall>());
+        if (SceneManager.GetActiveScene().name != "Tutorial")
+            InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0), -1);
         Camera.main.GetComponent<CameraController>().LookTo(PlayerManager.playerManager.GetHomes()[0].transform.position);
     }
 
@@ -97,6 +103,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     public override void OnLeftRoom()
     {
+        Debug.Log("Leave room");
         PhotonNetwork.LoadLevel("MainMenu");
     }
 
@@ -108,11 +115,21 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     public List<SelectableObj> allSelectableObjs = new List<SelectableObj>();
     public List<SelectableObj> mySelectableObjs = new List<SelectableObj>();
+    public List<ResourceUnit> allResourceUnits = new List<ResourceUnit>();
 
-    public virtual GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
+    public virtual GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot, int botIndex)
     {
-        GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
-        return obj;
+        if (botIndex == -1)
+        {
+            GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
+            obj.GetComponent<SelectableObj>().InitUnit(-1);
+            return obj;
+        }
+        else
+        {
+            return GetBot(botIndex).InstantiateUnit(prefab, pos, rot);
+        }
+
     }
 
     public override void OnMasterClientSwitched(Player newMasterClient)
@@ -184,33 +201,29 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         }
     }
 
-    public bool IsEnemy(Player player)
+    public bool IsEnemy(SelectableObj unit)
     {
-        if (PhotonNetwork.OfflineMode)
+        if (unit.botIndex == -1)
         {
-            return false;
+            if (PhotonNetwork.OfflineMode)
+            {
+                return false;
+            }
+            else
+            {
+                return (int)unit.photonView.Owner.CustomProperties["Team"] != team;
+            }
         }
         else
         {
-            return (int)player.CustomProperties["Team"] != team;
+            return (GetTeam() != GetBot(unit.botIndex).GetTeam());
         }
-    }
-
-    public bool IsBotEnemy(int index)
-    {
-        /*if (PhotonNetwork.OfflineMode)
-        {
-            return false;
-        }
-        else
-        {
-            return (int)player.CustomProperties["Team"] != team;
-        }*/
-        return false;
     }
 
     public void AllSelectableRemoveAt(int i)
     {
+        if (PhotonNetwork.OfflineMode)
+            return;
         photonView.RPC("RPCAllSelectableRemoveAt", RpcTarget.Others, i);
     }
 
@@ -218,5 +231,23 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public void RPCAllSelectableRemoveAt(int i)
     {
         allSelectableObjs.RemoveAt(i);
+    }
+
+    public IAManager GetBot(int index)
+    {
+        return GameObject.Find("Bot" + index).GetComponent<IAManager>();
+    }
+
+    public void AllResourceUnitsRemoveAt(int i)
+    {
+        if (PhotonNetwork.OfflineMode)
+            return;
+        photonView.RPC("RPCAllResourceUnitsRemoveAt", RpcTarget.Others, i);
+    }
+
+    [PunRPC]
+    public void RPCAllResourceUnitsRemoveAt(int i)
+    {
+        allResourceUnits.RemoveAt(i);
     }
 }

@@ -22,6 +22,7 @@ public class TemporaryMessage : MonoBehaviour
 
     public void Add(string message)
     {
+        print("d");
         Instantiate(temporaryMessagePrefab, content).Init(message);
     }
 }

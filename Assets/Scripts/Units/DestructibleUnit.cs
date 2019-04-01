@@ -10,9 +10,9 @@ public class DestructibleUnit : SelectableObj {
     FloatingLifeBarPanel flbPanel;
     FloatingLifeBar lifeBar;
 
-    public override void Awake()
+    public override void InitUnit(int botIndex)
     {
-        base.Awake();
+        base.InitUnit(botIndex);
         lifeValue = maxLife;
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
         flbPanel.AddLifeBar(this);
@@ -84,6 +84,16 @@ public class DestructibleUnit : SelectableObj {
         {
             InstanceManager.instanceManager.mySelectableObjs.Remove(this);
         }
+
+        for (int i = 0; i < PlayerPrefs.GetInt("BotNumber"); i++)
+        {
+            InstanceManager.instanceManager.GetBot(i).AllSelectableRemoveAt(InstanceManager.instanceManager.GetBot(i).allSelectableObjs.IndexOf(this));
+            if (InstanceManager.instanceManager.GetBot(i).mySelectableObjs.Contains(this))
+            {
+                InstanceManager.instanceManager.mySelectableObjs.Remove(this);
+            }
+        }
+
         OnDestroyed();
         PhotonNetwork.Destroy(this.gameObject);
     }
