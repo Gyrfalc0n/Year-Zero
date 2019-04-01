@@ -33,6 +33,7 @@ public class BotBuilderManager : MonoBehaviour
             float inConstruction = InConstructionBuilders();
             if (inConstruction == builders.Count || inConstruction/builders.Count*10 > 35)
             {
+                GetComponent<BotBuilderManager>().DivideMiner();
                 return ObjectiveState.NeedWait;
             }
             else
@@ -57,7 +58,8 @@ public class BotBuilderManager : MonoBehaviour
     {
         if (GetComponent<BotConstructionManager>().GetHouseCount() < GetComponent<IAObjectivesManager>().step + 2 * GetComponent<IAObjectivesManager>().step)
         {
-            if (forHouse || toMine)
+            ConstructedUnit house = GetComponent<BotConstructionManager>().GetBuildingOfIndex(2);
+            if (forHouse || (toMine && !GetComponent<BotManager>().PayCheck(house.costs, house.pop)))
             {
                 return TakeBuilder(out builder, forHouse, toMine);
             }
@@ -119,7 +121,9 @@ public class BotBuilderManager : MonoBehaviour
 
     BuilderUnit GetMiningBuilder()
     {
-        int index = (OreMiningBuilders() < MiningBuilders()) ? 2 : 1;
+        int ore = MiningBuilders(1);
+        int food = MiningBuilders(2);
+        int index = (ore < food) ? 2 : 1;
         foreach (BuilderUnit builder in builders)
         {
             if (builder.IsMining() && builder.GetComponent<MiningSystem>().currentResourceUnit.GetResourceIndex() == index)
@@ -130,9 +134,9 @@ public class BotBuilderManager : MonoBehaviour
         return null;
     }
 
-    float MiningBuilders()
+    int MiningBuilders()
     {
-        float res = 0;
+        int res = 0;
         foreach (BuilderUnit builder in builders)
         {
             if (builder.IsMining())
@@ -141,12 +145,12 @@ public class BotBuilderManager : MonoBehaviour
         return res;
     }
 
-    float OreMiningBuilders()
+    int MiningBuilders(int resourceIndex)
     {
-        float res = 0;
+        int res = 0;
         foreach (BuilderUnit builder in builders)
         {
-            if (builder.IsMining() && builder.GetComponent<MiningSystem>().currentResourceUnit.GetResourceIndex() == 1)
+            if (builder.IsMining() && builder.GetComponent<MiningSystem>().currentResourceUnit.GetResourceIndex() == resourceIndex)
                 res++;
         }
         return res;
@@ -173,5 +177,34 @@ public class BotBuilderManager : MonoBehaviour
                 res++;
         }
         return res;
+    }
+
+    public void DivideMiner()
+    {
+        int ore = MiningBuilders(1);
+        int food = MiningBuilders(2);
+        int index = (ore < food) ? 2 : 1;
+        int index2 = (ore < food) ? 1 : 2;
+        while (Mathf.Abs(ore - food) > 1)
+        {
+            foreach (BuilderUnit builder in builders)
+            {
+                if (builder.IsMining() && builder.GetComponent<MiningSystem>().currentResourceUnit.GetResourceIndex() == index)
+                {
+                    GetComponent<BotMiningManager>().SendToMine(builder, index2);
+                    if (ore < food)
+                    {
+                        ore++;
+                        food--;
+                    }
+                    else
+                    {
+                        ore--;
+                        food++;
+                    }
+                    break;
+                }
+            }
+        }
     }
 }

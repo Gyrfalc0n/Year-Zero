@@ -125,6 +125,8 @@ public class IAObjectivesManager : MonoBehaviour
 
     void PutBack()
     {
+        if (currentObjective == null)
+            return;
         currentObjective.Deactivate();
         objectives.Push(currentObjective);
         currentObjective = null;
@@ -161,25 +163,8 @@ public class IAObjectivesManager : MonoBehaviour
         }
         else
         {
-            waittingTime = 10f;
+            //NeedOre();
         }
-    }
-
-    void NeedPop()
-    {
-        PutBack();
-        ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
-        newObj.Init(4);
-        currentObjective = newObj;
-        currentObjective.Activate();
-    }
-
-    void SuicideTroop()
-    {
-        if (!GetComponent<BotArmyManager>().SuicideTroop())
-            PutBack();
-        else
-            waittingTime = 100;
     }
 
     void NeedOre()
@@ -208,5 +193,22 @@ public class IAObjectivesManager : MonoBehaviour
         currentObjective = newObj;
         currentObjective.Activate();
 
+    }
+
+    void NeedPop()
+    {
+        PutBack();
+        ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
+        newObj.Init(4);
+        currentObjective = newObj;
+        currentObjective.Activate();
+    }
+
+    void SuicideTroop()
+    {
+        if (!GetComponent<BotArmyManager>().SuicideTroop())
+            PutBack();
+        else
+            waittingTime = 100;
     }
 }

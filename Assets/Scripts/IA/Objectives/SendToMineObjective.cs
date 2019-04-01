@@ -21,6 +21,7 @@ public class SendToMineObjective : IAObjective
     {
         if (state == ObjectiveState.Activated)
         {
+            GetComponentInParent<BotBuilderManager>().DivideMiner();
             state = ObjectiveState.Done;
         }
     }

@@ -16,6 +16,8 @@ public class ConstructionObjective : IAObjective
     {
         if (buildingUnits != BuildingUnits.None)
             buildingIndex = (int)buildingUnits;
+        else
+            buildingUnits = (BuildingUnits)buildingIndex;
     }
 
     public void Init(int buildingIndex)
