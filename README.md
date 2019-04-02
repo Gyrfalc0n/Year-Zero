@@ -1,2 +1,2 @@
 # year-zero
-Year Zéro by Bearth Studio
+Year Zero by Bearth Studio
