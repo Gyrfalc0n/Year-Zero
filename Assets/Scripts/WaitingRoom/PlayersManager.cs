@@ -181,14 +181,4 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         else
             startButton.Deactivate();
     }
-
-    public override void OnLeftRoom()
-    {
-        PhotonNetwork.LoadLevel("MainMenu");
-    }
-
-    public override void OnMasterClientSwitched(Player newMasterClient)
-    {
-        PhotonNetwork.LeaveRoom();
-    }
 }
