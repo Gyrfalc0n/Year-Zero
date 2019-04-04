@@ -101,18 +101,6 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         }
     }
 
-    public override void OnLeftRoom()
-    {
-        Debug.Log("Leave room");
-        PhotonNetwork.LoadLevel("MainMenu");
-    }
-
-    public override void OnDisconnected(DisconnectCause cause)
-    {
-        base.OnDisconnected(cause);
-        PhotonNetwork.LoadLevel("MainMenu");
-    }
-
     public List<SelectableObj> allSelectableObjs = new List<SelectableObj>();
     public List<SelectableObj> mySelectableObjs = new List<SelectableObj>();
     public List<ResourceUnit> allResourceUnits = new List<ResourceUnit>();
@@ -132,6 +120,20 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     }
 
+    #region Network
+
+    public override void OnLeftRoom()
+    {
+        Debug.Log("Leave room");
+        PhotonNetwork.LoadLevel("MainMenu");
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        base.OnDisconnected(cause);
+        PhotonNetwork.LoadLevel("MainMenu");
+    }
+
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
         PhotonNetwork.Disconnect();
@@ -141,6 +143,8 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     {
         PhotonNetwork.Disconnect();
     }
+
+    #endregion
 
     public int GetTeam()
     {
