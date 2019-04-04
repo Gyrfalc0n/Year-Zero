@@ -28,7 +28,7 @@ public class ConstructionObjective : IAObjective
 
     public void SetBuilder()
     {
-        state = GetComponentInParent<BotBuilderManager>().GetOneBuilder(out builder, buildingIndex == 4, false);
+        state = GetComponentInParent<BotBuilderManager>().GetOneBuilder(out builder, buildingIndex == 4);
     }
 
     void Update()

@@ -18,7 +18,7 @@ public class BotMiningManager : MonoBehaviour
 
         for (int i = 0; i < max; i++)
         {
-            if ((res == null) || (Vector3.Distance(unit1.transform.position, r[i].transform.position) < Vector3.Distance(unit1.transform.position, res.transform.position)))
+            if (r[i].GetResourceIndex() == index && ((res == null) || (Vector3.Distance(unit1.transform.position, r[i].transform.position) < Vector3.Distance(unit1.transform.position, res.transform.position))))
             {
                 res = r[i];
             }

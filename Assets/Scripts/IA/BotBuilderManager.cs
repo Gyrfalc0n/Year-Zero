@@ -22,7 +22,7 @@ public class BotBuilderManager : MonoBehaviour
         builders.Remove(builder);
     }
 
-    public ObjectiveState GetOneBuilder(out BuilderUnit builder, bool forHouse, bool toMine)
+    public ObjectiveState GetOneBuilder(out BuilderUnit builder, bool forHouse, int toMine=-1)
     {
         builder = GetJoblessBuilder();
         if (builder != null)
@@ -33,7 +33,7 @@ public class BotBuilderManager : MonoBehaviour
             float inConstruction = InConstructionBuilders();
             if (inConstruction == builders.Count || inConstruction/builders.Count*10 > 35)
             {
-                GetComponent<BotBuilderManager>().DivideMiner();
+                //GetComponent<BotBuilderManager>().DivideMiner();
                 return ObjectiveState.NeedWait;
             }
             else
@@ -54,12 +54,11 @@ public class BotBuilderManager : MonoBehaviour
         }
     }
 
-    ObjectiveState TakeOrHouse(out BuilderUnit builder, bool forHouse, bool toMine)
+    ObjectiveState TakeOrHouse(out BuilderUnit builder, bool forHouse, int toMine)
     {
-        if (GetComponent<BotConstructionManager>().GetHouseCount() < GetComponent<IAObjectivesManager>().step + 2 * GetComponent<IAObjectivesManager>().step)
+        if (GetComponent<BotConstructionManager>().GetHouseCount() < GetComponent<IAObjectivesManager>().step + 0 * GetComponent<IAObjectivesManager>().step)
         {
-            ConstructedUnit house = GetComponent<BotConstructionManager>().GetBuildingOfIndex(2);
-            if (forHouse || (toMine && !GetComponent<BotManager>().PayCheck(house.costs, house.pop)))
+            if (forHouse || toMine != -1)
             {
                 return TakeBuilder(out builder, forHouse, toMine);
             }
@@ -75,7 +74,7 @@ public class BotBuilderManager : MonoBehaviour
         }
     }
 
-    ObjectiveState TakeBuilder(out BuilderUnit builder, bool forHouse, bool toMine)
+    ObjectiveState TakeBuilder(out BuilderUnit builder, bool forHouse, int toMine)
     {
         builder = null;
 
@@ -85,9 +84,10 @@ public class BotBuilderManager : MonoBehaviour
         }
         else if (MiningBuilders() > 0)
         {
-            if (toMine)
-                return ObjectiveState.Done;
-            builder = GetMiningBuilder();
+            if (toMine == -1)
+                builder = GetMiningBuilder();
+            else if(GetMiningBuilder((toMine == 1) ? 1:2) != null)
+                builder = GetMiningBuilder((toMine == 1) ? 1:2);
             return ObjectiveState.Activated;
         }
         else
@@ -127,6 +127,18 @@ public class BotBuilderManager : MonoBehaviour
         foreach (BuilderUnit builder in builders)
         {
             if (builder.IsMining() && builder.GetComponent<MiningSystem>().currentResourceUnit.GetResourceIndex() == index)
+            {
+                return builder;
+            }
+        }
+        return null;
+    }
+
+    BuilderUnit GetMiningBuilder(int index)
+    {
+        foreach (BuilderUnit builder in builders)
+        {
+            if (builder.IsMining() && builder.GetComponent<MiningSystem>().currentResourceUnit.GetResourceIndex() != index)
             {
                 return builder;
             }

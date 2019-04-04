@@ -14,14 +14,14 @@ public class SendToMineObjective : IAObjective
 
     public void SetBuilder()
     {
-        state = GetComponentInParent<BotBuilderManager>().GetOneBuilder(out builder, false, true);
+        state = GetComponentInParent<BotBuilderManager>().GetOneBuilder(out builder, false, resourceIndex);
     }
 
     void Update()
     {
         if (state == ObjectiveState.Activated)
         {
-            GetComponentInParent<BotBuilderManager>().DivideMiner();
+            //GetComponentInParent<BotBuilderManager>().DivideMiner();
             state = ObjectiveState.Done;
         }
     }
