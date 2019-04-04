@@ -169,15 +169,18 @@ public class IAObjectivesManager : MonoBehaviour
 
     void NeedOre()
     {
+        bool forHouse = (currentObjective.GetComponent<ConstructionObjective>() != null && currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 4);
         PutBack();
         SendToMineObjective newObj = Instantiate(sendToMineObjectivePrefab, transform);
-        newObj.Init(1);
+        newObj.Init(1, forHouse);
         currentObjective = newObj;
         currentObjective.Activate();
     }
 
     void NeedFood()
     {
+        bool forHouse = (currentObjective.GetComponent<ConstructionObjective>() != null && currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 4);
+
         PutBack();
         IAObjective newObj;
         if (GetComponent<BotConstructionManager>().GetFarmCount() < GetComponent<IAObjectivesManager>().step + 0 * GetComponent<IAObjectivesManager>().step)
@@ -188,7 +191,7 @@ public class IAObjectivesManager : MonoBehaviour
         else
         {
             newObj = Instantiate(sendToMineObjectivePrefab, transform).GetComponent<SendToMineObjective>();
-            newObj.GetComponent<SendToMineObjective>().Init(2);
+            newObj.GetComponent<SendToMineObjective>().Init(2, forHouse);
         }
         currentObjective = newObj;
         currentObjective.Activate();

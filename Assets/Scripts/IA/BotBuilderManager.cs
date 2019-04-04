@@ -56,9 +56,9 @@ public class BotBuilderManager : MonoBehaviour
 
     ObjectiveState TakeOrHouse(out BuilderUnit builder, bool forHouse, int toMine)
     {
-        if (GetComponent<BotConstructionManager>().GetHouseCount() < GetComponent<IAObjectivesManager>().step + 0 * GetComponent<IAObjectivesManager>().step)
+        if (GetComponent<BotConstructionManager>().GetHouseCount() < GetComponent<IAObjectivesManager>().step + 2 * GetComponent<IAObjectivesManager>().step)
         {
-            if (forHouse || toMine != -1)
+            if (forHouse) // || (toMine != -1 && (float)builders.Count < m.GetMaxPopulation() || (float)builders.Count / m.GetMaxPopulation() * 100 < 25))
             {
                 return TakeBuilder(out builder, forHouse, toMine);
             }
@@ -86,8 +86,10 @@ public class BotBuilderManager : MonoBehaviour
         {
             if (toMine == -1)
                 builder = GetMiningBuilder();
-            else if(GetMiningBuilder((toMine == 1) ? 1:2) != null)
-                builder = GetMiningBuilder((toMine == 1) ? 1:2);
+            else if (MiningBuilders()/2 >= MiningBuilders(toMine))
+            {
+                builder = GetMiningBuilder(toMine);
+            }
             return ObjectiveState.Activated;
         }
         else
