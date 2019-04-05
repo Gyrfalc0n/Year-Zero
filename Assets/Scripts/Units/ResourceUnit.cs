@@ -8,9 +8,12 @@ public class ResourceUnit : Interactable, IPunObservable
     protected int resourceIndex;
     protected float resources;
 
+    List<BuilderUnit> builders = new List<BuilderUnit>();
+
     void Start()
     {
-        InstanceManager.instanceManager.allResourceUnits.Add(this);
+        if (GetComponent<FarmResourceUnit>() == null || photonView.IsMine)
+            InstanceManager.instanceManager.allResourceUnits.Add(this);
     }
 
     public float TakeResource(float val)
@@ -65,5 +68,20 @@ public class ResourceUnit : Interactable, IPunObservable
         {
             resources = (float)stream.ReceiveNext();
         }
+    }
+
+    public void Add(BuilderUnit unit)
+    {
+        builders.Add(unit);
+    }
+
+    public void Remove(BuilderUnit unit)
+    {
+        builders.Remove(unit);
+    }
+
+    public int GetBuildersCount()
+    {
+        return builders.Count;
     }
 }

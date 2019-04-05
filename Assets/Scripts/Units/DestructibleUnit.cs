@@ -87,7 +87,6 @@ public class DestructibleUnit : SelectableObj {
 
         for (int i = 0; i < PlayerPrefs.GetInt("BotNumber"); i++)
         {
-            InstanceManager.instanceManager.GetBot(i).AllSelectableRemoveAt(InstanceManager.instanceManager.GetBot(i).allSelectableObjs.IndexOf(this));
             if (InstanceManager.instanceManager.GetBot(i).mySelectableObjs.Contains(this))
             {
                 InstanceManager.instanceManager.mySelectableObjs.Remove(this);

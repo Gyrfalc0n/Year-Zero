@@ -37,7 +37,7 @@ public class MiningSystem : MonoBehaviour
         agent.stoppingDistance = stoppingDistance;
     }
 
-    public void InitPatrol(Vector3 pos1, Vector3 pos2, float stoppingDistance)
+    void InitPatrol(Vector3 pos1, Vector3 pos2, float stoppingDistance)
     {
         homePos = pos1;
         resourcePos = pos2;
@@ -60,6 +60,7 @@ public class MiningSystem : MonoBehaviour
         mining = true;
         currentResourceUnit = resourceUnit;
         InitPatrol(home.GetComponent<BoxCollider>().ClosestPoint(transform.position), currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position), 1f);
+        currentResourceUnit.Add(GetComponent<BuilderUnit>());
         if (resourceUnit.GetComponent<AsteroidResourceUnit>() != null)
         {
             lastMinedResource = Resources.ORE;
@@ -74,6 +75,7 @@ public class MiningSystem : MonoBehaviour
     {
         mining = false;
         currentResourceUnit = null;
+        currentResourceUnit.Remove(GetComponent<BuilderUnit>());
         StopPatrol();
     }
 
