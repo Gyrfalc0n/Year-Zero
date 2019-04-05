@@ -135,12 +135,12 @@ public class MiningSystem : MonoBehaviour
         {
             if (currentDestination == homePos)
             {
-                resourcePos = currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position);
+                //resourcePos = currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position);
                 currentDestination = resourcePos;
             }
             else if (currentDestination == resourcePos)
             {
-                homePos = home.GetComponent<BoxCollider>().ClosestPoint(transform.position);
+                //homePos = home.GetComponent<BoxCollider>().ClosestPoint(transform.position);
                 currentDestination = homePos;
             }
             else
