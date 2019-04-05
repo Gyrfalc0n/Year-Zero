@@ -10,6 +10,7 @@ public class MiningSystem : MonoBehaviour
     protected Vector3 homePos;
     protected Vector3 resourcePos;
     protected Vector3 currentDestination;
+    TownHall home;
     float stoppingDistance;
 
     bool mining = false;
@@ -58,8 +59,9 @@ public class MiningSystem : MonoBehaviour
     public void InitMining(TownHall home, ResourceUnit resourceUnit)
     {
         mining = true;
+        this.home = home;
         currentResourceUnit = resourceUnit;
-        InitPatrol(home.GetComponent<BoxCollider>().ClosestPoint(transform.position), currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position), 1f);
+        InitPatrol(home.GetComponent<BoxCollider>().ClosestPoint(transform.position), currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position), 1.5f);
         currentResourceUnit.Add(GetComponent<BuilderUnit>());
         if (resourceUnit.GetComponent<AsteroidResourceUnit>() != null)
         {
@@ -74,8 +76,8 @@ public class MiningSystem : MonoBehaviour
     public void StoptMining()
     {
         mining = false;
-        currentResourceUnit = null;
         currentResourceUnit.Remove(GetComponent<BuilderUnit>());
+        currentResourceUnit = null;
         StopPatrol();
     }
 
@@ -128,6 +130,8 @@ public class MiningSystem : MonoBehaviour
 
     void GoBack()
     {
+        homePos = home.GetComponent<BoxCollider>().ClosestPoint(transform.position);
+        resourcePos = currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position);
         if (currentResourceUnit != null)
         {
             currentDestination = (currentDestination == homePos) ? resourcePos : homePos;
