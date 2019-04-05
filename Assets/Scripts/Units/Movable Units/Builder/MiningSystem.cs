@@ -61,7 +61,7 @@ public class MiningSystem : MonoBehaviour
         mining = true;
         this.home = home;
         currentResourceUnit = resourceUnit;
-        InitPatrol(home.GetComponent<BoxCollider>().ClosestPoint(transform.position), currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position), 1.5f);
+        InitPatrol(home.GetComponent<BoxCollider>().ClosestPoint(transform.position), currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position), 1f);
         currentResourceUnit.Add(GetComponent<BuilderUnit>());
         if (resourceUnit.GetComponent<AsteroidResourceUnit>() != null)
         {
@@ -93,6 +93,7 @@ public class MiningSystem : MonoBehaviour
                 }
                 else
                 {
+
                     GoBack();
                     if (currentResourceUnit != null)
                         currentResourceUnit.OnNoMoreResources();
@@ -130,11 +131,22 @@ public class MiningSystem : MonoBehaviour
 
     void GoBack()
     {
-        homePos = home.GetComponent<BoxCollider>().ClosestPoint(transform.position);
-        resourcePos = currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position);
         if (currentResourceUnit != null)
         {
-            currentDestination = (currentDestination == homePos) ? resourcePos : homePos;
+            if (currentDestination == homePos)
+            {
+                resourcePos = currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position);
+                currentDestination = resourcePos;
+            }
+            else if (currentDestination == resourcePos)
+            {
+                homePos = home.GetComponent<BoxCollider>().ClosestPoint(transform.position);
+                currentDestination = homePos;
+            }
+            else
+            {
+                print("wtf");
+            }
             SetDestination(currentDestination, stoppingDistance);
         }
         else
