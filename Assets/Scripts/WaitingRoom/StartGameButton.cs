@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class StartGameButton : MonoBehaviourPunCallbacks {
 
@@ -18,6 +19,18 @@ public class StartGameButton : MonoBehaviourPunCallbacks {
 
     public void MainMenuBack()
     {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        Debug.Log("Leave room");
+        PhotonNetwork.LoadLevel("MainMenu");
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        Debug.Log("Master Client switched to" + newMasterClient.NickName);
         PhotonNetwork.LeaveRoom();
     }
 }

@@ -8,7 +8,7 @@ public class AsteroidResourceUnit : ResourceUnit
     void Awake()
     {
         resourceIndex = 1;
-        SetResources(Random.Range(500, 2000));
+        SetResources(Random.Range(50000, 200000));
     }
 
     public override void OnNoMoreResources()

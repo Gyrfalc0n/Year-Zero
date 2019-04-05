@@ -32,7 +32,6 @@ public class MainMenu : MonoBehaviourPunCallbacks {
     private void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        PhotonNetwork.ConnectUsingSettings();
         mainMenu.SetActive(true);
         CheckPseudo();
         CheckGameplay();
@@ -90,14 +89,12 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     public void Singleplayer()
     {
-        /*if (PhotonNetwork.IsConnected)
+       if (PhotonNetwork.IsConnected)
             PhotonNetwork.Disconnect();
         else
         {
             GotoSingleplayerMenu();
-        }*/
-
-        GotoSingleplayerMenu();
+        }
     }
 
     public override void OnDisconnected(DisconnectCause cause)
@@ -114,7 +111,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     void GotoSingleplayerMenu()
     {
-        PhotonNetwork.OfflineMode = false;
+        PhotonNetwork.OfflineMode = true;
         mainMenu.SetActive(false);
         singleplayerMenu.SetActive(true);
     }

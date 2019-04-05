@@ -52,8 +52,6 @@ public class IAManager : MonoBehaviourPunCallbacks
         InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
     }
 
-
-    public List<SelectableObj> allSelectableObjs = new List<SelectableObj>();
     public List<SelectableObj> mySelectableObjs = new List<SelectableObj>();
 
     public GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
@@ -137,20 +135,8 @@ public class IAManager : MonoBehaviourPunCallbacks
         photonView.RPC("RPCAllSelectableRemoveAt", RpcTarget.Others, i);
     }
 
-    [PunRPC]
-    public void RPCAllSelectableRemoveAt(int i)
-    {
-        allSelectableObjs.RemoveAt(i);
-    }
-
     public void CleanLists()
     {
-        for (int i = allSelectableObjs.Count-1; i >=0; i--)
-        {
-            print(i);
-            if (allSelectableObjs[i] == null)
-                allSelectableObjs.RemoveAt(i);
-        }
         for (int i = mySelectableObjs.Count - 1; i >= 0; i--)
         {
             if (mySelectableObjs[i] == null)

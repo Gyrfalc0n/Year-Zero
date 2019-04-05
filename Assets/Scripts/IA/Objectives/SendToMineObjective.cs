@@ -6,15 +6,17 @@ public class SendToMineObjective : IAObjective
 {
     public BuilderUnit builder;
     public int resourceIndex { get; private set; }
+    bool forHouse;
 
-    public void Init(int resourceIndex)
+    public void Init(int resourceIndex, bool forHouse = false)
     {
+        this.forHouse = forHouse;
         this.resourceIndex = resourceIndex;
     }
 
     public void SetBuilder()
     {
-        state = GetComponentInParent<BotBuilderManager>().GetOneBuilder(out builder, false, true);
+        state = GetComponentInParent<BotBuilderManager>().GetOneBuilder(out builder, forHouse, resourceIndex);
     }
 
     void Update()
