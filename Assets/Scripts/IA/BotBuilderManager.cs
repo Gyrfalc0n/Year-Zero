@@ -33,7 +33,6 @@ public class BotBuilderManager : MonoBehaviour
             float inConstruction = InConstructionBuilders();
             if (inConstruction == builders.Count || inConstruction/builders.Count*10 > 35)
             {
-                //GetComponent<BotBuilderManager>().DivideMiner();
                 return ObjectiveState.NeedWait;
             }
             else
@@ -58,7 +57,7 @@ public class BotBuilderManager : MonoBehaviour
     {
         if (GetComponent<BotConstructionManager>().GetHouseCount() < GetComponent<IAObjectivesManager>().step + 2 * GetComponent<IAObjectivesManager>().step)
         {
-            if (forHouse) // || (toMine != -1 && (float)builders.Count < m.GetMaxPopulation() || (float)builders.Count / m.GetMaxPopulation() * 100 < 25))
+            if (forHouse) //|| (toMine != -1 && (float)builders.Count < m.GetMaxPopulation() || (float)builders.Count / m.GetMaxPopulation() * 100 < 25)
             {
                 return TakeBuilder(out builder, forHouse, toMine);
             }
@@ -70,6 +69,11 @@ public class BotBuilderManager : MonoBehaviour
         }
         else
         {
+            if (toMine != -1 && MiningBuilders() > 1 && Mathf.Abs(MiningBuilders(1) - MiningBuilders(2)) <= 1)
+            {
+                builder = null;
+                return ObjectiveState.Activated;
+            }
             return TakeBuilder(out builder, forHouse, toMine);
         }
     }

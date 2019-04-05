@@ -77,7 +77,8 @@ public class ResourceUnit : Interactable, IPunObservable
 
     public void Remove(BuilderUnit unit)
     {
-        builders.Remove(unit);
+        if (builders.Contains(unit))
+            builders.Remove(unit);
     }
 
     public int GetBuildersCount()
