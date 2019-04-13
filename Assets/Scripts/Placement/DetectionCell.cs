@@ -7,28 +7,28 @@ public class DetectionCell : MonoBehaviour {
     public float localCellSize;
 
     [SerializeField]
-    private List<RayCaster> rayCasters;
+    protected List<RayCaster> rayCasters;
     private Material material;
 
-    private Color green = new Color(0, 0.5f, 0, 0.4f);
-    private Color red = new Color(0.5f, 0, 0, 0.4f);
+    Color green = new Color(0, 0.5f, 0, 0.4f);
+    Color red = new Color(0.5f, 0, 0, 0.4f);
 
-    private void Awake()
+    public virtual void Init()
     {
         material = GetComponent<Renderer>().material;
-        material.color = Color.green;
+        material.color = green;
         transform.localScale = new Vector3(localCellSize, localCellSize, localCellSize);
     }
 
-    //
-    public bool CheckAvailability()
+    public virtual bool CheckAvailability()
     {
         bool available = true;
 
-        foreach (RayCaster rc in rayCasters)
+        for (int i = 0; i < rayCasters.Count && available; i++)
         {
-            if (!rc.IsAvailable())
+            if (!rayCasters[i].IsAvailable())
                 available = false;
+            i++;
         }
 
         if (available)

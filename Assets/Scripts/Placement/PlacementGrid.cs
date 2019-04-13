@@ -11,6 +11,8 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
     [SerializeField]
     GameObject detectionCell;
     [SerializeField]
+    GameObject botDetectionCell;
+    [SerializeField]
     LayerMask groundLayer;
     ConstructedUnit associatedBuilding;
 
@@ -21,14 +23,15 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
     float lines;
     float columns;
 
-    public void Init(ConstructedUnit building, BuilderUnit builder)
+    public void Init(ConstructedUnit building, BuilderUnit builder, bool bot)
     {
         this.builder = builder;
         associatedBuilding = building;
         this.lines = building.lines;
         this.columns = building.columns;
-        CreateGrid();
-        CreateGhost();
+        CreateGrid(bot);
+        if (!bot)
+            CreateGhost();
     }
 
     private void Update()
@@ -46,15 +49,17 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
         }
     }
 
-    private void CreateGrid()
+    private void CreateGrid(bool bot)
     {
+        GameObject dc = (bot) ? botDetectionCell : detectionCell;
         Vector3 vec = transform.position;
         for (int i = 0; i < lines; i++, vec.x += cellSize)
         {
             vec.z = transform.position.z;
             for (int j = 0; j < columns; j++, vec.z += cellSize)
             {
-                GameObject obj = Instantiate(detectionCell, vec, Quaternion.identity, transform);
+                GameObject obj = Instantiate(dc, vec, Quaternion.identity, transform);
+                obj.GetComponent<DetectionCell>().Init();
                 cells.Add(obj.GetComponent<DetectionCell>());
             }
         }
@@ -70,8 +75,13 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundLayer))
         {
-            transform.position = GridFix(SetNewCenterTo(hit.point));
+            SetPos(hit.point);
         }
+    }
+
+    public void SetPos(Vector3 pos)
+    {
+        transform.position = GridFix(SetNewCenterTo(pos));
     }
 
     private Vector3 SetNewCenterTo(Vector3 newPos)
@@ -90,7 +100,7 @@ public class PlacementGrid : MonoBehaviourPunCallbacks {
         return new Vector3(newX, pos.y, newZ);
     }
 
-    private bool AllCellsAvailable()
+    public bool AllCellsAvailable()
     {
         bool allAvailable = true;
         foreach (DetectionCell cell in cells)

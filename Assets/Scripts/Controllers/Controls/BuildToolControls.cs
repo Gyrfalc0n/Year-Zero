@@ -11,7 +11,7 @@ public class BuildToolControls : PlayerControls
     public void CreatePlacementGrid(ConstructedUnit building, BuilderUnit builder)
     {
         currentPlacementGrid = Instantiate(placementGrid).GetComponent<PlacementGrid>();
-        currentPlacementGrid.Init(building, builder);
+        currentPlacementGrid.Init(building, builder, false);
     }
 
     public override void Update()

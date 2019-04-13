@@ -12,6 +12,9 @@ public class BotConstructionManager : MonoBehaviour
     float buildingDistance;
     Vector3 lastBuildingPos;
 
+    [SerializeField]
+    GameObject placementGrid;
+
     string[] buildingList = new string[]
     {
         "Buildings/Combat Station/Combat Station",
@@ -32,11 +35,12 @@ public class BotConstructionManager : MonoBehaviour
         return pay;
     }
 
+
+
     public void Construct(int index, BuilderUnit builder, out InConstructionUnit inConstructionUnit)
     {
-        inConstructionUnit = null;
         ConstructedUnit building = ((GameObject)Resources.Load(buildingList[index])).GetComponent<ConstructedUnit>();
-        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(building.GetConstructorPath(), GenerateNewPos(), Quaternion.identity, GetComponent<IAManager>().botIndex);
+        GameObject obj = InstanceManager.instanceManager.InstantiateUnit(building.GetConstructorPath(), GetPos(building, builder), Quaternion.identity, GetComponent<IAManager>().botIndex);
         obj.GetComponent<InConstructionUnit>().Init(building);
         GetComponent<BotManager>().Pay(building.costs, building.pop);
         builder.Build(obj.GetComponent<InConstructionUnit>());
@@ -50,6 +54,35 @@ public class BotConstructionManager : MonoBehaviour
         currentIndex = 0;
         lastBuildingPos = home;
         lastCorner = home;
+    }
+
+    public Vector3 GetPos(ConstructedUnit building, BuilderUnit builder)
+    {
+        Vector3 newPos = Vector3.zero;
+        bool found = false;
+        int i = 0;
+
+        while (!found && i < 20)
+        {
+            newPos = GenerateNewPos();
+            if (CanConstructHere(building, builder, newPos))
+            {
+                found = true;
+            }
+            i++;
+        }
+
+        return newPos;
+    }
+
+    public bool CanConstructHere(ConstructedUnit building, BuilderUnit builder, Vector3 pos)
+    {
+        PlacementGrid grid = Instantiate(placementGrid).GetComponent<PlacementGrid>();
+        grid.Init(building, builder, true);
+        grid.SetPos(pos);
+        bool res = grid.AllCellsAvailable();
+        Destroy(grid.gameObject);
+        return res;
     }
 
     Vector3 GenerateNewPos()
