@@ -35,6 +35,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     void Start()
     {
+        bulletHolder = GameObject.Find("BulletsHolder").transform;
         botIndex = -1;
         InitStartingTroops(InitProp());
         if (PhotonNetwork.IsMasterClient)
@@ -254,4 +255,6 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     {
         allResourceUnits.RemoveAt(i);
     }
+
+    public Transform bulletHolder { get; private set; }
 }

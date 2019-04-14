@@ -90,7 +90,7 @@ public class SelectableObj : Interactable
     public virtual void Start()
     {
         SetHolder();
-        spellHolder = transform.Find("Spell Holder");
+        InitSpellHolder();
         foreach (GameObject obj in tools)
         {
             if (obj.GetComponent<Spell>() != null)
@@ -100,6 +100,13 @@ public class SelectableObj : Interactable
                 spells.Add(tmp);
             }
         }
+    }
+
+    void InitSpellHolder()
+    {
+        spellHolder = new GameObject().transform;
+        spellHolder.SetParent(transform);
+        spellHolder.gameObject.name = "SpellHolder";
     }
 
     void SetHolder()

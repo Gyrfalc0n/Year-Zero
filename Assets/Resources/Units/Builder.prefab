@@ -108,9 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b94e045ae6cbc4180cd9e721ecfa0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: Units/Bullets/BulletPrefab
-  firePoint: {fileID: 5203917149712624226}
-  bulletHolder: {fileID: 0}
   range: 3
   attackRate: 1
 --- !u!1001 &6365286697518465740
@@ -192,7 +189,7 @@ PrefabInstance:
         type: 3}
       propertyPath: firePoint
       value: 
-      objectReference: {fileID: 5203917149712624226}
+      objectReference: {fileID: 0}
     - target: {fileID: 2191311493941266332, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_RootOrder
@@ -229,9 +226,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &5203917149712624226 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1183898688568993966, guid: a2cd80c251494bb4a9642bd55de4b99a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6365286697518465740}
-  m_PrefabAsset: {fileID: 0}
