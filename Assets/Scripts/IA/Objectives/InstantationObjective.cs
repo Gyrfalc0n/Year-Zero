@@ -10,7 +10,7 @@ public class InstantationObjective : IAObjective
 
     InstantiateTask task;
 
-    private void Start()
+    void Start()
     {
         if (unit != InstantiationUnit.None)
             unitIndex = (int)unit;
@@ -18,6 +18,7 @@ public class InstantationObjective : IAObjective
 
     public void Init(int unitIndex)
     {
+        unit = (InstantiationUnit)unitIndex;
         this.unitIndex = unitIndex;
     }
 

@@ -42,6 +42,7 @@ public class BotInstantiationManager : MonoBehaviour
         if (buildings.Count == 0)
             return ObjectiveState.NeedBuilding;
         ObjectiveState pay = GetComponent<BotManager>().ResourceLimiterToObjectiveState(unit.costs, unit.pop);
+        if (pay == ObjectiveState.NeedPop) return NeedPop();
         if (pay != ObjectiveState.Activated) return pay;
         foreach (ProductionBuilding building in buildings)
         {
@@ -84,5 +85,14 @@ public class BotInstantiationManager : MonoBehaviour
     public MovableUnit GetUnitOfIndex(int index)
     {
         return ((GameObject)Resources.Load(troopList[index])).GetComponent<MovableUnit>();
+    }
+
+    ObjectiveState NeedPop()
+    {
+        if (GetComponent<BotConstructionManager>().GetHouseCount() >= GetComponent<IAObjectivesManager>().step + 0 * GetComponent<IAObjectivesManager>().step)
+        {
+            return ObjectiveState.NeedWait;
+        }
+        return ObjectiveState.NeedPop;
     }
 }
