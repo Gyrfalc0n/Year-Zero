@@ -29,7 +29,7 @@ public class FieldOfViewCollider : MonoBehaviour
 
     void OnTriggerStay(Collider collision)
     {
-        if (GetComponentInParent<SelectableObj>().botIndex == -1 && collision.gameObject.GetComponent<SelectableObj>() != null)
+        if (GetComponentInParent<SelectableObj>().botIndex == -1 && collision.GetComponent<SelectableObj>() != null)
         {
             if (!PhotonNetwork.OfflineMode)
             {

@@ -6,6 +6,7 @@ public class TaskSystem : MonoBehaviour
 {
     readonly int maxTasks = 16;
     TaskBar tasksBar;
+    public Transform taskHolder;
 
     List<Task> tasks = new List<Task>();
 

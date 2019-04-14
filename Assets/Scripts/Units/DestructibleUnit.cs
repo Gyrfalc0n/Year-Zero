@@ -18,6 +18,15 @@ public class DestructibleUnit : SelectableObj {
         flbPanel.AddLifeBar(this);
     }
 
+    [PunRPC]
+    public override void RPCInitUnit(int botIndex)
+    {
+        base.RPCInitUnit(botIndex);
+        lifeValue = maxLife;
+        flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
+        flbPanel.AddLifeBar(this);
+    }
+
     public int defaultMaxLife;
     [HideInInspector]
     public int maxLife;
@@ -83,14 +92,6 @@ public class DestructibleUnit : SelectableObj {
         if (InstanceManager.instanceManager.mySelectableObjs.Contains(this))
         {
             InstanceManager.instanceManager.mySelectableObjs.Remove(this);
-        }
-
-        for (int i = 0; i < PlayerPrefs.GetInt("BotNumber"); i++)
-        {
-            if (InstanceManager.instanceManager.GetBot(i).mySelectableObjs.Contains(this))
-            {
-                InstanceManager.instanceManager.mySelectableObjs.Remove(this);
-            }
         }
 
         OnDestroyed();
