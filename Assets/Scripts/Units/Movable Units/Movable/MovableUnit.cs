@@ -45,9 +45,22 @@ public class MovableUnit : DestructibleUnit {
         }
     }
 
+    [PunRPC]
+    public override void RPCInitUnit(int botIndex)
+    {
+        fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefabForMV";
+        base.RPCInitUnit(botIndex);
+    }
+
+    protected Holder alwaysAttack = null;
+
     public virtual void Update()
     {
-        if (moving)
+        if (alwaysAttack != null && !GetComponent<CombatSystem>().IsAttacking())
+        {
+            Attack(InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().GetNearestBuildingOf(alwaysAttack));
+        }
+        else if (moving)
         {
             if (Vector3.Distance(agent.destination, transform.position) <= agent.stoppingDistance)
             {
@@ -198,14 +211,15 @@ public class MovableUnit : DestructibleUnit {
         }
     }
 
-
     public float defaultDamage;
     [HideInInspector]
     public float damage;
 
     public void OnEnemyEnters(DestructibleUnit enemy)
     {
-        if (!moving)
+        if (agent == null)
+            return;
+        if (!moving && Vector3.Distance(agent.destination, transform.position) <= agent.stoppingDistance)
         {
             combatSystem.OnEnemyEnters(enemy);
         }
@@ -220,5 +234,10 @@ public class MovableUnit : DestructibleUnit {
     {
         base.OnDamageTaken(shooter);
         OnEnemyEnters(shooter);
+    }
+
+    public void SetAlwaysAttack(Holder i)
+    {
+        alwaysAttack = i;
     }
 }

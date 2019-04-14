@@ -40,6 +40,8 @@ public class SelectableObj : Interactable
 
     public virtual void InitUnit(int botIndex)
     {
+        if (!PhotonNetwork.OfflineMode)
+            photonView.RPC("RPCInitUnit", RpcTarget.Others, botIndex);
         SetBotIndex(botIndex);
         team = MultiplayerTools.GetTeamOf(this);
         InitSelectionCircle();
@@ -55,16 +57,24 @@ public class SelectableObj : Interactable
             {
                 InstanceManager.instanceManager.GetBot(botIndex).mySelectableObjs.Add(this);
             }
-
         }
+        InitFieldOfView();
+    }
+
+    [PunRPC]
+    public virtual void RPCInitUnit(int botIndex)
+    {
+        SetBotIndex(botIndex);
+        team = MultiplayerTools.GetTeamOf(this);
+        InitSelectionCircle();
+        ToggleColor(1);
+        InstanceManager.instanceManager.allSelectableObjs.Add(this);
         InitFieldOfView();
     }
 
     public void SetBotIndex(int index)
     {
-        RPCSetBotIndex(index);
-        if (!PhotonNetwork.OfflineMode)
-            photonView.RPC("RPCSetbotIndex", RpcTarget.Others, index);
+        botIndex = index;
     }
 
     [PunRPC]
@@ -266,20 +276,54 @@ public class SelectableObj : Interactable
                 visible = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
         }
 
-        fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
-        fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
-        if (GetComponent<MovableUnit>() != null)
+
+
+
+        bool create;
+        if (PhotonNetwork.OfflineMode)
         {
-            fovCollider.transform.localScale = new Vector3(2, 1, 2);
+            if (botIndex == -1)
+                create = true;
+            else
+                create = InstanceManager.instanceManager.GetTeam() == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
         }
-        else if (GetComponent<Radar>() != null)
+        else if (photonView.IsMine)
         {
-            fovCollider.transform.localScale = new Vector3(4, 1, 4);
+            if (botIndex == -1)
+            {
+                create = true;
+            }
+            else
+                create = InstanceManager.instanceManager.GetTeam() == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
         }
-        else if (GetComponent<ConstructedUnit>() != null || GetComponent<InConstructionUnit>() != null)
+        else
         {
-            fovCollider.transform.localScale = new Vector3(3, 1, 3);
+            if (botIndex == -1)
+            {
+                create = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam();
+            }
+            else
+                create = InstanceManager.instanceManager.GetTeam() == MultiplayerTools.GetTeamOf(this);
         }
+
+        if (create)
+        {
+            fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
+            fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
+            if (GetComponent<MovableUnit>() != null)
+            {
+                fovCollider.transform.localScale = new Vector3(2, 1, 2);
+            }
+            else if (GetComponent<Radar>() != null)
+            {
+                fovCollider.transform.localScale = new Vector3(4, 1, 4);
+            }
+            else if (GetComponent<ConstructedUnit>() != null || GetComponent<InConstructionUnit>() != null)
+            {
+                fovCollider.transform.localScale = new Vector3(3, 1, 3);
+            }
+        }
+
 
         if (visible)
         {
@@ -288,7 +332,7 @@ public class SelectableObj : Interactable
         else
         {
             Hide();
-            if (botIndex != -1)
+            if (botIndex != -1 && fovCollider != null)
             {
                 fovCollider.GetComponent<MeshRenderer>().enabled = false;
             }

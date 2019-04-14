@@ -13,6 +13,8 @@ public class CombatSystem : MonoBehaviour
     string projectile;
     [SerializeField]
     Transform firePoint;
+    [SerializeField]
+    Transform bulletHolder;
 
     [SerializeField]
     float range;
@@ -64,6 +66,7 @@ public class CombatSystem : MonoBehaviour
         {
             time = attackRate;
             GameObject obj = PhotonNetwork.Instantiate(projectile, firePoint.position, firePoint.rotation);
+            obj.transform.SetParent(bulletHolder);
             obj.GetComponent<Bullet>().Init(1f, GetComponent<MovableUnit>().damage, GetComponent<DestructibleUnit>());
         }
     }

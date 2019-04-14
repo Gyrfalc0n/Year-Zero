@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class ProductionBuilding : ConstructedUnit
 {
@@ -10,6 +11,13 @@ public class ProductionBuilding : ConstructedUnit
     public override void InitUnit(int botIndex)
     {
         base.InitUnit(botIndex);
+        Init();
+    }
+
+    [PunRPC]
+    public override void RPCInitUnit(int botIndex)
+    {
+        base.RPCInitUnit(botIndex);
         Init();
     }
 

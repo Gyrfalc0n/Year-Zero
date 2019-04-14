@@ -59,6 +59,8 @@ public class BotInstantiationManager : MonoBehaviour
         IAManager m = GetComponent<IAManager>();
         for (int i = 0; i < m.mySelectableObjs.Count; i++)
         {
+            if (m.mySelectableObjs[i] == null) continue;
+
             if (m.mySelectableObjs[i].GetComponent<ProductionBuilding>() != null && m.mySelectableObjs[i].GetComponent<ProductionBuilding>().CanProduct(unit))
             {
                 res.Add(m.mySelectableObjs[i].GetComponent<ProductionBuilding>());
