@@ -9,10 +9,9 @@ public class CombatSystem : MonoBehaviour
     NavMeshAgent agent;
     DestructibleUnit target;
 
-    [SerializeField]
-    string projectile;
-    [SerializeField]
+    string projectile = "BulletPrefab";
     Transform firePoint;
+    Transform bulletHolder;
 
     [SerializeField]
     float range;
@@ -22,8 +21,18 @@ public class CombatSystem : MonoBehaviour
 
     private void Start()
     {
+        bulletHolder = InstanceManager.instanceManager.bulletHolder;
+        InitFirePoint();
         agent = GetComponent<NavMeshAgent>();
         target = null;
+    }
+
+    void InitFirePoint()
+    {
+        firePoint = new GameObject().transform;
+        firePoint.SetParent(transform);
+        firePoint.localPosition = new Vector3(0.02f, -0.38f, 0.81f);
+        firePoint.gameObject.name = "FirePoint";
     }
 
     public void InitAttack(DestructibleUnit unit)
@@ -63,7 +72,8 @@ public class CombatSystem : MonoBehaviour
         if (time <= 0)
         {
             time = attackRate;
-            GameObject obj = PhotonNetwork.Instantiate(projectile, firePoint.position, firePoint.rotation);
+            GameObject obj = PhotonNetwork.Instantiate("Units/Bullets/" + projectile, firePoint.position, firePoint.rotation);
+            obj.transform.SetParent(bulletHolder);
             obj.GetComponent<Bullet>().Init(1f, GetComponent<MovableUnit>().damage, GetComponent<DestructibleUnit>());
         }
     }

@@ -32,7 +32,8 @@ public class EnergyFarm : ConstructedUnit
 
     void Update()
     {
-        AddResource();
+        if (photonView.IsMine)
+            AddResource();
     }
 
     void AddResource()

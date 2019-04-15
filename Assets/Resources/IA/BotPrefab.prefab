@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a1d8e395e2ca44d87cc378c977bfd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allSelectableObjs: []
   mySelectableObjs: []
 --- !u!114 &6950816422369222848
 MonoBehaviour:
@@ -103,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingDistance: 4
+  placementGrid: {fileID: 1550810188365364, guid: 0356224ac502bf446aef77ce8011b01b,
+    type: 3}
 --- !u!114 &5384363323877394395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +326,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8511479473179136581}
     m_Modifications:
+    - target: {fileID: 5055691532335406481, guid: fd67a7ca86916334e877272313365ac7,
+        type: 3}
+      propertyPath: m_Name
+      value: InstantiationObjectivePrefab
+      objectReference: {fileID: 0}
     - target: {fileID: 4658484240797380332, guid: fd67a7ca86916334e877272313365ac7,
         type: 3}
       propertyPath: unitIndex
@@ -339,11 +345,6 @@ PrefabInstance:
         type: 3}
       propertyPath: unit
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055691532335406481, guid: fd67a7ca86916334e877272313365ac7,
-        type: 3}
-      propertyPath: m_Name
-      value: InstantiationObjectivePrefab
       objectReference: {fileID: 0}
     - target: {fileID: 7465305545804030877, guid: fd67a7ca86916334e877272313365ac7,
         type: 3}

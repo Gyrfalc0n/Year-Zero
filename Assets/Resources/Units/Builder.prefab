@@ -73,7 +73,7 @@ MonoBehaviour:
   damage: 0
   buildings:
   - {fileID: 7340233006026223709, guid: 6171d1a1fd015a24abac5a5d3bc04793, type: 3}
-  - {fileID: 3040530385692134829, guid: 6962dc1b4813b234f960e9ae6263e9ae, type: 3}
+  - {fileID: 3042023807884283816, guid: 6962dc1b4813b234f960e9ae6263e9ae, type: 3}
   - {fileID: 6020032728104618459, guid: bdc3d1ecb983c214d92695d900a0c224, type: 3}
   - {fileID: 5582893726895156594, guid: 7d0b5b47660fd984dbfdb07fa85d86dd, type: 3}
   - {fileID: 313811731870665177, guid: 691494ad823db46499cdeb000af36f74, type: 3}
@@ -108,8 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b94e045ae6cbc4180cd9e721ecfa0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: Units/Bullets/BulletPrefab
-  firePoint: {fileID: 5203917149712624226}
   range: 3
   attackRate: 1
 --- !u!1001 &6365286697518465740
@@ -191,7 +189,7 @@ PrefabInstance:
         type: 3}
       propertyPath: firePoint
       value: 
-      objectReference: {fileID: 5203917149712624226}
+      objectReference: {fileID: 0}
     - target: {fileID: 2191311493941266332, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_RootOrder
@@ -228,9 +226,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &5203917149712624226 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1183898688568993966, guid: a2cd80c251494bb4a9642bd55de4b99a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6365286697518465740}
-  m_PrefabAsset: {fileID: 0}

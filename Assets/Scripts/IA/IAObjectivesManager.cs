@@ -87,7 +87,7 @@ public class IAObjectivesManager : MonoBehaviour
     {
         foreach (IAObjective obj in arrays.arrays[step - 1].objectives)
         {
-            objectives.Push(obj);
+            objectives.Push(CopyObjective(obj));
         }
     }
 
@@ -115,12 +115,9 @@ public class IAObjectivesManager : MonoBehaviour
         step++;
         if (step - 1 >= arrays.arrays.Length)
         {
-            print("Finished!");
-            stop = true;
+            step--;
         }
-
-        else
-            GenerateObjectiveStack();
+        GenerateObjectiveStack();
     }
 
     void PutBack()
@@ -208,9 +205,31 @@ public class IAObjectivesManager : MonoBehaviour
 
     void SuicideTroop()
     {
+        print("s");
         if (!GetComponent<BotArmyManager>().SuicideTroop())
             PutBack();
         else
             waittingTime = 100;
+    }
+
+    IAObjective CopyObjective(IAObjective obj)
+    {
+        IAObjective newObj;
+        if (obj.GetComponent<ConstructionObjective>() != null)
+        {
+            newObj = Instantiate(constructionObjectivePrefab, transform);
+            newObj.GetComponent<ConstructionObjective>().Init((int)obj.GetComponent<ConstructionObjective>().buildingUnits);
+        }
+        else if (obj.GetComponent<InstantationObjective>() != null)
+        {
+            newObj = Instantiate(instantiationObjectivePrefab, transform);
+            newObj.GetComponent<InstantationObjective>().Init((int)obj.GetComponent<InstantationObjective>().unit);
+        }
+        else
+        {
+            newObj = null;
+            print("wtf");
+        }
+        return newObj;
     }
 }

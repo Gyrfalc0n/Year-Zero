@@ -86,6 +86,7 @@ public class BotArmyManager : MonoBehaviour
     public void SendArmy()
     {
         DestructibleUnit target = GetNearestEnemy();
+        Holder targetTeam = GameObject.Find(MultiplayerTools.GetHolderOf(target)).GetComponent<Holder>();
 
         if (target == null)
             return;
@@ -93,6 +94,7 @@ public class BotArmyManager : MonoBehaviour
         foreach (MovableUnit troop in army)
         {
             troop.Attack(target);
+            troop.SetAlwaysAttack(targetTeam);
         }
     }
 }

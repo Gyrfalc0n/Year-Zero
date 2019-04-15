@@ -24,7 +24,8 @@ public class Laboratory : ConstructedUnit
 
     void Update()
     {
-        AddResource();
+        if (photonView.IsMine)
+            AddResource();
     }
 
     void AddResource()

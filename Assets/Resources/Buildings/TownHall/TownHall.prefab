@@ -41,26 +41,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TownHall
       objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: viewIdField
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: InstantiationId
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 7224011183984337527}
-    - target: {fileID: 4180616217713247157, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4198717423202766145, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -148,15 +128,3 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6885301352519462730}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7224011183984337527 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4309196059108019517, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6885301352519462730}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7340233006026223709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
