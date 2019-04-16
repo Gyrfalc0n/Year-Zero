@@ -107,7 +107,7 @@ public class IAManager : MonoBehaviourPunCallbacks
         return res;
     }
 
-    public bool IsEnemy(SelectableObj unit)
+    public virtual bool IsEnemy(SelectableObj unit)
     {
         if (unit.botIndex == -1)
         {

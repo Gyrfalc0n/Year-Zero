@@ -22,4 +22,9 @@ public class IndependantIAManager : IAManager
             e.GetComponent<SelectableObj>().InitUnit(-2);
         }
     }
+
+    public override bool IsEnemy(SelectableObj unit)
+    {
+        return unit.botIndex == -2;
+    }
 }
