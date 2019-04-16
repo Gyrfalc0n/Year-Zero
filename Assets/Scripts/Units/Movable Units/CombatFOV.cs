@@ -26,7 +26,7 @@ public class CombatFOV : MonoBehaviour
                 }
                 else
                 {
-                    if (InstanceManager.instanceManager.GetBot(parent.botIndex).IsEnemy(other.GetComponent<DestructibleUnit>()))
+                    if (parent.botIndex == -2 || InstanceManager.instanceManager.GetBot(parent.botIndex).IsEnemy(other.GetComponent<DestructibleUnit>()))
                     {
                         parent.OnEnemyEnters(other.GetComponent<DestructibleUnit>());
                     }

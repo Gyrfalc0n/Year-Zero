@@ -43,7 +43,8 @@ public class Bullet : MonoBehaviourPunCallbacks
         {
             if (other.GetComponent<DestructibleUnit>() != null)
             {
-                if (associatedUnit.botIndex == -1 && InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>()) || associatedUnit.botIndex != -1 && InstanceManager.instanceManager.GetBot(associatedUnit.botIndex).IsEnemy(other.GetComponent<DestructibleUnit>()))
+                if (associatedUnit.botIndex == -1 && InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>()) || associatedUnit.botIndex == -2 && other.GetComponent<DestructibleUnit>().botIndex != -2 
+                    || associatedUnit.botIndex >= 0 && InstanceManager.instanceManager.GetBot(associatedUnit.botIndex).IsEnemy(other.GetComponent<DestructibleUnit>()))
                 {
                     other.GetComponent<DestructibleUnit>().TakeDamage((int)damage, associatedUnit);
                     PhotonNetwork.Destroy(this.gameObject);

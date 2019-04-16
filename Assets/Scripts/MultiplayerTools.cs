@@ -15,6 +15,10 @@ public class MultiplayerTools : MonoBehaviour
             {
                 res = InstanceManager.instanceManager.GetTeam();
             }
+            else if (unit.botIndex == -2)
+            {
+                res = -2;
+            }
             else
             {
                 res = InstanceManager.instanceManager.GetBot(unit.botIndex).GetTeam();
@@ -25,6 +29,10 @@ public class MultiplayerTools : MonoBehaviour
             if (unit.botIndex == -1)
             {
                 res = (int)unit.photonView.Owner.CustomProperties["Team"];
+            }
+            else if (unit.botIndex == -2)
+            {
+                res = -2;
             }
             else
             {

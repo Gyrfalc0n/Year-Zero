@@ -40,7 +40,7 @@ public class FieldOfViewCollider : MonoBehaviour
                         collision.gameObject.GetComponent<SelectableObj>().UnHide();
                     }
                 }
-                else if (InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
+                else if (collision.GetComponent<SelectableObj>().botIndex == -2 || InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
                 {
                     collision.gameObject.GetComponent<SelectableObj>().UnHide();
                 }
@@ -49,7 +49,7 @@ public class FieldOfViewCollider : MonoBehaviour
             {
                 if (collision.GetComponent<SelectableObj>().botIndex != -1)
                 {
-                    if (InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
+                    if (collision.GetComponent<SelectableObj>().botIndex == -2 || InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
                     {
                         collision.gameObject.GetComponent<SelectableObj>().UnHide();
                     }
@@ -71,7 +71,7 @@ public class FieldOfViewCollider : MonoBehaviour
                         collision.gameObject.GetComponent<SelectableObj>().Hide();
                     }
                 }
-                else if (InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
+                else if (collision.GetComponent<SelectableObj>().botIndex == -2 || InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
                 {
                     collision.gameObject.GetComponent<SelectableObj>().Hide();
                 }
@@ -80,7 +80,7 @@ public class FieldOfViewCollider : MonoBehaviour
             {
                 if (collision.GetComponent<SelectableObj>().botIndex != -1)
                 {
-                    if (InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
+                    if (collision.GetComponent<SelectableObj>().botIndex == -2 || InstanceManager.instanceManager.GetBot(collision.GetComponent<SelectableObj>().botIndex).GetTeam() != InstanceManager.instanceManager.GetTeam())
                     {
                         collision.gameObject.GetComponent<SelectableObj>().Hide();
                     }
