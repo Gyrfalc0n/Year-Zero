@@ -218,4 +218,9 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         mainMenu.SetActive(false);
         creditsMenu.SetActive(true);
     }
+
+    public void OpenWebSite()
+    {
+        Application.OpenURL("https://enguerrandvie.wixsite.com/yearzero/avancement");
+    }
 }
