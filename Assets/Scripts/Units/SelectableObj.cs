@@ -266,11 +266,7 @@ public class SelectableObj : Interactable
         if (PhotonNetwork.OfflineMode)
         {
             visible = true;
-            if (botIndex == -1)
-            {
-                visible = true;
-            }
-            else
+            if (botIndex != -1)
                 visible = InstanceManager.instanceManager.GetTeam() == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
         }
         else
@@ -283,54 +279,20 @@ public class SelectableObj : Interactable
                 visible = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
         }
 
-
-
-
-        bool create;
-        if (PhotonNetwork.OfflineMode)
+        fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
+        fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
+        if (GetComponent<MovableUnit>() != null)
         {
-            if (botIndex == -1)
-                create = true;
-            else
-                create = InstanceManager.instanceManager.GetTeam() == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
+            fovCollider.transform.localScale = new Vector3(2, 1, 2);
         }
-        else if (photonView.IsMine)
+        else if (GetComponent<Radar>() != null)
         {
-            if (botIndex == -1)
-            {
-                create = true;
-            }
-            else
-                create = InstanceManager.instanceManager.GetTeam() == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
+            fovCollider.transform.localScale = new Vector3(4, 1, 4);
         }
-        else
+        else if (GetComponent<ConstructedUnit>() != null || GetComponent<InConstructionUnit>() != null)
         {
-            if (botIndex == -1)
-            {
-                create = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam();
-            }
-            else
-                create = InstanceManager.instanceManager.GetTeam() == MultiplayerTools.GetTeamOf(this);
+            fovCollider.transform.localScale = new Vector3(3, 1, 3);
         }
-
-        if (create)
-        {
-            fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
-            fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
-            if (GetComponent<MovableUnit>() != null)
-            {
-                fovCollider.transform.localScale = new Vector3(2, 1, 2);
-            }
-            else if (GetComponent<Radar>() != null)
-            {
-                fovCollider.transform.localScale = new Vector3(4, 1, 4);
-            }
-            else if (GetComponent<ConstructedUnit>() != null || GetComponent<InConstructionUnit>() != null)
-            {
-                fovCollider.transform.localScale = new Vector3(3, 1, 3);
-            }
-        }
-
 
         if (visible)
         {
@@ -339,10 +301,7 @@ public class SelectableObj : Interactable
         else
         {
             Hide();
-            if (botIndex != -1 && fovCollider != null)
-            {
-                fovCollider.GetComponent<MeshRenderer>().enabled = false;
-            }
+            fovCollider.GetComponent<MeshRenderer>().enabled = false;
         }
 
     }

@@ -15,13 +15,22 @@ public class IAManager : MonoBehaviourPunCallbacks
 
     public int botIndex { get; private set; }
 
-    public void Init(int index, int race, int team, int color, Vector3 coords, bool townhall)
+    public void Init(int index, int race, int team, int color, Vector3 coords)
     {
-        botIndex = index;
         SetParameters(index, race, team, color);
         if (!PhotonNetwork.OfflineMode)
             photonView.RPC("SetParameters", RpcTarget.Others, index, race, team, color);
-        InitStartingTroops(coords, townhall);
+        InitStartingTroops(coords);
+    }
+
+    public void InitIndependantTroops(List<int> troops, Vector3 pos)
+    {
+        BotInstantiationManager m = GetComponent<BotInstantiationManager>();
+
+        foreach (int e in troops)
+        {
+            InstantiateUnit(m.troopList[e], pos, Quaternion.identity);
+        }
     }
 
     [PunRPC]
@@ -41,15 +50,14 @@ public class IAManager : MonoBehaviourPunCallbacks
         }
     }
 
-    void InitStartingTroops(Vector3 coords, bool townhall)
+    void InitStartingTroops(Vector3 coords)
     {
-        if (townhall)
+        if (botIndex != -2)
         {
             GetComponent<BotManager>().AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
             GetComponent<BotConstructionManager>().InitPos(GetComponent<BotManager>().GetHomes()[0].transform.position);
+            InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
         }
-
-        InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
     }
 
     public List<SelectableObj> mySelectableObjs = new List<SelectableObj>();

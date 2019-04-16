@@ -7,7 +7,8 @@ public class BotInstantiationManager : MonoBehaviour
     [SerializeField]
     GameObject instantiateTaskPrefab;
 
-    string[] troopList = new string[]
+    [HideInInspector]
+    public string[] troopList = new string[]
 {
         "Units/Basic Troop",
         "Units/Bomber",
