@@ -217,9 +217,7 @@ public class MovableUnit : DestructibleUnit {
 
     public void OnEnemyEnters(DestructibleUnit enemy)
     {
-        if (agent == null)
-            return;
-        if (!moving && Vector3.Distance(agent.destination, transform.position) <= agent.stoppingDistance)
+        if (!moving)
         {
             combatSystem.OnEnemyEnters(enemy);
         }

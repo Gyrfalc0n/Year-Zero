@@ -55,15 +55,15 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         }
         if (offlineMode)
         {
-            /*IAManager bot = Instantiate((GameObject)Resources.Load(botPrefab)).GetComponent<IAManager>();
+            IAManager bot = Instantiate((GameObject)Resources.Load(botPrefab)).GetComponent<IAManager>();
             bot.gameObject.name = "Bot0";
             bot.Init(0, 1, 1, 1, new Vector3 (10, 1, 10));
-            i++;*/
-            IAManager bot = Instantiate((GameObject)Resources.Load(independantBotPrefab)).GetComponent<IAManager>();
+            i++;
+            /*IAManager bot = Instantiate((GameObject)Resources.Load(independantBotPrefab)).GetComponent<IAManager>();
             bot.gameObject.name = "Bot-2";
             bot.Init(-2, 1, 1, 1, new Vector3(10, 1, 10));
             bot.InitIndependantTroops(new List<int> { 0 }, new Vector3(10, 1, 10));
-            i++;
+            i++;*/
         }
     }
 
