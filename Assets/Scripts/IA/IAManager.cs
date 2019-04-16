@@ -6,22 +6,21 @@ using ExitGames.Client.Photon;
 
 public class IAManager : MonoBehaviourPunCallbacks
 {
-    int race;
-    int team;
-    int color;
+    protected int race;
+    protected int team;
+    protected int color;
 
-    string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
-    string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
+    protected string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
+    protected string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
 
     public int botIndex { get; private set; }
 
-    public void Init(int index, int race, int team, int color, Vector3 coords, bool townhall)
+    public void Init(int index, int race, int team, int color, Vector3 coords)
     {
-        botIndex = index;
         SetParameters(index, race, team, color);
         if (!PhotonNetwork.OfflineMode)
             photonView.RPC("SetParameters", RpcTarget.Others, index, race, team, color);
-        InitStartingTroops(coords, townhall);
+        InitStartingTroops(coords);
     }
 
     [PunRPC]
@@ -41,15 +40,14 @@ public class IAManager : MonoBehaviourPunCallbacks
         }
     }
 
-    void InitStartingTroops(Vector3 coords, bool townhall)
+    void InitStartingTroops(Vector3 coords)
     {
-        if (townhall)
+        if (botIndex != -2)
         {
             GetComponent<BotManager>().AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
             GetComponent<BotConstructionManager>().InitPos(GetComponent<BotManager>().GetHomes()[0].transform.position);
+            InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
         }
-
-        InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0));
     }
 
     public List<SelectableObj> mySelectableObjs = new List<SelectableObj>();
@@ -109,7 +107,7 @@ public class IAManager : MonoBehaviourPunCallbacks
         return res;
     }
 
-    public bool IsEnemy(SelectableObj unit)
+    public virtual bool IsEnemy(SelectableObj unit)
     {
         if (unit.botIndex == -1)
         {
@@ -121,6 +119,10 @@ public class IAManager : MonoBehaviourPunCallbacks
             {
                 return (int)unit.photonView.Owner.CustomProperties["Team"] != GetTeam();
             }
+        }
+        else if (unit.botIndex == -2)
+        {
+            return true;
         }
         else
         {
