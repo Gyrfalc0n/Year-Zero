@@ -39,7 +39,7 @@ public class MovableUnit : DestructibleUnit {
         combatSystem = GetComponent<CombatSystem>();
         damage = defaultDamage;
         DetermineHome();
-        if (botIndex != -1 && GetComponent<BuilderUnit>() == null)
+        if (botIndex != -1 && botIndex != -2 && GetComponent<BuilderUnit>() == null)
         {
             InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().Add(this);
         }
@@ -100,6 +100,9 @@ public class MovableUnit : DestructibleUnit {
 
     void DetermineHome()
     {
+        if (botIndex == -2)
+            return;
+
         List<TownHall> tmpHomes;
         tmpHomes = (botIndex == -1) ? PlayerManager.playerManager.GetHomes() : InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().GetHomes();
 

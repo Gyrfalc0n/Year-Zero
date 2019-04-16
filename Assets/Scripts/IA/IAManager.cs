@@ -6,12 +6,12 @@ using ExitGames.Client.Photon;
 
 public class IAManager : MonoBehaviourPunCallbacks
 {
-    int race;
-    int team;
-    int color;
+    protected int race;
+    protected int team;
+    protected int color;
 
-    string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
-    string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
+    protected string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
+    protected string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
 
     public int botIndex { get; private set; }
 
@@ -21,16 +21,6 @@ public class IAManager : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.OfflineMode)
             photonView.RPC("SetParameters", RpcTarget.Others, index, race, team, color);
         InitStartingTroops(coords);
-    }
-
-    public void InitIndependantTroops(List<int> troops, Vector3 pos)
-    {
-        BotInstantiationManager m = GetComponent<BotInstantiationManager>();
-
-        foreach (int e in troops)
-        {
-            InstantiateUnit(m.troopList[e], pos, Quaternion.identity);
-        }
     }
 
     [PunRPC]
@@ -129,6 +119,10 @@ public class IAManager : MonoBehaviourPunCallbacks
             {
                 return (int)unit.photonView.Owner.CustomProperties["Team"] != GetTeam();
             }
+        }
+        else if (unit.botIndex == -2)
+        {
+            return true;
         }
         else
         {

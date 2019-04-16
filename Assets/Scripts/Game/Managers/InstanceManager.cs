@@ -12,7 +12,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public static InstanceManager instanceManager;
     public bool offlineMode;
 
-    void Awake()
+    public void Awake()
     {
         instanceManager = this;
         if (offlineMode)
@@ -26,7 +26,6 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     protected int color;
 
     string botPrefab = "IA/BotPrefab";
-    string independantBotPrefab = "IA/independantBotPrefab";
 
     protected string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
     protected string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
@@ -59,11 +58,6 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
             bot.gameObject.name = "Bot0";
             bot.Init(0, 1, 1, 1, new Vector3 (10, 1, 10));
             i++;
-            /*IAManager bot = Instantiate((GameObject)Resources.Load(independantBotPrefab)).GetComponent<IAManager>();
-            bot.gameObject.name = "Bot-2";
-            bot.Init(-2, 1, 1, 1, new Vector3(10, 1, 10));
-            bot.InitIndependantTroops(new List<int> { 0 }, new Vector3(10, 1, 10));
-            i++;*/
         }
     }
 
@@ -224,9 +218,13 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
                 return (int)unit.photonView.Owner.CustomProperties["Team"] != team;
             }
         }
-        else
+        else if (unit.botIndex != -2)
         {
             return (GetTeam() != GetBot(unit.botIndex).GetTeam());
+        }
+        else
+        {
+            return true;
         }
     }
 

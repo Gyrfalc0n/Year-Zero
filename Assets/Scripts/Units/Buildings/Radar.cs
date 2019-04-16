@@ -9,9 +9,9 @@ public class Radar : ConstructedUnit
 
     List<MovableUnit> list = new List<MovableUnit>();
 
-    public override void Start()
+    public override void Init2()
     {
-        base.Start();
+        base.Init2();
         if (botIndex == -1)
         {
             GameObject tmp = GameObject.Find("InstanceManager");

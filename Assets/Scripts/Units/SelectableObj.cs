@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class SelectableObj : Interactable
 {
     public List<GameObject> tools;
-    [SerializeField]
     public int team { get; private set; }
 
     [HideInInspector]
@@ -53,12 +52,17 @@ public class SelectableObj : Interactable
             {
                 InstanceManager.instanceManager.mySelectableObjs.Add(this);
             }
+            else if (botIndex == -2)
+            {
+                GetComponentInParent<IndependantIAManager>().mySelectableObjs.Add(this);
+            }
             else
             {
                 InstanceManager.instanceManager.GetBot(botIndex).mySelectableObjs.Add(this);
             }
         }
         InitFieldOfView();
+        Init2();
     }
 
     [PunRPC]
@@ -87,7 +91,7 @@ public class SelectableObj : Interactable
     [HideInInspector]
     public List<GameObject> spells = new List<GameObject>();
 
-    public virtual void Start()
+    public virtual void Init2()
     {
         SetHolder();
         InitSpellHolder();
@@ -145,7 +149,7 @@ public class SelectableObj : Interactable
             }
             else
             {
-                int tmpteam = InstanceManager.instanceManager.GetBot(botIndex).GetTeam();        
+                int tmpteam = team;        
                 if (tmpteam == InstanceManager.instanceManager.GetTeam())
                 {
                     selectionCircle.color = teamColor;
@@ -172,8 +176,12 @@ public class SelectableObj : Interactable
 
     public void ToggleColor(int advancedLvl)
     {
-        int tmpteam = (botIndex == -1) ? InstanceManager.instanceManager.GetTeam() : InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
-        Color32 tmpColor = (botIndex == -1) ? InstanceManager.instanceManager.GetColor() : InstanceManager.instanceManager.GetBot(botIndex).GetColor();
+        int tmpteam = team;
+        Color32 tmpColor;
+        if (team != -2)
+            tmpColor = (botIndex == -1) ? InstanceManager.instanceManager.GetColor() : InstanceManager.instanceManager.GetBot(botIndex).GetColor();
+        else
+            tmpColor = Color.blue;
 
         if (advancedLvl == 0)
         {
@@ -267,7 +275,12 @@ public class SelectableObj : Interactable
         {
             visible = true;
             if (botIndex != -1)
-                visible = InstanceManager.instanceManager.GetTeam() == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
+            {
+                if (botIndex != -2)
+                    visible = InstanceManager.instanceManager.GetTeam() == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
+                else visible = false;
+            }
+                
         }
         else
         {
