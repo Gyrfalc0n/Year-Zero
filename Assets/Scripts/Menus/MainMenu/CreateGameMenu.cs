@@ -33,6 +33,11 @@ public class CreateGameMenu : MonoBehaviour {
     [SerializeField]
     GameObject maxPlayerObj;
 
+    [SerializeField]
+    TemporaryMenuMessage noMap;
+    [SerializeField]
+    TemporaryMenuMessage noName;
+
     void Awake()
     {
         selectionBox.SetActive(false);
@@ -46,10 +51,28 @@ public class CreateGameMenu : MonoBehaviour {
         CheckOffline();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Return))
+        {
+            if (mapName == null)
+            {
+                noMap.Activate();
+            }
+            else if (!PhotonNetwork.OfflineMode && (gameName == string.Empty || gameName == null))
+            {
+                noName.Activate();
+            }
+            CreateGame();
+        }
+    }
+
     void CheckOffline()
     {
         gameNameObj.SetActive(!PhotonNetwork.OfflineMode);
         maxPlayerObj.SetActive(!PhotonNetwork.OfflineMode);
+        if (!PhotonNetwork.OfflineMode)
+            gameNameText.ActivateInputField();
     }
 
     private void InitMapButtons()
@@ -78,7 +101,7 @@ public class CreateGameMenu : MonoBehaviour {
         CheckCreateGameButton();
     }
 
-    private void CheckCreateGameButton()
+    void CheckCreateGameButton()
     {
         if (gameName == string.Empty || mapName == null || gameName == null)
         {
@@ -102,8 +125,11 @@ public class CreateGameMenu : MonoBehaviour {
 
     public void CreateGame()
     {
-        PlayerPrefs.SetString("MapName", mapName);
-        PhotonNetwork.CreateRoom(gameName, new RoomOptions { MaxPlayers = maxPlayer });
+        if (createGameButton.interactable)
+        {
+            PlayerPrefs.SetString("MapName", mapName);
+            PhotonNetwork.CreateRoom(gameName, new RoomOptions { MaxPlayers = maxPlayer });
+        }
     }
 
     public void SelectMap(Transform button)
@@ -112,5 +138,7 @@ public class CreateGameMenu : MonoBehaviour {
         selectionBox.SetActive(true);
         selectionBox.transform.position = new Vector3(selectionBox.transform.position.x, button.position.y, selectionBox.transform.position.z);
         CheckCreateGameButton();
+        if (!PhotonNetwork.OfflineMode)
+            gameNameText.ActivateInputField();
     }
 }

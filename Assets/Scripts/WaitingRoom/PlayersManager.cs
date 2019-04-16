@@ -29,6 +29,9 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
     List<Vector3> bottomRight;
     List<Vector3>[] coords;
 
+    [SerializeField]
+    TemporaryMenuMessage notReady;
+
     #region customProp
 
     string isReady = "IsReady";
@@ -84,7 +87,20 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
     void Update()
     {
         if (PhotonNetwork.IsMasterClient)
+        {
             CheckAddBot();
+            if (Input.GetKeyUp(KeyCode.Return))
+            {
+                if (!startButton.IsActive())
+                {
+                    notReady.Activate();
+                }
+                else
+                {
+                    StartGame();
+                }
+            }
+        }
     }
 
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoInternetMessage : MonoBehaviour
+public class TemporaryMenuMessage : MonoBehaviour
 {
     [SerializeField]
     GameObject obj;
