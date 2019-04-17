@@ -52,7 +52,7 @@ public class IAManager : MonoBehaviourPunCallbacks
 
     public List<SelectableObj> mySelectableObjs = new List<SelectableObj>();
 
-    public GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
+    public virtual GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
     {
         GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
         obj.GetComponent<SelectableObj>().InitUnit(botIndex);
