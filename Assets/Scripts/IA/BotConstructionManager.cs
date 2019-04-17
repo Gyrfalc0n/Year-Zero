@@ -35,8 +35,6 @@ public class BotConstructionManager : MonoBehaviour
         return pay;
     }
 
-
-
     public void Construct(int index, BuilderUnit builder, out InConstructionUnit inConstructionUnit)
     {
         ConstructedUnit building = ((GameObject)Resources.Load(buildingList[index])).GetComponent<ConstructedUnit>();

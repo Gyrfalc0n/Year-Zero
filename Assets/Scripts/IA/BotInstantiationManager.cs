@@ -18,6 +18,11 @@ public class BotInstantiationManager : MonoBehaviour
         "Units/Mobile Medical Station",
 };
 
+    public string[] GetTroopList()
+    {
+        return troopList;
+    }
+
     List<ProductionBuilding> GetAvailableProductionBuilding(MovableUnit unit)
     {
         List<ProductionBuilding> res = new List<ProductionBuilding>();

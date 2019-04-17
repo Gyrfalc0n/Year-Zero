@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tools:
-  - {fileID: 2398293628918808410, guid: 32d3ded742964044b8e8a4a6dd58f8d8, type: 3}
+  - {fileID: 2399611107909500241, guid: 32d3ded742964044b8e8a4a6dd58f8d8, type: 3}
   - {fileID: 2398293628918808410, guid: eeb67b26b364f854e90cf463a6702586, type: 3}
   - {fileID: 1662642892877366467, guid: c3f3f4c1f5af8a145bb51de754148591, type: 3}
   highlighted: 0
@@ -43,11 +43,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combat Station
       objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 416454294261193715}
     - target: {fileID: 4198717423202766145, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -103,6 +98,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 416454294261193715}
     - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: costs.Array.size

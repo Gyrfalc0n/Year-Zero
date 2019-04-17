@@ -33,26 +33,34 @@ public class CreateGameMenu : MonoBehaviour {
     [SerializeField]
     GameObject maxPlayerObj;
 
+    [SerializeField]
+    TemporaryMenuMessage noMap;
+    [SerializeField]
+    TemporaryMenuMessage noName;
+
+    #region INIT
+
     void Awake()
     {
         selectionBox.SetActive(false);
         InitMaxPlayerDropdown();
         InitMapButtons();
-        CheckCreateGameButton();
     }
 
     void OnEnable()
     {
-        CheckOffline();
+        InitOffline();
     }
 
-    void CheckOffline()
+    void InitOffline()
     {
         gameNameObj.SetActive(!PhotonNetwork.OfflineMode);
         maxPlayerObj.SetActive(!PhotonNetwork.OfflineMode);
+        if (!PhotonNetwork.OfflineMode)
+            gameNameText.ActivateInputField();
     }
 
-    private void InitMapButtons()
+    void InitMapButtons()
     {
         foreach (string map in maps)
         {
@@ -61,7 +69,7 @@ public class CreateGameMenu : MonoBehaviour {
         }
     }
 
-    private void InitMaxPlayerDropdown()
+    void InitMaxPlayerDropdown()
     {
         List<string> tmp = new List<string>();
         for (int i = 2; i < 5; i++)
@@ -72,27 +80,33 @@ public class CreateGameMenu : MonoBehaviour {
         maxPlayerDropdown.value = maxPlayer - 2;
     }
 
+    #endregion
+
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Return))
+        {
+            TryCreateGame();
+        }
+    }
+
+    public void TryCreateGame()
+    {
+        if (mapName == null)
+        {
+            noMap.Activate();
+        }
+        else if (!PhotonNetwork.OfflineMode && (gameName == string.Empty || gameName == null))
+        {
+            noName.Activate();
+        }
+        else
+            CreateGame();
+    }
+
     public void SetGameName(string value)
     {
         gameName = value;
-        CheckCreateGameButton();
-    }
-
-    private void CheckCreateGameButton()
-    {
-        if (gameName == string.Empty || mapName == null || gameName == null)
-        {
-            createGameButton.interactable = false;
-        }
-        else
-        {
-            createGameButton.interactable = true;
-        }
-
-        if (PhotonNetwork.OfflineMode && mapName != null)
-        {
-            createGameButton.interactable = true;
-        }
     }
 
     public void SetMaxPlayer(int value)
@@ -100,7 +114,7 @@ public class CreateGameMenu : MonoBehaviour {
         maxPlayer = (byte)(value + 2);
     }
 
-    public void CreateGame()
+    void CreateGame()
     {
         PlayerPrefs.SetString("MapName", mapName);
         PhotonNetwork.CreateRoom(gameName, new RoomOptions { MaxPlayers = maxPlayer });
@@ -111,6 +125,7 @@ public class CreateGameMenu : MonoBehaviour {
         mapName = button.GetComponentInChildren<Text>().text;
         selectionBox.SetActive(true);
         selectionBox.transform.position = new Vector3(selectionBox.transform.position.x, button.position.y, selectionBox.transform.position.z);
-        CheckCreateGameButton();
+        if (!PhotonNetwork.OfflineMode)
+            gameNameText.ActivateInputField();
     }
 }

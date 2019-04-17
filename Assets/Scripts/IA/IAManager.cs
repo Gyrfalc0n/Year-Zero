@@ -59,6 +59,13 @@ public class IAManager : MonoBehaviourPunCallbacks
         return obj;
     }
 
+
+    public GameObject InstantiateUnit(int index, Vector3 pos, Quaternion rot)
+    {
+        string prefab = GetComponent<BotInstantiationManager>().GetTroopList()[index];
+        return InstantiateUnit(prefab, pos, rot);
+    }
+
     public int GetTeam()
     {
         return team;

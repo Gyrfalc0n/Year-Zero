@@ -7,7 +7,7 @@ using ExitGames.Client.Photon;
 
 public class PlayersManager : MonoBehaviourPunCallbacks {
 
-    readonly int soloMaxPlayer = 3;
+    readonly int soloMaxPlayer = 4;
 
     Hashtable customProp;
     [SerializeField]
@@ -28,6 +28,9 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
     [SerializeField]
     List<Vector3> bottomRight;
     List<Vector3>[] coords;
+
+    [SerializeField]
+    TemporaryMenuMessage notReady;
 
     #region customProp
 
@@ -84,7 +87,20 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
     void Update()
     {
         if (PhotonNetwork.IsMasterClient)
+        {
             CheckAddBot();
+            if (Input.GetKeyUp(KeyCode.Return))
+            {
+                if (!startButton.IsActive())
+                {
+                    notReady.Activate();
+                }
+                else
+                {
+                    StartGame();
+                }
+            }
+        }
     }
 
 

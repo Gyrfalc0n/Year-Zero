@@ -17,6 +17,11 @@ public class StartGameButton : MonoBehaviourPunCallbacks {
         GetComponent<Button>().interactable = false;
     }
 
+    public bool IsActive()
+    {
+        return GetComponent<Button>().interactable;
+    }
+
     public void MainMenuBack()
     {
         PhotonNetwork.LeaveRoom();
