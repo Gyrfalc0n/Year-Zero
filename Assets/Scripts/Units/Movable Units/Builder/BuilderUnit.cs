@@ -110,7 +110,7 @@ public class BuilderUnit : MovableUnit {
     public bool IsDoingNothing()
     {
         bool immobile = Vector3.Distance(agent.destination, transform.position) <= 1;
-        return (!patrolSystem.IsPatroling() && !miningSystem.IsMining() && !buildingSystem.IsBuilding() && immobile && !repairingSystem.IsRepairing());
+        return immobile && IsDoingNothingEceptMoving();
     }
 
     public bool IsDoingNothingEceptMoving()
@@ -132,5 +132,14 @@ public class BuilderUnit : MovableUnit {
     {
         if (botIndex == -1)
             jobless.UpdatePanel();
+    }
+
+    public override void OnEnemyEnters(DestructibleUnit enemy)
+    {
+        if (IsDoingNothing())
+        {
+            ResetAction();
+            combatSystem.OnEnemyEnters(enemy);
+        }
     }
 }

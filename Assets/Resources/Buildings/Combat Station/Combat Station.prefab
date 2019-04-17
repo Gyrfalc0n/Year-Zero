@@ -6,7 +6,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313811731870665177}
+  m_GameObject: {fileID: 4470627496034457528}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ddef74341f189b740b041e8448119ca4, type: 3}
@@ -43,11 +43,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combat Station
       objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 416454294261193715}
     - target: {fileID: 4198717423202766145, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -103,6 +98,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 4470627496034459438}
     - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: costs.Array.size
@@ -177,19 +177,19 @@ PrefabInstance:
     - {fileID: 3354145167647749936, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
     - {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
---- !u!1 &313811731870665177 stripped
+--- !u!1 &4470627496034457528 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4201926755012452119, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
     type: 3}
   m_PrefabInstance: {fileID: 4470627496034457294}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &416454294261193715 stripped
+--- !u!114 &4470627496034459438 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4309196059108019517, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
     type: 3}
   m_PrefabInstance: {fileID: 4470627496034457294}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313811731870665177}
+  m_GameObject: {fileID: 4470627496034457528}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
