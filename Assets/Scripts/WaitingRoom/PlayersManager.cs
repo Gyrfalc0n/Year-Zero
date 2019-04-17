@@ -7,7 +7,7 @@ using ExitGames.Client.Photon;
 
 public class PlayersManager : MonoBehaviourPunCallbacks {
 
-    readonly int soloMaxPlayer = 3;
+    readonly int soloMaxPlayer = 4;
 
     Hashtable customProp;
     [SerializeField]
