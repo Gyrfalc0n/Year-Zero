@@ -95,7 +95,8 @@ public class MovableUnit : DestructibleUnit {
 
     public void ResetDestination()
     {
-        agent.ResetPath();
+        if (agent.hasPath)
+            agent.ResetPath();
     }
 
     void DetermineHome()
@@ -218,10 +219,11 @@ public class MovableUnit : DestructibleUnit {
     [HideInInspector]
     public float damage;
 
-    public void OnEnemyEnters(DestructibleUnit enemy)
+    public virtual void OnEnemyEnters(DestructibleUnit enemy)
     {
         if (!moving)
         {
+            ResetAction();
             combatSystem.OnEnemyEnters(enemy);
         }
     }

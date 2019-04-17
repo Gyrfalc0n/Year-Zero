@@ -15,6 +15,8 @@ public class AlliesMenu : MonoBehaviourPunCallbacks
 
     [SerializeField]
     AlliesPanel alliesPanelPrefab;
+    [SerializeField]
+    GameObject noAllies;
 
     public void ShowPanel()
     {
@@ -26,10 +28,16 @@ public class AlliesMenu : MonoBehaviourPunCallbacks
             AlliesPanel panel = Instantiate(alliesPanelPrefab, content);
             panel.Init(player, this);
         }
+
+        if (PhotonNetwork.PlayerList.Length == 1)
+        {
+            noAllies.SetActive(true);
+        }
     }
 
     public void Cancel()
     {
+        noAllies.SetActive(false);
         obj.SetActive(false);
         for (int i = content.childCount - 1; i >= 0; i--)
         {

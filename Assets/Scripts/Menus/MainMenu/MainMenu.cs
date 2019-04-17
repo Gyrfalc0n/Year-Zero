@@ -105,7 +105,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         {
             connection.SetActive(false);
             mainMenu.SetActive(true);
-            GetComponentInChildren<NoInternetMessage>().Activate();
+            GetComponentInChildren<TemporaryMenuMessage>().Activate();
         }
     }
 
@@ -125,7 +125,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         }
         else
         {
-            GetComponentInChildren<NoInternetMessage>().Activate();
+            GetComponentInChildren<TemporaryMenuMessage>().Activate();
         }
     }
 
@@ -217,5 +217,10 @@ public class MainMenu : MonoBehaviourPunCallbacks {
     {
         mainMenu.SetActive(false);
         creditsMenu.SetActive(true);
+    }
+
+    public void OpenWebSite()
+    {
+        Application.OpenURL("https://enguerrandvie.wixsite.com/yearzero/avancement");
     }
 }
