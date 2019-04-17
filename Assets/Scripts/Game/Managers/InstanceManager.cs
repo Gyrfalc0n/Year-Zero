@@ -41,6 +41,12 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
             InitBots();
     }
 
+    public float timer { get; private set; }
+    private void Update()
+    {
+        timer += Time.deltaTime;
+    }
+
     void InitBots()
     {
         int i = 1;
