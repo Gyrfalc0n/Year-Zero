@@ -7052,7 +7052,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6280805093710155975}
   - component: {fileID: 6280805093710155974}
-  - component: {fileID: 6280805093710155969}
   m_Layer: 0
   m_Name: PortraitCamera
   m_TagString: Untagged
@@ -7116,14 +7115,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &6280805093710155969
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6280805093710155968}
-  m_Enabled: 1
 --- !u!1 &6280805093714776342
 GameObject:
   m_ObjectHideFlags: 0
@@ -9115,7 +9106,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offlineMode: 1
-  botPrefab: IA/BotPrefab
   allSelectableObjs: []
   mySelectableObjs: []
   allResourceUnits: []
