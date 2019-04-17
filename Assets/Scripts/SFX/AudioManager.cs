@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] public AudioMixerGroup Sound;
+    [SerializeField]public AudioMixerGroup Music;
 
     public Sound[] sounds;
 
@@ -28,6 +30,14 @@ public class AudioManager : MonoBehaviour
                 sound.source.pitch = sound.pitch;
                 sound.source.loop = sound.isMusic;
                 sound.isPlaying = false;
+                if (sound.isMusic)
+                {
+                    sound.source.outputAudioMixerGroup = Music;
+                }
+                else
+                {
+                    sound.source.outputAudioMixerGroup = Sound;
+                }
             }
         }
         
