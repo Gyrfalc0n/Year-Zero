@@ -11,6 +11,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     public static InstanceManager instanceManager;
     public bool offlineMode;
+    public bool debugMode;
 
     public void Awake()
     {
@@ -58,7 +59,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
             bot.Init(i, (int)myTable["Race"+ i], (int)myTable["Team" + i], (int)myTable["Color" + i], (Vector3)myTable["MyCoords" + i]);
             i++;
         }
-        if (offlineMode)
+        if (debugMode)
         {
             IAManager bot = Instantiate((GameObject)Resources.Load(botPrefab)).GetComponent<IAManager>();
             bot.gameObject.name = "Bot0";
