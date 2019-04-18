@@ -53,23 +53,23 @@ MonoBehaviour:
   selected: 0
   objName: Builder
   description: Can build or repair buildings
-  costs: 00000000000000000000000000000000
+  costs: 00000000280000000000000000000000
   pop: 1
   fovCollider: {fileID: 2865810074278427579, guid: df27dcc2612078148b7318ca8c2ec301,
     type: 3}
   botIndex: 0
   spells: []
   groupHighlight: 0
-  defaultMaxLife: 0
+  defaultMaxLife: 45
   maxLife: 1
   iconSprite: {fileID: 0}
   home: {fileID: 0}
   requiredTime: 2
   moving: 0
-  defaultSpeed: 0
+  defaultSpeed: 1
   speed: 0
   atkBoost: 0
-  defaultDamage: 0
+  defaultDamage: 5
   damage: 0
   buildings:
   - {fileID: 7340233006026223709, guid: 6171d1a1fd015a24abac5a5d3bc04793, type: 3}
@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b94e045ae6cbc4180cd9e721ecfa0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
-  attackRate: 1
+  range: 0.75
+  attackRate: 0.6
 --- !u!1001 &6365286697518465740
 PrefabInstance:
   m_ObjectHideFlags: 0
