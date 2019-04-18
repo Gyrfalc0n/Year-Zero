@@ -18,9 +18,8 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         instanceManager = this;
         if (offlineMode)
             PhotonNetwork.OfflineMode = offlineMode;
-        GetComponent<PlayerManager>().Init();
-        GetComponent<ChatManager>().Init();
-        Init();
+
+        //Init();
     }
 
     #endregion
@@ -36,8 +35,10 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     protected int botIndex;
 
-    void Init()
+    void Start()
     {
+        GetComponent<PlayerManager>().Init();
+        GetComponent<ChatManager>().Init();
         bulletHolder = GameObject.Find("BulletsHolder").transform;
         botIndex = -1;
         InitStartingTroops(InitProp());
