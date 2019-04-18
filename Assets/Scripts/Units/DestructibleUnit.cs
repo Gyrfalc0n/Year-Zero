@@ -13,7 +13,12 @@ public class DestructibleUnit : SelectableObj {
     public override void InitUnit(int botIndex)
     {
         base.InitUnit(botIndex);
-        lifeValue = maxLife;
+        lifeValue = defaultMaxLife;
+        maxLife = defaultMaxLife;
+        if (!PhotonNetwork.OfflineMode)
+        {
+            photonView.RPC("RPCInitDestructible", RpcTarget.Others, lifeValue, maxLife);
+        }
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
         flbPanel.AddLifeBar(this);
     }
@@ -22,9 +27,15 @@ public class DestructibleUnit : SelectableObj {
     public override void RPCInitUnit(int botIndex)
     {
         base.RPCInitUnit(botIndex);
-        lifeValue = maxLife;
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
         flbPanel.AddLifeBar(this);
+    }
+
+    [PunRPC]
+    public void RPCInitDestructible(int lifeValue, int maxLife)
+    {
+        this.lifeValue = lifeValue;
+        this.maxLife = maxLife;
     }
 
     public int defaultMaxLife;
@@ -36,24 +47,23 @@ public class DestructibleUnit : SelectableObj {
 
     public void TakeDamage(int value, DestructibleUnit shooter)
     {
-        print(value);
-        RPCTakeDamage(value, shooter);
-        if (!PhotonNetwork.OfflineMode)
+        if (photonView.IsMine)
+            RPCTakeDamage(value);
+        else
         {
-            photonView.RPC("RPCTakeDamage", RpcTarget.Others, value, shooter);
+            photonView.RPC("RPCTakeDamage", RpcTarget.Others, value);
         }
-        
+        //OnDamageTaken(shooter);
     }
 
     public virtual void OnDamageTaken(DestructibleUnit shooter) { }
 
     [PunRPC]
-    public void RPCTakeDamage(int value, DestructibleUnit shooter)
+    public void RPCTakeDamage(int value)
     {
-        
         lifeValue -= value;
-        CheckLife();
-        OnDamageTaken(shooter);
+        if (photonView.IsMine)
+            CheckLife();
     }
 
     public void SetLife(float val)

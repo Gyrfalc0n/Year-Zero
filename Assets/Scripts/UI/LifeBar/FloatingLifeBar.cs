@@ -42,6 +42,11 @@ public class FloatingLifeBar : MonoBehaviour
             transform.position = tmp;
             transform.rotation = Camera.main.transform.rotation;
 
+            if (!associatedUnit.photonView.IsMine)
+            {
+                print(associatedUnit.GetLife());
+                print(associatedUnit.GetMaxlife());
+            }
             obj.fillAmount = associatedUnit.GetLife() / associatedUnit.GetMaxlife();
         }
         else
