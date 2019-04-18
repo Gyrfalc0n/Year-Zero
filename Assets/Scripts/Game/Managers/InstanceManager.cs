@@ -29,7 +29,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     string botPrefab = "IA/BotPrefab";
 
     protected string[] townhalls = new string[2] { "Buildings/TownHall/TownHall", "Buildings/TownHall/TownHall" };
-    protected string[] builders = new string[2] { "Units/Builder", "Units/Builder" };
+    protected string[] builders = new string[2] { "Units/Builder", "Units/Destroyer" };
 
     protected int botIndex;
 
@@ -97,7 +97,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         PlayerManager.playerManager.AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0), -1).GetComponent<TownHall>());
         if (SceneManager.GetActiveScene().name != "Tutorial")
         {
-            InstantiateUnit(builders[race], new Vector3(coords.x, 0.5f, coords.z), Quaternion.Euler(0, 0, 0), -1);
+            InstantiateUnit(builders[1], new Vector3(coords.x, 0.5f, coords.z), Quaternion.Euler(0, 0, 0), -1);
             InstantiateUnit(builders[race], new Vector3(coords.x+1, 0.5f, coords.z+1), Quaternion.Euler(0, 0, 0), -1);
             InstantiateUnit(builders[race], new Vector3(coords.x, 0.5f, coords.z+1), Quaternion.Euler(0, 0, 0), -1);
             InstantiateUnit(builders[race], new Vector3(coords.x+1, 0.5f, coords.z), Quaternion.Euler(0, 0, 0), -1);

@@ -88,7 +88,7 @@ public class SelectableObj : Interactable
         botIndex = index;
     }
 
-    Transform spellHolder;
+    protected Transform spellHolder;
     [HideInInspector]
     public List<GameObject> spells = new List<GameObject>();
 

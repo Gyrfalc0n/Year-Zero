@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SupportSpellZone : MonoBehaviour
 {
-    [SerializeField]
-    Transform spellholder;
     DestroyerSupportSpell spell;
 
     List<MovableUnit> units = new List<MovableUnit>();
@@ -15,7 +13,7 @@ public class SupportSpellZone : MonoBehaviour
     float lifeBoost = 1;
     float atkBoost = 1;
 
-    private void Start()
+    public void Init(Transform spellholder)
     {
         foreach (Transform spell in spellholder)
         {
@@ -26,8 +24,10 @@ public class SupportSpellZone : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
+        if (spell == null)
+            return;
         if (wasActivated && !spell.Activated())
         {
             wasActivated = false;
