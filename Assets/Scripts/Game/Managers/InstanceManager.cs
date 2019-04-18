@@ -18,6 +18,8 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         instanceManager = this;
         if (offlineMode)
             PhotonNetwork.OfflineMode = offlineMode;
+
+        //Init();
     }
 
     #endregion
@@ -35,6 +37,8 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     void Start()
     {
+        GetComponent<PlayerManager>().Init();
+        GetComponent<ChatManager>().Init();
         bulletHolder = GameObject.Find("BulletsHolder").transform;
         botIndex = -1;
         InitStartingTroops(InitProp());
@@ -94,9 +98,16 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     void InitStartingTroops(Vector3 coords)
     {
-        PlayerManager.playerManager.AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0), -1).GetComponent<TownHall>());
+        GameObject tmp = InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0), -1);
+        PlayerManager.playerManager.AddHome(tmp.GetComponent<TownHall>());
         if (SceneManager.GetActiveScene().name != "Tutorial")
-            InstantiateUnit(builders[race], coords, Quaternion.Euler(0, 0, 0), -1);
+        {
+            InstantiateUnit(builders[1], new Vector3(coords.x, 0.5f, coords.z), Quaternion.Euler(0, 0, 0), -1);
+            InstantiateUnit(builders[race], new Vector3(coords.x+1, 0.5f, coords.z+1), Quaternion.Euler(0, 0, 0), -1);
+            InstantiateUnit(builders[race], new Vector3(coords.x, 0.5f, coords.z+1), Quaternion.Euler(0, 0, 0), -1);
+            InstantiateUnit(builders[race], new Vector3(coords.x+1, 0.5f, coords.z), Quaternion.Euler(0, 0, 0), -1);
+        }
+
         Camera.main.GetComponent<CameraController>().LookTo(PlayerManager.playerManager.GetHomes()[0].transform.position);
     }
 
@@ -112,7 +123,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public List<SelectableObj> mySelectableObjs = new List<SelectableObj>();
     public List<ResourceUnit> allResourceUnits = new List<ResourceUnit>();
 
-    public virtual GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot, int botIndex)
+    public GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot, int botIndex)
     {
         if (botIndex == -1)
         {

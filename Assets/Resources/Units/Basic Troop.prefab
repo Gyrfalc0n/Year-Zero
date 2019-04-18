@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b94e045ae6cbc4180cd9e721ecfa0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
-  attackRate: 0
+  range: 1
+  attackRate: 1
 --- !u!114 &8228861956612375781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,22 +43,22 @@ MonoBehaviour:
   selected: 0
   objName: Basic Troop
   description: 
-  costs: 00000000000000000000000000000000
+  costs: 000000004b0000006400000000000000
   pop: 1
   fovCollider: {fileID: 0}
   botIndex: 0
   spells: []
   groupHighlight: 0
-  defaultMaxLife: 1
+  defaultMaxLife: 100
   maxLife: 0
   iconSprite: {fileID: 0}
   home: {fileID: 0}
-  requiredTime: 3
+  requiredTime: 25
   moving: 0
-  defaultSpeed: 0
+  defaultSpeed: 1
   speed: 0
   atkBoost: 0
-  defaultDamage: 0
+  defaultDamage: 15
   damage: 0
 --- !u!1001 &2399611107909500314
 PrefabInstance:
@@ -71,6 +71,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic Troop
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 2367246494767128176}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -115,11 +120,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 2367246494767128176}
     - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: firePoint

@@ -9185,7 +9185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf2ca531cbb12e4f8c617ce2c0c2016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offlineMode: 1
+  offlineMode: 0
+  debugMode: 0
   allSelectableObjs: []
   mySelectableObjs: []
   allResourceUnits: []
@@ -22911,6 +22912,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332150152241}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23016,11 +23022,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -23075,6 +23076,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805093576975553}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: Heavy
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23180,10 +23186,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: Heavy
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -23205,11 +23211,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901723629059}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7407620901723629059 stripped
@@ -23255,6 +23256,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332426634877}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23360,10 +23366,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (2)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -23380,11 +23386,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901664153793}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7407620901664153793 stripped
@@ -23430,6 +23431,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805093576975553}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: Destroyer
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23535,10 +23541,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: Destroyer
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -23560,11 +23566,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901600494075}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!224 &768098332605866373 stripped
@@ -23610,6 +23611,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333197928618}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (14)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23715,11 +23721,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (14)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -23774,6 +23775,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805095028397879}
     m_Modifications:
+    - target: {fileID: 3229985203437534867, guid: f0b522c5df6208a4288377a4c7b38b26,
+        type: 3}
+      propertyPath: m_Name
+      value: ResourceTextDescrPanel (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23893,11 +23899,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3229985203437534867, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_Name
-      value: ResourceTextDescrPanel (2)
       objectReference: {fileID: 0}
     - target: {fileID: 9146380459097190595, guid: f0b522c5df6208a4288377a4c7b38b26,
         type: 3}
@@ -24025,6 +24026,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332048324770}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24130,10 +24136,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (3)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -24150,11 +24156,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901548107076}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7192547496183097005 stripped
@@ -24200,6 +24201,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333197928618}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (13)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24305,11 +24311,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (13)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -24364,6 +24365,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333044623667}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24469,10 +24475,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (8)
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -24489,11 +24495,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901542129053}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!1 &4769914303422122176 stripped
@@ -24539,6 +24540,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805093576975553}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: R&D
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24644,10 +24650,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: R&D
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -24669,11 +24675,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901516603188}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!224 &768098332622262090 stripped
@@ -24719,6 +24720,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332757950697}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24824,11 +24830,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (9)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -24883,6 +24884,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332170921329}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24988,11 +24994,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -25047,6 +25048,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333141682951}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25152,10 +25158,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (7)
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -25172,11 +25178,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901383528599}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!224 &768098332757950697 stripped
@@ -25222,6 +25223,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333197928618}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (12)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25327,11 +25333,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (12)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -25386,6 +25387,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333534833935}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25491,11 +25497,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -25550,6 +25551,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332176250283}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25655,10 +25661,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (1)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -25675,11 +25681,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901296796021}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7407620901296796021 stripped
@@ -25725,6 +25726,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805093746990727}
     m_Modifications:
+    - target: {fileID: 3229985203437534867, guid: f0b522c5df6208a4288377a4c7b38b26,
+        type: 3}
+      propertyPath: m_Name
+      value: Population
+      objectReference: {fileID: 0}
     - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25830,11 +25836,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3229985203437534867, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_Name
-      value: Population
-      objectReference: {fileID: 0}
     - target: {fileID: 9146380459097190595, guid: f0b522c5df6208a4288377a4c7b38b26,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -25905,6 +25906,16 @@ PrefabInstance:
       propertyPath: value
       value: 
       objectReference: {fileID: 8742562176173616373}
+    - target: {fileID: 8873063280786915355, guid: f0b522c5df6208a4288377a4c7b38b26,
+        type: 3}
+      propertyPath: m_CellSize.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873063280786915355, guid: f0b522c5df6208a4288377a4c7b38b26,
+        type: 3}
+      propertyPath: m_Spacing.x
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 2855831945681698146, guid: f0b522c5df6208a4288377a4c7b38b26,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -25915,16 +25926,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: 'Population :'
-      objectReference: {fileID: 0}
-    - target: {fileID: 8873063280786915355, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_CellSize.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8873063280786915355, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_Spacing.x
-      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3349049807060161514, guid: f0b522c5df6208a4288377a4c7b38b26,
         type: 3}
@@ -25998,6 +25999,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333988266616}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26103,11 +26109,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -26162,6 +26163,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332622262090}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26267,10 +26273,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (4)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -26287,11 +26293,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901205416050}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!1 &4769914303089294639 stripped
@@ -26337,6 +26338,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332534997183}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26442,10 +26448,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (4)
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -26462,11 +26468,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901145028873}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7407620901145028873 stripped
@@ -26512,6 +26513,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332605866373}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26617,11 +26623,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -26676,6 +26677,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805093576975553}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: Defense 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26781,10 +26787,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: Defense 2
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -26806,11 +26812,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901089641302}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!1 &4769914303071364619 stripped
@@ -26856,6 +26857,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333760143364}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26961,10 +26967,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (6)
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -26981,11 +26987,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901060920462}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!1 &4769914302974157267 stripped
@@ -27031,6 +27032,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333558499204}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27136,11 +27142,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -27195,6 +27196,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098331986545015}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27300,11 +27306,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -27359,6 +27360,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332426634877}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27464,10 +27470,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (1)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -27484,11 +27490,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901076572380}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7192547496667339573 stripped
@@ -27534,6 +27535,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333083374107}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27639,11 +27645,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -27698,6 +27699,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332648115683}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (10)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27803,10 +27809,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (10)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -27823,11 +27829,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620901018888057}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7192547496725030032 stripped
@@ -27873,6 +27874,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332648115683}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27978,11 +27984,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (9)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -28037,6 +28038,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332605866373}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28142,10 +28148,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (4)
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -28162,11 +28168,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900897211663}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7192547496838170342 stripped
@@ -28212,6 +28213,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805093576975553}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: Light
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28317,11 +28323,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: Light
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -28387,6 +28388,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332176250283}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28492,10 +28498,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (2)
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -28512,11 +28518,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900906064975}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7407620900906064975 stripped
@@ -28562,6 +28563,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332065932528}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28667,11 +28673,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -28726,6 +28727,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333988266616}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28830,11 +28836,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (6)
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -28953,6 +28954,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332622262090}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29058,10 +29064,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (3)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -29078,11 +29084,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900811728927}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!224 &768098332320368737 stripped
@@ -29128,6 +29129,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805093576975553}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: Defense 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29233,10 +29239,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: Defense 1
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -29258,11 +29264,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900816255550}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7407620900816255550 stripped
@@ -29308,6 +29309,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098331986545015}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29413,11 +29419,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -29472,6 +29473,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332757950697}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29577,11 +29583,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -29636,6 +29637,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332150152241}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29741,10 +29747,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (4)
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -29761,11 +29767,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900680052081}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!1 &4769914302547200044 stripped
@@ -29811,6 +29812,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332320368737}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29916,10 +29922,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (5)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -29936,11 +29942,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900623695803}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7407620900623695803 stripped
@@ -29986,6 +29987,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805094077667068}
     m_Modifications:
+    - target: {fileID: 1298595418991947365, guid: 970af6d517f498542a0fb7a1f1cdb1be,
+        type: 3}
+      propertyPath: m_Name
+      value: Asteroid
+      objectReference: {fileID: 0}
     - target: {fileID: 1298595418991947374, guid: 970af6d517f498542a0fb7a1f1cdb1be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30041,11 +30047,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1298595418991947365, guid: 970af6d517f498542a0fb7a1f1cdb1be,
-        type: 3}
-      propertyPath: m_Name
-      value: Asteroid
-      objectReference: {fileID: 0}
     - target: {fileID: 5238304439067346547, guid: 970af6d517f498542a0fb7a1f1cdb1be,
         type: 3}
       propertyPath: ObservedComponents.Array.data[0]
@@ -30088,6 +30089,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333044623667}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30193,11 +30199,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -30252,6 +30253,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098331960795944}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30357,10 +30363,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (5)
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -30377,11 +30383,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900573415418}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7192547497169306643 stripped
@@ -30427,6 +30428,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332843118859}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30532,10 +30538,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (3)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -30552,11 +30558,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900493022715}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7407620900493022715 stripped
@@ -30602,6 +30603,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805095028397879}
     m_Modifications:
+    - target: {fileID: 3229985203437534867, guid: f0b522c5df6208a4288377a4c7b38b26,
+        type: 3}
+      propertyPath: m_Name
+      value: ResourceTextDescrPanel (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30721,11 +30727,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3229985203437534867, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_Name
-      value: ResourceTextDescrPanel (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9146380459097190595, guid: f0b522c5df6208a4288377a4c7b38b26,
         type: 3}
@@ -30853,6 +30854,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332124874503}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (11)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30958,11 +30964,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (11)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -31017,6 +31018,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333197928618}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (15)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31122,11 +31128,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (15)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -31181,6 +31182,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805095028397879}
     m_Modifications:
+    - target: {fileID: 3229985203437534867, guid: f0b522c5df6208a4288377a4c7b38b26,
+        type: 3}
+      propertyPath: m_Name
+      value: ResourceTextDescrPanel
+      objectReference: {fileID: 0}
     - target: {fileID: 417538210524447735, guid: f0b522c5df6208a4288377a4c7b38b26,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31285,11 +31291,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3229985203437534867, guid: f0b522c5df6208a4288377a4c7b38b26,
-        type: 3}
-      propertyPath: m_Name
-      value: ResourceTextDescrPanel
       objectReference: {fileID: 0}
     - target: {fileID: 9146380459097190595, guid: f0b522c5df6208a4288377a4c7b38b26,
         type: 3}
@@ -31417,6 +31418,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333141682951}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31522,11 +31528,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -31581,6 +31582,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332065932528}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31686,11 +31692,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -31745,6 +31746,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098331912665100}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31850,10 +31856,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (5)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -31870,11 +31876,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900372422778}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!1 &4769914302320575783 stripped
@@ -31920,6 +31921,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333141682951}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32025,11 +32031,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -32084,6 +32085,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332757950697}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (10)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32189,11 +32195,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (10)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -32248,6 +32249,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333141682951}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32353,11 +32359,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -32412,6 +32413,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332324895296}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32517,10 +32523,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (5)
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -32537,11 +32543,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900160422406}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7407620900160422406 stripped
@@ -32587,6 +32588,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333507837893}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32692,11 +32698,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -32751,6 +32752,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332170921329}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32856,10 +32862,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (6)
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -32876,11 +32882,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620900022069581}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7192547497708219044 stripped
@@ -32926,6 +32927,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805093576975553}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: Eco
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33031,10 +33037,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: Eco
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -33056,11 +33062,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620899984649081}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!114 &7407620899984649081 stripped
@@ -33106,6 +33107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333558499204}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33211,11 +33217,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -33270,6 +33271,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333534833935}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33375,10 +33381,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (6)
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -33395,11 +33401,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620899964449381}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!1 &4769914301912274744 stripped
@@ -33445,6 +33446,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332757950697}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (11)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33550,10 +33556,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (11)
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -33570,11 +33576,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7407620899944786132}
-    - target: {fileID: 5699228669239992252, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7799f16bc9f30c9439756d7fe3fe4894, type: 3}
 --- !u!224 &768098333197928618 stripped
@@ -33620,6 +33621,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098333645845893}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33724,11 +33730,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
@@ -33784,6 +33785,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768098332658255162}
     m_Modifications:
+    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
+        type: 3}
+      propertyPath: m_Name
+      value: SkilltreeButtonPrefab (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 6737723321211777155, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33888,11 +33894,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521026169199736224, guid: 7799f16bc9f30c9439756d7fe3fe4894,
-        type: 3}
-      propertyPath: m_Name
-      value: SkilltreeButtonPrefab (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3604387287469947270, guid: 7799f16bc9f30c9439756d7fe3fe4894,
         type: 3}

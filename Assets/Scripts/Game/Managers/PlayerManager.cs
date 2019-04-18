@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour {
 
     public static PlayerManager playerManager;
 
-    private void Awake()
+    public void Init()
     {
         playerManager = this;
     }
@@ -151,6 +151,11 @@ public class PlayerManager : MonoBehaviour {
     public void RemovePopulation(int val)
     {
         population.Remove(val);
+    }
+
+    public void RemoveMaxPopulation(int val)
+    {
+        population.RemoveMax(val);
     }
 
     #endregion

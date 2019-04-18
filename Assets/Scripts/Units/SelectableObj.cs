@@ -35,6 +35,7 @@ public class SelectableObj : Interactable
     public FieldOfViewCollider fovCollider;
     bool visible;
 
+    [HideInInspector]
     public int botIndex;
 
     public virtual void InitUnit(int botIndex)
@@ -87,7 +88,7 @@ public class SelectableObj : Interactable
         botIndex = index;
     }
 
-    Transform spellHolder;
+    protected Transform spellHolder;
     [HideInInspector]
     public List<GameObject> spells = new List<GameObject>();
 

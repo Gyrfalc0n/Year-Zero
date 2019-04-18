@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f223a585a037204ab9352ef611a2f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskHolder: {fileID: 0}
 --- !u!114 &7522943024352779701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,23 +25,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1721c8f2769ac264cadd79d0de513cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Buildings/Radar/Radar
   tools: []
   highlighted: 0
   selected: 0
   objName: Radar
   description: 
-  costs: 00000000000000000000000000000000
+  costs: 32000000900100000000000000000000
   pop: 0
-  fieldOfViewPrefabPath: VFX/FogOfWar/FieldOfViewPrefab
   fovCollider: {fileID: 0}
+  botIndex: 0
   spells: []
   groupHighlight: 0
   defaultMaxLife: 0
   maxLife: 5
-  constructor: {fileID: 969832017721175581, guid: b33475f4782fa094ab36324f9dd2a815,
-    type: 3}
-  ghost: {fileID: 1498426257654464, guid: c1d6028154ecc9d4b8cdc75ba35932d0, type: 3}
+  iconSprite: {fileID: 0}
   lines: 1
   columns: 1
 --- !u!1001 &6214043818400713421
