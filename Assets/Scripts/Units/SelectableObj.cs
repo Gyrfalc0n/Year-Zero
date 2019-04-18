@@ -35,6 +35,7 @@ public class SelectableObj : Interactable
     public FieldOfViewCollider fovCollider;
     bool visible;
 
+    [HideInInspector]
     public int botIndex;
 
     public virtual void InitUnit(int botIndex)
