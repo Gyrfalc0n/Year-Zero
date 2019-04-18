@@ -153,5 +153,10 @@ public class PlayerManager : MonoBehaviour {
         population.Remove(val);
     }
 
+    public void RemoveMaxPopulation(int val)
+    {
+        population.RemoveMax(val);
+    }
+
     #endregion
 }

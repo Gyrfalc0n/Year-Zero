@@ -10,7 +10,7 @@ public class ChatManager : MonoBehaviourPunCallbacks
 
     public static ChatManager chatManager;
 
-    void Awake()
+    public void Init()
     {
         chatManager = this;
     }

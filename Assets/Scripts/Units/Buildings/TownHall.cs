@@ -11,6 +11,7 @@ public class TownHall : ProductionBuilding
         if (botIndex == -1)
         {
             PlayerManager.playerManager.AddHome(this);
+            PlayerManager.playerManager.AddMaxPopulation(5);
         }
     }
 
@@ -18,6 +19,7 @@ public class TownHall : ProductionBuilding
     {
         base.OnDestroyed();
         PlayerManager.playerManager.RemoveHome(this);
+        PlayerManager.playerManager.RemoveMaxPopulation(5);
     }
     
     public override bool IsAvailable()
