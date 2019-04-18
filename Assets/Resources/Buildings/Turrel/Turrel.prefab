@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f223a585a037204ab9352ef611a2f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskHolder: {fileID: 0}
 --- !u!114 &3921761174196321361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,7 +30,7 @@ MonoBehaviour:
   selected: 0
   objName: Turrel
   description: 
-  costs: 00000000000000000000000000000000
+  costs: 14000000c80000000000000000000000
   pop: 0
   fovCollider: {fileID: 2865810074278427579, guid: 3cd7ac9cb6d8009468ab14ccc6ac6bb7,
     type: 3}
@@ -41,7 +42,6 @@ MonoBehaviour:
   iconSprite: {fileID: 0}
   lines: 0
   columns: 0
-  size: 0
 --- !u!1001 &6103284989642857663
 PrefabInstance:
   m_ObjectHideFlags: 0
