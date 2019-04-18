@@ -19,6 +19,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         if (offlineMode)
             PhotonNetwork.OfflineMode = offlineMode;
         GetComponent<PlayerManager>().Init();
+        GetComponent<ChatManager>().Init();
         Init();
     }
 

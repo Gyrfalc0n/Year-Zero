@@ -35,6 +35,9 @@ public class ResourcesPanel : MonoBehaviour {
 
     public void UpdatePanel()
     {
+        if (manager == null)
+            return;
+
         int i = resourceTexts.Count - 1;
         foreach (ResourceText text in resourceTexts)
         {
