@@ -71,7 +71,7 @@ public class CombatSystem : MonoBehaviour
     {
         if (time <= 0)
         {
-            time = attackRate;
+            time = 1/attackRate;
             GameObject obj = PhotonNetwork.Instantiate("Units/Bullets/" + projectile, firePoint.position, firePoint.rotation);
             obj.transform.SetParent(bulletHolder);
             obj.GetComponent<Bullet>().Init(1f, GetComponent<MovableUnit>().damage, GetComponent<DestructibleUnit>());
