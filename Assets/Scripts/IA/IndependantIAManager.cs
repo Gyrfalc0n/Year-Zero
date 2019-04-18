@@ -27,4 +27,12 @@ public class IndependantIAManager : IAManager
     {
         return unit.botIndex == -2;
     }
+
+    public override GameObject InstantiateUnit(string prefab, Vector3 pos, Quaternion rot)
+    {
+        GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
+        obj.transform.SetParent(troops);
+        obj.GetComponent<SelectableObj>().InitUnit(botIndex);
+        return obj;
+    }
 }
