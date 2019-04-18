@@ -179,6 +179,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5886713904587825151, guid: a9ea836ea07ce614eb84e57e0bad0862,
+        type: 3}
+      propertyPath: Sound
+      value: 
+      objectReference: {fileID: 243611415690189326, guid: d05f2ce08fd19ab4b9bf7768cc231df8,
+        type: 2}
+    - target: {fileID: 5886713904587825151, guid: a9ea836ea07ce614eb84e57e0bad0862,
+        type: 3}
+      propertyPath: Music
+      value: 
+      objectReference: {fileID: 243603301932379670, guid: d05f2ce08fd19ab4b9bf7768cc231df8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ea836ea07ce614eb84e57e0bad0862, type: 3}
 --- !u!1001 &6280805093687666138
@@ -393,21 +405,6 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6280805093987309785, guid: 558a34a8be43927418fdbc9bfea841c7,
-        type: 3}
-      propertyPath: offlineMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280805093987309785, guid: 558a34a8be43927418fdbc9bfea841c7,
-        type: 3}
-      propertyPath: debugMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280805094178152623, guid: 558a34a8be43927418fdbc9bfea841c7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6280805093683172071, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -421,6 +418,21 @@ PrefabInstance:
     - target: {fileID: 6280805093683172065, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280805093987309785, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: offlineMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280805093987309785, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: debugMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280805094178152623, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

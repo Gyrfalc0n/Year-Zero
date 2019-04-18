@@ -802,7 +802,7 @@ RectTransform:
   m_Children:
   - {fileID: 1800935651}
   m_Father: {fileID: 522435376}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1680,6 +1680,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5886713904587825151, guid: a9ea836ea07ce614eb84e57e0bad0862,
+        type: 3}
+      propertyPath: Music
+      value: 
+      objectReference: {fileID: 243603301932379670, guid: d05f2ce08fd19ab4b9bf7768cc231df8,
+        type: 2}
+    - target: {fileID: 5886713904587825151, guid: a9ea836ea07ce614eb84e57e0bad0862,
+        type: 3}
+      propertyPath: Sound
+      value: 
+      objectReference: {fileID: 243611415690189326, guid: d05f2ce08fd19ab4b9bf7768cc231df8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ea836ea07ce614eb84e57e0bad0862, type: 3}
 --- !u!1001 &1249009918
@@ -2819,6 +2831,7 @@ MonoBehaviour:
   - {x: 10, y: 0, z: -5}
   - {x: 10, y: 0, z: -10}
   - {x: 10, y: 0, z: -10}
+  notReady: {fileID: 0}
 --- !u!114 &2121582610
 MonoBehaviour:
   m_ObjectHideFlags: 0
