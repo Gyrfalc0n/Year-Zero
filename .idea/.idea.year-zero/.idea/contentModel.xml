@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\timot\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\timot\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_year-zero.446772167.00" t="ExcludeRecursive" />
-    <e p="C:\Users\timot\Desktop\GitHub\year-zero" t="IncludeRecursive">
+    <e p="C:\Users\Timothée Ribes\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Timothée Ribes\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_year-zero.965390235.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Timothée Ribes\Desktop\GIT\year-zero" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="3D Resources" t="Include">
+          <e p="StarSparrow" t="Include">
+            <e p="Materials" t="Include">
+              <e p="Unified" t="Include">
+                <e p="UnifiedMaterials.txt" t="Include" />
+              </e>
+            </e>
+            <e p="readme.txt" t="Include" />
+          </e>
+        </e>
         <e p="Materials" t="Include">
           <e p="PaintedRenderTextureShader.shader" t="Include" />
         </e>
@@ -252,7 +262,24 @@
             <e p="Tutorial.cs" t="Include" />
           </e>
           <e p="IA" t="Include">
+            <e p="BotArmyManager.cs" t="Include" />
+            <e p="BotBuilderManager.cs" t="Include" />
+            <e p="BotConstructionManager.cs" t="Include" />
+            <e p="BotInstantiationManager.cs" t="Include" />
+            <e p="BotManager.cs" t="Include" />
+            <e p="BotMiningManager.cs" t="Include" />
+            <e p="Holder.cs" t="Include" />
             <e p="IAManager.cs" t="Include" />
+            <e p="IAObjectivesManager.cs" t="Include" />
+            <e p="IndependantIAManager.cs" t="Include" />
+            <e p="ObjectiveArray.cs" t="Include" />
+            <e p="Objectives" t="Include">
+              <e p="ConstructionObjective.cs" t="Include" />
+              <e p="IAObjective.cs" t="Include" />
+              <e p="InstantationObjective.cs" t="Include" />
+              <e p="SendToMineObjective.cs" t="Include" />
+            </e>
+            <e p="ObjectivesArraysManager.cs" t="Include" />
           </e>
           <e p="Menus" t="Include">
             <e p="AlliesMenu" t="Include">
@@ -277,18 +304,25 @@
               <e p="Menu.cs" t="Include" />
               <e p="MoveBack.cs" t="Include" />
               <e p="MultiplayerMenu.cs" t="Include" />
-              <e p="NoInternetMessage.cs" t="Include" />
               <e p="OptionsMenu.cs" t="Include" />
               <e p="PseudoInputField.cs" t="Include" />
               <e p="SingleplayerMenu.cs" t="Include" />
               <e p="SoundMenu.cs" t="Include" />
+              <e p="TemporaryMenuMessage.cs" t="Include" />
               <e p="VideoMenu.cs" t="Include" />
             </e>
           </e>
+          <e p="MultiplayerTools.cs" t="Include" />
           <e p="Placement" t="Include">
+            <e p="BotDetectionCell.cs" t="Include" />
             <e p="DetectionCell.cs" t="Include" />
             <e p="PlacementGrid.cs" t="Include" />
             <e p="RayCaster.cs" t="Include" />
+          </e>
+          <e p="SFX" t="Include">
+            <e p="AudioManager.cs" t="Include" />
+            <e p="MainMenuSoundtrack.cs" t="Include" />
+            <e p="Sound.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="Cards" t="Include">
@@ -420,6 +454,17 @@
             <e p="PlayerSettings.cs" t="Include" />
             <e p="PlayersManager.cs" t="Include" />
             <e p="StartGameButton.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Visual Resources" t="Include">
+          <e p="Background" t="Include">
+            <e p="SkyboxEarthPlanets" t="Include">
+              <e p="readme.txt" t="Include" />
+              <e p="script" t="Include">
+                <e p="skyboxspace_demo_v1.cs" t="Include" />
+                <e p="skyboxspace_mouselook_v1.cs" t="Include" />
+              </e>
+            </e>
           </e>
         </e>
       </e>
