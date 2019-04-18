@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class TaskSystem : MonoBehaviour
+public class TaskSystem : MonoBehaviourPunCallbacks
 {
     readonly int maxTasks = 16;
     TaskBar tasksBar;
@@ -12,11 +14,15 @@ public class TaskSystem : MonoBehaviour
 
     void Awake()
     {
-        tasksBar = GameObject.Find("TasksBar").GetComponent<TaskBar>();
+        if (photonView.IsMine)
+            tasksBar = GameObject.Find("TasksBar").GetComponent<TaskBar>();
     }
 
     void Update()
     {
+        if (!photonView.IsMine)
+            return;
+
         if (tasks.Count > 0)
         {
             if (tasks[0].Finished())
