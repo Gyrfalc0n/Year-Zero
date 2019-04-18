@@ -109,7 +109,8 @@ public class BuilderUnit : MovableUnit {
 
     public bool IsDoingNothing()
     {
-        bool immobile = Vector3.Distance(agent.destination, transform.position) <= 1;
+        bool immobile;
+        immobile = (agent.destination != null) ? Vector3.Distance(agent.destination, transform.position) <= 1:true;
         return immobile && IsDoingNothingEceptMoving();
     }
 
