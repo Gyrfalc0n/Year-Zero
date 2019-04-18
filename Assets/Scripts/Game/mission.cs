@@ -25,6 +25,7 @@ public class mission : MonoBehaviour
         {
             isFirstTick = false;
             Wave();
+            independentBotPrefab.GetComponent<BotArmyManager>().SendArmy(new Vector3(0,0,10));
             Debug.Log(waveCount);
         }
 
