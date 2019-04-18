@@ -45,11 +45,6 @@ public class MovableUnit : DestructibleUnit {
         }
     }
 
-    public override void Init2()
-    {
-        base.Init2();
-    }
-
     [PunRPC]
     public override void RPCInitUnit(int botIndex)
     {
