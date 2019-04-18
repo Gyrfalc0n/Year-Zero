@@ -260,16 +260,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280805093683172071, guid: 558a34a8be43927418fdbc9bfea841c7,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280805093683172071, guid: 558a34a8be43927418fdbc9bfea841c7,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 6280805093998468191, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -280,16 +270,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280805093683172065, guid: 558a34a8be43927418fdbc9bfea841c7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280805093987309785, guid: 558a34a8be43927418fdbc9bfea841c7,
-        type: 3}
-      propertyPath: offlineMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6280805093987309780, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
       propertyPath: viewIdField
@@ -299,11 +279,6 @@ PrefabInstance:
         type: 3}
       propertyPath: viewIdField
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280805094178152623, guid: 558a34a8be43927418fdbc9bfea841c7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6280805094615602447, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
@@ -429,6 +404,31 @@ PrefabInstance:
         type: 3}
       propertyPath: viewIdField
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280805093683172071, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280805093683172071, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280805093683172065, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280805093987309785, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: offlineMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280805094178152623, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6280805094797719706, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
