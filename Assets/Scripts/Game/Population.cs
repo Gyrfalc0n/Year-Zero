@@ -7,7 +7,7 @@ public class Population {
 
     private int rawValue;
     private int maxValue = 100;
-    private int currentMaxValue = 5;
+    private int currentMaxValue;
     private int value = 4;
 
     public int GetCurrentMaxValue()

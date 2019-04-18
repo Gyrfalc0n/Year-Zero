@@ -9,13 +9,18 @@ public class TownHall : ProductionBuilding
     {
         base.InitUnit(botIndex);
         if (botIndex == -1)
+        {
             PlayerManager.playerManager.AddHome(this);
+            PlayerManager.playerManager.AddMaxPopulation(5);
+        }
+
     }
 
     public override void OnDestroyed()
     {
         base.OnDestroyed();
         PlayerManager.playerManager.RemoveHome(this);
+        PlayerManager.playerManager.RemovePopulation(5);
     }
     
     public override bool IsAvailable()
