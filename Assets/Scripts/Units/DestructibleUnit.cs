@@ -36,21 +36,24 @@ public class DestructibleUnit : SelectableObj {
 
     public void TakeDamage(int value, DestructibleUnit shooter)
     {
-        RPCTakeDamage(value);
+        print(value);
+        RPCTakeDamage(value, shooter);
         if (!PhotonNetwork.OfflineMode)
         {
-            photonView.RPC("RPCTakeDamage", RpcTarget.Others, value);
+            photonView.RPC("RPCTakeDamage", RpcTarget.Others, value, shooter);
         }
-        CheckLife();
-        OnDamageTaken(shooter);
+        
     }
 
     public virtual void OnDamageTaken(DestructibleUnit shooter) { }
 
     [PunRPC]
-    public void RPCTakeDamage(int value)
+    public void RPCTakeDamage(int value, DestructibleUnit shooter)
     {
+        
         lifeValue -= value;
+        CheckLife();
+        OnDamageTaken(shooter);
     }
 
     public void SetLife(float val)
