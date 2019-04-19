@@ -11,7 +11,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     Hashtable customProp;
     [SerializeField]
-    StartGameButton startButton;
+    Button startButton;
     [SerializeField]
     Toggle readyToggle;
     [SerializeField]
@@ -93,7 +93,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
             CheckAddBot();
             if (Input.GetKeyUp(KeyCode.Return))
             {
-                if (!startButton.IsActive())
+                if (!startButton.interactable)
                 {
                     notReady.Activate();
                 }
@@ -200,8 +200,27 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         }
 
         if (allReady)
-            startButton.Activate();
+            startButton.interactable = true;
         else
-            startButton.Deactivate();
+            startButton.interactable = false;
+    }
+
+
+
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        Debug.Log("Leave room");
+        PhotonNetwork.LoadLevel("MainMenu");
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        Debug.Log("Master Client switched to" + newMasterClient.NickName);
+        PhotonNetwork.LeaveRoom();
     }
 }

@@ -1984,8 +1984,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557446458}
-        m_MethodName: MainMenuBack
+      - m_Target: {fileID: 2121582609}
+        m_MethodName: LeaveRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2224,7 +2224,6 @@ GameObject:
   - component: {fileID: 1557446456}
   - component: {fileID: 1557446455}
   - component: {fileID: 1557446454}
-  - component: {fileID: 1557446458}
   - component: {fileID: 1557446460}
   - component: {fileID: 1557446459}
   - component: {fileID: 1557446462}
@@ -2346,18 +2345,6 @@ RectTransform:
   m_AnchoredPosition: {x: -115, y: 34}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1557446458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1557446453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c740a582984ee040914a844668a6410, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1557446459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2807,7 +2794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e542396103d68f47b8fd262bd5af62b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 1557446458}
+  startButton: {fileID: 1557446454}
   readyToggle: {fileID: 843386366}
   addBotButton: {fileID: 634074984}
   playersList: {fileID: 988810449}
