@@ -13,21 +13,34 @@ public class JoinGameMenu : MonoBehaviourPunCallbacks {
     private Button joinGameButton;
     [SerializeField]
     private InputField gameNameInputField;
+    [SerializeField]
+    TemporaryMenuMessage noName;
+    [SerializeField]
+    TemporaryMenuMessage noRoom;
 
     public override void OnEnable()
     {
-        joinGameButton.interactable = false;
+        base.OnEnable();
+        gameNameInputField.ActivateInputField();
     }
 
-    public void OnValueChanged(string value)
+    private void Update()
     {
-        if (gameNameInputField.text != null || gameNameInputField.text != string.Empty)
+        if (Input.GetKeyUp(KeyCode.Return))
         {
-            joinGameButton.interactable = true;
+            TryJoinGame();
+        }
+    }
+
+    public void TryJoinGame()
+    {
+        if (gameNameInputField.text != null && gameNameInputField.text != string.Empty)
+        {
+            JoinGame();
         }
         else
         {
-            joinGameButton.interactable = false;
+            noName.Activate();
         }
     }
 
@@ -38,6 +51,6 @@ public class JoinGameMenu : MonoBehaviourPunCallbacks {
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        Debug.Log("Room not found");
+        noRoom.Activate();
     }
 }

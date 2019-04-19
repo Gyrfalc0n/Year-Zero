@@ -20,6 +20,7 @@ public class IndependantIAManager : IAManager
         foreach (Transform e in troops)
         {
             e.GetComponent<SelectableObj>().InitUnit(-2);
+            GetComponent<BotArmyManager>().Add(e.GetComponent<MovableUnit>());
         }
     }
 
@@ -32,7 +33,8 @@ public class IndependantIAManager : IAManager
     {
         GameObject obj = PhotonNetwork.Instantiate(prefab, pos, rot);
         obj.transform.SetParent(troops);
-        obj.GetComponent<SelectableObj>().InitUnit(botIndex);
+        obj.GetComponent<SelectableObj>().InitUnit(-2);
+        GetComponent<BotArmyManager>().Add(obj.GetComponent<MovableUnit>());
         return obj;
     }
 }

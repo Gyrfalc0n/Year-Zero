@@ -97,4 +97,12 @@ public class BotArmyManager : MonoBehaviour
             troop.SetAlwaysAttack(targetTeam);
         }
     }
+
+    public void SendArmy(Vector3 pos)
+    {
+        foreach (MovableUnit troop in army)
+        {
+            troop.SetDestination(pos, 2f);
+        }
+    }
 }

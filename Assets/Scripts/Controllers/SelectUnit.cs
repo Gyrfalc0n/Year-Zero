@@ -306,6 +306,9 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
         foreach (SelectableObj selectableObj in InstanceManager.instanceManager.allSelectableObjs)
         {
+            if (selectableObj == null)
+                continue;
+
             if (selectRect.Contains(Camera.main.WorldToViewportPoint(selectableObj.transform.position), true))
             {
                 tmp.Add(selectableObj);

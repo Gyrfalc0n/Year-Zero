@@ -290,7 +290,7 @@ public class SelectableObj : Interactable
                 visible = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam();
             }
             else
-                visible = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
+                visible = InstanceManager.instanceManager.GetTeam() == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
         }
 
         fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
@@ -314,8 +314,8 @@ public class SelectableObj : Interactable
         }
         else
         {
+            fovCollider.gameObject.SetActive(false);
             Hide();
-            fovCollider.GetComponent<MeshRenderer>().enabled = false;
         }
 
     }
