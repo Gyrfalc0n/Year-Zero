@@ -19,7 +19,7 @@ public class CombatSystem : MonoBehaviour
     public float attackRate;
     float time;
 
-    private void Start()
+    void Start()
     {
         bulletHolder = InstanceManager.instanceManager.bulletHolder;
         InitFirePoint();
@@ -45,7 +45,7 @@ public class CombatSystem : MonoBehaviour
         target = null;
     }
 
-    private void Update()
+    void Update()
     {
         if (time > 0)
         {
