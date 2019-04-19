@@ -11,6 +11,8 @@ public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
     public Dropdown raceDropdown;
     public Dropdown teamDropdown;
     public Dropdown colorDropdown;
+    public GameObject readyText;
+    public GameObject notReadyText;
     [SerializeField]
     GameObject kickButton;
 
@@ -30,6 +32,8 @@ public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
         transform.localScale = new Vector3(1, 1, 1);
         pseudoText.text = photonView.Owner.NickName;
         kickButton.SetActive(PhotonNetwork.IsMasterClient && !photonView.IsMine);
+        readyText.SetActive(PhotonNetwork.IsMasterClient);
+        notReadyText.SetActive(!PhotonNetwork.IsMasterClient);
         if (photonView.IsMine)
         {
             raceDropdown.interactable = true;
@@ -46,6 +50,8 @@ public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(teamDropdown.value);
             stream.SendNext(colorDropdown.value);
             stream.SendNext(pseudoText.text);
+            stream.SendNext(readyText.activeInHierarchy);
+            stream.SendNext(notReadyText.activeInHierarchy);
         }
         else
         {
@@ -53,6 +59,8 @@ public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
             teamDropdown.value = (int)stream.ReceiveNext();
             colorDropdown.value = (int)stream.ReceiveNext();
             pseudoText.text = (string)stream.ReceiveNext();
+            readyText.SetActive((bool)stream.ReceiveNext());
+            notReadyText.SetActive((bool)stream.ReceiveNext());
         }
     }
 
@@ -67,6 +75,8 @@ public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
         raceDropdown.interactable = false;
         teamDropdown.interactable = false;
         colorDropdown.interactable = false;
+        readyText.SetActive(true);
+        notReadyText.SetActive(false);
     }
 
     public void Unlock()
@@ -74,5 +84,7 @@ public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
         raceDropdown.interactable = true;
         teamDropdown.interactable = true;
         colorDropdown.interactable = true;
+        readyText.SetActive(false);
+        notReadyText.SetActive(true);
     }
 }

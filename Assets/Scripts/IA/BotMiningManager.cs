@@ -6,7 +6,7 @@ public class BotMiningManager : MonoBehaviour
 {
     public void SendToMine(BuilderUnit builder, int index)
     {
-        builder.Mine(GetNearestAvailableResourceUnit(builder, index));
+        builder.Mine(GetOptimumResourceUnit(builder, index));
     }
 
     ResourceUnit GetNearestAvailableResourceUnit(BuilderUnit unit1, int index)
