@@ -10,22 +10,24 @@ public class JoinGameMenu : MonoBehaviourPunCallbacks {
     private RoomInfo selectedRoom;
 
     [SerializeField]
-    private Button joinGameButton;
+    Button joinGameButton;
     [SerializeField]
-    private InputField gameNameInputField;
+    InputField gameNameInputField;
     [SerializeField]
     TemporaryMenuMessage noName;
     [SerializeField]
     TemporaryMenuMessage noRoom;
 
-    public override void OnEnable()
+    void Start()
     {
-        base.OnEnable();
         gameNameInputField.ActivateInputField();
     }
 
     private void Update()
     {
+        if (!gameNameInputField.isFocused)
+            gameNameInputField.ActivateInputField();
+
         if (Input.GetKeyUp(KeyCode.Return))
         {
             TryJoinGame();

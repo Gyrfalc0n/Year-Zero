@@ -61,4 +61,18 @@ public class PlayerSettings : MonoBehaviourPunCallbacks, IPunObservable
         PhotonNetwork.CleanRpcBufferIfMine(photonView);
         PhotonNetwork.CloseConnection(photonView.Owner);
     }
+
+    public void Lock()
+    {
+        raceDropdown.interactable = false;
+        teamDropdown.interactable = false;
+        colorDropdown.interactable = false;
+    }
+
+    public void Unlock()
+    {
+        raceDropdown.interactable = true;
+        teamDropdown.interactable = true;
+        colorDropdown.interactable = true;
+    }
 }
