@@ -94,11 +94,15 @@ PrefabInstance:
     - target: {fileID: 2249, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7688708016330422772}
     - target: {fileID: 2249, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 5957545482754927127}
+    - target: {fileID: 2249, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Kick
+      objectReference: {fileID: 0}
     - target: {fileID: 2252, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_Text
       value: Bot
