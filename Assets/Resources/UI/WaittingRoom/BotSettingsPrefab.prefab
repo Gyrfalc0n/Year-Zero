@@ -31,30 +31,6 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[0]
       value: 
       objectReference: {fileID: 7688708016330422772}
-    - target: {fileID: 2252, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_Text
-      value: Bot
-      objectReference: {fileID: 0}
-    - target: {fileID: 2216, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2216, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 5957545482754927222}
-    - target: {fileID: 2216, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_Template
-      value: 
-      objectReference: {fileID: 5957545482754925742}
-    - target: {fileID: 2216, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_CaptionText
-      value: 
-      objectReference: {fileID: 5957545482754927130}
-    - target: {fileID: 2216, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_ItemText
-      value: 
-      objectReference: {fileID: 5957545482754927230}
     - target: {fileID: 2243, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -95,6 +71,31 @@ PrefabInstance:
       propertyPath: m_ItemImage
       value: 
       objectReference: {fileID: 5957545482754927200}
+    - target: {fileID: 2216, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5957545482754927222}
+    - target: {fileID: 2216, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_Template
+      value: 
+      objectReference: {fileID: 5957545482754925742}
+    - target: {fileID: 2216, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_CaptionText
+      value: 
+      objectReference: {fileID: 5957545482754927130}
+    - target: {fileID: 2216, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_ItemText
+      value: 
+      objectReference: {fileID: 5957545482754927230}
+    - target: {fileID: 6381804629863569679, guid: fa6112382210c794fa847c0132f01350,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2249, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -106,6 +107,10 @@ PrefabInstance:
     - target: {fileID: 2249, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_Text
+      value: Bot
       objectReference: {fileID: 0}
     - target: {fileID: 2205, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_Content
@@ -119,18 +124,6 @@ PrefabInstance:
       propertyPath: m_VerticalScrollbar
       value: 
       objectReference: {fileID: 5957545482754927219}
-    - target: {fileID: 2212, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_Content
-      value: 
-      objectReference: {fileID: 5957545482754925662}
-    - target: {fileID: 2212, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_Viewport
-      value: 
-      objectReference: {fileID: 5957545482754925651}
-    - target: {fileID: 2212, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_VerticalScrollbar
-      value: 
-      objectReference: {fileID: 5957545482754927207}
     - target: {fileID: 2230, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_Content
       value: 
@@ -143,22 +136,18 @@ PrefabInstance:
       propertyPath: m_VerticalScrollbar
       value: 
       objectReference: {fileID: 5957545482754927202}
-    - target: {fileID: 2220, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_TargetGraphic
+    - target: {fileID: 2212, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_Content
       value: 
-      objectReference: {fileID: 5957545482754927217}
-    - target: {fileID: 2220, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_HandleRect
+      objectReference: {fileID: 5957545482754925662}
+    - target: {fileID: 2212, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_Viewport
       value: 
-      objectReference: {fileID: 5957545482754925734}
-    - target: {fileID: 2232, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_TargetGraphic
+      objectReference: {fileID: 5957545482754925651}
+    - target: {fileID: 2212, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_VerticalScrollbar
       value: 
-      objectReference: {fileID: 5957545482754927208}
-    - target: {fileID: 2232, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: m_HandleRect
-      value: 
-      objectReference: {fileID: 5957545482754925659}
+      objectReference: {fileID: 5957545482754927207}
     - target: {fileID: 2237, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -167,14 +156,26 @@ PrefabInstance:
       propertyPath: m_HandleRect
       value: 
       objectReference: {fileID: 5957545482754925745}
-    - target: {fileID: 2213, guid: fa6112382210c794fa847c0132f01350, type: 3}
+    - target: {fileID: 2232, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_TargetGraphic
       value: 
-      objectReference: {fileID: 5957545482754927172}
-    - target: {fileID: 2213, guid: fa6112382210c794fa847c0132f01350, type: 3}
-      propertyPath: graphic
+      objectReference: {fileID: 5957545482754927208}
+    - target: {fileID: 2232, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_HandleRect
       value: 
-      objectReference: {fileID: 5957545482754927229}
+      objectReference: {fileID: 5957545482754925659}
+    - target: {fileID: 2220, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5957545482754927217}
+    - target: {fileID: 2220, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_HandleRect
+      value: 
+      objectReference: {fileID: 5957545482754925734}
+    - target: {fileID: 2215, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5957545482754927214}
     - target: {fileID: 2214, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -183,10 +184,14 @@ PrefabInstance:
       propertyPath: graphic
       value: 
       objectReference: {fileID: 5957545482754927215}
-    - target: {fileID: 2215, guid: fa6112382210c794fa847c0132f01350, type: 3}
+    - target: {fileID: 2213, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_TargetGraphic
       value: 
-      objectReference: {fileID: 5957545482754927214}
+      objectReference: {fileID: 5957545482754927172}
+    - target: {fileID: 2213, guid: fa6112382210c794fa847c0132f01350, type: 3}
+      propertyPath: graphic
+      value: 
+      objectReference: {fileID: 5957545482754927229}
     - target: {fileID: 587, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -386,11 +391,6 @@ PrefabInstance:
     - target: {fileID: 64, guid: fa6112382210c794fa847c0132f01350, type: 3}
       propertyPath: m_Name
       value: BotSettingsPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381804629863569679, guid: fa6112382210c794fa847c0132f01350,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 620, guid: fa6112382210c794fa847c0132f01350, type: 3}
