@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour {
 
     public static PlayerManager playerManager;
 
-    public void Init()
+    void Awake()
     {
         playerManager = this;
     }
