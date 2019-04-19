@@ -32,6 +32,8 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
     [SerializeField]
     TemporaryMenuMessage notReady;
 
+    PlayerSettings playerSettings;
+
     #region customProp
 
     string isReady = "IsReady";
@@ -43,7 +45,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
     {
         if (PhotonNetwork.IsMasterClient)
             coords = new List<Vector3>[4] { topLeft, bottomLeft , topRight , bottomRight };
-        PhotonNetwork.Instantiate("UI/WaittingRoom/PlayerSettingsPrefab", Vector3.zero, Quaternion.identity);
+        playerSettings = PhotonNetwork.Instantiate("UI/WaittingRoom/PlayerSettingsPrefab", Vector3.zero, Quaternion.identity).GetComponent<PlayerSettings>();
         InitSettings();
     }
 
@@ -180,6 +182,11 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         customProp[isReady] = val;
         PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
         photonView.RPC(checkIsReady, RpcTarget.MasterClient);
+
+        if (val)
+            playerSettings.Lock();
+        else
+            playerSettings.Unlock();
     }
 
     [PunRPC]

@@ -6,32 +6,14 @@ public class CombatFOV : MonoBehaviour
 {
     MovableUnit parent;
 
-    private void Start()
+    void Start()
     {
         parent = GetComponentInParent<MovableUnit>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (parent != null)
-        {
-            if (other.GetComponent<DestructibleUnit>() != null)
-            {
-                if (parent.botIndex == -1)
-                {
-                    if (InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>()))
-                    {
-                        parent.OnEnemyEnters(other.GetComponent<DestructibleUnit>());
-                    }
-                }
-                else
-                {
-                    if (parent.botIndex == -2 || InstanceManager.instanceManager.GetBot(parent.botIndex).IsEnemy(other.GetComponent<DestructibleUnit>()))
-                    {
-                        parent.OnEnemyEnters(other.GetComponent<DestructibleUnit>());
-                    }
-                }
-            }
-        }
+        if (parent != null && other.GetComponent<DestructibleUnit>() != null && InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>()))
+            parent.OnEnemyEnters(other.GetComponent<DestructibleUnit>());
     }
 }
