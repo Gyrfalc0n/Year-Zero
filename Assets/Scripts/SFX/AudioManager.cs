@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = System.Random;
 
 public class AudioManager : MonoBehaviour
 {
@@ -53,7 +55,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            PlaySoundStart("UniverseMusic");
+            PlayRandomSoundStart(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
         }
         
     }
@@ -97,6 +99,20 @@ public class AudioManager : MonoBehaviour
         }
         soundToPlay.source.Play();
         soundToPlay.isPlaying = true;
+    }
+
+    public void PlayRandomSound(string[] sounds)
+    {
+        Random dice = new Random();
+        name = sounds[dice.Next(0, sounds.Length)];
+        PlaySound(name);
+    }
+    
+    public void PlayRandomSoundStart(string[] sounds)
+    {
+        Random dice = new Random();
+        name = sounds[dice.Next(0, sounds.Length)];
+        PlaySoundStart(name);
     }
 
     private string GetActiveMusic()
