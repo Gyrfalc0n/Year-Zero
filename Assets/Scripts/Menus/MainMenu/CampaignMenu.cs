@@ -20,4 +20,22 @@ public class CampaignMenu : MonoBehaviourPunCallbacks
              FindObjectOfType<AudioManager>().PlaySound("BattleMusic");
          }
      }
+     
+     public void StartMission2()
+     {
+         if ((PlayerPrefs.GetInt("missionCleared",0)==1))
+         {
+             PhotonNetwork.LoadLevel("Mission2");
+             FindObjectOfType<AudioManager>().PlaySound("BattleMusic");
+         }
+     }
+     
+     public void StartEndlessMode()
+     {
+         if ((PlayerPrefs.GetInt("missionCleared",0)==1))
+         {
+             PhotonNetwork.LoadLevel("EndlessMode");
+             FindObjectOfType<AudioManager>().PlaySound("BattleMusic");
+         }
+     }
 }

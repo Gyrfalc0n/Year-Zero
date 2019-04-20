@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ccb1b3f-4772-4fa4-bc37-0f68b9028203" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Units/Builder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Units/Builder.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Mission.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Mission.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/mission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/mission.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Endless.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
@@ -53,6 +52,26 @@
                 <marker date="1555766619503" expanded="true" signature="1173:1281" ph="{...}" />
                 <marker date="1555766619503" expanded="true" signature="1308:2096" ph="{...}" />
                 <marker date="1555766619503" expanded="true" signature="1358:2090" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+              <folding>
+                <marker date="1555767141725" expanded="false" signature="6:131" ph="..." />
+                <marker date="1555767141725" expanded="true" signature="185:1097" ph="{...}" />
+                <marker date="1555767141725" expanded="true" signature="222:341" ph="{...}" />
+                <marker date="1555767141725" expanded="true" signature="375:579" ph="{...}" />
+                <marker date="1555767141725" expanded="true" signature="437:572" ph="{...}" />
+                <marker date="1555767141725" expanded="true" signature="618:834" ph="{...}" />
+                <marker date="1555767141725" expanded="true" signature="683:827" ph="{...}" />
+                <marker date="1555767141725" expanded="true" signature="876:1095" ph="{...}" />
+                <marker date="1555767141725" expanded="true" signature="941:1088" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -190,24 +209,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/IA/IndependantIAManager.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
-              <folding>
-                <marker date="1555593301051" expanded="false" signature="6:124" ph="..." />
-                <marker date="1555593301051" expanded="true" signature="171:1009" ph="{...}" />
-                <marker date="1555593301051" expanded="true" signature="234:305" ph="{...}" />
-                <marker date="1555593301051" expanded="true" signature="328:537" ph="{...}" />
-                <marker date="1555593301051" expanded="true" signature="374:531" ph="{...}" />
-                <marker date="1555593301051" expanded="true" signature="591:639" ph="{...}" />
-                <marker date="1555593301051" expanded="true" signature="731:1007" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Units/Buildings/CombatStation.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -335,7 +336,6 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/CampaignMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/SingleplayerMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Units/Buildings/Turrel/Turrel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Units/Buildings/ConquestStation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Units/Buildings/EnergyFarm.cs" />
@@ -355,10 +355,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SFX/AudioManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/mission.cs" />
         <option value="$PROJECT_DIR$/Assets/Endless.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="206" />
     <option name="y" value="96" />
     <option name="width" value="1730" />
@@ -443,6 +444,19 @@
               <item name="Project" type="e068e287:UnityExplorerRootNode" />
               <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
               <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="Menus" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="Menus" type="1045f7f1:UnityExplorerNode" />
+              <item name="MainMenu" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
               <item name="SFX" type="1045f7f1:UnityExplorerNode" />
             </path>
           </expand>
@@ -514,12 +528,12 @@
       <workItem from="1555418981421" duration="3504000" />
       <workItem from="1555500300085" duration="5627000" />
       <workItem from="1555678128805" duration="599000" />
-      <workItem from="1555756683377" duration="3441000" />
+      <workItem from="1555756683377" duration="3990000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56081000" />
+    <option name="totallyTimeSpent" value="56630000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -531,7 +545,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28198293" />
@@ -643,13 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1575,6 +1582,24 @@
             <marker date="1555766619503" expanded="true" signature="1173:1281" ph="{...}" />
             <marker date="1555766619503" expanded="true" signature="1308:2096" ph="{...}" />
             <marker date="1555766619503" expanded="true" signature="1358:2090" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu/CampaignMenu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding>
+            <marker date="1555767141725" expanded="false" signature="6:131" ph="..." />
+            <marker date="1555767141725" expanded="true" signature="185:1097" ph="{...}" />
+            <marker date="1555767141725" expanded="true" signature="222:341" ph="{...}" />
+            <marker date="1555767141725" expanded="true" signature="375:579" ph="{...}" />
+            <marker date="1555767141725" expanded="true" signature="437:572" ph="{...}" />
+            <marker date="1555767141725" expanded="true" signature="618:834" ph="{...}" />
+            <marker date="1555767141725" expanded="true" signature="683:827" ph="{...}" />
+            <marker date="1555767141725" expanded="true" signature="876:1095" ph="{...}" />
+            <marker date="1555767141725" expanded="true" signature="941:1088" ph="{...}" />
           </folding>
         </state>
       </provider>
