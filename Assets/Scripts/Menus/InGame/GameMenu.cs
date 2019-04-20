@@ -42,7 +42,12 @@ public class GameMenu : MonoBehaviour {
             PhotonNetwork.LeaveRoom();
         }
         else
+        {
+            
+            FindObjectOfType<AudioManager>().PlaySound("MainMenuMusic");
             PhotonNetwork.LoadLevel("MainMenu");
+        }
+            
     }
 
     public void ExitGame()
