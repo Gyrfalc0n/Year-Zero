@@ -27,7 +27,7 @@ public class mission : MonoBehaviour
     };
     private string[] voicesToPlay =
     {
-        "NameNotMissing",
+        "VoixMission1.1",
         "2",
         "3",
         "4",
