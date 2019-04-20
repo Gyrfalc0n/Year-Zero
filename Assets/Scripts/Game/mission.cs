@@ -28,13 +28,13 @@ public class mission : MonoBehaviour
     private string[] voicesToPlay =
     {
         "VoixMission1.1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "5",
-        "6",
-        "7"
+        "VoixMission1.2",
+        "VoixMission1.3",
+        "NameNotMissing",
+        "NameNotMissing",
+        "NameNotMissing",
+        "NameNotMissing",
+        "VoixMission1.4"
     };
     
   
