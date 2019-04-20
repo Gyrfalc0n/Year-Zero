@@ -48,18 +48,22 @@ public class AudioManager : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "MainMenu" || sceneName == "WaitingRoom")
         {
-            PlaySound("MainMenuMusic");
+            PlaySoundStart("MainMenuMusic");
             
         }
         else
         {
-            PlaySound("UniverseMusic");
+            PlaySoundStart("UniverseMusic");
         }
         
     }
 
     public void PlaySound(string name) //lance l'audio clip de sounds avec le nom "name"
     {
+        if (name == "NameNotMissing")
+        {
+            return;
+        }
         Sound soundToPlay = Array.Find(sounds, soundSearch => soundSearch.name == name);
         if (soundToPlay == null)
         {
@@ -78,6 +82,18 @@ public class AudioManager : MonoBehaviour
             {
                 soundCurrentlyPlaying.source.Stop();
             }
+        }
+        soundToPlay.source.Play();
+        soundToPlay.isPlaying = true;
+    }
+    
+    public void PlaySoundStart(string name) //lance l'audio clip de sounds avec le nom "name"
+    {
+        Sound soundToPlay = Array.Find(sounds, soundSearch => soundSearch.name == name);
+        if (soundToPlay == null)
+        {
+            Debug.Log("typo in to play sound: " +name);
+            return;
         }
         soundToPlay.source.Play();
         soundToPlay.isPlaying = true;
