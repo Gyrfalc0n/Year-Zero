@@ -21,7 +21,7 @@ public class MessagePrefab : MonoBehaviour
 
         if (PhotonNetwork.OfflineMode)
         {
-            playerName.color = Color.white;
+            playerName.color = Color.green;
             playerName.text = PlayerPrefs.GetString("PlayerName");
         }
         else
