@@ -74,7 +74,6 @@ public class BotMiningManager : MonoBehaviour
                 currentVal = newVal;
             }
         }
-        print("s");
         return currentUnit;
     }
 }
