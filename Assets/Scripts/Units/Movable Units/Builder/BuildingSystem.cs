@@ -28,7 +28,7 @@ public class BuildingSystem : MonoBehaviour
         }
         else if (currentAction == CurrentBuildingAction.building)
         {
-            //StopBuilding();
+            StopBuilding();
         }
     }
 
@@ -58,7 +58,8 @@ public class BuildingSystem : MonoBehaviour
     {
         if (currentAction == CurrentBuildingAction.building)
         {
-            whatIsBuilding.RemoveBuilder(GetComponent<BuilderUnit>());
+            if (whatIsBuilding == null)
+                whatIsBuilding.RemoveBuilder(GetComponent<BuilderUnit>());
             whatIsBuilding = null;
         }
         else if (currentAction == CurrentBuildingAction.goingToBuild)

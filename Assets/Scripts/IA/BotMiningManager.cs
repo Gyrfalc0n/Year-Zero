@@ -6,7 +6,11 @@ public class BotMiningManager : MonoBehaviour
 {
     public void SendToMine(BuilderUnit builder, int index)
     {
-        builder.Mine(GetOptimumResourceUnit(builder, index));
+        //builder.Mine(GetOptimumResourceUnit(builder, index));
+        ResourceUnit tmp = GetNearestAvailableResourceUnit(builder, index);
+        if (tmp == null)
+            return;
+        builder.Mine(tmp);
     }
 
     ResourceUnit GetNearestAvailableResourceUnit(BuilderUnit unit1, int index)
@@ -35,7 +39,7 @@ public class BotMiningManager : MonoBehaviour
     {
         List<ResourceUnit> r = InstanceManager.instanceManager.allResourceUnits;
         ResourceUnit currentUnit = null;
-        float currentVal = 0;
+        float currentVal = Mathf.Infinity;
 
         for (int i = 0; i < r.Count; i++)
         {
@@ -56,7 +60,7 @@ public class BotMiningManager : MonoBehaviour
     {
         List<ResourceUnit> r = InstanceManager.instanceManager.allResourceUnits;
         ResourceUnit currentUnit = null;
-        float currentVal = 0;
+        float currentVal = Mathf.Infinity;
 
         for (int i = 0; i < r.Count; i++)
         {
@@ -70,6 +74,7 @@ public class BotMiningManager : MonoBehaviour
                 currentVal = newVal;
             }
         }
+        print("s");
         return currentUnit;
     }
 }

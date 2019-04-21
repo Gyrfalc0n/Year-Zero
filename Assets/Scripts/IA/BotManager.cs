@@ -13,9 +13,9 @@ public class BotManager : MonoBehaviour
 
     List<TownHall> homes = new List<TownHall>();
 
-    public bool Pay(int[] costs, int pop)
+    public bool Pay(int[] costs, int pop, bool forBuilding)
     {
-        if (PayCheck(costs, pop))
+        if (PayCheck(costs, pop, forBuilding))
         {
             int i = 0;
             foreach (GameResource resource in resources)
@@ -30,7 +30,7 @@ public class BotManager : MonoBehaviour
         return false;
     }
 
-    public bool PayCheck(int[] costs, int pop)
+    public bool PayCheck(int[] costs, int pop, bool forBuilding)
     {
         int i = 0;
         bool possible = true;
@@ -40,32 +40,32 @@ public class BotManager : MonoBehaviour
                 possible = false;
             i++;
         }
-        if (possible && population.GetCurrentMaxValue() < population.GetValue() + pop)
+        if (!forBuilding && possible && population.GetCurrentMaxValue() < population.GetValue() + pop)
         {
             possible = false;
         }
         return possible;
     }
 
-    public int GetPayLimiterIndex(int[] costs, int pop)
+    public int GetPayLimiterIndex(int[] costs, int pop, bool forBuilding)
     {
         int res = -1;
-        if (!PayCheck(costs, pop))
+        if (!PayCheck(costs, pop, forBuilding))
         {
             for (int i = 0; i < costs.Length; i++)
             {
                 if (resources[i].GetValue() < costs[i])
                     return i;
             }
-            if (population.GetCurrentMaxValue() < population.GetValue() + pop)
+            if (!forBuilding && population.GetCurrentMaxValue() < population.GetValue() + pop)
                 return -2;
         }
         return res;
     }
 
-    public ObjectiveState ResourceLimiterToObjectiveState(int[] costs, int pop)
+    public ObjectiveState ResourceLimiterToObjectiveState(int[] costs, int pop, bool forBuilding)
     {
-        int res = GetPayLimiterIndex(costs, pop);
+        int res = GetPayLimiterIndex(costs, pop, forBuilding);
         switch (res)
         {
             case (-2):

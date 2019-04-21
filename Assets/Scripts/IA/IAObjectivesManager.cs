@@ -20,8 +20,14 @@ public class IAObjectivesManager : MonoBehaviour
 
     bool stop;
 
+    public int[] houseAmount;
+    public int[] energyFarmAmount;
+    public int[] farmAmount;
+
     void Start()
     {
+        forBuilder = false;
+        forHouse = false;
         step = 1;
         stop = false;
         waittingTime = 0;
@@ -46,6 +52,14 @@ public class IAObjectivesManager : MonoBehaviour
         {
             NextObjective();
         }
+        else if (currentObjective.GetComponent<ConstructionObjective>() != null && currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 4)
+        {
+            forHouse = true;
+        }
+        else if (currentObjective.GetComponent<InstantationObjective>() != null && currentObjective.GetComponent<InstantationObjective>().unitIndex == 2)
+        {
+            forBuilder = true;
+        }
         switch (currentObjective.state)
         {
             case (ObjectiveState.Deactivated):
@@ -57,22 +71,22 @@ public class IAObjectivesManager : MonoBehaviour
                 NextObjective();
                 break;
             case (ObjectiveState.NeedBuilder):
-                NeedBuilder();
+                NeedSomething(NeedBuilder);
                 break;
             case (ObjectiveState.NeedBuilding):
-                NeedBuilding();
+                NeedSomething(NeedBuilding);
                 break;
             case (ObjectiveState.NeedEnergy):
-                NeedEnergy();
+                NeedSomething(NeedEnergy);
                 break;
             case (ObjectiveState.NeedOre):
-                NeedOre();
+                NeedSomething(NeedOre);
                 break;
             case (ObjectiveState.NeedFood):
-                NeedFood();
+                NeedSomething(NeedFood);
                 break;
             case (ObjectiveState.NeedPop):
-                NeedPop();
+                NeedSomething(NeedPop);
                 break;
             case (ObjectiveState.NeedWait):
                 waittingTime = 10;
@@ -85,16 +99,22 @@ public class IAObjectivesManager : MonoBehaviour
 
     void GenerateObjectiveStack()
     {
-        foreach (IAObjective obj in arrays.arrays[step - 1].objectives)
+        for (int i = arrays.arrays[step - 1].objectives.Length-1; i >= 0; i--)
         {
-            objectives.Push(CopyObjective(obj));
+            objectives.Push(CopyObjective(arrays.arrays[step - 1].objectives[i]));
         }
     }
 
+    bool forBuilder;
+    bool forHouse;
     void NextObjective()
     {
         if (currentObjective != null)
         {
+            if (currentObjective.GetComponent<ConstructionObjective>() != null && currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 4)
+                forHouse = false;
+            else if (currentObjective.GetComponent<InstantationObjective>() != null && currentObjective.GetComponent<InstantationObjective>().unitIndex == 2)
+                forBuilder = false;
             Destroy(currentObjective.gameObject);
         }
 
@@ -106,6 +126,14 @@ public class IAObjectivesManager : MonoBehaviour
         else
         {
             NextStep();
+        }
+        if (currentObjective.GetComponent<ConstructionObjective>() != null && currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 4)
+        {
+            forHouse = true;
+        }
+        else if (currentObjective.GetComponent<InstantationObjective>() != null && currentObjective.GetComponent<InstantationObjective>().unitIndex == 2)
+        {
+            forBuilder = true;
         }
     }
 
@@ -129,83 +157,78 @@ public class IAObjectivesManager : MonoBehaviour
         currentObjective = null;
     }
 
-    void NeedBuilder()
+    IAObjective NeedBuilder()
     {
         PutBack();
         InstantationObjective newObj = Instantiate(instantiationObjectivePrefab, transform);
         newObj.Init(2);
-        currentObjective = newObj;
-        currentObjective.Activate();
+        return newObj;
     }
 
-    void NeedBuilding()
+    IAObjective NeedBuilding()
     {
         int buildingIndex = GetComponent<BotConstructionManager>().GetBuildingIndexFor(currentObjective.GetComponent<InstantationObjective>().unitIndex);
         PutBack();
         ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
-        newObj.Init(buildingIndex);
-        currentObjective = newObj;
-        currentObjective.Activate();
+        newObj.Init(buildingIndex, forHouse, forBuilder);
+        return newObj;
     }
 
-    void NeedEnergy()
+    IAObjective NeedEnergy()
     {
         PutBack();
-        if (GetComponent<BotConstructionManager>().GetEnergyFarmCount() < GetComponent<IAObjectivesManager>().step + 0 * GetComponent<IAObjectivesManager>().step)
+        if (GetComponent<BotConstructionManager>().GetEnergyFarmCount() < energyFarmAmount[step-1])
         {
             ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
-            newObj.Init(2);
-            currentObjective = newObj;
-            currentObjective.Activate();
+            newObj.Init(2, forHouse, forBuilder);
+            return newObj;
         }
         else
         {
             waittingTime = 10f;
+            return null;
         }
     }
 
-    void NeedOre()
+    IAObjective NeedOre()
     {
-        bool forHouse = (currentObjective.GetComponent<ConstructionObjective>() != null && currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 4);
+        //bool forHouse = (currentObjective.GetComponent<ConstructionObjective>() != null && currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 4);
         PutBack();
         SendToMineObjective newObj = Instantiate(sendToMineObjectivePrefab, transform);
-        newObj.Init(1, forHouse);
-        currentObjective = newObj;
-        currentObjective.Activate();
+        newObj.Init(1, forHouse, forBuilder);
+        return newObj;
     }
 
-    void NeedFood()
+    IAObjective NeedFood()
     {
-        bool forHouse = (currentObjective.GetComponent<ConstructionObjective>() != null && currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 4);
+        //bool forHouse = (currentObjective.GetComponent<ConstructionObjective>() != null && (currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 4 ||
+            //currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 3));
 
         PutBack();
         IAObjective newObj;
-        if (GetComponent<BotConstructionManager>().GetFarmCount() < GetComponent<IAObjectivesManager>().step + 0 * GetComponent<IAObjectivesManager>().step)
+        if (GetComponent<BotConstructionManager>().GetFarmCount() < farmAmount[step-1])
         {
             newObj = Instantiate(constructionObjectivePrefab, transform).GetComponent<ConstructionObjective>();
-            newObj.GetComponent<ConstructionObjective>().Init(3);
+            newObj.GetComponent<ConstructionObjective>().Init(3, forHouse, forBuilder);
         }
         else
         {
             newObj = Instantiate(sendToMineObjectivePrefab, transform).GetComponent<SendToMineObjective>();
-            newObj.GetComponent<SendToMineObjective>().Init(2, forHouse);
+            newObj.GetComponent<SendToMineObjective>().Init(2, forHouse, forBuilder);
         }
-        currentObjective = newObj;
-        currentObjective.Activate();
+        return newObj;
     }
 
-    void NeedPop()
+    IAObjective NeedPop()
     {
         PutBack();
         ConstructionObjective newObj = Instantiate(constructionObjectivePrefab, transform);
-        newObj.Init(4);
-        currentObjective = newObj;
-        currentObjective.Activate();
+        newObj.Init(4, forHouse, forBuilder);
+        return newObj;
     }
 
     void SuicideTroop()
     {
-        print("s");
         if (!GetComponent<BotArmyManager>().SuicideTroop())
             PutBack();
         else
@@ -218,7 +241,7 @@ public class IAObjectivesManager : MonoBehaviour
         if (obj.GetComponent<ConstructionObjective>() != null)
         {
             newObj = Instantiate(constructionObjectivePrefab, transform);
-            newObj.GetComponent<ConstructionObjective>().Init((int)obj.GetComponent<ConstructionObjective>().buildingUnits);
+            newObj.GetComponent<ConstructionObjective>().Init((int)obj.GetComponent<ConstructionObjective>().buildingUnits, forHouse, forBuilder);
         }
         else if (obj.GetComponent<InstantationObjective>() != null)
         {
@@ -231,5 +254,23 @@ public class IAObjectivesManager : MonoBehaviour
             print("wtf");
         }
         return newObj;
+    }
+
+    public delegate IAObjective needSTH();
+
+    void NeedSomething(needSTH fun)
+    {
+        IAObjective tmp = fun();
+        if (tmp == null) return;
+        currentObjective = tmp;
+        currentObjective.Activate();
+        if (currentObjective.GetComponent<ConstructionObjective>() != null && currentObjective.GetComponent<ConstructionObjective>().buildingIndex == 4)
+        {
+            forHouse = true;
+        }
+        else if (currentObjective.GetComponent<InstantationObjective>() != null && currentObjective.GetComponent<InstantationObjective>().unitIndex == 2)
+        {
+            forBuilder = true;
+        }
     }
 }
