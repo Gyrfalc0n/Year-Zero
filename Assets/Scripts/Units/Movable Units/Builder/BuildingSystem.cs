@@ -29,6 +29,10 @@ public class BuildingSystem : MonoBehaviour
         else if (currentAction == CurrentBuildingAction.building)
         {
             StopBuilding();
+            if (GetComponent<BuilderUnit>().botIndex != -1)
+            {
+                InstanceManager.instanceManager.GetBot(GetComponent<BuilderUnit>().botIndex).GetComponent<BotMiningManager>().SendToMine(GetComponent<BuilderUnit>(), 1);
+            }
         }
     }
 
