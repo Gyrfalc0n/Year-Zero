@@ -7,7 +7,7 @@ public class BotMiningManager : MonoBehaviour
     public void SendToMine(BuilderUnit builder, int index)
     {
         //builder.Mine(GetOptimumResourceUnit(builder, index));
-        ResourceUnit tmp = GetNearestAvailableResourceUnit(builder, index);
+        ResourceUnit tmp = GetOptimumResourceUnit(builder, index);
         if (tmp == null)
             return;
         builder.Mine(tmp);
