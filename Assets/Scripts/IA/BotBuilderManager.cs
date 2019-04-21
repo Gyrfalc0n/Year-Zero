@@ -186,23 +186,12 @@ public class BotBuilderManager : MonoBehaviour
         return null;
     }
 
-    float JoblessBuilders()
+    int JoblessBuilders()
     {
-        float res = 0;
+        int res = 0;
         foreach (BuilderUnit builder in builders)
         {
             if (builder.IsDoingNothing())
-                res++;
-        }
-        return res;
-    }
-
-    float JoblessBuilders2()
-    {
-        float res = 0;
-        foreach (BuilderUnit builder in builders)
-        {
-            if (builder.IsDoingNothingEceptMoving())
                 res++;
         }
         return res;

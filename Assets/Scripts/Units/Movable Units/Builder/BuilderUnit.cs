@@ -111,10 +111,10 @@ public class BuilderUnit : MovableUnit {
     {
         bool immobile;
         immobile = (agent != null) ? Vector3.Distance(agent.destination, transform.position) <= 1:false;
-        return immobile && IsDoingNothingEceptMoving();
+        return immobile && IsDoingNothingExceptMoving();
     }
 
-    public bool IsDoingNothingEceptMoving()
+    public bool IsDoingNothingExceptMoving()
     {
         if (patrolSystem == null || miningSystem == null || buildingSystem == null || repairingSystem == null)
             return false;
