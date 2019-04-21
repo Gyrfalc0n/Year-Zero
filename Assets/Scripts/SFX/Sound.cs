@@ -16,7 +16,6 @@ public class Sound
 
     public bool isMusic;
 
-    [HideInInspector]
     public bool isPlaying;
 
     [HideInInspector] 
