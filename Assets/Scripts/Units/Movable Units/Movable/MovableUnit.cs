@@ -243,4 +243,17 @@ public class MovableUnit : DestructibleUnit {
     {
         alwaysAttack = i;
     }
+
+    public override void OnDestroyed()
+    {
+        base.OnDestroyed();
+        if (GetComponent<BuilderUnit>() == null)
+        {
+            if (botIndex != -1 && botIndex != -2)
+            {
+                InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().Remove(this);
+            }
+
+        }
+    }
 }

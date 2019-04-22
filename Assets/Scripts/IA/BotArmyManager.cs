@@ -14,6 +14,12 @@ public class BotArmyManager : MonoBehaviour
             army.Add(unit);
     }
 
+    public void Remove(MovableUnit unit)
+    {
+        if (army.Contains(unit))
+            army.Add(unit);
+    }
+
     public DestructibleUnit GetNearestEnemy()
     {
         DestructibleUnit res = null;
@@ -93,6 +99,9 @@ public class BotArmyManager : MonoBehaviour
 
         foreach (MovableUnit troop in army)
         {
+            if (troop == null)
+                continue;
+
             troop.Attack(target);
             troop.SetAlwaysAttack(targetTeam);
         }
@@ -102,6 +111,9 @@ public class BotArmyManager : MonoBehaviour
     {
         foreach (MovableUnit troop in army)
         {
+            if (troop == null)
+                continue;
+
             troop.SetDestination(pos, 2f);
         }
     }
