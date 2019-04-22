@@ -33,6 +33,15 @@ public class BuilderUnit : MovableUnit {
         }
     }
 
+    public override void OnDestroyed()
+    {
+        base.OnDestroyed();
+        if (botIndex != -1)
+        {
+            InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotBuilderManager>().Remove(this);
+        }
+    }
+
     public override void Interact(Interactable obj)
     {
         base.Interact(obj);
