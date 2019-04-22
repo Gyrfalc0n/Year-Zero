@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 3
+  m_AmbientIntensity: 6
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: c1db50f3ba9b0814bb31d349a216a4ad, type: 2}
@@ -52,7 +52,7 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 0
+    m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
@@ -112,6 +112,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 64bff0ceecb0fe446ae3c586a1edefbe, type: 2}
+--- !u!1001 &411840519
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6280805093687666141}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_Name
+      value: Asteroid_04_XL
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0651262
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.21860091
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.27799433
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9331085
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -26.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -33.18
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
 --- !u!1001 &830411399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -550,6 +607,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: QUIT
       objectReference: {fileID: 0}
+    - target: {fileID: 6280805094551298411, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: m_Name
+      value: Background Objects
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 468759300379300376, guid: 558a34a8be43927418fdbc9bfea841c7, type: 3}
     - {fileID: 6280805093710155969, guid: 558a34a8be43927418fdbc9bfea841c7, type: 3}
@@ -578,3 +640,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0842ef13f9d04284c9e2f77aabcea20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6280805093687666141 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6280805094551298408, guid: 558a34a8be43927418fdbc9bfea841c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6280805093687666138}
+  m_PrefabAsset: {fileID: 0}
