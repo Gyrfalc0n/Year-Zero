@@ -8,7 +8,12 @@ public class Population {
     private int rawValue;
     private int maxValue = 100;
     private int currentMaxValue;
-    private int value = 4;
+    private int value;
+
+    public Population(bool gametest)
+    {
+        value = (gametest) ? 4 : 0;
+    }
 
     public int GetCurrentMaxValue()
     {

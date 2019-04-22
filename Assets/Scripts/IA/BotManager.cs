@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BotManager : MonoBehaviour
 {
@@ -9,7 +10,12 @@ public class BotManager : MonoBehaviour
 ,new GameResource("Food")
     ,new GameResource("Tech")};
 
-    Population population = new Population();
+    private void Awake()
+    {
+        population = new Population(SceneManager.GetActiveScene().name == "GameTest");
+    }
+
+    Population population;
 
     List<TownHall> homes = new List<TownHall>();
 
