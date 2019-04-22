@@ -124,12 +124,12 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     public void UpdateUI()
     {
+        monoDescriptionPanel.ResetBar();
         if (selected.Count == 0)
         {
             advancementBar.Reset();
-            taskBar.Reset();
+            taskBar.ResetBar();
             cardsPanel.ClearCards();
-            monoDescriptionPanel.Reset();
             toolsPanel.ClearTools();
             return;
         }
@@ -139,9 +139,8 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         if (selected[0].GetComponent<MovableUnit>() != null)
         {
             advancementBar.Reset();
-            taskBar.Reset();
+            taskBar.ResetBar();
             cardsPanel.ClearCards();
-            monoDescriptionPanel.Reset();
             if (selected.Count > 1)
                 cardsPanel.CheckCards();
             else
@@ -152,7 +151,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         }
         else
         {
-            monoDescriptionPanel.Reset();
+            taskBar.ResetBar();
             cardsPanel.ClearCards();
             toolsPanel.ClearTools();
             if (selected[0].GetComponent<InConstructionUnit>() != null)
@@ -161,12 +160,9 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             }
             else if (selected[0].GetComponent<ConstructedUnit>() != null)
             {
-                monoDescriptionPanel.Reset();
                 toolsPanel.CheckTools(0);
                 if (selected[0].GetComponent<TaskSystem>().GetTasks().Count > 0)
                     taskBar.Init(selected[0].GetComponent<ConstructedUnit>());
-                else
-                    monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
             }
         }
     }
