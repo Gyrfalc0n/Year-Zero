@@ -11,6 +11,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShowBuildMenuToolPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1345285088568080383, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: description
+      value: Open build menu
+      objectReference: {fileID: 0}
     - target: {fileID: 224655561362021626, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -151,6 +156,57 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 2287815292473761601}
+    - target: {fileID: 7361543245202753776, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361543245202753776, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361543245202753776, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].eventID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361543245202753776, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 901184067991269762}
+    - target: {fileID: 7361543245202753776, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Hide
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361543245202753776, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361543245202753776, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361543245202753776, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361543245202753776, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_TypeName
+      value: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547213410525244, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Text
+      value: Build
+      objectReference: {fileID: 0}
     - target: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: m_Sprite
@@ -161,16 +217,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114547213410525244, guid: 37b0bb7757687cb44af7df486cd63dcf,
-        type: 3}
-      propertyPath: m_Text
-      value: Build
-      objectReference: {fileID: 0}
-    - target: {fileID: 1638985947089155290, guid: 37b0bb7757687cb44af7df486cd63dcf,
-        type: 3}
-      propertyPath: description
-      value: Open build menu
       objectReference: {fileID: 0}
     - target: {fileID: 5090499891305394585, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
@@ -228,7 +274,7 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1345285088568080383, guid: 37b0bb7757687cb44af7df486cd63dcf,
+    - target: {fileID: 1638985947089155290, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: description
       value: Open build menu
@@ -257,5 +303,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 853b76b6b71a1524d982ca5af2abfb76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &901184067991269762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1345285088568080383, guid: 37b0bb7757687cb44af7df486cd63dcf,
+    type: 3}
+  m_PrefabInstance: {fileID: 2173777968355509885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f1aa47d0382bc4d8b2e613876684be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
