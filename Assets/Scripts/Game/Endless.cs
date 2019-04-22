@@ -11,7 +11,7 @@ public class Endless : MonoBehaviour
     [SerializeField] public GameObject Background;
 
     private bool isFirstTick = true;
-    private int waveTime = 40;
+    private int waveTime = 60;
     private int waveCount = 0;
     
   
