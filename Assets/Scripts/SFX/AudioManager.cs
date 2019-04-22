@@ -84,13 +84,9 @@ public class AudioManager : MonoBehaviour
             {
                 soundCurrentlyPlaying.source.Stop();
                 soundToPlay.isPlaying = false;
-                Debug.Log(soundCurrentlyPlaying.name);
             }
         }
-        else
-        {
-            Debug.Log("NotAmusic");
-        }
+        
         soundToPlay.source.Play();
         soundToPlay.isPlaying = true;
     }
