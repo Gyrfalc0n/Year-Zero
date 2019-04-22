@@ -82,6 +82,7 @@ public class CombatSystem : MonoBehaviour
     {
         if (target == null)
         {
+            print("s");
             target = enemy;
         }
     }
