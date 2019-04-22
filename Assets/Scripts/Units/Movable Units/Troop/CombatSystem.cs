@@ -54,7 +54,7 @@ public class CombatSystem : MonoBehaviour
 
         if (target != null)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) <= range)
+            if (Vector3.Distance(transform.position, target.transform.position) <= range * 10)
             {
                 FaceTarget(target.transform.position);
                 agent.ResetPath();
@@ -74,7 +74,7 @@ public class CombatSystem : MonoBehaviour
             time = 1/attackRate;
             GameObject obj = PhotonNetwork.Instantiate("Units/Bullets/" + projectile, firePoint.position, firePoint.rotation);
             obj.transform.SetParent(bulletHolder);
-            obj.GetComponent<Bullet>().Init(1f, GetComponent<MovableUnit>().damage, GetComponent<DestructibleUnit>());
+            obj.GetComponent<Bullet>().Init(8f, GetComponent<MovableUnit>().damage, GetComponent<DestructibleUnit>());
         }
     }
 
@@ -82,6 +82,7 @@ public class CombatSystem : MonoBehaviour
     {
         if (target == null)
         {
+            print("s");
             target = enemy;
         }
     }

@@ -22,6 +22,8 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
+        PlayerManager.playerManager.Add(50,1);
+        PlayerManager.playerManager.Add(1000,2);
         Time.timeScale = 0;        
     }
 

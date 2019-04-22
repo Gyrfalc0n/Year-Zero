@@ -11,7 +11,7 @@ public class Endless : MonoBehaviour
     [SerializeField] public GameObject Background;
 
     private bool isFirstTick = true;
-    private int waveTime = 40;
+    private int waveTime = 60;
     private int waveCount = 0;
     
   
@@ -26,7 +26,7 @@ public class Endless : MonoBehaviour
             Wave();
             independentBotPrefab.GetComponent<BotArmyManager>().SendArmy(new Vector3(0,0,5));
             Background.SetActive(true);
-            Display.text = "Wave completed: " + (waveCount - 1);
+            Display.text = "Waves: " + (waveCount );
         }
 
         if (timer == waveTime+1)
@@ -54,7 +54,7 @@ public class Endless : MonoBehaviour
     
     void Wave()
     {
-        for (int i = 0; i < waveCount; i++)
+        for (int i = 0; i < waveCount-1; i++)
         {
             independentBotPrefab.GetComponent<IndependantIAManager>()
                 .InstantiateUnit("Units/Basic Troop", new Vector3(30,0,30), Quaternion.Euler(0, 0, 0));   

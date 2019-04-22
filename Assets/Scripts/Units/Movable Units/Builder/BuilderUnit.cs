@@ -33,6 +33,15 @@ public class BuilderUnit : MovableUnit {
         }
     }
 
+    public override void OnDestroyed()
+    {
+        base.OnDestroyed();
+        if (botIndex != -1)
+        {
+            InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotBuilderManager>().Remove(this);
+        }
+    }
+
     public override void Interact(Interactable obj)
     {
         base.Interact(obj);
@@ -44,7 +53,7 @@ public class BuilderUnit : MovableUnit {
         {
             Mine(obj.GetComponent<ResourceUnit>());
         }
-        else if (obj.GetComponent<ConstructedUnit>() != null && obj.photonView.IsMine && obj.GetComponent<ConstructedUnit>().GetLife() < obj.GetComponent<ConstructedUnit>().GetMaxlife())
+        else if (obj.GetComponent<ConstructedUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<ConstructedUnit>()) == MultiplayerTools.GetTeamOf(this) && obj.GetComponent<ConstructedUnit>().GetLife() < obj.GetComponent<ConstructedUnit>().GetMaxlife())
         {
             Repair(obj.GetComponent<ConstructedUnit>());
         }
@@ -141,7 +150,6 @@ public class BuilderUnit : MovableUnit {
     {
         if (IsDoingNothing())
         {
-            ResetAction();
             combatSystem.OnEnemyEnters(enemy);
         }
     }

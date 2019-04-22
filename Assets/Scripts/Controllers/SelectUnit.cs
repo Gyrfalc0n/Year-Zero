@@ -330,7 +330,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     public bool InstantSelect()
     {
-        if (selected.Count == 0 || selected[underSelected].GetComponent<BuilderUnit>() == null)
+        if (selected.Count == 0)
             return false;
 
         RaycastHit hit;
