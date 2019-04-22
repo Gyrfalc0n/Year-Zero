@@ -262,8 +262,10 @@ public class SelectableObj : Interactable
 
     #region FOV
 
+    GameObject model;
     void InitFieldOfView()
     {
+        model = transform.Find("model").gameObject;
         visible = (InstanceManager.instanceManager.GetTeam() == MultiplayerTools.GetTeamOf(this));
 
         fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
@@ -296,7 +298,7 @@ public class SelectableObj : Interactable
     public void Hide()
     {
         visible = false;
-        GetComponent<MeshRenderer>().enabled = false;
+        model.SetActive(false);
         minimapIcon.gameObject.SetActive(false);
         Dehighlight();
         Deselect();
@@ -306,7 +308,7 @@ public class SelectableObj : Interactable
     {
         visible = true;
         minimapIcon.gameObject.SetActive(true);
-        GetComponent<MeshRenderer>().enabled = true;
+        model.SetActive(true);
     }
 
     #endregion
