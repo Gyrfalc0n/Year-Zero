@@ -289,7 +289,8 @@ public class SelectableObj : Interactable
         }
         else
         {
-            fovCollider.gameObject.SetActive(false);
+            fovCollider.enabled = false;
+            fovCollider.GetComponent<MeshRenderer>().enabled = false;
             Hide();
         }
 

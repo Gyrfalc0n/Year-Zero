@@ -11,9 +11,9 @@ public class CombatFOV : MonoBehaviour
         parent = GetComponentInParent<MovableUnit>();
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if (parent != null && other.GetComponent<DestructibleUnit>() != null && InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>()))
+        if (parent != null && other.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(parent) != MultiplayerTools.GetTeamOf(other.GetComponent<DestructibleUnit>()))
             parent.OnEnemyEnters(other.GetComponent<DestructibleUnit>());
     }
 }
