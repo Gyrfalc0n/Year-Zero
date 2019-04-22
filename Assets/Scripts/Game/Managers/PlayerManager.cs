@@ -12,7 +12,8 @@ public class PlayerManager : MonoBehaviour {
     void Awake()
     {
         playerManager = this;
-        population = new Population(SceneManager.GetActiveScene().name == "GameTest");
+        population = new Population(SceneManager.GetActiveScene().name == "GameTest" ||
+            SceneManager.GetActiveScene().name == "Mission");
     }
 
     #endregion
