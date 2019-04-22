@@ -27,7 +27,7 @@ public class BuilderUnit : MovableUnit {
             jobless = GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>();
             UpdateJoblessPanel();
         }
-        else
+        else if (botIndex != -2)
         {
             InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotBuilderManager>().Add(this);
         }
@@ -36,7 +36,7 @@ public class BuilderUnit : MovableUnit {
     public override void OnDestroyed()
     {
         base.OnDestroyed();
-        if (botIndex != -1)
+        if (botIndex != -1 && botIndex != -2)
         {
             InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotBuilderManager>().Remove(this);
         }
