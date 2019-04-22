@@ -227,11 +227,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114063785424869692, guid: 37b0bb7757687cb44af7df486cd63dcf,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114014468917716348, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -272,10 +267,25 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114063785424869692, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468302805420864707, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 114547213410525244, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: m_Text
       value: Spell
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345285088568080383, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: description
+      value: Use the unit's spell
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114878553697462674, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}

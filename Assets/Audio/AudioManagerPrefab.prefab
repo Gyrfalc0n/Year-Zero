@@ -43,22 +43,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea54919c29ac3842b4ac757a8a4fd70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sound: {fileID: 243611415690189326, guid: d05f2ce08fd19ab4b9bf7768cc231df8, type: 2}
+  Music: {fileID: 243603301932379670, guid: d05f2ce08fd19ab4b9bf7768cc231df8, type: 2}
   sounds:
   - name: MainMenuMusic
     clip: {fileID: 8300000, guid: 142c7fd4900827f499c715012e5fc193, type: 3}
     volume: 1
     pitch: 1
     isMusic: 1
+    isPlaying: 0
     source: {fileID: 0}
   - name: UniverseMusic
     clip: {fileID: 8300000, guid: 816b6eab58d24c646a55f35fb63b0f1f, type: 3}
     volume: 1
     pitch: 1
     isMusic: 1
+    isPlaying: 0
     source: {fileID: 0}
   - name: BattleMusic
     clip: {fileID: 8300000, guid: 9113a8a90b5a5ca42a7d9af05d6cf620, type: 3}
     volume: 1
     pitch: 1
     isMusic: 1
+    isPlaying: 0
+    source: {fileID: 0}
+  - name: VoixMission1.1
+    clip: {fileID: 8300000, guid: 8aea68707b6a5da42954c4b5aadcae7f, type: 3}
+    volume: 2
+    pitch: 0.9
+    isMusic: 0
+    isPlaying: 0
+    source: {fileID: 0}
+  - name: VoixMission1.2
+    clip: {fileID: 8300000, guid: 2a74276e07fa8b849aba993fc8209b79, type: 3}
+    volume: 2
+    pitch: 0.9
+    isMusic: 0
+    isPlaying: 0
+    source: {fileID: 0}
+  - name: VoixMission1.3
+    clip: {fileID: 8300000, guid: 186b981ca4df0bf43819e68fb2ca1750, type: 3}
+    volume: 2
+    pitch: 0.9
+    isMusic: 0
+    isPlaying: 0
+    source: {fileID: 0}
+  - name: VoixMission1.4
+    clip: {fileID: 8300000, guid: 6431bff3b6dced84cb85b2767959043f, type: 3}
+    volume: 2
+    pitch: 0.9
+    isMusic: 0
+    isPlaying: 0
+    source: {fileID: 0}
+  - name: 09. Genesis
+    clip: {fileID: 8300000, guid: d823c0edfcfa6514ab351bb22c3aafae, type: 3}
+    volume: 0.5
+    pitch: 1
+    isMusic: 1
+    isPlaying: 0
+    source: {fileID: 0}
+  - name: 06. Spatial Lullaby
+    clip: {fileID: 8300000, guid: 2107b8807d7b05948a4308588bf755d0, type: 3}
+    volume: 0.5
+    pitch: 1
+    isMusic: 1
+    isPlaying: 0
     source: {fileID: 0}

@@ -11,7 +11,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     Hashtable customProp;
     [SerializeField]
-    StartGameButton startButton;
+    Button startButton;
     [SerializeField]
     Toggle readyToggle;
     [SerializeField]
@@ -31,86 +31,91 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     [SerializeField]
     TemporaryMenuMessage notReady;
+    [SerializeField]
+    TemporaryMenuMessage lobbyFull;
+    [SerializeField]
+    Text playerAmountText;
+    [SerializeField]
+    GameObject waittingMessage;
+    [SerializeField]
+    Text waittingDots;
+    float timer;
+
+    PlayerSettings playerSettings;
 
     #region customProp
 
     string isReady = "IsReady";
-    string checkIsReady = "CheckIsReady";
 
     #endregion
 
     void Start()
     {
+        timer = 0.3f;
         if (PhotonNetwork.IsMasterClient)
             coords = new List<Vector3>[4] { topLeft, bottomLeft , topRight , bottomRight };
-        PhotonNetwork.Instantiate("UI/WaittingRoom/PlayerSettingsPrefab", Vector3.zero, Quaternion.identity);
+        playerSettings = PhotonNetwork.Instantiate("UI/WaittingRoom/PlayerSettingsPrefab", Vector3.zero, Quaternion.identity).GetComponent<PlayerSettings>();
         InitSettings();
+        UpdatePlayerAmountText();
     }
 
     void InitSettings()
     {
         customProp = new Hashtable();
-        if (!PhotonNetwork.IsMasterClient)
+        readyToggle.gameObject.SetActive(!PhotonNetwork.IsMasterClient);
+        startButton.gameObject.SetActive(PhotonNetwork.IsMasterClient);
+        addBotButton.SetActive(PhotonNetwork.IsMasterClient);
+        customProp.Add(isReady, PhotonNetwork.IsMasterClient);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
+    }
+
+    public void TryAddBot()
+    {
+        int maxPlayer = (PhotonNetwork.OfflineMode) ? soloMaxPlayer : PhotonNetwork.CurrentRoom.MaxPlayers;
+        if (playersList.childCount < maxPlayer)
         {
-            readyToggle.gameObject.SetActive(true);
-            startButton.gameObject.SetActive(false);
-            addBotButton.SetActive(false);
-            customProp.Add(isReady, false);
+            AddBot();
         }
         else
         {
-            readyToggle.gameObject.SetActive(false);
-            startButton.gameObject.SetActive(true);
-            customProp.Add(isReady, true);
+            lobbyFull.Activate();
         }
-        PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
-        photonView.RPC(checkIsReady, RpcTarget.MasterClient);
     }
 
-    public void AddBot()
+    void AddBot()
     {
         PhotonNetwork.Instantiate("UI/WaittingRoom/BotSettingsPrefab", Vector3.zero, Quaternion.identity);
     }
 
-    public void CheckAddBot()
+    void Update()
     {
-        if (PhotonNetwork.OfflineMode)
+        UpdatePlayerAmountText();
+        UpdateWaittingMessage();
+        if (PhotonNetwork.IsMasterClient && Input.GetKeyUp(KeyCode.Return))
         {
-            addBotButton.SetActive(playersList.childCount < soloMaxPlayer);
+            TryStartGame();
+        }
+    }
+
+    public void TryStartGame()
+    {
+        if (CheckIsReady())
+        {
+            StartGame();
         }
         else
         {
-            addBotButton.SetActive(playersList.childCount < PhotonNetwork.CurrentRoom.MaxPlayers);
+            notReady.Activate();
         }
     }
 
-    void Update()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            CheckAddBot();
-            if (Input.GetKeyUp(KeyCode.Return))
-            {
-                if (!startButton.IsActive())
-                {
-                    notReady.Activate();
-                }
-                else
-                {
-                    StartGame();
-                }
-            }
-        }
-    }
-
-
-
-    public void StartGame()
+    void StartGame()
     {
         PhotonNetwork.CurrentRoom.IsOpen = false;
         SetCustomPropForAll();
         string mapName = PlayerPrefs.GetString("MapName");
         PhotonNetwork.LoadLevel(mapName);
+        FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
     }
 
     void SetCustomPropForAll()
@@ -135,10 +140,10 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
             if (playerSettings.GetComponent<BotSettings>() != null)
             {
                 BotSettings settings = playerSettings.GetComponent<BotSettings>();
-                AddOrReplaceInt(myTable, "Race" + i, settings.raceDropdown.value);
-                AddOrReplaceInt(myTable, "Team" + i, settings.teamDropdown.value);
-                AddOrReplaceInt(myTable, "Color" + i, settings.colorDropdown.value);
-                AddOrReplaceVect(myTable, "MyCoords" + i, SetCoords(settings.teamDropdown.value));
+                AddOrReplace(myTable, "Race" + i, settings.raceDropdown.value);
+                AddOrReplace(myTable, "Team" + i, settings.teamDropdown.value);
+                AddOrReplace(myTable, "Color" + i, settings.colorDropdown.value);
+                AddOrReplace(myTable, "MyCoords" + i, SetCoords(settings.teamDropdown.value));
                 i++;
             }
         }
@@ -146,7 +151,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         PhotonNetwork.LocalPlayer.SetCustomProperties(myTable);
     }
 
-    public void AddOrReplaceInt(Hashtable table, string key, int val)
+    void AddOrReplace<T>(Hashtable table, string key, T val)
     {
         if (table.ContainsKey(key))
             table[key] = val;
@@ -154,15 +159,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
             table.Add(key, val);
     }
 
-    public void AddOrReplaceVect(Hashtable table, string key, Vector3 val)
-    {
-        if (table.ContainsKey(key))
-            table[key] = val;
-        else
-            table.Add(key, val);
-    }
-
-    public Vector3 SetCoords(int team)
+    Vector3 SetCoords(int team)
     {
         int tmp = Random.Range(0, coords[team].Count - 1);
         Vector3 res = coords[team][tmp];
@@ -179,22 +176,59 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
     {
         customProp[isReady] = val;
         PhotonNetwork.LocalPlayer.SetCustomProperties(customProp);
-        photonView.RPC(checkIsReady, RpcTarget.MasterClient);
+
+        if (val)
+            playerSettings.Lock();
+        else
+            playerSettings.Unlock();
     }
 
-    [PunRPC]
-    public void CheckIsReady()
+    bool CheckIsReady()
     {
         bool allReady = true;
-        foreach (Player player in PhotonNetwork.PlayerList)
+        Player[] players = PhotonNetwork.PlayerList;
+        for (int i = 0; allReady && i < players.Length; i++)
         {
-            if ((bool)player.CustomProperties[isReady] == false)
+            if ((bool)players[i].CustomProperties[isReady] == false)
                 allReady = false;
         }
+        return allReady;
+    }
 
-        if (allReady)
-            startButton.Activate();
-        else
-            startButton.Deactivate();
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        Debug.Log("Leave room");
+        PhotonNetwork.LoadLevel("MainMenu");
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        Debug.Log("Master Client switched to" + newMasterClient.NickName);
+        PhotonNetwork.LeaveRoom();
+    }
+
+    void UpdatePlayerAmountText()
+    {
+        playerAmountText.text = playersList.childCount + "/" + ((PhotonNetwork.OfflineMode) ? soloMaxPlayer : PhotonNetwork.CurrentRoom.MaxPlayers);
+    }
+
+    void UpdateWaittingMessage()
+    {
+        int maxPlayer = (PhotonNetwork.OfflineMode) ? soloMaxPlayer : PhotonNetwork.CurrentRoom.MaxPlayers;
+        waittingMessage.SetActive(playersList.childCount < maxPlayer);
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            timer = 0.3f;
+            if (waittingDots.text.Length == 5)
+                waittingDots.text = "";
+            else
+                waittingDots.text = new string('.', (waittingDots.text.Length + 1));
+        }
     }
 }

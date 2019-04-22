@@ -151,11 +151,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 3562661469279763562}
-    - target: {fileID: 114547213410525244, guid: 37b0bb7757687cb44af7df486cd63dcf,
-        type: 3}
-      propertyPath: m_Text
-      value: Attack
-      objectReference: {fileID: 0}
     - target: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: m_Sprite
@@ -166,6 +161,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547213410525244, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: m_Text
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345285088568080383, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: description
+      value: Attack the target with the selected unit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}

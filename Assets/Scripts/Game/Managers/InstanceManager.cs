@@ -18,8 +18,6 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         instanceManager = this;
         if (offlineMode)
             PhotonNetwork.OfflineMode = offlineMode;
-
-        //Init();
     }
 
     #endregion
@@ -37,8 +35,6 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     void Start()
     {
-        GetComponent<PlayerManager>().Init();
-        GetComponent<ChatManager>().Init();
         bulletHolder = GameObject.Find("BulletsHolder").transform;
         botIndex = -1;
         InitStartingTroops(InitProp());
@@ -67,7 +63,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         {
             IAManager bot = Instantiate((GameObject)Resources.Load(botPrefab)).GetComponent<IAManager>();
             bot.gameObject.name = "Bot0";
-            bot.Init(0, 1, 1, 1, new Vector3 (10, 1, 10));
+            bot.Init(0, 1, 1, 1, new Vector3 (15, 1, 15));
             i++;
         }
     }
@@ -176,39 +172,21 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     public Color32 GetColor()
     {
-        return Int2Color(color);
+        return MultiplayerTools.Int2Color(color);
     }
 
     public Color32 GetPlayerColor(Player player)
     {
         if (player == PhotonNetwork.LocalPlayer)
         {
-            return Int2Color(color);
+            return MultiplayerTools.Int2Color(color);
         }
-        return Int2Color((int)player.CustomProperties["Color"]);
+        return MultiplayerTools.Int2Color((int)player.CustomProperties["Color"]);
     }
 
     public Color32 GetBotColor(int index)
     {
         return GameObject.Find("Bot" + index).GetComponent<IAManager>().GetColor();
-    }
-
-    public Color32 Int2Color(int val)
-    {
-        Color32 res;
-        if (val == 0)
-        {
-            res = new Color32(255, 0, 0, 255);
-        }
-        else if (val == 1)
-        {
-            res = new Color32(0, 255, 0, 255);
-        }
-        else
-        {
-            res = new Color32(0, 0, 255, 255);
-        }
-        return res;
     }
 
     protected int colorLevel = 1;
@@ -225,25 +203,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     public bool IsEnemy(SelectableObj unit)
     {
-        if (unit.botIndex == -1)
-        {
-            if (PhotonNetwork.OfflineMode)
-            {
-                return false;
-            }
-            else
-            {
-                return (int)unit.photonView.Owner.CustomProperties["Team"] != team;
-            }
-        }
-        else if (unit.botIndex != -2)
-        {
-            return (GetTeam() != GetBot(unit.botIndex).GetTeam());
-        }
-        else
-        {
-            return true;
-        }
+        return MultiplayerTools.GetTeamOf(unit) != team;
     }
 
     public void AllSelectableRemoveAt(int i)

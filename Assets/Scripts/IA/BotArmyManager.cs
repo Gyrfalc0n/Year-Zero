@@ -65,7 +65,7 @@ public class BotArmyManager : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < PlayerPrefs.GetInt("BotNumber"); i++)
+        for (int i = 1; i <= PlayerPrefs.GetInt("BotNumber"); i++)
         {
             if (GameObject.Find("Holder" + i).GetComponent<Holder>().team != GetComponent<IAManager>().GetTeam())
                 enemies.Add(GameObject.Find("Holder" + i).GetComponent<Holder>());
@@ -95,6 +95,14 @@ public class BotArmyManager : MonoBehaviour
         {
             troop.Attack(target);
             troop.SetAlwaysAttack(targetTeam);
+        }
+    }
+
+    public void SendArmy(Vector3 pos)
+    {
+        foreach (MovableUnit troop in army)
+        {
+            troop.SetDestination(pos, 2f);
         }
     }
 }

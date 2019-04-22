@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour {
 
@@ -8,9 +9,10 @@ public class PlayerManager : MonoBehaviour {
 
     public static PlayerManager playerManager;
 
-    public void Init()
+    void Awake()
     {
         playerManager = this;
+        population = new Population(SceneManager.GetActiveScene().name != "Tutorial");
     }
 
     #endregion
@@ -23,7 +25,7 @@ public class PlayerManager : MonoBehaviour {
 ,new GameResource("Food")
     ,new GameResource("Tech")};
 
-    Population population = new Population();
+    Population population;
 
     List<TownHall> homes = new List<TownHall>();
 

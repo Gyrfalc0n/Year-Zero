@@ -31,7 +31,7 @@ public class BotConstructionManager : MonoBehaviour
     public ObjectiveState CanConstruct(int index)
     {
         ConstructedUnit building = ((GameObject)Resources.Load(buildingList[index])).GetComponent<ConstructedUnit>();
-        ObjectiveState pay = GetComponent<BotManager>().ResourceLimiterToObjectiveState(building.costs, building.pop);
+        ObjectiveState pay = GetComponent<BotManager>().ResourceLimiterToObjectiveState(building.costs, building.pop, true);
         return pay;
     }
 
@@ -40,7 +40,7 @@ public class BotConstructionManager : MonoBehaviour
         ConstructedUnit building = ((GameObject)Resources.Load(buildingList[index])).GetComponent<ConstructedUnit>();
         GameObject obj = InstanceManager.instanceManager.InstantiateUnit(building.GetConstructorPath(), GetPos(building, builder), Quaternion.identity, GetComponent<IAManager>().botIndex);
         obj.GetComponent<InConstructionUnit>().Init(building);
-        GetComponent<BotManager>().Pay(building.costs, building.pop);
+        GetComponent<BotManager>().Pay(building.costs, building.pop, true);
         builder.Build(obj.GetComponent<InConstructionUnit>());
         inConstructionUnit = obj.GetComponent<InConstructionUnit>();
     }

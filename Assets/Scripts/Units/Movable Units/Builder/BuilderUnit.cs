@@ -27,9 +27,18 @@ public class BuilderUnit : MovableUnit {
             jobless = GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>();
             UpdateJoblessPanel();
         }
-        else
+        else if (botIndex != -2)
         {
             InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotBuilderManager>().Add(this);
+        }
+    }
+
+    public override void OnDestroyed()
+    {
+        base.OnDestroyed();
+        if (botIndex != -1 && botIndex != -2)
+        {
+            InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotBuilderManager>().Remove(this);
         }
     }
 
@@ -44,7 +53,7 @@ public class BuilderUnit : MovableUnit {
         {
             Mine(obj.GetComponent<ResourceUnit>());
         }
-        else if (obj.GetComponent<ConstructedUnit>() != null && obj.photonView.IsMine && obj.GetComponent<ConstructedUnit>().GetLife() < obj.GetComponent<ConstructedUnit>().GetMaxlife())
+        else if (obj.GetComponent<ConstructedUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<ConstructedUnit>()) == MultiplayerTools.GetTeamOf(this) && obj.GetComponent<ConstructedUnit>().GetLife() < obj.GetComponent<ConstructedUnit>().GetMaxlife())
         {
             Repair(obj.GetComponent<ConstructedUnit>());
         }
@@ -111,10 +120,10 @@ public class BuilderUnit : MovableUnit {
     {
         bool immobile;
         immobile = (agent != null) ? Vector3.Distance(agent.destination, transform.position) <= 1:false;
-        return immobile && IsDoingNothingEceptMoving();
+        return immobile && IsDoingNothingExceptMoving();
     }
 
-    public bool IsDoingNothingEceptMoving()
+    public bool IsDoingNothingExceptMoving()
     {
         if (patrolSystem == null || miningSystem == null || buildingSystem == null || repairingSystem == null)
             return false;
@@ -141,7 +150,6 @@ public class BuilderUnit : MovableUnit {
     {
         if (IsDoingNothing())
         {
-            ResetAction();
             combatSystem.OnEnemyEnters(enemy);
         }
     }

@@ -9,6 +9,8 @@ public class ConstructionObjective : IAObjective
     public BuilderUnit builder;
     [HideInInspector]
     public int buildingIndex;
+    bool forHouse;
+    bool forBuilder;
 
     InConstructionUnit inConstructionUnit;
 
@@ -20,15 +22,17 @@ public class ConstructionObjective : IAObjective
             buildingUnits = (BuildingUnits)buildingIndex;
     }
 
-    public void Init(int buildingIndex)
+    public void Init(int buildingIndex, bool forHouse, bool forBuilder)
     {
         state = ObjectiveState.Deactivated;
         this.buildingIndex = buildingIndex;
+        this.forHouse = forHouse;
+        this.forBuilder = forBuilder;
     }
 
     public void SetBuilder()
     {
-        state = GetComponentInParent<BotBuilderManager>().GetOneBuilder(out builder, buildingIndex == 4);
+        state = GetComponentInParent<BotBuilderManager>().GetOneBuilder(out builder, forHouse, forBuilder);
     }
 
     void Update()

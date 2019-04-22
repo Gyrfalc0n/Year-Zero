@@ -28,7 +28,7 @@ public class MiningSystem : MonoBehaviour
 
     void Update()
     {
-        if (mining && Vector3.Distance(transform.position, agent.destination) <= agent.stoppingDistance)
+        if (mining && Vector3.Distance(transform.position, agent.destination) <= agent.stoppingDistance + 0.1f)
             OnReachedDestination();
     }
 

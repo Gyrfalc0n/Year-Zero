@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = System.Random;
 
 public class AudioManager : MonoBehaviour
 {
@@ -48,18 +50,22 @@ public class AudioManager : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "MainMenu" || sceneName == "WaitingRoom")
         {
-            PlaySound("MainMenuMusic");
+            PlaySoundStart("MainMenuMusic");
             
         }
         else
         {
-            PlaySound("UniverseMusic");
+            PlayRandomSoundStart(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
         }
         
     }
 
     public void PlaySound(string name) //lance l'audio clip de sounds avec le nom "name"
     {
+        if (name == "NameNotMissing")
+        {
+            return;
+        }
         Sound soundToPlay = Array.Find(sounds, soundSearch => soundSearch.name == name);
         if (soundToPlay == null)
         {
@@ -77,10 +83,38 @@ public class AudioManager : MonoBehaviour
             else
             {
                 soundCurrentlyPlaying.source.Stop();
+                soundToPlay.isPlaying = false;
             }
+        }
+        
+        soundToPlay.source.Play();
+        soundToPlay.isPlaying = true;
+    }
+    
+    public void PlaySoundStart(string name) //lance l'audio clip de sounds avec le nom "name"
+    {
+        Sound soundToPlay = Array.Find(sounds, soundSearch => soundSearch.name == name);
+        if (soundToPlay == null)
+        {
+            Debug.Log("typo in to play sound: " +name);
+            return;
         }
         soundToPlay.source.Play();
         soundToPlay.isPlaying = true;
+    }
+
+    public void PlayRandomSound(string[] sounds)
+    {
+        Random dice = new Random();
+        name = sounds[dice.Next(0, sounds.Length)];
+        PlaySound(name);
+    }
+    
+    public void PlayRandomSoundStart(string[] sounds)
+    {
+        Random dice = new Random();
+        name = sounds[dice.Next(0, sounds.Length)];
+        PlaySoundStart(name);
     }
 
     private string GetActiveMusic()

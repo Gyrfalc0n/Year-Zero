@@ -149,9 +149,8 @@ public class SelectableObj : Interactable
                 selectionCircle.color = myColor;
             }
             else
-            {
-                int tmpteam = team;        
-                if (tmpteam == InstanceManager.instanceManager.GetTeam())
+            {     
+                if (!InstanceManager.instanceManager.IsEnemy(this))
                 {
                     selectionCircle.color = teamColor;
                 }
@@ -163,7 +162,7 @@ public class SelectableObj : Interactable
             }
 
         }
-        else if ((int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam())
+        else if (!InstanceManager.instanceManager.IsEnemy(this))
         {
             selectionCircle.color = teamColor;
         }
@@ -177,16 +176,9 @@ public class SelectableObj : Interactable
 
     public void ToggleColor(int advancedLvl)
     {
-        int tmpteam = team;
-        Color32 tmpColor;
-        if (team != -2)
-            tmpColor = (botIndex == -1) ? InstanceManager.instanceManager.GetColor() : InstanceManager.instanceManager.GetBot(botIndex).GetColor();
-        else
-            tmpColor = Color.blue;
-
         if (advancedLvl == 0)
         {
-            if ((int)photonView.Owner.CustomProperties["Team"] == tmpteam)
+            if (!InstanceManager.instanceManager.IsEnemy(this))
             {
                 minimapIcon.color = myColor;
             }
@@ -195,18 +187,18 @@ public class SelectableObj : Interactable
         {
             if (photonView.IsMine)
             {
-                minimapIcon.color = tmpColor;
+                minimapIcon.color = MultiplayerTools.GetColorOf(this);
             }
-            else if ((int)photonView.Owner.CustomProperties["Team"] == tmpteam)
+            else if (!InstanceManager.instanceManager.IsEnemy(this))
             {
                 minimapIcon.color = teamColor;
             }
         }
         else
         {
-            if ((int)photonView.Owner.CustomProperties["Team"] == tmpteam)
+            if (!InstanceManager.instanceManager.IsEnemy(this))
             {
-                minimapIcon.color = InstanceManager.instanceManager.GetPlayerColor(photonView.Owner);
+                minimapIcon.color = MultiplayerTools.GetColorOf(this);
             }
         }
 
@@ -270,28 +262,11 @@ public class SelectableObj : Interactable
 
     #region FOV
 
+    GameObject model;
     void InitFieldOfView()
     {
-        if (PhotonNetwork.OfflineMode)
-        {
-            visible = true;
-            if (botIndex != -1)
-            {
-                if (botIndex != -2)
-                    visible = InstanceManager.instanceManager.GetTeam() == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
-                else visible = false;
-            }
-                
-        }
-        else
-        {
-            if (botIndex == -1)
-            {
-                visible = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetTeam();
-            }
-            else
-                visible = (int)photonView.Owner.CustomProperties["Team"] == InstanceManager.instanceManager.GetBot(botIndex).GetTeam();
-        }
+        model = transform.Find("model").gameObject;
+        visible = (InstanceManager.instanceManager.GetTeam() == MultiplayerTools.GetTeamOf(this));
 
         fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
         fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
@@ -314,8 +289,9 @@ public class SelectableObj : Interactable
         }
         else
         {
-            Hide();
+            fovCollider.enabled = false;
             fovCollider.GetComponent<MeshRenderer>().enabled = false;
+            Hide();
         }
 
     }
@@ -323,7 +299,7 @@ public class SelectableObj : Interactable
     public void Hide()
     {
         visible = false;
-        GetComponent<MeshRenderer>().enabled = false;
+        model.SetActive(false);
         minimapIcon.gameObject.SetActive(false);
         Dehighlight();
         Deselect();
@@ -333,7 +309,7 @@ public class SelectableObj : Interactable
     {
         visible = true;
         minimapIcon.gameObject.SetActive(true);
-        GetComponent<MeshRenderer>().enabled = true;
+        model.SetActive(true);
     }
 
     #endregion

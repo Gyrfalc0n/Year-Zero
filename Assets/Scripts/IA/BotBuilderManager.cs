@@ -22,7 +22,7 @@ public class BotBuilderManager : MonoBehaviour
         builders.Remove(builder);
     }
 
-    public ObjectiveState GetOneBuilder(out BuilderUnit builder, bool forHouse, int toMine=-1)
+    public ObjectiveState GetOneBuilder(out BuilderUnit builder, bool forHouse, bool forBuilder, int toMine=-1)
     {
         builder = GetJoblessBuilder();
         if (builder != null)
@@ -37,14 +37,14 @@ public class BotBuilderManager : MonoBehaviour
             }
             else
             {
-                return TakeOrHouse(out builder, forHouse, toMine);
+                return TakeOrHouse(out builder, forHouse, toMine, forBuilder);
             }
         }
         else
         {
-            if (m.GetPopulation() == m.GetMaxPopulation())
+            if (m.GetPopulation() == m.GetMaxPopulation() || forBuilder)
             {
-                return TakeOrHouse(out builder, forHouse, toMine);
+                return TakeOrHouse(out builder, forHouse, toMine, forBuilder);
             }
             else
             {
@@ -53,11 +53,11 @@ public class BotBuilderManager : MonoBehaviour
         }
     }
 
-    ObjectiveState TakeOrHouse(out BuilderUnit builder, bool forHouse, int toMine)
+    ObjectiveState TakeOrHouse(out BuilderUnit builder, bool forHouse, int toMine, bool forBuilder)
     {
-        if (GetComponent<BotConstructionManager>().GetHouseCount() < GetComponent<IAObjectivesManager>().step + 2 * GetComponent<IAObjectivesManager>().step)
+        if (GetComponent<BotConstructionManager>().GetHouseCount() < GetComponent<IAObjectivesManager>().houseAmount[GetComponent<IAObjectivesManager>().step-1])
         {
-            if (forHouse) //|| (toMine != -1 && (float)builders.Count < m.GetMaxPopulation() || (float)builders.Count / m.GetMaxPopulation() * 100 < 25)
+            if (forHouse)
             {
                 return TakeBuilder(out builder, forHouse, toMine);
             }
@@ -186,9 +186,9 @@ public class BotBuilderManager : MonoBehaviour
         return null;
     }
 
-    float JoblessBuilders()
+    int JoblessBuilders()
     {
-        float res = 0;
+        int res = 0;
         foreach (BuilderUnit builder in builders)
         {
             if (builder.IsDoingNothing())

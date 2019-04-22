@@ -51,7 +51,7 @@ public class MonoDescriptionPanel : MonoBehaviour
 
     }
 
-    public void Reset()
+    public void ResetBar()
     {
         obj.SetActive(false);
     }

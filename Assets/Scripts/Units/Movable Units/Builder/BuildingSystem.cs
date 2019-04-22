@@ -28,7 +28,11 @@ public class BuildingSystem : MonoBehaviour
         }
         else if (currentAction == CurrentBuildingAction.building)
         {
-            //StopBuilding();
+            StopBuilding();
+            if (GetComponent<BuilderUnit>().botIndex != -1)
+            {
+                InstanceManager.instanceManager.GetBot(GetComponent<BuilderUnit>().botIndex).GetComponent<BotMiningManager>().SendToMine(GetComponent<BuilderUnit>(), 1);
+            }
         }
     }
 
@@ -58,7 +62,8 @@ public class BuildingSystem : MonoBehaviour
     {
         if (currentAction == CurrentBuildingAction.building)
         {
-            whatIsBuilding.RemoveBuilder(GetComponent<BuilderUnit>());
+            if (whatIsBuilding == null)
+                whatIsBuilding.RemoveBuilder(GetComponent<BuilderUnit>());
             whatIsBuilding = null;
         }
         else if (currentAction == CurrentBuildingAction.goingToBuild)

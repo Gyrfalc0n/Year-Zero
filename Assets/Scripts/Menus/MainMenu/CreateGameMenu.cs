@@ -38,11 +38,12 @@ public class CreateGameMenu : MonoBehaviour {
     [SerializeField]
     TemporaryMenuMessage noName;
 
+    Transform selectedMapButton;
+
     #region INIT
 
     void Awake()
     {
-        selectionBox.SetActive(false);
         InitMaxPlayerDropdown();
         InitMapButtons();
     }
@@ -50,6 +51,7 @@ public class CreateGameMenu : MonoBehaviour {
     void OnEnable()
     {
         InitOffline();
+        SelectMap(scrollViewContent.GetChild(0));
     }
 
     void InitOffline()
@@ -84,6 +86,10 @@ public class CreateGameMenu : MonoBehaviour {
 
     void Update()
     {
+        if (selectedMapButton != null)
+        {
+            selectionBox.transform.position = new Vector3(selectionBox.transform.position.x, selectedMapButton.position.y, selectionBox.transform.position.z);
+        }
         if (Input.GetKeyUp(KeyCode.Return))
         {
             TryCreateGame();
@@ -122,6 +128,7 @@ public class CreateGameMenu : MonoBehaviour {
 
     public void SelectMap(Transform button)
     {
+        selectedMapButton = button;
         mapName = button.GetComponentInChildren<Text>().text;
         selectionBox.SetActive(true);
         selectionBox.transform.position = new Vector3(selectionBox.transform.position.x, button.position.y, selectionBox.transform.position.z);

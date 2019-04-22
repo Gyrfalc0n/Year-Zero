@@ -72,7 +72,7 @@ public class TaskBar : MonoBehaviour
         bar.value = currentBuilding.GetComponent<TaskSystem>().GetCurrentAdvancement();
     }
 
-    public void Reset()
+    public void ResetBar()
     {
         obj.SetActive(false);
         currentBuilding = null;

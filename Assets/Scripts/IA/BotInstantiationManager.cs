@@ -46,7 +46,7 @@ public class BotInstantiationManager : MonoBehaviour
         List<ProductionBuilding> buildings = GetCompatibleProductionBuildings(unit);
         if (buildings.Count == 0)
             return ObjectiveState.NeedBuilding;
-        ObjectiveState pay = GetComponent<BotManager>().ResourceLimiterToObjectiveState(unit.costs, unit.pop);
+        ObjectiveState pay = GetComponent<BotManager>().ResourceLimiterToObjectiveState(unit.costs, unit.pop, false);
         if (pay == ObjectiveState.NeedPop) return NeedPop();
         if (pay != ObjectiveState.Activated) return pay;
         foreach (ProductionBuilding building in buildings)
@@ -79,7 +79,7 @@ public class BotInstantiationManager : MonoBehaviour
         task = null;
         if (building.GetComponent<TaskSystem>().Full())
             return false;
-        if (!GetComponent<BotManager>().Pay(unit.costs, unit.pop))
+        if (!GetComponent<BotManager>().Pay(unit.costs, unit.pop, false))
             print("wtf");
         task = Instantiate(instantiateTaskPrefab).GetComponent<InstantiateTask>();
         task.FirstInit(building);
@@ -96,7 +96,7 @@ public class BotInstantiationManager : MonoBehaviour
 
     ObjectiveState NeedPop()
     {
-        if (GetComponent<BotConstructionManager>().GetHouseCount() >= GetComponent<IAObjectivesManager>().step + 0 * GetComponent<IAObjectivesManager>().step)
+        if (GetComponent<BotConstructionManager>().GetHouseCount() >= GetComponent<IAObjectivesManager>().farmAmount[GetComponent<IAObjectivesManager>().step-1])
         {
             return ObjectiveState.NeedWait;
         }
