@@ -12,7 +12,7 @@ public class BotManager : MonoBehaviour
 
     private void Awake()
     {
-        population = new Population(SceneManager.GetActiveScene().name == "GameTest");
+        population = new Population(true);
     }
 
     Population population;
