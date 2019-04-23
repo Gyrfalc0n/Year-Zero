@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 using Photon.Pun;
 using Photon.Realtime;
@@ -25,12 +26,15 @@ public class MainMenu : MonoBehaviourPunCallbacks {
     private GameObject connection;
     [SerializeField]
     private GameObject createGameMenu;
+    [SerializeField]
+    Text versionText;
 
     [SerializeField]
     AudioMixer audioMixer;
 
     private void Start()
     {
+        versionText.text = "Version " + gameVersion + ".0";
         PhotonNetwork.AutomaticallySyncScene = true;
         mainMenu.SetActive(true);
         CheckPseudo();
