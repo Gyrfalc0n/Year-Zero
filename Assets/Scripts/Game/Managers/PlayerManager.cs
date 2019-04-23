@@ -12,7 +12,6 @@ public class PlayerManager : MonoBehaviour {
     void Awake()
     {
         playerManager = this;
-        population = new Population(SceneManager.GetActiveScene().name != "Tutorial");
     }
 
     #endregion
@@ -25,7 +24,7 @@ public class PlayerManager : MonoBehaviour {
 ,new GameResource("Food")
     ,new GameResource("Tech")};
 
-    Population population;
+    Population population = new Population();
 
     List<TownHall> homes = new List<TownHall>();
 

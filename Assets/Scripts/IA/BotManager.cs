@@ -10,12 +10,7 @@ public class BotManager : MonoBehaviour
 ,new GameResource("Food")
     ,new GameResource("Tech")};
 
-    private void Awake()
-    {
-        population = new Population(true);
-    }
-
-    Population population;
+    Population population = new Population();
 
     List<TownHall> homes = new List<TownHall>();
 

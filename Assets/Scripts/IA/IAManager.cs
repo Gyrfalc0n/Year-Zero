@@ -46,6 +46,7 @@ public class IAManager : MonoBehaviourPunCallbacks
         {
             GetComponent<BotManager>().AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
             GetComponent<BotConstructionManager>().InitPos(GetComponent<BotManager>().GetHomes()[0].transform.position);
+            GetComponent<BotManager>().Pay(new int[] { 0, 0, 0, 0 }, 4, false);
             InstantiateUnit(builders[race], new Vector3(coords.x, 0.5f, coords.z), Quaternion.Euler(0, 0, 0));
             InstantiateUnit(builders[race], new Vector3(coords.x + 1, 0.5f, coords.z + 1), Quaternion.Euler(0, 0, 0));
             InstantiateUnit(builders[race], new Vector3(coords.x + 1, 0.5f, coords.z), Quaternion.Euler(0, 0, 0));

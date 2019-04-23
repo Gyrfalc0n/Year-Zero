@@ -13,6 +13,10 @@ public class TownHall : ProductionBuilding
             PlayerManager.playerManager.AddHome(this);
             PlayerManager.playerManager.AddMaxPopulation(5);
         }
+        else if (botIndex != -2)
+        {
+            InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().AddMaxPopulation(5);
+        }
     }
 
     public override void OnDestroyed()

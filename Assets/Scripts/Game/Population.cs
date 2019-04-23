@@ -10,11 +10,6 @@ public class Population {
     private int currentMaxValue;
     private int value;
 
-    public Population(bool gametest)
-    {
-        value = (gametest) ? 4 : 0;
-    }
-
     public int GetCurrentMaxValue()
     {
         return currentMaxValue;
