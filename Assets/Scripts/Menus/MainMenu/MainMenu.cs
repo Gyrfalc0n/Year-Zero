@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     const string playerNamePrefKey = "PlayerName";
 
-    string gameVersion = "1";
+    string gameVersion = "0.1";
 
     bool clickedMulti = false;
 
@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     private void Start()
     {
-        versionText.text = "Version " + gameVersion + ".0";
+        versionText.text = "Version " + gameVersion;
         PhotonNetwork.AutomaticallySyncScene = true;
         mainMenu.SetActive(true);
         CheckPseudo();

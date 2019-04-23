@@ -181,6 +181,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6280805093687666141}
     m_Modifications:
+    - target: {fileID: 100000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
+      propertyPath: m_Name
+      value: Asteroid_04_XL
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.6
@@ -224,10 +228,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -33.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
-      propertyPath: m_Name
-      value: Asteroid_04_XL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87a7172321f03484a9f7bf3cdf05c6dc, type: 3}
@@ -1015,12 +1015,12 @@ PrefabInstance:
     - target: {fileID: 6280805095144874401, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 315.17163
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6280805095144874401, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 130.01895
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6280805095144874401, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
@@ -1231,6 +1231,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280805094202658699, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280805093462295430, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 468759300379300376, guid: 558a34a8be43927418fdbc9bfea841c7, type: 3}
