@@ -13,9 +13,7 @@ public class CombatSystem : MonoBehaviour
     Transform firePoint;
     Transform bulletHolder;
 
-    [SerializeField]
-    float range;
-
+    public float range;
     public float attackRate;
     float time;
 
@@ -31,7 +29,7 @@ public class CombatSystem : MonoBehaviour
     {
         firePoint = new GameObject().transform;
         firePoint.SetParent(transform);
-        firePoint.localPosition = new Vector3(0.02f, -0.38f, 0.81f);
+        firePoint.localPosition = new Vector3(0.02f, 0f, 0.81f);
         firePoint.gameObject.name = "FirePoint";
     }
 
@@ -54,7 +52,7 @@ public class CombatSystem : MonoBehaviour
 
         if (target != null)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) <= range * 10)
+            if (Vector3.Distance(transform.position, target.transform.position) <= range * 3)
             {
                 FaceTarget(target.transform.position);
                 agent.ResetPath();
@@ -74,7 +72,7 @@ public class CombatSystem : MonoBehaviour
             time = 1/attackRate;
             GameObject obj = PhotonNetwork.Instantiate("Units/Bullets/" + projectile, firePoint.position, firePoint.rotation);
             obj.transform.SetParent(bulletHolder);
-            obj.GetComponent<Bullet>().Init(8f, GetComponent<MovableUnit>().damage, GetComponent<DestructibleUnit>());
+            obj.GetComponent<Bullet>().Init(14f, GetComponent<MovableUnit>().damage, GetComponent<DestructibleUnit>());
         }
     }
 

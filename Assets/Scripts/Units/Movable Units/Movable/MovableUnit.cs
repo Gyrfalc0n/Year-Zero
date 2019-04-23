@@ -221,7 +221,7 @@ public class MovableUnit : DestructibleUnit {
 
     public virtual void OnEnemyEnters(DestructibleUnit enemy)
     {
-        if (!moving)
+        if (!moving && !combatSystem.IsAttacking())
         {
             ResetAction();
             combatSystem.OnEnemyEnters(enemy);
