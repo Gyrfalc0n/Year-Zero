@@ -108,7 +108,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    accuratePlacement: 1
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 64bff0ceecb0fe446ae3c586a1edefbe, type: 2}
@@ -1232,15 +1232,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280805094202658699, guid: 558a34a8be43927418fdbc9bfea841c7,
+    - target: {fileID: 6280805093983892461, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280805093462295430, guid: 558a34a8be43927418fdbc9bfea841c7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.8
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 468759300379300376, guid: 558a34a8be43927418fdbc9bfea841c7, type: 3}
