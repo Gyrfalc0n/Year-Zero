@@ -44,7 +44,7 @@ public class MonoDescriptionPanel : MonoBehaviour
                 s = "Ore";
             }
             if (s != string.Empty)
-                resourceText.text = s + " : " + unit.GetComponent<MiningSystem>().GetResourceAmount();
+                resourceText.text = s + " : " + (int)unit.GetComponent<MiningSystem>().GetResourceAmount();
             else
                 resourceText.text = "";
         }

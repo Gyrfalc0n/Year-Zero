@@ -16,6 +16,6 @@ public class FarmResourceUnit : ResourceUnit
 
     void Update()
     {
-        resources = (resources + add > maxResources) ? maxResources : resources +add;
+        resources = (resources + add >= maxResources) ? maxResources : resources +add;
     }
 }
