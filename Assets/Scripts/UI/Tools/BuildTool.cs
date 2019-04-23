@@ -19,7 +19,7 @@ public class BuildTool : Tool
 
     public void Build()
     {
-        if (PlayerManager.playerManager.PayCheck(associatedBuilding.costs, associatedBuilding.pop))
+        if (PlayerManager.playerManager.PayCheck(associatedBuilding.costs, associatedBuilding.pop, true))
         {
             BuilderUnit builder = SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<BuilderUnit>();
             PlayerController.playerController.InitBuildToolControls(associatedBuilding, builder);

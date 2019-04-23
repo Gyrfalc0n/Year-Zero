@@ -96,7 +96,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     {
         GameObject tmp = InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0), -1);
         PlayerManager.playerManager.AddHome(tmp.GetComponent<TownHall>());
-        PlayerManager.playerManager.Pay(new int[] { 0, 0, 0, 0 }, 4);
+        PlayerManager.playerManager.Pay(new int[] { 0, 0, 0, 0 }, 4, false);
         if (SceneManager.GetActiveScene().name != "Tutorial")
         {
             InstantiateUnit(builders[race], new Vector3(coords.x, 0.5f, coords.z), Quaternion.Euler(0, 0, 0), -1);
@@ -108,11 +108,12 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         Camera.main.GetComponent<CameraController>().LookTo(PlayerManager.playerManager.GetHomes()[0].transform.position);
     }
 
-    protected void CheckDeath()
+    public void CheckDeath()
     {
         if (mySelectableObjs.Count == 0)
         {
-            Debug.Log("You're Dead");
+            Time.timeScale = 0f;
+            GameObject.Find("DeathScreen").GetComponent<DeathScreen>().Show();
         }
     }
 

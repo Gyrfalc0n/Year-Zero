@@ -23,7 +23,7 @@ public class TaskTool : Tool
 
     public void CreateInstantiateTask()
     {
-        if (!associatedBuilding.GetComponent<TaskSystem>().Full() && PlayerManager.playerManager.Pay(associatedUnit.costs, associatedUnit.pop))
+        if (!associatedBuilding.GetComponent<TaskSystem>().Full() && PlayerManager.playerManager.Pay(associatedUnit.costs, associatedUnit.pop, false))
         {
             InstantiateTask task = Instantiate(instantiateTaskPrefab).GetComponent<InstantiateTask>();
             task.transform.SetParent(associatedBuilding.GetComponent<TaskSystem>().taskHolder);

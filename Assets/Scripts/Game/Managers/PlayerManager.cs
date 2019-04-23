@@ -43,9 +43,9 @@ public class PlayerManager : MonoBehaviour {
         return names;
     }
 
-    public bool Pay(int[] costs, int pop)
+    public bool Pay(int[] costs, int pop, bool forBuilding)
     {
-        if (PayCheck(costs, pop))
+        if (PayCheck(costs, pop, forBuilding))
         {
             int i = 0;
             foreach (GameResource resource in resources)
@@ -72,26 +72,50 @@ public class PlayerManager : MonoBehaviour {
         UpdateResourcesPanel();
     }
 
-    public bool PayCheck(int[] costs, int pop)
+    public bool PayCheck(int[] costs, int pop, bool forBuilding)
     {
-        int i = 0;
+        int i = -1;
         bool possible = true;
-        foreach (GameResource resource in resources)
+        for (; possible && i+1 < resources.Length; i++)
         {
-            if (resource.GetValue() < costs[i])
+            if (resources[i+1].GetValue() < costs[i+1])
                 possible = false;
-            i++;
         }
-        if (possible && population.GetCurrentMaxValue() < population.GetValue() + pop)
+        if (!forBuilding && possible && population.GetCurrentMaxValue() < population.GetValue() + pop)
         {
             possible = false;
+            i = -2;
         }
-            
+
         if (!possible)
         {
-            TemporaryMessage.temporaryMessage.Add("Not Enough Resources");
+            SendMessage(i);
         }
         return possible;
+    }
+
+    public void SendMessage(int i)
+    {
+        string message;
+        switch (i)
+        {
+            case 0:
+                message = "You don't have enough energy";
+                break;
+            case 1:
+                message = "You don't have enough ore";
+                break;
+            case 2:
+                message = "You don't have enough food";
+                break;
+            case 3:
+                message = "You don't have enough tech points";
+                break;
+            default:
+                message = "You don't have enough population";
+                break;
+        }
+        TemporaryMessage.temporaryMessage.Add(message);
     }
 
     public void Add(int val, int index)

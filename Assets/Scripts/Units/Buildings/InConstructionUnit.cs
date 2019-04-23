@@ -63,7 +63,7 @@ public class InConstructionUnit : BuildingUnit
 
     public override void Cancel()
     {
-        PlayerManager.playerManager.Pay(associatedBuilding.costs, associatedBuilding.pop);
+        PlayerManager.playerManager.PayBack(associatedBuilding.costs, associatedBuilding.pop);
         KillUnit();
     }
 

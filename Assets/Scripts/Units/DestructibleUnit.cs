@@ -109,6 +109,7 @@ public class DestructibleUnit : SelectableObj {
 
         OnDestroyed();
         PhotonNetwork.Destroy(this.gameObject);
+        InstanceManager.instanceManager.CheckDeath();
     }
 
     [PunRPC]

@@ -31,7 +31,8 @@ public class BotArmyManager : MonoBehaviour
             DestructibleUnit tmp = GetNearestBuildingOf(enemy);
             if (tmp == null) tmp = GetNearestTroopOf(enemy);
             if (res == null || Vector3.Distance(myPos, tmp.transform.position) > Vector3.Distance(myPos, res.transform.position))
-                res = tmp.GetComponent<DestructibleUnit>();
+                if (tmp != null)
+                    res = tmp.GetComponent<DestructibleUnit>();
         }
         return res;
     }
