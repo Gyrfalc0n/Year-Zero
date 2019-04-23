@@ -52,13 +52,23 @@ public class MovableUnit : DestructibleUnit {
         base.RPCInitUnit(botIndex);
     }
 
-    protected Holder alwaysAttack = null;
+    protected bool alwaysAttack = false;
 
     public virtual void Update()
     {
-        if (alwaysAttack != null && !GetComponent<CombatSystem>().IsAttacking())
+        if (alwaysAttack && !GetComponent<CombatSystem>().IsAttacking())
         {
-            Attack(InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().GetNearestBuildingOf(alwaysAttack));
+            DestructibleUnit target;
+            if (botIndex == -2)
+            {
+                target = GameObject.Find("independantBotPrefab").GetComponent<BotArmyManager>().GetNearestEnemy();
+            }
+            else
+            {
+                target = InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().GetNearestEnemy();
+            }
+            if (target == null) return;
+            Attack(target);
         }
         else if (moving)
         {
@@ -239,9 +249,9 @@ public class MovableUnit : DestructibleUnit {
         OnEnemyEnters(shooter);
     }
 
-    public void SetAlwaysAttack(Holder i)
+    public void SetAlwaysAttack()
     {
-        alwaysAttack = i;
+        alwaysAttack = true;
     }
 
     public override void OnDestroyed()
@@ -253,7 +263,10 @@ public class MovableUnit : DestructibleUnit {
             {
                 InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().Remove(this);
             }
-
+            else if (botIndex == -2)
+            {
+                GameObject.Find("independantBotPrefab").GetComponent<BotArmyManager>().Remove(this);
+            }
         }
     }
 }

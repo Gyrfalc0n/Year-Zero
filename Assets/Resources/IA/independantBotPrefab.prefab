@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 8529255452178878409}
   - component: {fileID: 6950816422369222848}
   - component: {fileID: 5384363323877394395}
-  - component: {fileID: 6950816422369222855}
   - component: {fileID: 5146959044448783222}
+  - component: {fileID: 6950816422369222855}
   m_Layer: 0
   m_Name: independantBotPrefab
   m_TagString: Untagged
@@ -106,6 +106,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instantiateTaskPrefab: {fileID: 2435338677811070794, guid: 34fc7537abb30c049ab65d2f02cd82df,
     type: 3}
+--- !u!114 &5146959044448783222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950816422369222851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8839ca0df750de0408ccfcaf2112abe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6950816422369222855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,15 +140,3 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 4
   isRuntimeInstantiated: 0
---- !u!114 &5146959044448783222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6950816422369222851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8839ca0df750de0408ccfcaf2112abe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

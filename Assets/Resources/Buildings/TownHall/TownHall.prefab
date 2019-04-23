@@ -24,7 +24,7 @@ MonoBehaviour:
   botIndex: 0
   spells: []
   groupHighlight: 0
-  defaultMaxLife: 5000
+  defaultMaxLife: 2
   maxLife: 10
   iconSprite: {fileID: 0}
   lines: 3
@@ -266,6 +266,21 @@ PrefabInstance:
         type: 3}
       propertyPath: costs.Array.data[0]
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232799789023330727, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232799789023330727, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232799789023330727, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2.04
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
