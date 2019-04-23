@@ -98,7 +98,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         PlayerManager.playerManager.AddHome(tmp.GetComponent<TownHall>());
         if (SceneManager.GetActiveScene().name != "Tutorial")
         {
-            InstantiateUnit(builders[1], new Vector3(coords.x, 0.5f, coords.z), Quaternion.Euler(0, 0, 0), -1);
+            InstantiateUnit(builders[race], new Vector3(coords.x, 0.5f, coords.z), Quaternion.Euler(0, 0, 0), -1);
             InstantiateUnit(builders[race], new Vector3(coords.x+1, 0.5f, coords.z+1), Quaternion.Euler(0, 0, 0), -1);
             InstantiateUnit(builders[race], new Vector3(coords.x, 0.5f, coords.z+1), Quaternion.Euler(0, 0, 0), -1);
             InstantiateUnit(builders[race], new Vector3(coords.x+1, 0.5f, coords.z), Quaternion.Euler(0, 0, 0), -1);

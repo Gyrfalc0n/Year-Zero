@@ -24,6 +24,8 @@ public class Card : MonoBehaviour {
     void Update()
     {
         lifeBar.fillAmount = associatedUnit.GetLife() / associatedUnit.GetMaxlife();
+        if (associatedUnit.GetLife() <= 0)
+            Destroy(this);
     }
 
     public void Highlight()

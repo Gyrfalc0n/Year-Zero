@@ -36,6 +36,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6402009625256010200}
     m_Modifications:
+    - target: {fileID: 4402291145370999310, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceObject12
+      objectReference: {fileID: 0}
     - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -105,11 +110,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4402291145370999310, guid: bfeec4f939f4169478c27eef5b708902,
-        type: 3}
-      propertyPath: m_Name
-      value: SpaceObject12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfeec4f939f4169478c27eef5b708902, type: 3}
@@ -180,28 +180,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: ghost
-      value: 
-      objectReference: {fileID: 1498426257654464, guid: 5d66490c44b273340b4574f04e246d7d,
-        type: 3}
-    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: constructor
-      value: 
-      objectReference: {fileID: 2487996386993575265, guid: fa695baeac3f0fb42ab83e82205413f5,
-        type: 3}
-    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: requiredTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: costs.Array.data[0]
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 3288736474022729068, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -267,6 +245,28 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 645a9de5e8a6a1b41a4f78ffb6b6b71f, type: 2}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 1498426257654464, guid: 5d66490c44b273340b4574f04e246d7d,
+        type: 3}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: constructor
+      value: 
+      objectReference: {fileID: 2487996386993575265, guid: fa695baeac3f0fb42ab83e82205413f5,
+        type: 3}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: requiredTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: costs.Array.data[0]
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
     - {fileID: 2888816329839541249, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}

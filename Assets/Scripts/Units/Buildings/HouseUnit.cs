@@ -20,7 +20,7 @@ public class HouseUnit : ConstructedUnit {
     public override void OnDestroyed()
     {
         base.OnDestroyed();
-        PlayerManager.playerManager.RemovePopulation(popValue);
+        PlayerManager.playerManager.RemoveMaxPopulation(popValue);
     }
     public override bool IsAvailable()
     {

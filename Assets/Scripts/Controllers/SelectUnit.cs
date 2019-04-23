@@ -363,7 +363,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
         {
-            if (hit.collider.GetComponent<MovableUnit>() != null && hit.collider.GetComponent<MovableUnit>().photonView.IsMine)
+            if (hit.collider.GetComponent<MovableUnit>() != null && hit.collider.GetComponent<MovableUnit>().photonView.IsMine && hit.collider.GetComponent<MovableUnit>().botIndex != -1 || hit.collider.GetComponent<MovableUnit>().botIndex != -2)
             {
                 ClearSelection();
 

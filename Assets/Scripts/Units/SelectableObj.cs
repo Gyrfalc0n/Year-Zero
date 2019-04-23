@@ -272,7 +272,8 @@ public class SelectableObj : Interactable
         fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
         if (GetComponent<MovableUnit>() != null)
         {
-            fovCollider.transform.localScale = new Vector3(2, 1, 2);
+            float combat = GetComponent<CombatSystem>().range * 3;
+            fovCollider.transform.localScale = new Vector3(combat, 1, combat);
         }
         else if (GetComponent<Radar>() != null)
         {

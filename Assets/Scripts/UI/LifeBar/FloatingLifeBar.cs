@@ -38,7 +38,7 @@ public class FloatingLifeBar : MonoBehaviour
             obj.gameObject.SetActive(true);
             bg.SetActive(true);
             tmp = associatedUnit.transform.position;
-            tmp.y += 1;
+            tmp.y += 2;
             transform.position = tmp;
             transform.rotation = Camera.main.transform.rotation;
 
