@@ -176,11 +176,13 @@ public class PlayerManager : MonoBehaviour {
     public void RemovePopulation(int val)
     {
         population.Remove(val);
+        UpdateResourcesPanel();
     }
 
     public void RemoveMaxPopulation(int val)
     {
         population.RemoveMax(val);
+        UpdateResourcesPanel();
     }
 
     #endregion
