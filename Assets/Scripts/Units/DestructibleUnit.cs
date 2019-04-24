@@ -109,7 +109,10 @@ public class DestructibleUnit : SelectableObj {
 
         OnDestroyed();
         PhotonNetwork.Destroy(this.gameObject);
-        InstanceManager.instanceManager.CheckDeath();
+        if (botIndex == -1)
+            InstanceManager.instanceManager.CheckDeath();
+        else if (botIndex != -2)
+            InstanceManager.instanceManager.GetBot(botIndex).CheckDeath();
     }
 
     [PunRPC]

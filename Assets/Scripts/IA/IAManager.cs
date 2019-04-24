@@ -17,6 +17,7 @@ public class IAManager : MonoBehaviourPunCallbacks
 
     public void Init(int index, int race, int team, int color, Vector3 coords)
     {
+        dead = false;
         SetParameters(index, race, team, color);
         if (!PhotonNetwork.OfflineMode)
             photonView.RPC("SetParameters", RpcTarget.Others, index, race, team, color);
@@ -32,12 +33,14 @@ public class IAManager : MonoBehaviourPunCallbacks
         this.color = color;
     }
 
-    void CheckDeath()
+    public bool dead { get; private set; }
+    public void CheckDeath()
     {
         if (mySelectableObjs.Count == 0)
         {
-            Debug.Log("You're Dead");
+            dead = true;
         }
+        InstanceManager.instanceManager.photonView.RPC("RPCCheckWin", RpcTarget.All);
     }
 
     void InitStartingTroops(Vector3 coords)

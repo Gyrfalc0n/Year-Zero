@@ -108,11 +108,24 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         Camera.main.GetComponent<CameraController>().LookTo(PlayerManager.playerManager.GetHomes()[0].transform.position);
     }
 
+    public void CheckWin()
+    {
+        if (GetNearestEnemy() == null)
+        {
+            GameObject.Find("WinScreen").GetComponent<DeathScreen>().Show();
+        }
+    }
+
+    [PunRPC]
+    public void RPCCheckWin()
+    {
+        CheckWin();
+    }
+
     public void CheckDeath()
     {
         if (mySelectableObjs.Count == 0)
         {
-            Time.timeScale = 0f;
             GameObject.Find("DeathScreen").GetComponent<DeathScreen>().Show();
         }
     }
@@ -240,4 +253,78 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     }
 
     public Transform bulletHolder { get; private set; }
+
+
+
+
+
+
+
+    public DestructibleUnit GetNearestEnemy()
+    {
+        DestructibleUnit res = null;
+        List<Holder> enemies = GetEnemyHolders();
+        Vector3 myPos = PlayerManager.playerManager.GetHomes()[0].transform.position;
+
+        foreach (Holder enemy in enemies)
+        {
+            DestructibleUnit tmp = GetNearestBuildingOf(enemy);
+            if (tmp == null) tmp = GetNearestTroopOf(enemy);
+            if (res == null || Vector3.Distance(myPos, tmp.transform.position) > Vector3.Distance(myPos, res.transform.position))
+                if (tmp != null)
+                    res = tmp.GetComponent<DestructibleUnit>();
+        }
+        return res;
+    }
+
+    public DestructibleUnit GetNearestBuildingOf(Holder x)
+    {
+        DestructibleUnit res = null;
+        Transform buildings = x.transform.GetChild(0).Find("Buildings");
+        Vector3 myPos = PlayerManager.playerManager.GetHomes()[0].transform.position;
+
+        foreach (Transform child in buildings)
+        {
+            if (res == null || Vector3.Distance(myPos, child.position) > Vector3.Distance(myPos, res.transform.position))
+                res = child.GetComponent<DestructibleUnit>();
+        }
+        return res;
+    }
+
+    public DestructibleUnit GetNearestTroopOf(Holder x)
+    {
+        DestructibleUnit res = null;
+        Transform buildings = x.transform.GetChild(0).Find("Movable");
+        Vector3 myPos = PlayerManager.playerManager.GetHomes()[0].transform.position;
+
+        foreach (Transform child in buildings)
+        {
+            if (res == null || Vector3.Distance(myPos, child.position) > Vector3.Distance(myPos, res.transform.position))
+                res = child.GetComponent<DestructibleUnit>();
+        }
+        return res;
+    }
+
+    public List<Holder> GetEnemyHolders()
+    {
+        List<Holder> enemies = new List<Holder>();
+
+        if (!PhotonNetwork.OfflineMode)
+        {
+            foreach (Player player in PhotonNetwork.PlayerList)
+            {
+                if (GameObject.Find("Holder" + player.NickName).GetComponent<Holder>().team != GetTeam())
+                {
+                    enemies.Add(GameObject.Find("Holder" + player.NickName).GetComponent<Holder>());
+                }
+            }
+        }
+
+        for (int i = 1; i <= PlayerPrefs.GetInt("BotNumber"); i++)
+        {
+            if (GameObject.Find("Holder" + i).GetComponent<Holder>().team != GetTeam())
+                enemies.Add(GameObject.Find("Holder" + i).GetComponent<Holder>());
+        }
+        return enemies;
+    }
 }
