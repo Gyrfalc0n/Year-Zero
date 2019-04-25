@@ -217,6 +217,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         playerAmountText.text = playersList.childCount + "/" + ((PhotonNetwork.OfflineMode) ? soloMaxPlayer : PhotonNetwork.CurrentRoom.MaxPlayers);
     }
 
+    [SerializeField] Canvas cnvs;
     void UpdateWaittingMessage()
     {
         int maxPlayer = (PhotonNetwork.OfflineMode) ? soloMaxPlayer : PhotonNetwork.CurrentRoom.MaxPlayers;
@@ -231,7 +232,8 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
                 waittingDots.text = new string('.', (waittingDots.text.Length + 1));
         }
         Vector3 tmp = waittingMessage.transform.position;
-        tmp.y = playersList.transform.GetChild(playersList.transform.childCount - 1).position.y - 50;
+        if (playersList.childCount > 0)
+            tmp.y = playersList.GetChild(playersList.childCount - 1).position.y - 40 * cnvs.scaleFactor;
         waittingMessage.transform.position = tmp;
     }
 }
