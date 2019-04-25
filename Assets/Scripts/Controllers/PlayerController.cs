@@ -200,7 +200,6 @@ public class PlayerController : MonoBehaviour {
             currentPlayerControls != chatPanelControls &&
             currentPlayerControls != alliesPanelControls &&
             currentPlayerControls != chatMenuPanelControls &&
-            currentPlayerControls != repairToolControls &&
             currentPlayerControls != skilltreeControls &&
             currentPlayerControls != helpPanelControls);
     }
