@@ -111,7 +111,7 @@ public class DestructibleUnit : SelectableObj {
         PhotonNetwork.Destroy(this.gameObject);
         if (botIndex == -1)
             InstanceManager.instanceManager.CheckDeath();
-        else if (botIndex != -2)
+        else if (botIndex != -2 && !PhotonNetwork.OfflineMode)
             InstanceManager.instanceManager.GetBot(botIndex).CheckDeath();
     }
 

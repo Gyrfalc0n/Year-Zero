@@ -26,14 +26,6 @@ public class BuildingSystem : MonoBehaviour
         {
             OnReachedDestination();
         }
-        else if (currentAction == CurrentBuildingAction.building)
-        {
-            StopBuilding();
-            if (GetComponent<BuilderUnit>().botIndex != -1)
-            {
-                InstanceManager.instanceManager.GetBot(GetComponent<BuilderUnit>().botIndex).GetComponent<BotMiningManager>().SendToMine(GetComponent<BuilderUnit>(), 1);
-            }
-        }
     }
 
     void SetDestination(Vector3 pos, float stoppingDistance)
@@ -84,7 +76,7 @@ public class BuildingSystem : MonoBehaviour
 
     public bool IsBuilding()
     {
-        return !(currentAction == CurrentBuildingAction.nothing);
+        return (currentAction != CurrentBuildingAction.nothing);
     }
 
     enum CurrentBuildingAction
