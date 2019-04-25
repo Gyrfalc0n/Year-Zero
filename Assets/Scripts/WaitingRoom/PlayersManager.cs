@@ -230,5 +230,8 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
             else
                 waittingDots.text = new string('.', (waittingDots.text.Length + 1));
         }
+        Vector3 tmp = waittingMessage.transform.position;
+        tmp.y = playersList.transform.GetChild(playersList.transform.childCount - 1).position.y - 50;
+        waittingMessage.transform.position = tmp;
     }
 }
