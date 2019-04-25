@@ -7,7 +7,8 @@ public class CampaignMenu : MonoBehaviourPunCallbacks
 {
     [SerializeField] public GameObject WarningTutoNotCleared;
     [SerializeField] public GameObject WarningMissionNotCleared;
-     public void StartTuto()
+
+    public void StartTuto()
      {
         PhotonNetwork.LoadLevel(4);
         FindObjectOfType<AudioManager>().PlaySound("UniverseMusic");

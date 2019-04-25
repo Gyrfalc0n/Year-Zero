@@ -12,7 +12,6 @@ public class SingleplayerMenu : MonoBehaviour
 
     public void Campaign()
     {
-        
         CampaignMenu.SetActive(true);
         gameObject.SetActive(false);
     }
