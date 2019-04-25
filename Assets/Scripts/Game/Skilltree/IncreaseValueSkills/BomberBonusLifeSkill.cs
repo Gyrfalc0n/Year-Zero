@@ -11,7 +11,7 @@ public class BomberBonusLifeSkill : IncreaseValueSkill
         {
             if (obj.GetComponent<Bomber>() != null)
             {
-                obj.GetComponent<Bomber>().maxLife += (int)(obj.GetComponent<Bomber>().defaultMaxLife * SkilltreeManager.manager.bomberBonusLife);
+                obj.GetComponent<Bomber>().maxLife = (int)(obj.GetComponent<Bomber>().defaultMaxLife * SkilltreeManager.manager.bomberBonusLife);
             }
         }
     }

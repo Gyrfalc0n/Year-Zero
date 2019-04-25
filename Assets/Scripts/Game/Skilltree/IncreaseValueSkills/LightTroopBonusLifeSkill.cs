@@ -11,7 +11,7 @@ public class LightTroopBonusLifeSkill : IncreaseValueSkill
         {
             if (obj.GetComponent<LightTroop>() != null)
             {
-                obj.GetComponent<LightTroop>().maxLife += (int)(obj.GetComponent<LightTroop>().defaultMaxLife * SkilltreeManager.manager.lightTroopBonusLife);
+                obj.GetComponent<LightTroop>().maxLife = (int)(obj.GetComponent<LightTroop>().defaultMaxLife * SkilltreeManager.manager.lightTroopBonusLife);
             }
         }
     }

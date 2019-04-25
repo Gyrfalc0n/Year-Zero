@@ -11,7 +11,7 @@ public class DestroyerBonusLifeSkill : IncreaseValueSkill
         {
             if (obj.GetComponent<Destroyer>() != null)
             {
-                obj.GetComponent<Destroyer>().maxLife += (int)(obj.GetComponent<Destroyer>().defaultMaxLife * SkilltreeManager.manager.lightTroopBonusLife);
+                obj.GetComponent<Destroyer>().maxLife = (int)(obj.GetComponent<Destroyer>().defaultMaxLife * SkilltreeManager.manager.lightTroopBonusLife);
             }
         }
     }

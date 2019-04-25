@@ -9,7 +9,7 @@ public class LightTroop : MovableUnit
         base.InitUnit(botIndex);
         if (botIndex == -1)
         {
-            maxLife = defaultMaxLife + (int)(defaultMaxLife * SkilltreeManager.manager.lightTroopBonusLife);
+            maxLife = (int)(defaultMaxLife * SkilltreeManager.manager.lightTroopBonusLife);
             agent.speed = speed + (int)(defaultSpeed * SkilltreeManager.manager.lightTroopBonusSpeed);
             damage = damage + (int)(defaultDamage * SkilltreeManager.manager.lightTroopBonusDamage);
         }
