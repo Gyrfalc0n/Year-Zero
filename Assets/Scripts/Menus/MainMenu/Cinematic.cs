@@ -11,8 +11,11 @@ public class Cinematic : MonoBehaviour
     [SerializeField] VideoPlayer player;
     [SerializeField] AudioManager music;
 
+    bool started;
+
     private void Start()
     {
+        started = false;
         player.loopPointReached += EndReached;
         if (!PlayerPrefs.HasKey("Cinematic") || PlayerPrefs.GetInt("Cinematic") == 0)
         {
@@ -23,6 +26,7 @@ public class Cinematic : MonoBehaviour
 
     public void Show()
     {
+        started = true;
         if (music != null)
             music.Pause(0);
         rawImage.SetActive(true);
@@ -31,6 +35,7 @@ public class Cinematic : MonoBehaviour
 
     public void Stop()
     {
+        started = false;
         if (music != null)
             music.UnPause(0);
         player.Stop();
@@ -48,7 +53,7 @@ public class Cinematic : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.Return))
+        if (started && (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.Return)))
         {
             Stop();
         }

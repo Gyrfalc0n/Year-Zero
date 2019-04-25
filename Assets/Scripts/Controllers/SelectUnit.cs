@@ -125,9 +125,9 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     public void UpdateUI()
     {
         monoDescriptionPanel.ResetBar();
+        advancementBar.Reset();
         if (selected.Count == 0)
         {
-            advancementBar.Reset();
             taskBar.ResetBar();
             cardsPanel.ClearCards();
             toolsPanel.ClearTools();
@@ -138,7 +138,6 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             portraitPanel.Init(selected[0].GetComponent<DestructibleUnit>());
         if (selected[0].GetComponent<MovableUnit>() != null)
         {
-            advancementBar.Reset();
             taskBar.ResetBar();
             cardsPanel.ClearCards();
             if (selected.Count > 1)
@@ -363,7 +362,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
         {
-            if (hit.collider.GetComponent<MovableUnit>() != null && hit.collider.GetComponent<MovableUnit>().photonView.IsMine && hit.collider.GetComponent<MovableUnit>().botIndex != -1 || hit.collider.GetComponent<MovableUnit>().botIndex != -2)
+            if (hit.collider.GetComponent<MovableUnit>() != null && hit.collider.GetComponent<MovableUnit>().photonView.IsMine && hit.collider.GetComponent<MovableUnit>().botIndex != -1 && hit.collider.GetComponent<MovableUnit>().botIndex != -2)
             {
                 ClearSelection();
 

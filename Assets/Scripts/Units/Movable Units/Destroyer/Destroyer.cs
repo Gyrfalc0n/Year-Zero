@@ -7,7 +7,7 @@ public class Destroyer : MovableUnit
     public override void InitUnit(int botIndex)
     {
         if (botIndex == -1)
-            maxLife = defaultMaxLife + (int)(defaultMaxLife * SkilltreeManager.manager.destroyerBonusLife);
+            maxLife = (int)(defaultMaxLife * SkilltreeManager.manager.destroyerBonusLife);
         base.InitUnit(botIndex);
         GetComponentInChildren<SupportSpellZone>().Init(spellHolder);
     }

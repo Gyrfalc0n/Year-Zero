@@ -7,13 +7,7 @@ public class LightTroopBonusSpeedSkill : IncreaseValueSkill
 {
     public override void Effect()
     {
-        SkilltreeManager.manager.lightTroopBonusSpeed += increaseAmount;
-        foreach (SelectableObj obj in InstanceManager.instanceManager.mySelectableObjs)
-        {
-            if (obj.GetComponent<LightTroop>() != null)
-            {
-                obj.GetComponent<NavMeshAgent>().speed += (int)(obj.GetComponent<LightTroop>().defaultSpeed * SkilltreeManager.manager.lightTroopBonusSpeed);
-            }
-        }
+        Increase(ref SkilltreeManager.manager.lightTroopBonusSpeed);
+        UpdateSpeedAssociatedUnits<LightTroop>(ref SkilltreeManager.manager.lightTroopBonusSpeed);
     }
 }

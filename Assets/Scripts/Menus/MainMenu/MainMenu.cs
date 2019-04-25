@@ -202,7 +202,7 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         if (PhotonNetwork.IsMasterClient)
         {
             Debug.Log("We load the waiting room");
-            PhotonNetwork.LoadLevel("WaitingRoom");
+            PhotonNetwork.LoadLevel("WaittingRoom");
         }
     }
 
