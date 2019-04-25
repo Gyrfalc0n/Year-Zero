@@ -62,7 +62,6 @@ public class BuilderUnit : MovableUnit {
 
     public void Build(InConstructionUnit obj)
     {
-        print("z");
         ResetAction();
         buildingSystem.InitBuild(obj);
         UpdateJoblessPanel();
@@ -76,7 +75,6 @@ public class BuilderUnit : MovableUnit {
 
     public void Mine(ResourceUnit obj)
     {
-        print("a");
         ResetAction();
         miningSystem.InitMining(home, obj);
         UpdateJoblessPanel();
