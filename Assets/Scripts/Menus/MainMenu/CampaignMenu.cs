@@ -39,17 +39,4 @@ public class CampaignMenu : MonoBehaviourPunCallbacks
              WarningMissionNotCleared.GetComponent<TemporaryMenuMessage>().Activate();
          }
      }
-     
-     public void StartEndlessMode()
-     {
-         if ((PlayerPrefs.GetInt("missionCleared",0)==1))
-         {
-             PhotonNetwork.LoadLevel("EndlessMode");
-             FindObjectOfType<AudioManager>().PlaySound("BattleMusic");
-         }
-         else
-         {
-             WarningMissionNotCleared.GetComponent<TemporaryMenuMessage>().Activate();
-         }
-     }
 }
