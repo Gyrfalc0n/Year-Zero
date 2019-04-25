@@ -20,13 +20,13 @@ MonoBehaviour:
   selected: 0
   objName: Combat Station
   description: 
-  costs: 000000002c010000c800000000000000
+  costs: 00000000000000000000000000000000
   pop: 0
   fovCollider: {fileID: 0}
   botIndex: 0
   spells: []
   groupHighlight: 0
-  defaultMaxLife: 2000
+  defaultMaxLife: 1
   maxLife: 0
   iconSprite: {fileID: 0}
   lines: 3
@@ -43,11 +43,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combat Station
       objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 416454294261193715}
     - target: {fileID: 4198717423202766145, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -173,6 +168,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1662642892877366467, guid: c3f3f4c1f5af8a145bb51de754148591,
         type: 3}
+    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 416454294261193715}
     m_RemovedComponents:
     - {fileID: 3354145167647749936, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
     - {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}

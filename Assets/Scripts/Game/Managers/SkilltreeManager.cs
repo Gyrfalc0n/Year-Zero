@@ -55,6 +55,6 @@ public class SkilltreeManager : MonoBehaviour
     public float radar = 0;
     public float radarRange = 1; 
     public bool turrel = false;
-    public float turrelDamage = 1;
+    public float turrelBonusDamage = 1;
     public float turrelRange = 1;
 }

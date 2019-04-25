@@ -10,8 +10,8 @@ public class LightTroop : MovableUnit
         if (botIndex == -1)
         {
             maxLife = (int)(defaultMaxLife * SkilltreeManager.manager.lightTroopBonusLife);
-            agent.speed = speed + (int)(defaultSpeed * SkilltreeManager.manager.lightTroopBonusSpeed);
-            damage = damage + (int)(defaultDamage * SkilltreeManager.manager.lightTroopBonusDamage);
+            agent.speed = (int)(defaultSpeed * SkilltreeManager.manager.lightTroopBonusSpeed);
+            damage = (int)(defaultDamage * SkilltreeManager.manager.lightTroopBonusDamage);
         }
     }
 
