@@ -94,104 +94,97 @@ public class PlayerController : MonoBehaviour {
         movementControls.StopSelection();
     }
 
-
+    BuilderUnit GetUnderSelectedBuilder()
+    {
+        return SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<BuilderUnit>();
+    }
 
     public void ShowBuildingTools()
     {
-        BuilderUnit builder = SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<BuilderUnit>();
-        toolsPanel.ShowToolsList(builder.buildings);
+        toolsPanel.ShowToolsList(GetUnderSelectedBuilder().buildings);
     }
 
     public void HideBuildingTools()
     {
-        BuilderUnit builder = SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<BuilderUnit>();
-        toolsPanel.ShowToolsList(builder.tools);
+        toolsPanel.ShowToolsList(GetUnderSelectedBuilder().tools);
+    }
+
+    void InitControls(PlayerControls control)
+    {
+        ResetCurrentPlayerControls();
+        currentPlayerControls = control.Activate();
     }
 
     public void InitMovementControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = movementControls.Activate();
+        InitControls(movementControls);
     }
 
     public void InitPauseControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = pauseControls.Activate();
+        InitControls(pauseControls);
     }
 
     public void InitPatrolToolControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = patrolToolControls.Activate();
+        InitControls(patrolToolControls);
     }
 
     public void InitMoveToolControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = moveToolControls.Activate();
+        InitControls(moveToolControls);
     }
 
     public void InitBuildToolControls(ConstructedUnit building, BuilderUnit builder)
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = buildToolControls.Activate();
+        InitControls(buildToolControls);
         buildToolControls.CreatePlacementGrid(building, builder);
     }
 
     public void InitAttackToolControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = attackToolControls.Activate();
+        InitControls(attackToolControls);
     }
 
     public void InitMinimapMarkerControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = minimapMarkerControls.Activate();
+        InitControls(minimapMarkerControls);
     }
 
     public void InitChatPanelControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = chatPanelControls.Activate();
+        InitControls(chatPanelControls);
     }
 
     public void InitAlliesPanelControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = alliesPanelControls.Activate();
+        InitControls(alliesPanelControls);
     }
 
     public void InitChatMenuPanelControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = chatMenuPanelControls.Activate();
+        InitControls(chatMenuPanelControls);
     }
 
     public void InitRepairToolControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = repairToolControls.Activate();
+        InitControls(repairToolControls);
     }
 
     public void InitSpellToolControls(Spell spell)
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = spellToolControls.Activate();
+        InitControls(spellToolControls);
         spellToolControls.Init(spell);
     }
 
     public void InitSkilltreePanelControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = skilltreeControls.Activate();
+        InitControls(skilltreeControls);
     }
 
     public void InitHelpPanelControls()
     {
-        ResetCurrentPlayerControls();
-        currentPlayerControls = helpPanelControls.Activate();
+        InitControls(helpPanelControls);
     }
 
     public bool CameraAvailable()
