@@ -45,7 +45,7 @@ public class PauseControls : PlayerControls
 
     void CheckMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && mainMenu.gameObject.activeInHierarchy)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F10)) && mainMenu.gameObject.activeInHierarchy)
         {
             Cancel();
         }

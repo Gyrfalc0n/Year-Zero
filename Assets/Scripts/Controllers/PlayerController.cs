@@ -17,6 +17,7 @@ using Photon.Pun;
 [RequireComponent(typeof(RepairToolControls))]
 [RequireComponent(typeof(SpellToolControls))]
 [RequireComponent(typeof(SkilltreeControls))]
+[RequireComponent(typeof(HelpPanelControls))]
 public class PlayerController : MonoBehaviour {
 
     MovementControls movementControls;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour {
     RepairToolControls repairToolControls;
     SpellToolControls spellToolControls;
     SkilltreeControls skilltreeControls;
+    HelpPanelControls helpPanelControls;
     PlayerControls currentPlayerControls;
 
     #region Singleton
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour {
         repairToolControls = GetComponent<RepairToolControls>();
         spellToolControls = GetComponent<SpellToolControls>();
         skilltreeControls = GetComponent<SkilltreeControls>();
+        helpPanelControls = GetComponent<HelpPanelControls>();
         currentPlayerControls = movementControls.Activate();
     }
 
@@ -185,6 +188,12 @@ public class PlayerController : MonoBehaviour {
         currentPlayerControls = skilltreeControls.Activate();
     }
 
+    public void InitHelpPanelControls()
+    {
+        ResetCurrentPlayerControls();
+        currentPlayerControls = helpPanelControls.Activate();
+    }
+
     public bool CameraAvailable()
     {
         return (currentPlayerControls != pauseControls &&
@@ -192,6 +201,7 @@ public class PlayerController : MonoBehaviour {
             currentPlayerControls != alliesPanelControls &&
             currentPlayerControls != chatMenuPanelControls &&
             currentPlayerControls != repairToolControls &&
-            currentPlayerControls != skilltreeControls);
+            currentPlayerControls != skilltreeControls &&
+            currentPlayerControls != helpPanelControls);
     }
 }

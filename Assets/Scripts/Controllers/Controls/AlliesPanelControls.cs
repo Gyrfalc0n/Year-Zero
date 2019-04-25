@@ -33,7 +33,7 @@ public class AlliesPanelControls : PlayerControls
 
     void CheckMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || !obj.Activated())
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F11) || !obj.Activated())
         {
             Cancel();
         }
