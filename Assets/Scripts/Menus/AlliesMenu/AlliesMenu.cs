@@ -37,7 +37,6 @@ public class AlliesMenu : MonoBehaviourPunCallbacks
 
     public void Cancel()
     {
-        noAllies.SetActive(false);
         obj.SetActive(false);
         for (int i = content.childCount - 1; i >= 0; i--)
         {

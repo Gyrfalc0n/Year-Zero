@@ -1215,7 +1215,7 @@ PrefabInstance:
     - target: {fileID: 6280805093987309785, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
       propertyPath: offlineMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6280805093987309785, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
@@ -1227,17 +1227,27 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6280805093983892461, guid: 558a34a8be43927418fdbc9bfea841c7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6280805094551298411, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
       propertyPath: m_Name
       value: Background Objects
       objectReference: {fileID: 0}
     - target: {fileID: 6280805094797719706, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422149418862211970, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: viewIdField
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422149418862211970, guid: 558a34a8be43927418fdbc9bfea841c7,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437689531286662403, guid: 558a34a8be43927418fdbc9bfea841c7,
         type: 3}
       propertyPath: m_IsActive
       value: 0

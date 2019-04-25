@@ -104,7 +104,7 @@ public class MovementControls : PlayerControls
             }
             if (Input.GetKeyDown(KeyCode.F9))
             {
-                //GetComponent<PlayerController>().InitQuestControls();
+               GetComponent<PlayerController>().InitHelpPanelControls();
             }
             if (Input.GetKeyDown(KeyCode.F10))
             {

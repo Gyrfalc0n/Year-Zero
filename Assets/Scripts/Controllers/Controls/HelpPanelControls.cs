@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChatMenuPanelControls : PlayerControls
+public class HelpPanelControls : PlayerControls
 {
     [SerializeField]
-    ChatMenuPanel obj;
+    HelpMenu obj;
 
     public override void Init()
     {
-        obj.ShowPanel();
+        obj.Show();
     }
 
     public override void RightClick()
@@ -33,13 +33,9 @@ public class ChatMenuPanelControls : PlayerControls
 
     void CheckMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F12))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F9))
         {
             Cancel();
-        }
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            obj.Send();
         }
     }
 }
