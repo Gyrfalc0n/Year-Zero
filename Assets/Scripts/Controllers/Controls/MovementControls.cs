@@ -118,6 +118,10 @@ public class MovementControls : PlayerControls
             {
                 GetComponent<PlayerController>().InitChatMenuPanelControls();
             }
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                GetComponent<PlayerController>().InitSkilltreePanelControls();
+            }
         }
     }
 
