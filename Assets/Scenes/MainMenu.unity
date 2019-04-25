@@ -363,7 +363,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 406734893}
+      objectReference: {fileID: 406734892}
     - target: {fileID: 110438729788820070, guid: 431fe6df11ec10f4fa294ad446d879e9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2515,16 +2515,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuickMatch
       objectReference: {fileID: 0}
-    - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
-        type: 3}
-      propertyPath: m_Text
-      value: QUICK GAME
-      objectReference: {fileID: 0}
     - target: {fileID: 2322418288383231158, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
         type: 3}
       propertyPath: myFX
       value: 
       objectReference: {fileID: 347474360}
+    - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
+        type: 3}
+      propertyPath: m_Text
+      value: QUICK GAME
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc4b371a0ad5a94cb577dc1b12a5c74, type: 3}
 --- !u!224 &349912859 stripped
@@ -2906,7 +2906,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 406734891}
-  - component: {fileID: 406734893}
   - component: {fileID: 406734892}
   m_Layer: 5
   m_Name: Create Game Menu
@@ -2967,19 +2966,8 @@ MonoBehaviour:
   maxPlayerObj: {fileID: 785009215}
   noMap: {fileID: 1310282841}
   noName: {fileID: 1834116925}
---- !u!114 &406734893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406734890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 672f8de5440db6d429a31e231950564e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goToMenu: {fileID: 601253874}
+  multiplayerMenu: {fileID: 601253874}
+  singleplayerMenu: {fileID: 1270020587}
 --- !u!1 &406736182
 GameObject:
   m_ObjectHideFlags: 0
@@ -3809,15 +3797,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: JoinGameMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
-        type: 3}
-      propertyPath: m_Text
-      value: JOIN GAME
-      objectReference: {fileID: 0}
     - target: {fileID: 2322418287199082522, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
+        type: 3}
+      propertyPath: m_Text
+      value: JOIN GAME
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc4b371a0ad5a94cb577dc1b12a5c74, type: 3}
@@ -5161,16 +5149,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Campaign
       objectReference: {fileID: 0}
-    - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
-        type: 3}
-      propertyPath: m_Text
-      value: CAMPAIGN
-      objectReference: {fileID: 0}
     - target: {fileID: 2322418288383231158, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
         type: 3}
       propertyPath: myFX
       value: 
       objectReference: {fileID: 863115683}
+    - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
+        type: 3}
+      propertyPath: m_Text
+      value: CAMPAIGN
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc4b371a0ad5a94cb577dc1b12a5c74, type: 3}
 --- !u!224 &737591233 stripped
@@ -14125,7 +14113,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 406734893}
+      - m_Target: {fileID: 0}
         m_MethodName: Back
         m_Mode: 1
         m_Arguments:
@@ -14420,15 +14408,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CreateGame
       objectReference: {fileID: 0}
-    - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
-        type: 3}
-      propertyPath: m_Text
-      value: CREATE GAME
-      objectReference: {fileID: 0}
     - target: {fileID: 2322418287199082522, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
+        type: 3}
+      propertyPath: m_Text
+      value: CREATE GAME
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc4b371a0ad5a94cb577dc1b12a5c74, type: 3}

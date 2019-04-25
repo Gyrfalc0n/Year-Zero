@@ -135,4 +135,15 @@ public class CreateGameMenu : MonoBehaviour {
         if (!PhotonNetwork.OfflineMode)
             gameNameText.ActivateInputField();
     }
+
+    [SerializeField] GameObject multiplayerMenu;
+    [SerializeField] GameObject singleplayerMenu;
+    public void Back()
+    {
+        if (!PhotonNetwork.OfflineMode)
+            multiplayerMenu.SetActive(true);
+        else
+            singleplayerMenu.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
 }
