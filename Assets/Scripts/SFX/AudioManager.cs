@@ -131,5 +131,13 @@ public class AudioManager : MonoBehaviour
         return activeMusicName;
     }
 
-    
+    public void Pause(int index)
+    {
+        sounds[index].source.Pause();
+    }
+
+    public void UnPause(int index)
+    {
+        sounds[index].source.UnPause();
+    }
 }
