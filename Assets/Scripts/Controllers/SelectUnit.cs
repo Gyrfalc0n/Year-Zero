@@ -125,9 +125,9 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     public void UpdateUI()
     {
         monoDescriptionPanel.ResetBar();
+        advancementBar.Reset();
         if (selected.Count == 0)
         {
-            advancementBar.Reset();
             taskBar.ResetBar();
             cardsPanel.ClearCards();
             toolsPanel.ClearTools();
@@ -138,7 +138,6 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             portraitPanel.Init(selected[0].GetComponent<DestructibleUnit>());
         if (selected[0].GetComponent<MovableUnit>() != null)
         {
-            advancementBar.Reset();
             taskBar.ResetBar();
             cardsPanel.ClearCards();
             if (selected.Count > 1)

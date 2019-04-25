@@ -31,7 +31,7 @@ public class PortraitPanel : MonoBehaviour
             Vector3 rot = associatedUnit.transform.localEulerAngles;
             Vector3 pos = associatedUnit.transform.localPosition;
 
-            pos.y += 0.5f;
+            pos.y += 0.1f;
             pos.x += modulo * Mathf.Sin(rot.y * Mathf.Deg2Rad);
             pos.z += modulo * Mathf.Cos(rot.y * Mathf.Deg2Rad);
             cam.transform.localPosition = pos;

@@ -75,6 +75,15 @@ public class BuilderUnit : MovableUnit {
 
     public void Mine(ResourceUnit obj)
     {
+        if (botIndex == -1)
+        {
+            home = PlayerManager.playerManager.GetNearestHome(transform.position);
+        }
+        else
+        {
+            home = InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().GetNearestHome(transform.position);
+        }
+
         ResetAction();
         miningSystem.InitMining(home, obj);
         UpdateJoblessPanel();

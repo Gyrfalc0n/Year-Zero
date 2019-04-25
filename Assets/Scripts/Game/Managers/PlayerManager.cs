@@ -153,6 +153,21 @@ public class PlayerManager : MonoBehaviour {
         UpdateResourcesPanel();
     }
 
+    public TownHall GetNearestHome(Vector3 pos)
+    {
+        TownHall res = null;
+
+        for (int i = 0; i < homes.Count; i++)
+        {
+            if (res == null || Vector3.Distance(pos, homes[i].transform.position) < Vector3.Distance(pos, res.transform.position))
+            {
+                res = homes[i];
+            }
+        }
+
+        return res;
+    }
+
     #endregion
 
     #region population
