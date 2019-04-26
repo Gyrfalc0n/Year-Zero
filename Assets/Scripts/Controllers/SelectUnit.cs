@@ -126,33 +126,30 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     {
         monoDescriptionPanel.ResetBar();
         advancementBar.Reset();
+        taskBar.ResetBar();
+        cardsPanel.ClearCards();
+        toolsPanel.ClearTools();
         if (selected.Count == 0)
         {
             taskBar.ResetBar();
             cardsPanel.ClearCards();
-            toolsPanel.ClearTools();
             return;
         }
 
         if (selected[0].GetComponent<DestructibleUnit>() != null)
+        {
             portraitPanel.Init(selected[0].GetComponent<DestructibleUnit>());
+            monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
+        }
         if (selected[0].GetComponent<MovableUnit>() != null)
         {
-            taskBar.ResetBar();
-            cardsPanel.ClearCards();
             if (selected.Count > 1)
                 cardsPanel.CheckCards();
             else
-            {
-                monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
                 toolsPanel.CheckTools(0);
-            }
         }
         else
         {
-            taskBar.ResetBar();
-            cardsPanel.ClearCards();
-            toolsPanel.ClearTools();
             if (selected[0].GetComponent<InConstructionUnit>() != null)
             {
                 advancementBar.Init(selected[0].GetComponent<InConstructionUnit>());

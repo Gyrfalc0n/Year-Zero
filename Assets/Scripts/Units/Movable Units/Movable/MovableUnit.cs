@@ -215,13 +215,9 @@ public class MovableUnit : DestructibleUnit {
 
     public override void Interact(Interactable obj)
     {
-        base.Interact(obj);
-        if (obj.GetComponent<DestructibleUnit>() != null)
+        if (obj.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<ConstructedUnit>()) != MultiplayerTools.GetTeamOf(this))
         {
-            if (InstanceManager.instanceManager.IsEnemy(obj.GetComponent<DestructibleUnit>()))
-            {
-                Attack(obj.GetComponent<DestructibleUnit>());
-            }
+            Attack(obj.GetComponent<DestructibleUnit>());
         }
     }
 

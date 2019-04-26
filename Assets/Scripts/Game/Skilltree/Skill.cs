@@ -30,7 +30,7 @@ public class Skill : MonoBehaviour
 
     public void Buy()
     {
-        if (PlayerManager.playerManager.Pay(new int[] { 0, 0, 0, cost }, 0, false))
+        if (PlayerManager.playerManager.Pay(new int[] { 0, 0, 0, cost }, 0, true))
         {
             if (transform.parent.GetComponent<Skill>() != null && transform.parent.GetComponent<Skill>().restrictive)
             {
