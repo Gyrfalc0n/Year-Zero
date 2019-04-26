@@ -71,7 +71,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     Vector3 InitProp()
     {
         Vector3 myCoords;
-        if (!PhotonNetwork.OfflineMode && SceneManager.GetActiveScene().name != "Tutorial")
+        if (!PhotonNetwork.OfflineMode && SceneManager.GetActiveScene().name != "Tutorial" || SceneManager.GetActiveScene().name == "GameTest" && !offlineMode)
         {
             myCoords = (Vector3)PhotonNetwork.LocalPlayer.CustomProperties["MyCoords"];
 
