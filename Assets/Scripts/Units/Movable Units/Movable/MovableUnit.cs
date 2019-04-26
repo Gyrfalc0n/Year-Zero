@@ -257,11 +257,16 @@ public class MovableUnit : DestructibleUnit {
         {
             if (botIndex != -1 && botIndex != -2)
             {
+                InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().RemovePopulation(pop);
                 InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().Remove(this);
             }
             else if (botIndex == -2)
             {
                 GameObject.Find("independantBotPrefab").GetComponent<BotArmyManager>().Remove(this);
+            }
+            else
+            {
+                PlayerManager.playerManager.RemovePopulation(pop);
             }
         }
     }

@@ -54,7 +54,7 @@ public class BuildingSystem : MonoBehaviour
     {
         if (currentAction == CurrentBuildingAction.building)
         {
-            if (whatIsBuilding == null)
+            if (whatIsBuilding != null)
                 whatIsBuilding.RemoveBuilder(GetComponent<BuilderUnit>());
             whatIsBuilding = null;
         }

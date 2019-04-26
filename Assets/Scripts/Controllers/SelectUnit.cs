@@ -129,17 +129,13 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         taskBar.ResetBar();
         cardsPanel.ClearCards();
         toolsPanel.ClearTools();
-        if (selected.Count == 0)
-        {
-            taskBar.ResetBar();
-            cardsPanel.ClearCards();
-            return;
-        }
+        if (selected.Count == 0) return;
 
         if (selected[0].GetComponent<DestructibleUnit>() != null)
         {
             portraitPanel.Init(selected[0].GetComponent<DestructibleUnit>());
-            monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
+            if (selected.Count == 1)
+                monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
         }
         if (selected[0].GetComponent<MovableUnit>() != null)
         {

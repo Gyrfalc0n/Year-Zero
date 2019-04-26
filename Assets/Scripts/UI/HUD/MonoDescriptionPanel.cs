@@ -48,6 +48,10 @@ public class MonoDescriptionPanel : MonoBehaviour
             else
                 resourceText.text = "";
         }
+        else
+        {
+            resourceText.text = "";
+        }
 
     }
 
