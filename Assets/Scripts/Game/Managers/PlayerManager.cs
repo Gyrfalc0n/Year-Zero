@@ -43,9 +43,9 @@ public class PlayerManager : MonoBehaviour {
         return names;
     }
 
-    public bool Pay(int[] costs, int pop, bool forBuilding)
+    public bool Pay(int[] costs, int pop, bool dontcheckPop)
     {
-        if (PayCheck(costs, pop, forBuilding))
+        if (PayCheck(costs, pop, dontcheckPop))
         {
             int i = 0;
             foreach (GameResource resource in resources)
@@ -72,7 +72,7 @@ public class PlayerManager : MonoBehaviour {
         UpdateResourcesPanel();
     }
 
-    public bool PayCheck(int[] costs, int pop, bool forBuilding)
+    public bool PayCheck(int[] costs, int pop, bool dontcheckPop)
     {
         int i = -1;
         bool possible = true;
@@ -81,7 +81,7 @@ public class PlayerManager : MonoBehaviour {
             if (resources[i+1].GetValue() < costs[i+1])
                 possible = false;
         }
-        if (!forBuilding && possible && population.GetCurrentMaxValue() < population.GetValue() + pop)
+        if (!dontcheckPop && possible && population.GetCurrentMaxValue() < population.GetValue() + pop)
         {
             possible = false;
             i = -2;

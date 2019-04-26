@@ -20,7 +20,15 @@ public class HouseUnit : ConstructedUnit {
     public override void OnDestroyed()
     {
         base.OnDestroyed();
-        PlayerManager.playerManager.RemoveMaxPopulation(popValue);
+        if (botIndex == -1)
+        {
+            PlayerManager.playerManager.RemoveMaxPopulation(popValue);
+        }
+        else if (botIndex != -2)
+        {
+            InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().RemoveMaxPopulation(popValue);
+        }
+
     }
     public override bool IsAvailable()
     {

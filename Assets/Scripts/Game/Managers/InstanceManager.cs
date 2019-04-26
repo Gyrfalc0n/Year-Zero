@@ -71,7 +71,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     Vector3 InitProp()
     {
         Vector3 myCoords;
-        if (!PhotonNetwork.OfflineMode && SceneManager.GetActiveScene().name != "Tutorial")
+        if (!PhotonNetwork.OfflineMode && SceneManager.GetActiveScene().name != "Tutorial" || SceneManager.GetActiveScene().name == "GameTest" && !offlineMode)
         {
             myCoords = (Vector3)PhotonNetwork.LocalPlayer.CustomProperties["MyCoords"];
 
@@ -96,9 +96,9 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     {
         GameObject tmp = InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0), -1);
         PlayerManager.playerManager.AddHome(tmp.GetComponent<TownHall>());
-        PlayerManager.playerManager.Pay(new int[] { 0, 0, 0, 0 }, 4, false);
         if (SceneManager.GetActiveScene().name != "Tutorial")
         {
+            PlayerManager.playerManager.Pay(new int[] { 0, 0, 0, 0 }, 4, false);
             InstantiateUnit(builders[race], new Vector3(coords.x, 0.5f, coords.z), Quaternion.Euler(0, 0, 0), -1);
             InstantiateUnit(builders[race], new Vector3(coords.x+1, 0.5f, coords.z+1), Quaternion.Euler(0, 0, 0), -1);
             InstantiateUnit(builders[race], new Vector3(coords.x, 0.5f, coords.z+1), Quaternion.Euler(0, 0, 0), -1);

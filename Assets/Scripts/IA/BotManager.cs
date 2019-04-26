@@ -156,5 +156,10 @@ public class BotManager : MonoBehaviour
         population.Remove(val);
     }
 
+    public void RemoveMaxPopulation(int val)
+    {
+        population.RemoveMax(val);
+    }
+
     #endregion
 }

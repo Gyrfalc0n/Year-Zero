@@ -572,7 +572,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WAITTING ROOM
+  m_Text: WAITING ROOM
 --- !u!222 &299553411
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3275,7 +3275,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Waitting for players
+  m_Text: Waiting for players
 --- !u!222 &1949880815
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3401,25 +3401,25 @@ MonoBehaviour:
   addBotButton: {fileID: 634074984}
   playersList: {fileID: 988810449}
   topLeft:
-  - {x: -5, y: 0, z: 12.5}
-  - {x: -10, y: 0, z: 5}
-  - {x: -10, y: 0, z: 10}
-  - {x: -10, y: 0, z: 10}
+  - {x: -95, y: 0, z: 95}
+  - {x: -33, y: 0, z: 95}
+  - {x: -95, y: 0, z: 33}
+  - {x: -33, y: 0, z: 33}
   bottomLeft:
-  - {x: -5, y: 0, z: -12.5}
-  - {x: -10, y: 0, z: -5}
-  - {x: -10, y: 0, z: -10}
-  - {x: -10, y: 0, z: -10}
+  - {x: -95, y: 0, z: -95}
+  - {x: -33, y: 0, z: -95}
+  - {x: -95, y: 0, z: -33}
+  - {x: -33, y: 0, z: -33}
   topRight:
-  - {x: 5, y: 0, z: 12.5}
-  - {x: 10, y: 0, z: 5}
-  - {x: 10, y: 0, z: 10}
-  - {x: 10, y: 0, z: 10}
+  - {x: 95, y: 0, z: 95}
+  - {x: 33, y: 0, z: 95}
+  - {x: 95, y: 0, z: 33}
+  - {x: 33, y: 0, z: 33}
   bottomRight:
-  - {x: 5, y: 0, z: -12.5}
-  - {x: 10, y: 0, z: -5}
-  - {x: 10, y: 0, z: -10}
-  - {x: 10, y: 0, z: -10}
+  - {x: 95, y: 0, z: -95}
+  - {x: 33, y: 0, z: -95}
+  - {x: 95, y: 0, z: -33}
+  - {x: 33, y: 0, z: -33}
   notReady: {fileID: 462010454}
   lobbyFull: {fileID: 1609657014}
   playerAmountText: {fileID: 283584142}

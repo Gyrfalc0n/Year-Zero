@@ -215,13 +215,9 @@ public class MovableUnit : DestructibleUnit {
 
     public override void Interact(Interactable obj)
     {
-        base.Interact(obj);
-        if (obj.GetComponent<DestructibleUnit>() != null)
+        if (obj.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<ConstructedUnit>()) != MultiplayerTools.GetTeamOf(this))
         {
-            if (InstanceManager.instanceManager.IsEnemy(obj.GetComponent<DestructibleUnit>()))
-            {
-                Attack(obj.GetComponent<DestructibleUnit>());
-            }
+            Attack(obj.GetComponent<DestructibleUnit>());
         }
     }
 
@@ -261,11 +257,16 @@ public class MovableUnit : DestructibleUnit {
         {
             if (botIndex != -1 && botIndex != -2)
             {
+                InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().RemovePopulation(pop);
                 InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().Remove(this);
             }
             else if (botIndex == -2)
             {
                 GameObject.Find("independantBotPrefab").GetComponent<BotArmyManager>().Remove(this);
+            }
+            else
+            {
+                PlayerManager.playerManager.RemovePopulation(pop);
             }
         }
     }
