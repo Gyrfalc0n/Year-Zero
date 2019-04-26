@@ -6,7 +6,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313811731870665177}
+  m_GameObject: {fileID: 4470627496034456310}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ddef74341f189b740b041e8448119ca4, type: 3}
@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tools:
   - {fileID: 2398293628918808410, guid: 32d3ded742964044b8e8a4a6dd58f8d8, type: 3}
-  - {fileID: 2398293628918808410, guid: eeb67b26b364f854e90cf463a6702586, type: 3}
+  - {fileID: 2399611107909500147, guid: eeb67b26b364f854e90cf463a6702586, type: 3}
   - {fileID: 1662642892877366467, guid: c3f3f4c1f5af8a145bb51de754148591, type: 3}
   highlighted: 0
   selected: 0
   objName: Combat Station
   description: 
-  costs: 00000000000000000000000000000000
+  costs: 000000002c010000c800000000000000
   pop: 0
   fovCollider: {fileID: 0}
   botIndex: 0
   spells: []
   groupHighlight: 0
-  defaultMaxLife: 1
+  defaultMaxLife: 2000
   maxLife: 0
   iconSprite: {fileID: 0}
   lines: 3
@@ -47,7 +47,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 416454294261193715}
+      objectReference: {fileID: 4470627496034452962}
     - target: {fileID: 4198717423202766145, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -177,19 +177,19 @@ PrefabInstance:
     - {fileID: 3354145167647749936, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
     - {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
---- !u!1 &313811731870665177 stripped
+--- !u!1 &4470627496034456310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4201926755012452119, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
     type: 3}
   m_PrefabInstance: {fileID: 4470627496034457294}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &416454294261193715 stripped
+--- !u!114 &4470627496034452962 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4309196059108019517, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
     type: 3}
   m_PrefabInstance: {fileID: 4470627496034457294}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313811731870665177}
+  m_GameObject: {fileID: 4470627496034456310}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
