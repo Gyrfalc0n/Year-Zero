@@ -26,6 +26,8 @@ public class Cinematic : MonoBehaviour
 
     public void Show()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         started = true;
         if (music != null)
             music.Pause(0);
@@ -35,6 +37,8 @@ public class Cinematic : MonoBehaviour
 
     public void Stop()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         started = false;
         if (music != null)
             music.UnPause(0);
