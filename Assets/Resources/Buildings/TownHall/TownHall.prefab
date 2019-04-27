@@ -17,7 +17,7 @@ MonoBehaviour:
   highlighted: 0
   selected: 0
   objName: Space Station
-  description: Your Home, it allows you create builders.
+  description: Your Home, it allows you to create builders.
   costs: c8000000d0070000f401000000000000
   pop: 0
   fovCollider: {fileID: 0}
@@ -40,21 +40,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TownHall
-      objectReference: {fileID: 0}
-    - target: {fileID: 4232799789023330727, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 4232799789023330727, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 2.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4232799789023330727, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 2.04
       objectReference: {fileID: 0}
     - target: {fileID: 4198717423202766145, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
@@ -111,6 +96,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4232799789023330727, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232799789023330727, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232799789023330727, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2.04
+      objectReference: {fileID: 0}
     - target: {fileID: 3288736474022729068, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -161,21 +161,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.09
       objectReference: {fileID: 0}
-    - target: {fileID: 7785013821060988554, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572351305989905342, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300952, guid: d0e44a72fa075a545ad7cd5d52d8c66b, type: 3}
     - target: {fileID: 235288453557077553, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 645a9de5e8a6a1b41a4f78ffb6b6b71f, type: 2}
+    - target: {fileID: 7572351305989905342, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300952, guid: d0e44a72fa075a545ad7cd5d52d8c66b, type: 3}
+    - target: {fileID: 7785013821060988554, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: ghost
@@ -208,3 +208,78 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2313655536870241453}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2832414245062212159 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 528329407768841874, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2313655536870241453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7201528224157272458
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2832414245062212159}
+    m_Modifications:
+    - target: {fileID: 4402291145370999310, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398641207785329026, guid: bfeec4f939f4169478c27eef5b708902,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bfeec4f939f4169478c27eef5b708902, type: 3}
