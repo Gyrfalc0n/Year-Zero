@@ -6,7 +6,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894888912451414970}
+  m_GameObject: {fileID: 2313655536870240449}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 422753dff18f15c40b36a5970d8ea087, type: 3}
@@ -26,7 +26,7 @@ MonoBehaviour:
   groupHighlight: 0
   defaultMaxLife: 2
   maxLife: 10
-  iconSprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: b42b1ff84bd6fc84a8f2a64f14f13819, type: 3}
   lines: 3
   columns: 3
 --- !u!1001 &2313655536870241453
@@ -166,16 +166,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 645a9de5e8a6a1b41a4f78ffb6b6b71f, type: 2}
-    - target: {fileID: 7785013821060988554, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7572351305989905342, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300952, guid: d0e44a72fa075a545ad7cd5d52d8c66b, type: 3}
+    - target: {fileID: 7785013821060988554, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: ghost
@@ -202,13 +202,13 @@ PrefabInstance:
     - {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
     - {fileID: 2888816329839541249, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
---- !u!1 &1894888912451414970 stripped
+--- !u!1 &2313655536870240449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4201926755012452119, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
     type: 3}
   m_PrefabInstance: {fileID: 2313655536870241453}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2832414245062212159 stripped
+--- !u!4 &2313655536870243983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 528329407768841874, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
     type: 3}
@@ -219,7 +219,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2832414245062212159}
+    m_TransformParent: {fileID: 2313655536870243983}
     m_Modifications:
     - target: {fileID: 4402291145370999310, guid: bfeec4f939f4169478c27eef5b708902,
         type: 3}

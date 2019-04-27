@@ -6,7 +6,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2398293628918808410}
+  m_GameObject: {fileID: 2399611107909499923}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8b94e045ae6cbc4180cd9e721ecfa0d, type: 3}
@@ -20,7 +20,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2398293628918808410}
+  m_GameObject: {fileID: 2399611107909499923}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccddadbe5e17fd74cabaf96f7fd9f26d, type: 3}
@@ -41,8 +41,8 @@ MonoBehaviour:
   - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
   highlighted: 0
   selected: 0
-  objName: Bomber
-  description: 
+  objName: 
+  description: BOMBER
   costs: 00000000960000007800000000000000
   pop: 3
   fovCollider: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
   groupHighlight: 0
   defaultMaxLife: 300
   maxLife: 0
-  iconSprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: 37d0542989871da4fbe2d5636127ea3b, type: 3}
   home: {fileID: 0}
   requiredTime: 45
   moving: 0
@@ -119,7 +119,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 2367246494767128176}
+      objectReference: {fileID: 2399611107909492203}
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -159,19 +159,19 @@ PrefabInstance:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
     - {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
---- !u!1 &2398293628918808410 stripped
+--- !u!1 &2399611107909499923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1498426257654464, guid: a2cd80c251494bb4a9642bd55de4b99a,
     type: 3}
   m_PrefabInstance: {fileID: 2399611107909500314}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2367246494767128176 stripped
+--- !u!114 &2399611107909492203 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114568784498713578, guid: a2cd80c251494bb4a9642bd55de4b99a,
     type: 3}
   m_PrefabInstance: {fileID: 2399611107909500314}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2398293628918808410}
+  m_GameObject: {fileID: 2399611107909499923}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}

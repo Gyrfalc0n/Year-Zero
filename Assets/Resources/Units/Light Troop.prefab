@@ -6,7 +6,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2399611107909500147}
+  m_GameObject: {fileID: 2399611107909499923}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a15539bd861d28c4f840106f2ebd126d, type: 3}
@@ -27,8 +27,8 @@ MonoBehaviour:
   - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
   highlighted: 0
   selected: 0
-  objName: Light Troop
-  description: 
+  objName: 
+  description: LIGHT TROOP
   costs: 0000000000000000640000004b000000
   pop: 2
   fovCollider: {fileID: 0}
@@ -37,7 +37,7 @@ MonoBehaviour:
   groupHighlight: 0
   defaultMaxLife: 70
   maxLife: 5
-  iconSprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: 503ddf6bd5e8c584e88186ee745d5dcd, type: 3}
   home: {fileID: 0}
   requiredTime: 0
   moving: 0
@@ -105,7 +105,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 2399611107909495911}
+      objectReference: {fileID: 2399611107909492203}
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -159,19 +159,19 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
---- !u!1 &2399611107909500147 stripped
+--- !u!1 &2399611107909499923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1498426257654464, guid: a2cd80c251494bb4a9642bd55de4b99a,
     type: 3}
   m_PrefabInstance: {fileID: 2399611107909500314}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2399611107909495911 stripped
+--- !u!114 &2399611107909492203 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114568784498713578, guid: a2cd80c251494bb4a9642bd55de4b99a,
     type: 3}
   m_PrefabInstance: {fileID: 2399611107909500314}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2399611107909500147}
+  m_GameObject: {fileID: 2399611107909499923}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
