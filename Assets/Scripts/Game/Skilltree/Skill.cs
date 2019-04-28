@@ -20,6 +20,8 @@ public class Skill : MonoBehaviour
     [TextArea(3, 5)]
     public string description;
 
+    [SerializeField] Sprite activatedSprite;
+
     void Start()
     {
         activated = false;
@@ -38,7 +40,7 @@ public class Skill : MonoBehaviour
             }
             else
                 Lock();
-            associatedButton.GetComponent<Image>().color = Color.green;
+            ChangeSprite();
             UnlockChildren();
             Effect();
             activated = true;
@@ -46,11 +48,24 @@ public class Skill : MonoBehaviour
         }
     }
 
+    void ChangeSprite()
+    {
+        if (!activatedSprite)
+        {
+            associatedButton.GetComponent<Image>().color = Color.green;
+        }
+        else
+        {
+            associatedButton.GetComponent<Image>().sprite = activatedSprite;
+        }
+
+    }
+
     void InitNextSkills()
     {
         foreach (Transform skill in transform)
         {
-            if (skill.name != "Button" && skill.GetComponent<Skill>() != null)
+            if (skill.name != "Image"  && skill.name != "Button" && skill.GetComponent<Skill>() != null)
             {
                 nextSkills.Add(skill.GetComponent<Skill>());
             }
