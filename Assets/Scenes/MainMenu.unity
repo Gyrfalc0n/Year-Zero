@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2068493082}
   m_HandleRect: {fileID: 2068493081}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1694,10 +1694,10 @@ RectTransform:
   m_Father: {fileID: 1639323765}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.00000023841858}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -0.28, y: -1.73}
+  m_SizeDelta: {x: 75.09, y: 3.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203788651
 MonoBehaviour:
@@ -1719,7 +1719,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9c27bd410c745924e9623712a47908ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cba955b336882a342a6afc8226ca98d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2515,16 +2515,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuickMatch
       objectReference: {fileID: 0}
-    - target: {fileID: 2322418288383231158, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
-        type: 3}
-      propertyPath: myFX
-      value: 
-      objectReference: {fileID: 347474360}
     - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
         type: 3}
       propertyPath: m_Text
       value: QUICK GAME
       objectReference: {fileID: 0}
+    - target: {fileID: 2322418288383231158, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
+        type: 3}
+      propertyPath: myFX
+      value: 
+      objectReference: {fileID: 347474360}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc4b371a0ad5a94cb577dc1b12a5c74, type: 3}
 --- !u!224 &349912859 stripped
@@ -3797,15 +3797,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: JoinGameMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 2322418287199082522, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
         type: 3}
       propertyPath: m_Text
       value: JOIN GAME
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322418287199082522, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc4b371a0ad5a94cb577dc1b12a5c74, type: 3}
@@ -4271,8 +4271,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 203788651}
   m_HandleRect: {fileID: 203788650}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.99999976
+  m_Value: 0
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5149,16 +5149,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Campaign
       objectReference: {fileID: 0}
-    - target: {fileID: 2322418288383231158, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
-        type: 3}
-      propertyPath: myFX
-      value: 
-      objectReference: {fileID: 863115683}
     - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
         type: 3}
       propertyPath: m_Text
       value: CAMPAIGN
       objectReference: {fileID: 0}
+    - target: {fileID: 2322418288383231158, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
+        type: 3}
+      propertyPath: myFX
+      value: 
+      objectReference: {fileID: 863115683}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc4b371a0ad5a94cb577dc1b12a5c74, type: 3}
 --- !u!224 &737591233 stripped
@@ -12278,7 +12278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000112189755, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0.0000112189755, y: 0}
   m_SizeDelta: {x: 0, y: 283.8}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1719122028
@@ -14408,15 +14408,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CreateGame
       objectReference: {fileID: 0}
-    - target: {fileID: 2322418287199082522, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2322418287199082520, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
         type: 3}
       propertyPath: m_Text
       value: CREATE GAME
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322418287199082522, guid: bfc4b371a0ad5a94cb577dc1b12a5c74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc4b371a0ad5a94cb577dc1b12a5c74, type: 3}
@@ -15735,10 +15735,10 @@ RectTransform:
   m_Father: {fileID: 1531235266}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.99999994, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchorMin: {x: 0.000000059604645, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 5.77, y: -1.52}
+  m_SizeDelta: {x: 27, y: 72.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2068493082
 MonoBehaviour:
@@ -15760,7 +15760,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9c27bd410c745924e9623712a47908ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 798aa84eec07c66419a99746ad0e017f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
