@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 
 public class InstantiateTask : Task
@@ -47,5 +48,10 @@ public class InstantiateTask : Task
     {
         PlayerManager.playerManager.PayBack(associatedUnit.costs, associatedUnit.pop);
         base.Cancel();
+    }
+
+    public Sprite GetSprite()
+    {
+        return associatedUnit.iconSprite;
     }
 }
