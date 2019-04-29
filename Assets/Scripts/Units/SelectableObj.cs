@@ -218,7 +218,8 @@ public class SelectableObj : Interactable
             Dehighlight();
         selected = true;
         selectionCircle.gameObject.SetActive(true);
-        selectionCircle.color = myColor;
+        Color32 tmp = (Color32)selectionCircle.color;
+        selectionCircle.color = new Color32(tmp.r, tmp.g, tmp.b, 255);
     }
 
     public virtual void Deselect()

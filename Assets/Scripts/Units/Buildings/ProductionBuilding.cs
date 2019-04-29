@@ -48,7 +48,7 @@ public class ProductionBuilding : ConstructedUnit
         base.Select();
         if (banner == null)
             Init();
-        if (photonView.IsMine)
+        if (MultiplayerTools.IsMine(this))
             banner.gameObject.SetActive(true);
     }
 

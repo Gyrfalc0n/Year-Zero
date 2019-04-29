@@ -105,9 +105,9 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
             {
-                if (hit.collider.GetComponent<SelectableObj>() != null && hit.collider.GetComponent<SelectableObj>().photonView.IsMine && hit.collider.GetComponent<SelectableObj>().botIndex == -1)
+                if (hit.collider.GetComponent<SelectableObj>() != null)
                 {
-                    if (!Input.GetKey("left ctrl"))
+                    if (!Input.GetKey("left ctrl") || hit.collider.GetComponent<SelectableObj>().photonView.IsMine || hit.collider.GetComponent<SelectableObj>().botIndex == -1)
                         ClearSelection();
                     changement = SelectObject(hit.collider.GetComponent<SelectableObj>());
                 }
