@@ -209,12 +209,14 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     void UpdatePlayerAmountText()
     {
+        if (playersList == null || !PhotonNetwork.InRoom) return; 
         playerAmountText.text = playersList.childCount + "/" + ((PhotonNetwork.OfflineMode) ? soloMaxPlayer : PhotonNetwork.CurrentRoom.MaxPlayers);
     }
 
     [SerializeField] Canvas cnvs;
     void UpdateWaitingMessage()
     {
+        if (playersList == null || !PhotonNetwork.InRoom) return;
         waittingMessage.SetActive(!PhotonNetwork.OfflineMode && playersList.childCount < PhotonNetwork.CurrentRoom.MaxPlayers);
         if (PhotonNetwork.OfflineMode) return;
         UpdateDots();
