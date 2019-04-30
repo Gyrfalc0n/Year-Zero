@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class FloatingLifeBarPanel : MonoBehaviour
 {
-    [SerializeField]
-    FloatingLifeBar lifeBarPrefab;
+    [SerializeField] FloatingLifeBar bar;
 
-    public FloatingLifeBar AddLifeBar(DestructibleUnit unit)
+    public void Show(DestructibleUnit unit)
     {
-        FloatingLifeBar obj = Instantiate(lifeBarPrefab, transform);
-        obj.Init(unit);
-        return obj;
+        bar.gameObject.SetActive(true);
+        bar.Set(unit);
+    }
+
+    public void Hide()
+    {
+        bar.gameObject.SetActive(false);
     }
 }

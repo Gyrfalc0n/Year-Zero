@@ -7,47 +7,28 @@ public class FloatingLifeBar : MonoBehaviour
 {
     [SerializeField]
     Image obj;
-    [SerializeField]
-    GameObject bg;
     DestructibleUnit associatedUnit;
 
-    Vector3 tmp;
-
-    public void Init(DestructibleUnit unit)
+    public void Set(DestructibleUnit unit)
     {
         associatedUnit = unit;
     }
 
     void Update()
     {
-        if (associatedUnit == null)
-        {
-            Destroy(this.gameObject);
-        }
-        else
+        if (associatedUnit != null)
         {
             UpdateBar();
-        }
-        
+        }        
     }
 
+    Vector3 tmp;
     void UpdateBar()
     {
-        if (associatedUnit.highlighted && !associatedUnit.groupHighlight)
-        {
-            obj.gameObject.SetActive(true);
-            bg.SetActive(true);
-            tmp = associatedUnit.transform.position;
-            tmp.y += 2;
-            transform.position = tmp;
-            transform.rotation = Camera.main.transform.rotation;
-
-            obj.fillAmount = associatedUnit.GetLife() / associatedUnit.GetMaxlife();
-        }
-        else
-        {
-            obj.gameObject.SetActive(false);
-            bg.SetActive(false);
-        }
+        tmp = associatedUnit.transform.position;
+        tmp.y += 2;
+        transform.position = tmp;
+        transform.rotation = Camera.main.transform.rotation;
+        obj.fillAmount = associatedUnit.GetLife() / associatedUnit.GetMaxlife();
     }
 }
