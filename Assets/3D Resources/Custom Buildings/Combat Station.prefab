@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8917416195245406890}
   - component: {fileID: 8927085030907166268}
   m_Layer: 0
-  m_Name: Core4
+  m_Name: Combat Station
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,6 +78,80 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1001 &2999107171355412011
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7485726389741126898}
+    m_Modifications:
+    - target: {fileID: 7095873961430952768, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_Name
+      value: Spark-4-Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 23.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961431316320, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095873961449665056, guid: 4919a4a800abab44893c8e0721adf990,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.03
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4919a4a800abab44893c8e0721adf990, type: 3}
 --- !u!1001 &7488692505230520144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,10 +159,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8915037158406115298}
     m_Modifications:
-    - target: {fileID: 1375063028449550, guid: 5aa5ca9e41f5deb419d53713d51ee631, type: 3}
-      propertyPath: m_Name
-      value: SpaceObject18
-      objectReference: {fileID: 0}
     - target: {fileID: 4374224813468578, guid: 5aa5ca9e41f5deb419d53713d51ee631, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1
@@ -144,6 +214,10 @@ PrefabInstance:
     - target: {fileID: 4374224813468578, guid: 5aa5ca9e41f5deb419d53713d51ee631, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375063028449550, guid: 5aa5ca9e41f5deb419d53713d51ee631, type: 3}
+      propertyPath: m_Name
+      value: SpaceObject18
       objectReference: {fileID: 0}
     - target: {fileID: 1569895039442022, guid: 5aa5ca9e41f5deb419d53713d51ee631, type: 3}
       propertyPath: m_IsActive
