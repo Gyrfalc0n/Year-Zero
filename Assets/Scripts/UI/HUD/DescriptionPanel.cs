@@ -70,7 +70,7 @@ public class DescriptionPanel : MonoBehaviour {
             else if (raycastResultList[i].gameObject.GetComponent<TaskTool>() != null)
             {
                 TaskTool tmp = raycastResultList[i].gameObject.GetComponent<TaskTool>();
-                Init(tmp.GetAssociatedUnit());
+                Init(tmp.associatedUnit);
                 found = true;
             }
         }
