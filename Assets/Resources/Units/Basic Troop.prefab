@@ -41,8 +41,8 @@ MonoBehaviour:
   - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
   highlighted: 0
   selected: 0
-  objName: 
-  description: BASIC TROOP
+  objName: Basic Troop
+  description: Basic troop with balanced stats
   costs: 000000004b0000006400000000000000
   pop: 1
   fovCollider: {fileID: 0}
@@ -106,6 +106,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.006864071
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 2367246494767128176}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -150,11 +155,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
+      propertyPath: firePoint
       value: 
-      objectReference: {fileID: 2367246494767128176}
+      objectReference: {fileID: 0}
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -180,11 +185,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f221e96cfbb5d6040b82a97d3d5ff1d0, type: 2}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Layer

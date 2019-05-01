@@ -6,7 +6,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5372505478534529564}
+  m_GameObject: {fileID: 5371575594413408597}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c004f9a14dcc7b244bbc12e98a945c16, type: 3}
@@ -27,8 +27,9 @@ MonoBehaviour:
   - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
   highlighted: 0
   selected: 0
-  objName: 
-  description: HACKER
+  objName: Hacker
+  description: A weak aggressive ship that can convert enemy units or throw IEM or
+    unhide an area for a specific ttime.
   costs: 6400000064000000c800000000000000
   pop: 4
   fovCollider: {fileID: 0}
@@ -52,7 +53,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5372505478534529564}
+  m_GameObject: {fileID: 5371575594413408597}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8b94e045ae6cbc4180cd9e721ecfa0d, type: 3}
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5372505478534529564}
+  m_GameObject: {fileID: 5371575594413408597}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaa3777dc21fe014bad2fbfed2dd21f5, type: 3}
@@ -83,6 +84,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hacker
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 5411636765406584959}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -127,11 +133,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
+      propertyPath: firePoint
       value: 
-      objectReference: {fileID: 5372505478534538212}
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: projectile
+      value: Units/Bullets/BulletPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: range
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: attackRate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -157,26 +178,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f221e96cfbb5d6040b82a97d3d5ff1d0, type: 2}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: projectile
-      value: Units/Bullets/BulletPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: range
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: attackRate
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Layer
@@ -196,19 +197,19 @@ PrefabInstance:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
     - {fileID: 2915407914779352324, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
---- !u!1 &5372505478534529564 stripped
+--- !u!1 &5371575594413408597 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1498426257654464, guid: a2cd80c251494bb4a9642bd55de4b99a,
     type: 3}
   m_PrefabInstance: {fileID: 5372505478534529941}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5372505478534538212 stripped
+--- !u!114 &5411636765406584959 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114568784498713578, guid: a2cd80c251494bb4a9642bd55de4b99a,
     type: 3}
   m_PrefabInstance: {fileID: 5372505478534529941}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5372505478534529564}
+  m_GameObject: {fileID: 5371575594413408597}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}

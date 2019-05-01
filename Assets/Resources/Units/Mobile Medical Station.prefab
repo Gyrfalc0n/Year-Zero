@@ -28,7 +28,7 @@ MonoBehaviour:
   highlighted: 0
   selected: 0
   objName: Mobile Medical Station
-  description: 
+  description: A weak aggressive ship that can heal near units
   costs: 14000000780000009600000000000000
   pop: 3
   fovCollider: {fileID: 0}
@@ -181,6 +181,11 @@ PrefabInstance:
         type: 3}
       propertyPath: attackRate
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}

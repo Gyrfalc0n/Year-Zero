@@ -6,7 +6,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2399611107909499923}
+  m_GameObject: {fileID: 2398293628918808410}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a15539bd861d28c4f840106f2ebd126d, type: 3}
@@ -27,8 +27,8 @@ MonoBehaviour:
   - {fileID: 6037720820650629858, guid: 8de15d1bd03224941ad0545d51ce8c49, type: 3}
   highlighted: 0
   selected: 0
-  objName: 
-  description: LIGHT TROOP
+  objName: Light Troop
+  description: Not resistant but can do a lot of damage with its rapidfire and speed
   costs: 0000000000000000640000004b000000
   pop: 2
   fovCollider: {fileID: 0}
@@ -57,6 +57,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Troop
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 2367246494767128176}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -101,11 +106,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
+      propertyPath: firePoint
       value: 
-      objectReference: {fileID: 2399611107909492203}
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: projectile
+      value: Units/Bullets/BulletPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: range
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: attackRate
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -131,26 +151,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f221e96cfbb5d6040b82a97d3d5ff1d0, type: 2}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: projectile
-      value: Units/Bullets/BulletPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: range
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: attackRate
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Layer
@@ -159,19 +159,19 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
---- !u!1 &2399611107909499923 stripped
+--- !u!1 &2398293628918808410 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1498426257654464, guid: a2cd80c251494bb4a9642bd55de4b99a,
     type: 3}
   m_PrefabInstance: {fileID: 2399611107909500314}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2399611107909492203 stripped
+--- !u!114 &2367246494767128176 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114568784498713578, guid: a2cd80c251494bb4a9642bd55de4b99a,
     type: 3}
   m_PrefabInstance: {fileID: 2399611107909500314}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2399611107909499923}
+  m_GameObject: {fileID: 2398293628918808410}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
