@@ -98,6 +98,12 @@ public class SelectableObj : Interactable
         InitSpellHolder();
         foreach (GameObject obj in tools)
         {
+            if (obj == null)
+            {
+                Debug.LogWarning("A tool is missing in the " + objName);
+                continue;
+            }
+
             if (obj.GetComponent<Spell>() != null)
             {
                 GameObject tmp = Instantiate(obj, spellHolder);

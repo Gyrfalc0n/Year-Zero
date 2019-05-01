@@ -52,7 +52,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6688831921590552136}
+  - component: {fileID: 7260492817737147013}
   - component: {fileID: 3449226983890797454}
   - component: {fileID: 4562644226995103683}
   m_Layer: 12
@@ -62,7 +62,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6688831921590552136
+--- !u!4 &7260492817737147013
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,7 +297,7 @@ Transform:
   m_Children:
   - {fileID: 641885762748821807}
   - {fileID: 6580213978833570936}
-  - {fileID: 6688831921590552136}
+  - {fileID: 7260492817737147013}
   m_Father: {fileID: 5016287062251961209}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1066,6 +1066,37 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &196876810604388176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418685162370410011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa882fa4eace8944b5484c8e0ebba66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tools:
+  - {fileID: 2398293628918808410, guid: 24d01e45bed692a44aabe1f6da2855b0, type: 3}
+  - {fileID: 5371575594413408597, guid: db3014db6964fe04397c922dca31666d, type: 3}
+  - {fileID: 2241181987109979733, guid: 815e6567a631163428d0b212d1c43913, type: 3}
+  highlighted: 0
+  selected: 0
+  objName: Conquest Station
+  description: Allows you to create conquest troops
+  costs: 64000000bc0200005e01000000000000
+  pop: 0
+  fovCollider: {fileID: 0}
+  botIndex: 0
+  spells: []
+  groupHighlight: 0
+  defaultMaxLife: 3000
+  maxLife: 0
+  iconSprite: {fileID: 0}
+  lines: 3
+  columns: 3
 --- !u!1 &7003287917488832490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,37 +1174,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &196876810604388176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5418685162370410011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aa882fa4eace8944b5484c8e0ebba66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tools:
-  - {fileID: 2398293628918808410, guid: 24d01e45bed692a44aabe1f6da2855b0, type: 3}
-  - {fileID: 5371575594413408597, guid: db3014db6964fe04397c922dca31666d, type: 3}
-  - {fileID: 2242535238892684983, guid: 815e6567a631163428d0b212d1c43913, type: 3}
-  highlighted: 0
-  selected: 0
-  objName: Conquest Station
-  description: Allows you to create conquest troops
-  costs: 64000000bc0200005e01000000000000
-  pop: 0
-  fovCollider: {fileID: 0}
-  botIndex: 0
-  spells: []
-  groupHighlight: 0
-  defaultMaxLife: 3000
-  maxLife: 0
-  iconSprite: {fileID: 0}
-  lines: 3
-  columns: 3
 --- !u!1 &8348579759016327372
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,7 +3798,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6688831921590552136}
+    m_TransformParent: {fileID: 7260492817737147013}
     m_Modifications:
     - target: {fileID: 1564131809788078, guid: 3410e70e48dc33444864198cdaf57018, type: 3}
       propertyPath: m_Name
