@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TaskTool : Tool
 {
     [SerializeField]
-    GameObject instantiateTaskPrefab;
+    GameObject taskPrefab;
 
     ConstructedUnit associatedBuilding;
     MovableUnit associatedUnit;
@@ -24,10 +24,9 @@ public class TaskTool : Tool
     {
         if (!associatedBuilding.GetComponent<TaskSystem>().Full() && PlayerManager.playerManager.Pay(associatedUnit.costs, associatedUnit.pop, false))
         {
-            InstantiateTask task = Instantiate(instantiateTaskPrefab).GetComponent<InstantiateTask>();
+            Task task = Instantiate(taskPrefab).GetComponent<Task>();
             task.transform.SetParent(associatedBuilding.GetComponent<TaskSystem>().taskHolder);
-            task.FirstInit(associatedBuilding);
-            task.Init(associatedUnit);
+            task.Init(associatedBuilding, associatedUnit);
             associatedBuilding.GetComponent<TaskSystem>().Add(task);
             SelectUnit.selectUnit.UpdateUI();
         }

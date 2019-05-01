@@ -8,7 +8,7 @@ public class InstantationObjective : IAObjective
     [HideInInspector]
     public int unitIndex;
 
-    InstantiateTask task;
+    Task task;
 
     void Start()
     {

@@ -11,10 +11,10 @@ public class TaskButton : MonoBehaviour
     public void Init(Task task)
     {
         this.task = task;
-        if (task.GetComponent<InstantiateTask>() != null && task.GetComponent<InstantiateTask>().GetSprite() != null)
+        if (task.GetComponent<Task>() != null && task.GetComponent<Task>().GetSprite() != null)
         {
             image.gameObject.SetActive(true);
-            image.sprite = task.GetComponent<InstantiateTask>().GetSprite();
+            image.sprite = task.GetComponent<Task>().GetSprite();
         }
     }
 

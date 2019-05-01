@@ -39,7 +39,7 @@ public class BotInstantiationManager : MonoBehaviour
         return res;
     }
 
-    public ObjectiveState CreateUnit(int unitIndex, out InstantiateTask task)
+    public ObjectiveState CreateUnit(int unitIndex, out Task task)
     {
         task = null;
         MovableUnit unit =((GameObject)Resources.Load(troopList[unitIndex])).GetComponent<MovableUnit>();
@@ -74,16 +74,15 @@ public class BotInstantiationManager : MonoBehaviour
         return res;
     }
 
-    public bool CreateInstantiateTask(ProductionBuilding building, MovableUnit unit, out InstantiateTask task)
+    public bool CreateInstantiateTask(ProductionBuilding building, MovableUnit unit, out Task task)
     {
         task = null;
         if (building.GetComponent<TaskSystem>().Full())
             return false;
         if (!GetComponent<BotManager>().Pay(unit.costs, unit.pop, false))
             print("wtf");
-        task = Instantiate(instantiateTaskPrefab).GetComponent<InstantiateTask>();
-        task.FirstInit(building);
-        task.Init(unit);
+        task = Instantiate(instantiateTaskPrefab).GetComponent<Task>();
+        task.Init(building, unit);
         building.GetComponent<TaskSystem>().Add(task);
         SelectUnit.selectUnit.UpdateUI();
         return true;
