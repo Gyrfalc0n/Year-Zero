@@ -84,7 +84,7 @@ public class TaskBar : MonoBehaviour
     public void Cancel()
     {
         Transform tmp = EventSystem.current.currentSelectedGameObject.transform;
-        currentBuilding.GetComponent<TaskSystem>().Cancel(tmp.GetComponent<TaskButton>().GetTask());
+        currentBuilding.GetComponent<TaskSystem>().Cancel(tmp.GetComponent<TaskButton>().task);
         Destroy(tmp);
     }
 
