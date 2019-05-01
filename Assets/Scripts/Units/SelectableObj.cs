@@ -218,7 +218,8 @@ public class SelectableObj : Interactable
             Dehighlight();
         selected = true;
         selectionCircle.gameObject.SetActive(true);
-        selectionCircle.color = myColor;
+        Color32 tmp = (Color32)selectionCircle.color;
+        selectionCircle.color = new Color32(tmp.r, tmp.g, tmp.b, 255);
     }
 
     public virtual void Deselect()
@@ -230,7 +231,7 @@ public class SelectableObj : Interactable
     [HideInInspector]
     public bool groupHighlight = false;
 
-    public void Highlight(bool group)
+    public virtual void Highlight(bool group)
     {
         if (!visible)
             return;
@@ -246,7 +247,7 @@ public class SelectableObj : Interactable
 
     }
 
-    public void Dehighlight()
+    public virtual void Dehighlight()
     {
         highlighted = false;
         if (!selected)

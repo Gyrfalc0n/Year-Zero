@@ -6,6 +6,11 @@ using Photon.Realtime;
 
 public class MultiplayerTools : MonoBehaviour
 {
+    public static bool IsMine(SelectableObj unit)
+    {
+        return unit.photonView.IsMine && unit.botIndex == -1;
+    }
+
     public static int GetTeamOf(SelectableObj unit)
     {
         int res;

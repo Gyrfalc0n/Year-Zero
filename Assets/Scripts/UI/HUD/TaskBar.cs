@@ -20,6 +20,8 @@ public class TaskBar : MonoBehaviour
 
     public void Init(ConstructedUnit building)
     {
+        if (!MultiplayerTools.IsMine(building)) return;
+
         obj.SetActive(true);
         currentBuilding = building;
         UpdateQueue(building.GetComponent<TaskSystem>().GetTasks());

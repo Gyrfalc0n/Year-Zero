@@ -45,6 +45,7 @@ public class PlayerManager : MonoBehaviour {
 
     public bool Pay(int[] costs, int pop, bool dontcheckPop)
     {
+        if (InstanceManager.instanceManager.noCosts) return true;
         if (PayCheck(costs, pop, dontcheckPop))
         {
             int i = 0;
@@ -74,6 +75,7 @@ public class PlayerManager : MonoBehaviour {
 
     public bool PayCheck(int[] costs, int pop, bool dontcheckPop)
     {
+        if (InstanceManager.instanceManager.noCosts) return true;
         int i = -1;
         bool possible = true;
         for (; possible && i+1 < resources.Length; i++)

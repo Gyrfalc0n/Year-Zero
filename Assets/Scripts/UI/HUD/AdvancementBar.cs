@@ -19,6 +19,8 @@ public class AdvancementBar : MonoBehaviour {
 
     public void Init(InConstructionUnit building)
     {
+        if (!MultiplayerTools.IsMine(building)) return;
+
         obj.SetActive(true);
         currentBuilding = building;
         bar.value = currentBuilding.GetCurrentActionAdvancement();

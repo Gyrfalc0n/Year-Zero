@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4991307429433494}
   - component: {fileID: 33059540651763834}
   - component: {fileID: 23050839018724962}
-  m_Layer: 12
+  m_Layer: 18
   m_Name: FarmGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,6 +85,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4991307429433494}
     m_Modifications:
+    - target: {fileID: 864846727302924138, guid: 728b57e63d490cd449cea493e31151e5,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceFarm
+      objectReference: {fileID: 0}
+    - target: {fileID: 864846727302924138, guid: 728b57e63d490cd449cea493e31151e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 866970822035632308, guid: 728b57e63d490cd449cea493e31151e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -145,10 +155,25 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.14999999
       objectReference: {fileID: 0}
-    - target: {fileID: 864846727302924138, guid: 728b57e63d490cd449cea493e31151e5,
+    - target: {fileID: 8790528434462126346, guid: 728b57e63d490cd449cea493e31151e5,
         type: 3}
-      propertyPath: m_Name
-      value: SpaceFarm
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394801892153067702, guid: 728b57e63d490cd449cea493e31151e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852110528356112527, guid: 728b57e63d490cd449cea493e31151e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304027665580742232, guid: 728b57e63d490cd449cea493e31151e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 888698877270842646, guid: 728b57e63d490cd449cea493e31151e5,
         type: 3}
@@ -160,11 +185,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d5a0dc4e66d0b0f4bb851b929a4b3660, type: 2}
+    - target: {fileID: 8790691696218686438, guid: 728b57e63d490cd449cea493e31151e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394569395154532954, guid: 728b57e63d490cd449cea493e31151e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6406723785983736058, guid: 728b57e63d490cd449cea493e31151e5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d5a0dc4e66d0b0f4bb851b929a4b3660, type: 2}
+    - target: {fileID: 6851793556245046669, guid: 728b57e63d490cd449cea493e31151e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6864062493832937019, guid: 728b57e63d490cd449cea493e31151e5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -175,6 +215,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d5a0dc4e66d0b0f4bb851b929a4b3660, type: 2}
+    - target: {fileID: 2304005144936604852, guid: 728b57e63d490cd449cea493e31151e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 728b57e63d490cd449cea493e31151e5, type: 3}
 --- !u!4 &7482837992961203478 stripped

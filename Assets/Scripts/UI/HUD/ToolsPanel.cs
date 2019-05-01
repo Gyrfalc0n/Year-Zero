@@ -29,6 +29,8 @@ public class ToolsPanel : MonoBehaviour {
     {
         if (SelectUnit.selectUnit.selected.Count > x)
         {
+            if (!MultiplayerTools.IsMine(SelectUnit.selectUnit.selected[x].GetComponent<SelectableObj>())) return;
+
             ShowToolsList(SelectUnit.selectUnit.selected[x].GetComponent<SelectableObj>().tools);
             ShowSpellsList(SelectUnit.selectUnit.selected[x].GetComponent<SelectableObj>().spells);
         }

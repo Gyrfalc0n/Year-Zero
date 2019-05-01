@@ -2352,13 +2352,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc99328657bb7de4eb41c13a1aabcf9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pseudoText: {fileID: 2252}
   raceDropdown: {fileID: 2216}
   teamDropdown: {fileID: 2243}
   colorDropdown: {fileID: 2228}
   readyText: {fileID: 6381804629863569679}
   notReadyText: {fileID: 8420619171957241684}
   kickButton: {fileID: 173}
+  pseudoText: {fileID: 2252}
 --- !u!1 &163
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,7 +3265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.2, y: -0.7}
+  m_AnchoredPosition: {x: 0.19999981, y: -0.6999998}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1228
@@ -3628,7 +3628,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NEW TEXT
+  m_Text: Bot
 --- !u!1 &6381804629863569679
 GameObject:
   m_ObjectHideFlags: 0
