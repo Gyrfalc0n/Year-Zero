@@ -13,7 +13,7 @@ public class Endless : MonoBehaviour
     private bool isFirstTick = true;
     private int waveTime = 60;
     private int waveCount = 0;
-    private int ToSpawn = 0;
+    private int ToSpawn = 1;
     
   
 

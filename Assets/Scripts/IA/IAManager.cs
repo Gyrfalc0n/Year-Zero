@@ -17,6 +17,7 @@ public class IAManager : MonoBehaviourPunCallbacks
 
     public void Init(int index, int race, int team, int color, Vector3 coords)
     {
+        dead = false;
         SetParameters(index, race, team, color);
         if (!PhotonNetwork.OfflineMode)
             photonView.RPC("SetParameters", RpcTarget.Others, index, race, team, color);
@@ -32,12 +33,14 @@ public class IAManager : MonoBehaviourPunCallbacks
         this.color = color;
     }
 
-    void CheckDeath()
+    public bool dead { get; private set; }
+    public void CheckDeath()
     {
         if (mySelectableObjs.Count == 0)
         {
-            Debug.Log("You're Dead");
+            dead = true;
         }
+        InstanceManager.instanceManager.photonView.RPC("RPCCheckWin", RpcTarget.All);
     }
 
     void InitStartingTroops(Vector3 coords)
@@ -46,6 +49,7 @@ public class IAManager : MonoBehaviourPunCallbacks
         {
             GetComponent<BotManager>().AddHome(InstantiateUnit(townhalls[race], new Vector3(coords.x + 2, 0.5f, coords.z + 2), Quaternion.Euler(0, 0, 0)).GetComponent<TownHall>());
             GetComponent<BotConstructionManager>().InitPos(GetComponent<BotManager>().GetHomes()[0].transform.position);
+            GetComponent<BotManager>().Pay(new int[] { 0, 0, 0, 0 }, 4, false);
             InstantiateUnit(builders[race], new Vector3(coords.x, 0.5f, coords.z), Quaternion.Euler(0, 0, 0));
             InstantiateUnit(builders[race], new Vector3(coords.x + 1, 0.5f, coords.z + 1), Quaternion.Euler(0, 0, 0));
             InstantiateUnit(builders[race], new Vector3(coords.x + 1, 0.5f, coords.z), Quaternion.Euler(0, 0, 0));

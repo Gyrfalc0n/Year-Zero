@@ -23,16 +23,17 @@ public class InConstructionUnit : BuildingUnit
 
     public void Init(ConstructedUnit building)
     {
+        maxLife = building.defaultMaxLife;
         associatedBuilding = building;
         currentLife = 0;
         buildersCount = 0;
     }
 
-    private void CheckConstruction()
+    void CheckConstruction()
     {
         if (currentLife < GetMaxlife())
         {
-            currentLife += Time.deltaTime * builders.Count * SkilltreeManager.manager.constructionSpeed;
+            currentLife += Time.deltaTime * builders.Count * SkilltreeManager.manager.constructionSpeed * 30;
             SetLife(currentLife);
         }
         else
@@ -63,7 +64,7 @@ public class InConstructionUnit : BuildingUnit
 
     public override void Cancel()
     {
-        PlayerManager.playerManager.Pay(associatedBuilding.costs, associatedBuilding.pop);
+        PlayerManager.playerManager.PayBack(associatedBuilding.costs, associatedBuilding.pop);
         KillUnit();
     }
 

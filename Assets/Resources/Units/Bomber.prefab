@@ -42,7 +42,7 @@ MonoBehaviour:
   highlighted: 0
   selected: 0
   objName: Bomber
-  description: 
+  description: An heavy and slow aggressive ship thats shoots bombs. Slow but powerful
   costs: 00000000960000007800000000000000
   pop: 3
   fovCollider: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
   groupHighlight: 0
   defaultMaxLife: 300
   maxLife: 0
-  iconSprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: 37d0542989871da4fbe2d5636127ea3b, type: 3}
   home: {fileID: 0}
   requiredTime: 45
   moving: 0
@@ -71,6 +71,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomber
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 2367246494767128176}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -115,11 +120,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
+      propertyPath: firePoint
       value: 
-      objectReference: {fileID: 2367246494767128176}
+      objectReference: {fileID: 0}
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -145,11 +150,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f221e96cfbb5d6040b82a97d3d5ff1d0, type: 2}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Layer

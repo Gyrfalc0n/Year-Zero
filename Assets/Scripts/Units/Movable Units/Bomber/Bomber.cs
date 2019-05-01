@@ -8,8 +8,8 @@ public class Bomber : MovableUnit
     {
         if (botIndex == -1)
         {
-            maxLife = defaultMaxLife + (int)(defaultMaxLife * SkilltreeManager.manager.bomberBonusLife);
-            damage = damage + (int)(defaultDamage * SkilltreeManager.manager.bomberBonusDamage);
+            maxLife = (int)(defaultMaxLife * SkilltreeManager.manager.bomberBonusLife);
+            damage = (int)(defaultDamage * SkilltreeManager.manager.bomberBonusDamage);
         }
         base.InitUnit(botIndex);
     }

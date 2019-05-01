@@ -16,7 +16,7 @@ public class TurrelFOV : MonoBehaviour
 
     private void Start()
     {
-        damage = defaultDamage + SkilltreeManager.manager.turrelDamage;
+        damage = defaultDamage * SkilltreeManager.manager.turrelBonusDamage;
         defaultRange = transform.localScale.x;
         SetRange(SkilltreeManager.manager.turrelRange);
     }

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class SkilltreeManager : MonoBehaviour
 {
     #region Singleton
@@ -55,6 +59,16 @@ public class SkilltreeManager : MonoBehaviour
     public float radar = 0;
     public float radarRange = 1; 
     public bool turrel = false;
-    public float turrelDamage = 1;
+    public float turrelBonusDamage = 1;
     public float turrelRange = 1;
+
+#if UNITY_EDITOR
+    [CustomEditor(typeof(SkilltreeManager))]
+    public class InConstructionUnitEditor : Editor
+    {
+        override public void OnInspectorGUI()
+        {
+        }
+    }
+#endif
 }

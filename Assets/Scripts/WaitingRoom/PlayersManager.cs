@@ -54,7 +54,7 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         timer = 0.3f;
         if (PhotonNetwork.IsMasterClient)
             coords = new List<Vector3>[4] { topLeft, bottomLeft , topRight , bottomRight };
-        playerSettings = PhotonNetwork.Instantiate("UI/WaittingRoom/PlayerSettingsPrefab", Vector3.zero, Quaternion.identity).GetComponent<PlayerSettings>();
+        playerSettings = PhotonNetwork.Instantiate("UI/WaitingRoom/PlayerSettingsPrefab", Vector3.zero, Quaternion.identity).GetComponent<PlayerSettings>();
         InitSettings();
         UpdatePlayerAmountText();
     }
@@ -84,13 +84,13 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     void AddBot()
     {
-        PhotonNetwork.Instantiate("UI/WaittingRoom/BotSettingsPrefab", Vector3.zero, Quaternion.identity);
+        PhotonNetwork.Instantiate("UI/WaitingRoom/BotSettingsPrefab", Vector3.zero, Quaternion.identity);
     }
 
     void Update()
     {
         UpdatePlayerAmountText();
-        UpdateWaittingMessage();
+        UpdateWaitingMessage();
         if (PhotonNetwork.IsMasterClient && Input.GetKeyUp(KeyCode.Return))
         {
             TryStartGame();
@@ -167,11 +167,6 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         return res;
     }
 
-
-
-
-
-
     public void ToggleReady(bool val)
     {
         customProp[isReady] = val;
@@ -214,21 +209,35 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
 
     void UpdatePlayerAmountText()
     {
+        if (playersList == null || !PhotonNetwork.InRoom) return; 
         playerAmountText.text = playersList.childCount + "/" + ((PhotonNetwork.OfflineMode) ? soloMaxPlayer : PhotonNetwork.CurrentRoom.MaxPlayers);
     }
 
-    void UpdateWaittingMessage()
+    [SerializeField] Canvas cnvs;
+    void UpdateWaitingMessage()
     {
-        int maxPlayer = (PhotonNetwork.OfflineMode) ? soloMaxPlayer : PhotonNetwork.CurrentRoom.MaxPlayers;
-        waittingMessage.SetActive(playersList.childCount < maxPlayer);
+        if (playersList == null || !PhotonNetwork.InRoom) return;
+        waittingMessage.SetActive(!PhotonNetwork.OfflineMode && playersList.childCount < PhotonNetwork.CurrentRoom.MaxPlayers);
+        if (PhotonNetwork.OfflineMode) return;
+        UpdateDots();
+        UpdateWaitingMessagePos();
+    }
+
+    void UpdateDots()
+    {
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
             timer = 0.3f;
-            if (waittingDots.text.Length == 5)
-                waittingDots.text = "";
-            else
-                waittingDots.text = new string('.', (waittingDots.text.Length + 1));
+            waittingDots.text = (waittingDots.text.Length == 5) ? "" : new string('.', (waittingDots.text.Length + 1));
         }
+    }
+
+    void UpdateWaitingMessagePos()
+    {
+        Vector3 tmp = waittingMessage.transform.position;
+        if (playersList.childCount > 0)
+            tmp.y = playersList.GetChild(playersList.childCount - 1).position.y - 40 * cnvs.scaleFactor;
+        waittingMessage.transform.position = tmp;
     }
 }

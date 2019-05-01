@@ -9,7 +9,7 @@ public class HackerUnit : MovableUnit
     {
         agent = GetComponent<NavMeshAgent>();
         if (botIndex == -1)
-            agent.speed = speed + (int)(defaultSpeed * SkilltreeManager.manager.hackerBonusSpeed);
+            agent.speed = (int)(defaultSpeed * SkilltreeManager.manager.hackerBonusSpeed);
         base.Init2();
     }
 

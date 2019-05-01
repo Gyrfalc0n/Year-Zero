@@ -7,13 +7,7 @@ public class HackerSpeedBuffSkill : IncreaseValueSkill
 {
     public override void Effect()
     {
-        SkilltreeManager.manager.hackerBonusSpeed += increaseAmount;
-        foreach (SelectableObj obj in InstanceManager.instanceManager.mySelectableObjs)
-        {
-            if (obj.GetComponent<HackerUnit>() != null)
-            {
-                obj.GetComponent<NavMeshAgent>().speed += (int)(obj.GetComponent<HackerUnit>().defaultSpeed * SkilltreeManager.manager.hackerBonusSpeed);
-            }
-        }
+        Increase(ref SkilltreeManager.manager.hackerBonusSpeed);
+        UpdateSpeedAssociatedUnits<HackerUnit>(ref SkilltreeManager.manager.hackerBonusSpeed);
     }
 }

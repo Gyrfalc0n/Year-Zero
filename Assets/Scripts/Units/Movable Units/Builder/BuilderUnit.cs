@@ -44,12 +44,15 @@ public class BuilderUnit : MovableUnit {
 
     public override void Interact(Interactable obj)
     {
-        base.Interact(obj);
-        if (obj.GetComponent<InConstructionUnit>() != null)
+        if (obj.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<DestructibleUnit>()) != MultiplayerTools.GetTeamOf(this))
+        {
+            Attack(obj.GetComponent<DestructibleUnit>());
+        }
+        else if (obj.GetComponent<InConstructionUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<InConstructionUnit>()) == MultiplayerTools.GetTeamOf(this))
         {
             Build(obj.GetComponent<InConstructionUnit>());
         }
-        else if (obj.GetComponent<ResourceUnit>() != null && (obj.GetComponent<ConstructedUnit>() == null || obj.photonView.IsMine))
+        else if (obj.GetComponent<ResourceUnit>() != null && (obj.GetComponent<ConstructedUnit>() == null || MultiplayerTools.GetTeamOf(obj.GetComponent<ConstructedUnit>()) == MultiplayerTools.GetTeamOf(this)))
         {
             Mine(obj.GetComponent<ResourceUnit>());
         }
@@ -75,6 +78,7 @@ public class BuilderUnit : MovableUnit {
 
     public void Mine(ResourceUnit obj)
     {
+        home = (botIndex == -1) ? PlayerManager.playerManager.GetNearestHome(transform.position): InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().GetNearestHome(transform.position);
         ResetAction();
         miningSystem.InitMining(home, obj);
         UpdateJoblessPanel();
@@ -113,6 +117,9 @@ public class BuilderUnit : MovableUnit {
             StopMine();
         if (buildingSystem.IsBuilding())
             StopBuild();
+        if (repairingSystem.IsRepairing())
+            StopRepairing();
+
         UpdateJoblessPanel();
     }
 

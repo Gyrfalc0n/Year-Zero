@@ -7,7 +7,8 @@ public class CampaignMenu : MonoBehaviourPunCallbacks
 {
     [SerializeField] public GameObject WarningTutoNotCleared;
     [SerializeField] public GameObject WarningMissionNotCleared;
-     public void StartTuto()
+
+    public void StartTuto()
      {
         PhotonNetwork.LoadLevel(4);
         FindObjectOfType<AudioManager>().PlaySound("UniverseMusic");
@@ -31,19 +32,6 @@ public class CampaignMenu : MonoBehaviourPunCallbacks
          if ((PlayerPrefs.GetInt("missionCleared",0)==1))
          {
              PhotonNetwork.LoadLevel("Mission2");
-             FindObjectOfType<AudioManager>().PlaySound("BattleMusic");
-         }
-         else
-         {
-             WarningMissionNotCleared.GetComponent<TemporaryMenuMessage>().Activate();
-         }
-     }
-     
-     public void StartEndlessMode()
-     {
-         if ((PlayerPrefs.GetInt("missionCleared",0)==1))
-         {
-             PhotonNetwork.LoadLevel("EndlessMode");
              FindObjectOfType<AudioManager>().PlaySound("BattleMusic");
          }
          else

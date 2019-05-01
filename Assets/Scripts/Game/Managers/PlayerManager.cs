@@ -12,7 +12,6 @@ public class PlayerManager : MonoBehaviour {
     void Awake()
     {
         playerManager = this;
-        population = new Population(SceneManager.GetActiveScene().name != "Tutorial");
     }
 
     #endregion
@@ -25,7 +24,7 @@ public class PlayerManager : MonoBehaviour {
 ,new GameResource("Food")
     ,new GameResource("Tech")};
 
-    Population population;
+    Population population = new Population();
 
     List<TownHall> homes = new List<TownHall>();
 
@@ -44,9 +43,10 @@ public class PlayerManager : MonoBehaviour {
         return names;
     }
 
-    public bool Pay(int[] costs, int pop)
+    public bool Pay(int[] costs, int pop, bool dontcheckPop)
     {
-        if (PayCheck(costs, pop))
+        if (InstanceManager.instanceManager.noCosts) return true;
+        if (PayCheck(costs, pop, dontcheckPop))
         {
             int i = 0;
             foreach (GameResource resource in resources)
@@ -73,26 +73,51 @@ public class PlayerManager : MonoBehaviour {
         UpdateResourcesPanel();
     }
 
-    public bool PayCheck(int[] costs, int pop)
+    public bool PayCheck(int[] costs, int pop, bool dontcheckPop)
     {
-        int i = 0;
+        if (InstanceManager.instanceManager.noCosts) return true;
+        int i = -1;
         bool possible = true;
-        foreach (GameResource resource in resources)
+        for (; possible && i+1 < resources.Length; i++)
         {
-            if (resource.GetValue() < costs[i])
+            if (resources[i+1].GetValue() < costs[i+1])
                 possible = false;
-            i++;
         }
-        if (possible && population.GetCurrentMaxValue() < population.GetValue() + pop)
+        if (!dontcheckPop && possible && population.GetCurrentMaxValue() < population.GetValue() + pop)
         {
             possible = false;
+            i = -2;
         }
-            
+
         if (!possible)
         {
-            TemporaryMessage.temporaryMessage.Add("Not Enough Resources");
+            SendMessage(i);
         }
         return possible;
+    }
+
+    public void SendMessage(int i)
+    {
+        string message;
+        switch (i)
+        {
+            case 0:
+                message = "You don't have enough energy";
+                break;
+            case 1:
+                message = "You don't have enough ore";
+                break;
+            case 2:
+                message = "You don't have enough food";
+                break;
+            case 3:
+                message = "You don't have enough tech points";
+                break;
+            default:
+                message = "You don't have enough population";
+                break;
+        }
+        TemporaryMessage.temporaryMessage.Add(message);
     }
 
     public void Add(int val, int index)
@@ -130,6 +155,21 @@ public class PlayerManager : MonoBehaviour {
         UpdateResourcesPanel();
     }
 
+    public TownHall GetNearestHome(Vector3 pos)
+    {
+        TownHall res = null;
+
+        for (int i = 0; i < homes.Count; i++)
+        {
+            if (res == null || Vector3.Distance(pos, homes[i].transform.position) < Vector3.Distance(pos, res.transform.position))
+            {
+                res = homes[i];
+            }
+        }
+
+        return res;
+    }
+
     #endregion
 
     #region population
@@ -153,11 +193,13 @@ public class PlayerManager : MonoBehaviour {
     public void RemovePopulation(int val)
     {
         population.Remove(val);
+        UpdateResourcesPanel();
     }
 
     public void RemoveMaxPopulation(int val)
     {
         population.RemoveMax(val);
+        UpdateResourcesPanel();
     }
 
     #endregion

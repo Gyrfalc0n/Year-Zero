@@ -33,7 +33,7 @@ public class ChatMenuPanelControls : PlayerControls
 
     void CheckMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F12))
         {
             Cancel();
         }

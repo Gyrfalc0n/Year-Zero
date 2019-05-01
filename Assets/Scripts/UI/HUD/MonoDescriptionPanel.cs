@@ -16,6 +16,8 @@ public class MonoDescriptionPanel : MonoBehaviour
 
     public void Init(DestructibleUnit unit)
     {
+        if (!MultiplayerTools.IsMine(unit)) return;
+
         obj.SetActive(true);
         associatedUnit = unit;
         nameText.text = unit.objName;
@@ -44,9 +46,13 @@ public class MonoDescriptionPanel : MonoBehaviour
                 s = "Ore";
             }
             if (s != string.Empty)
-                resourceText.text = s + " : " + unit.GetComponent<MiningSystem>().GetResourceAmount();
+                resourceText.text = s + " : " + (int)unit.GetComponent<MiningSystem>().GetResourceAmount();
             else
                 resourceText.text = "";
+        }
+        else
+        {
+            resourceText.text = "";
         }
 
     }

@@ -6,12 +6,12 @@ public class TurrelDamageSkill : IncreaseValueSkill
 {
     public override void Effect()
     {
-        SkilltreeManager.manager.turrelDamage += increaseAmount;
+        Increase(ref SkilltreeManager.manager.turrelBonusDamage);
         foreach (SelectableObj obj in InstanceManager.instanceManager.mySelectableObjs)
         {
             if (obj.GetComponent<Turrel>() != null)
             {
-                obj.GetComponentInChildren<TurrelFOV>().damage = obj.GetComponentInChildren<TurrelFOV>().defaultDamage + SkilltreeManager.manager.turrelDamage;
+                obj.GetComponentInChildren<TurrelFOV>().damage = obj.GetComponentInChildren<TurrelFOV>().defaultDamage * SkilltreeManager.manager.turrelBonusDamage;
             }
         }
     }

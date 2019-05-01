@@ -19,7 +19,7 @@ MonoBehaviour:
   highlighted: 0
   selected: 0
   objName: Combat Station
-  description: 
+  description: Allows you to create combat troops
   costs: 000000002c010000c800000000000000
   pop: 0
   fovCollider: {fileID: 0}
@@ -31,6 +31,75 @@ MonoBehaviour:
   iconSprite: {fileID: 0}
   lines: 3
   columns: 3
+--- !u!1001 &450663565544006652
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4134265740445227100}
+    m_Modifications:
+    - target: {fileID: 8913419353404196530, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_Name
+      value: Core4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915037158406115298, guid: aa255204de4eb7348a1ea3c4a51e1dba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa255204de4eb7348a1ea3c4a51e1dba, type: 3}
 --- !u!1001 &4470627496034457294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43,11 +112,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combat Station
       objectReference: {fileID: 0}
-    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 416454294261193715}
     - target: {fileID: 4198717423202766145, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -101,6 +165,16 @@ PrefabInstance:
     - target: {fileID: 4198717423202766145, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309190014128226341, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 416454294261193715}
+    - target: {fileID: 563438021248857849, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
@@ -195,3 +269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &4134265740445227100 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 528329407768841874, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4470627496034457294}
+  m_PrefabAsset: {fileID: 0}

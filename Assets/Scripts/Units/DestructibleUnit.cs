@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class DestructibleUnit : SelectableObj {
 
     FloatingLifeBarPanel flbPanel;
-    FloatingLifeBar lifeBar;
 
     public override void InitUnit(int botIndex)
     {
@@ -20,7 +19,6 @@ public class DestructibleUnit : SelectableObj {
             photonView.RPC("RPCInitDestructible", RpcTarget.Others, lifeValue, maxLife);
         }
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
-        flbPanel.AddLifeBar(this);
     }
 
     [PunRPC]
@@ -28,7 +26,6 @@ public class DestructibleUnit : SelectableObj {
     {
         base.RPCInitUnit(botIndex);
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
-        flbPanel.AddLifeBar(this);
     }
 
     [PunRPC]
@@ -109,6 +106,10 @@ public class DestructibleUnit : SelectableObj {
 
         OnDestroyed();
         PhotonNetwork.Destroy(this.gameObject);
+        if (botIndex == -1)
+            InstanceManager.instanceManager.CheckDeath();
+        else if (botIndex != -2 && !PhotonNetwork.OfflineMode)
+            InstanceManager.instanceManager.GetBot(botIndex).CheckDeath();
     }
 
     [PunRPC]
@@ -132,5 +133,20 @@ public class DestructibleUnit : SelectableObj {
     public virtual bool IsAvailable()
     {
         return true;
+    }
+
+    public override void Highlight(bool group)
+    {
+        base.Highlight(group);
+        if (!group)
+        {
+            flbPanel.Show(this);
+        }
+    }
+
+    public override void Dehighlight()
+    {
+        base.Dehighlight();
+        flbPanel.Hide();
     }
 }

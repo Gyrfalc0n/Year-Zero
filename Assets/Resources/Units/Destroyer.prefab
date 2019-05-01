@@ -40,7 +40,8 @@ MonoBehaviour:
   highlighted: 0
   selected: 0
   objName: Destroyer
-  description: 
+  description: The most gigantic ship ever created. Very resistant, does balanced
+    damae but can buff near units and be used as a spawn point for production buildings
   costs: 78000000b00400005802000000000000
   pop: 12
   fovCollider: {fileID: 0}
@@ -198,6 +199,11 @@ PrefabInstance:
         type: 3}
       propertyPath: range
       value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}

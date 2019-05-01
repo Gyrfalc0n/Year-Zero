@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tool : MonoBehaviour {
 
-	public void MoveTool()
+    public void MoveTool()
     {
         PlayerController.playerController.InitMoveToolControls();
     }

@@ -42,7 +42,7 @@ MonoBehaviour:
   highlighted: 0
   selected: 0
   objName: Basic Troop
-  description: 
+  description: Basic troop with balanced stats
   costs: 000000004b0000006400000000000000
   pop: 1
   fovCollider: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
   groupHighlight: 0
   defaultMaxLife: 100
   maxLife: 0
-  iconSprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: 73f6d876e145e5649ac50cb30c13c1fc, type: 3}
   home: {fileID: 0}
   requiredTime: 25
   moving: 0
@@ -79,33 +79,38 @@ PrefabInstance:
     - target: {fileID: 2254224967263018919, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Size.y
-      value: 5.3179755
+      value: 1.4238968
       objectReference: {fileID: 0}
     - target: {fileID: 2254224967263018919, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Center.y
-      value: -0.009575605
+      value: 0.0014944077
       objectReference: {fileID: 0}
     - target: {fileID: 2254224967263018919, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Size.x
-      value: 12.524364
+      value: 4.339451
       objectReference: {fileID: 0}
     - target: {fileID: 2254224967263018919, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Center.x
-      value: -0.061955452
+      value: -0.11349869
       objectReference: {fileID: 0}
     - target: {fileID: 2254224967263018919, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Size.z
-      value: 13.549185
+      value: 4.2747335
       objectReference: {fileID: 0}
     - target: {fileID: 2254224967263018919, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.043154478
+      value: -0.006864071
       objectReference: {fileID: 0}
+    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 2367246494767128176}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -150,11 +155,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
+      propertyPath: firePoint
       value: 
-      objectReference: {fileID: 2367246494767128176}
+      objectReference: {fileID: 0}
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -163,7 +168,7 @@ PrefabInstance:
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.18
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
@@ -180,10 +185,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f221e96cfbb5d6040b82a97d3d5ff1d0, type: 2}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
-      propertyPath: firePoint
-      value: 
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23050839018724962, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
@@ -195,11 +200,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300010, guid: 21c6d0bb8170cae4f9d49bb728b3f524, type: 3}
-    - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114743559952315036, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
     - {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}

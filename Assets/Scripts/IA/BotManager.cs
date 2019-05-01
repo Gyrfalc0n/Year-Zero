@@ -10,12 +10,7 @@ public class BotManager : MonoBehaviour
 ,new GameResource("Food")
     ,new GameResource("Tech")};
 
-    private void Awake()
-    {
-        population = new Population(true);
-    }
-
-    Population population;
+    Population population = new Population();
 
     List<TownHall> homes = new List<TownHall>();
 
@@ -122,6 +117,21 @@ public class BotManager : MonoBehaviour
         homes.Remove(home);
     }
 
+    public TownHall GetNearestHome(Vector3 pos)
+    {
+        TownHall res = null;
+
+        for (int i = 0; i < homes.Count; i++)
+        {
+            if (res == null || Vector3.Distance(pos, homes[i].transform.position) < Vector3.Distance(pos, res.transform.position))
+            {
+                res = homes[i];
+            }
+        }
+
+        return res;
+    }
+
     #endregion
 
     #region population
@@ -144,6 +154,11 @@ public class BotManager : MonoBehaviour
     public void RemovePopulation(int val)
     {
         population.Remove(val);
+    }
+
+    public void RemoveMaxPopulation(int val)
+    {
+        population.RemoveMax(val);
     }
 
     #endregion

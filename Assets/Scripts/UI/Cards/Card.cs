@@ -10,10 +10,16 @@ public class Card : MonoBehaviour {
     [SerializeField]
     Image lifeBar;
     MovableUnit associatedUnit;
+    [SerializeField] Image image;
 
     public void Init(MovableUnit unit)
     {
         associatedUnit = unit;
+        if (associatedUnit.iconSprite != null)
+        {
+            image.gameObject.SetActive(true);
+            image.sprite = associatedUnit.iconSprite;
+        }
     }
 
     public void OnClicked()
@@ -24,6 +30,8 @@ public class Card : MonoBehaviour {
     void Update()
     {
         lifeBar.fillAmount = associatedUnit.GetLife() / associatedUnit.GetMaxlife();
+        if (associatedUnit.GetLife() <= 0)
+            Destroy(this);
     }
 
     public void Highlight()

@@ -14,17 +14,25 @@ public class BotArmyManager : MonoBehaviour
             army.Add(unit);
     }
 
+    public void Remove(MovableUnit unit)
+    {
+        if (army.Contains(unit))
+            army.Add(unit);
+    }
+
     public DestructibleUnit GetNearestEnemy()
     {
         DestructibleUnit res = null;
         List<Holder> enemies = GetEnemyHolders();
-        Vector3 myPos = GetComponent<BotManager>().GetHomes()[0].transform.position;
+        Vector3 myPos =(GetComponent<IndependantIAManager>() == null) ? GetComponent<BotManager>().GetHomes()[0].transform.position:army[0].transform.position;
 
         foreach (Holder enemy in enemies)
         {
             DestructibleUnit tmp = GetNearestBuildingOf(enemy);
+            if (tmp == null) tmp = GetNearestTroopOf(enemy);
             if (res == null || Vector3.Distance(myPos, tmp.transform.position) > Vector3.Distance(myPos, res.transform.position))
-                res = tmp.GetComponent<DestructibleUnit>();
+                if (tmp != null)
+                    res = tmp.GetComponent<DestructibleUnit>();
         }
         return res;
     }
@@ -33,7 +41,21 @@ public class BotArmyManager : MonoBehaviour
     {
         DestructibleUnit res = null;
         Transform buildings = x.transform.GetChild(0).Find("Buildings");
-        Vector3 myPos = GetComponent<BotManager>().GetHomes()[0].transform.position;
+        Vector3 myPos = (GetComponent<IndependantIAManager>() == null) ? GetComponent<BotManager>().GetHomes()[0].transform.position : army[0].transform.position;
+
+        foreach (Transform child in buildings)
+        {
+            if (res == null || Vector3.Distance(myPos, child.position) > Vector3.Distance(myPos, res.transform.position))
+                res = child.GetComponent<DestructibleUnit>();
+        }
+        return res;
+    }
+
+    public DestructibleUnit GetNearestTroopOf(Holder x)
+    {
+        DestructibleUnit res = null;
+        Transform buildings = x.transform.GetChild(0).Find("Movable");
+        Vector3 myPos = (GetComponent<IndependantIAManager>() == null) ? GetComponent<BotManager>().GetHomes()[0].transform.position : army[0].transform.position;
 
         foreach (Transform child in buildings)
         {
@@ -86,22 +108,33 @@ public class BotArmyManager : MonoBehaviour
     public void SendArmy()
     {
         DestructibleUnit target = GetNearestEnemy();
-        Holder targetTeam = GameObject.Find(MultiplayerTools.GetHolderOf(target)).GetComponent<Holder>();
 
         if (target == null)
             return;
 
         foreach (MovableUnit troop in army)
         {
+            if (troop == null)
+                continue;
+
             troop.Attack(target);
-            troop.SetAlwaysAttack(targetTeam);
+            troop.SetAlwaysAttack();
         }
     }
 
     public void SendArmy(Vector3 pos)
     {
+        DestructibleUnit target = GetNearestEnemy();
+
+        if (target == null)
+            return;
+
         foreach (MovableUnit troop in army)
         {
+            if (troop == null)
+                continue;
+
+            troop.SetAlwaysAttack();
             troop.SetDestination(pos, 2f);
         }
     }

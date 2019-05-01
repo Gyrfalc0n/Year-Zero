@@ -6,13 +6,7 @@ public class LightTroopBonusLifeSkill : IncreaseValueSkill
 {
     public override void Effect()
     {
-        SkilltreeManager.manager.lightTroopBonusLife += increaseAmount;
-        foreach (SelectableObj obj in InstanceManager.instanceManager.mySelectableObjs)
-        {
-            if (obj.GetComponent<LightTroop>() != null)
-            {
-                obj.GetComponent<LightTroop>().maxLife += (int)(obj.GetComponent<LightTroop>().defaultMaxLife * SkilltreeManager.manager.lightTroopBonusLife);
-            }
-        }
+        Increase(ref SkilltreeManager.manager.lightTroopBonusLife);
+        UpdateLifeAssociatedUnits<LightTroop>(ref SkilltreeManager.manager.lightTroopBonusLife);
     }
 }

@@ -105,9 +105,9 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
             {
-                if (hit.collider.GetComponent<SelectableObj>() != null && hit.collider.GetComponent<SelectableObj>().photonView.IsMine && hit.collider.GetComponent<SelectableObj>().botIndex == -1)
+                if (hit.collider.GetComponent<SelectableObj>() != null)
                 {
-                    if (!Input.GetKey("left ctrl"))
+                    if (!Input.GetKey("left ctrl") || hit.collider.GetComponent<SelectableObj>().photonView.IsMine || hit.collider.GetComponent<SelectableObj>().botIndex == -1)
                         ClearSelection();
                     changement = SelectObject(hit.collider.GetComponent<SelectableObj>());
                 }
@@ -125,35 +125,27 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     public void UpdateUI()
     {
         monoDescriptionPanel.ResetBar();
-        if (selected.Count == 0)
-        {
-            advancementBar.Reset();
-            taskBar.ResetBar();
-            cardsPanel.ClearCards();
-            toolsPanel.ClearTools();
-            return;
-        }
+        advancementBar.Reset();
+        taskBar.ResetBar();
+        cardsPanel.ClearCards();
+        toolsPanel.ClearTools();
+        if (selected.Count == 0) return;
 
         if (selected[0].GetComponent<DestructibleUnit>() != null)
+        {
             portraitPanel.Init(selected[0].GetComponent<DestructibleUnit>());
+            if (selected.Count == 1)
+                monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
+        }
         if (selected[0].GetComponent<MovableUnit>() != null)
         {
-            advancementBar.Reset();
-            taskBar.ResetBar();
-            cardsPanel.ClearCards();
             if (selected.Count > 1)
                 cardsPanel.CheckCards();
             else
-            {
-                monoDescriptionPanel.Init(selected[0].GetComponent<DestructibleUnit>());
                 toolsPanel.CheckTools(0);
-            }
         }
         else
         {
-            taskBar.ResetBar();
-            cardsPanel.ClearCards();
-            toolsPanel.ClearTools();
             if (selected[0].GetComponent<InConstructionUnit>() != null)
             {
                 advancementBar.Init(selected[0].GetComponent<InConstructionUnit>());
@@ -363,7 +355,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
         {
-            if (hit.collider.GetComponent<MovableUnit>() != null && hit.collider.GetComponent<MovableUnit>().photonView.IsMine)
+            if (hit.collider.GetComponent<MovableUnit>() != null && hit.collider.GetComponent<MovableUnit>().photonView.IsMine && hit.collider.GetComponent<MovableUnit>().botIndex != -1 && hit.collider.GetComponent<MovableUnit>().botIndex != -2)
             {
                 ClearSelection();
 

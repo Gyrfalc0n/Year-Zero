@@ -49,42 +49,29 @@ public class MainMenu : MonoBehaviourPunCallbacks {
 
     void CheckGameplay()
     {
-        if (!PlayerPrefs.HasKey("camMoveMouseSpeed"))
-        {
-            PlayerPrefs.SetFloat("camMoveMouseSpeed", 0.5f);
-        }
-        if (!PlayerPrefs.HasKey("camMoveMouse"))
-        {
-            PlayerPrefs.SetInt("camMoveMouse", 1);
-        }
-        if (!PlayerPrefs.HasKey("camMoveKeySpeed"))
-        {
-            PlayerPrefs.SetFloat("camMoveKeySpeed", 0.5f);
-        }
-        if (!PlayerPrefs.HasKey("helpBubble"))
-        {
-            PlayerPrefs.SetInt("helpBubble", 1);
-        }
+        InitFloatPrefs("camMoveMouseSpeed", 0.5f);
+        InitFloatPrefs("camMoveMouse", 1);
+        InitFloatPrefs("camMoveKeySpeed", 0.5f);
+        InitFloatPrefs("helpBubble", 1);
     }
 
     void CheckSound()
     {
-        if (!PlayerPrefs.HasKey("GeneralAudio"))
-        {
-            PlayerPrefs.SetFloat("GeneralAudio", 0.5f);
-        }
-        if (!PlayerPrefs.HasKey("SoundAudio"))
-        {
-            PlayerPrefs.SetFloat("SoundAudio", 0.5f);
-        }
-        if (!PlayerPrefs.HasKey("MusicAudio"))
-        {
-            PlayerPrefs.SetFloat("MusicAudio", 0.5f);
-        }
+        InitFloatPrefs("GeneralAudio", 0.5f);
+        InitFloatPrefs("SoundAudio", 0.5f);
+        InitFloatPrefs("MusicAudio", 0.5f);
 
         audioMixer.SetFloat("GeneralVolume", PlayerPrefs.GetFloat("GeneralAudio"));
         audioMixer.SetFloat("SoundVolume", PlayerPrefs.GetFloat("SoundAudio"));
         audioMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicAudio"));
+    }
+
+    void InitFloatPrefs(string key, float value)
+    {
+        if (!PlayerPrefs.HasKey(key))
+        {
+            PlayerPrefs.SetFloat(key, value);
+        }
     }
 
     public void Singleplayer()
@@ -190,18 +177,10 @@ public class MainMenu : MonoBehaviourPunCallbacks {
         createGameMenu.SetActive(true);
     }
 
-    public override void OnJoinRandomFailed(short returnCode, string message)
-    {
-        print("no rooms available");
-    }
-
     public override void OnJoinedRoom()
     {
-        Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room.");
-
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("We load the waiting room");
             PhotonNetwork.LoadLevel("WaitingRoom");
         }
     }

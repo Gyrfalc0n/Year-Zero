@@ -62,6 +62,6 @@ public abstract class Spell : MonoBehaviour
 
     public void SendError()
     {
-        //Send Error Message
+        TemporaryMessage.temporaryMessage.Add(errorMessage);
     }
 }

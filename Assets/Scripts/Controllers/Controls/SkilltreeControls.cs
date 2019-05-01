@@ -33,7 +33,7 @@ public class SkilltreeControls : PlayerControls
 
     void CheckMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || !obj.Activated())
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.T) || !obj.Activated())
         {
             Cancel();
         }

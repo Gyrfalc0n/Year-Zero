@@ -102,21 +102,25 @@ public class MovementControls : PlayerControls
             {
                 GetComponent<PlayerController>().InitChatPanelControls();
             }
-            if (Input.GetKeyDown(KeyCode.F9))
+            else if (Input.GetKeyDown(KeyCode.F9))
             {
-                //GetComponent<PlayerController>().InitQuestControls();
+               GetComponent<PlayerController>().InitHelpPanelControls();
             }
-            if (Input.GetKeyDown(KeyCode.F10))
+            else if (Input.GetKeyDown(KeyCode.F10))
             {
                 GetComponent<PlayerController>().InitPauseControls();
             }
-            if (Input.GetKeyDown(KeyCode.F11))
+            else if (Input.GetKeyDown(KeyCode.F11))
             {
                 GetComponent<PlayerController>().InitAlliesPanelControls();
             }
-            if (Input.GetKeyDown(KeyCode.F12))
+            else if (Input.GetKeyDown(KeyCode.F12))
             {
                 GetComponent<PlayerController>().InitChatMenuPanelControls();
+            }
+            else if (Input.GetKeyDown(KeyCode.T))
+            {
+                GetComponent<PlayerController>().InitSkilltreePanelControls();
             }
         }
     }
