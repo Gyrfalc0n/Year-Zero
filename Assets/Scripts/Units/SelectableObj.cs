@@ -136,7 +136,7 @@ public class SelectableObj : Interactable
     {
         selectionCircle = ((GameObject)Instantiate(Resources.Load(selectionCirclePath), transform)).GetComponent<SpriteRenderer>();
         selectionCircle.transform.localPosition = GetSelectionCirclePos();
-        selectionCircle.transform.localScale = new Vector3(1, 1, 1);
+        selectionCircle.transform.localScale = GetSelectionCircleSize();
         selectionCircle.gameObject.SetActive(false);
 
         minimapIcon = ((GameObject)Instantiate(Resources.Load(minimapIconPrefabPath), transform)).GetComponent<SpriteRenderer>();
@@ -208,6 +208,11 @@ public class SelectableObj : Interactable
     public virtual Vector3 GetSelectionCirclePos()
     {
         return Vector3.zero;
+    }
+
+    public virtual Vector3 GetSelectionCircleSize()
+    {
+        return new Vector3(1, 1, 1);
     }
 
     public virtual void Select()
