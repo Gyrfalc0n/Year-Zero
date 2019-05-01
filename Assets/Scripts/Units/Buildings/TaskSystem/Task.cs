@@ -17,7 +17,7 @@ public class Task : MonoBehaviour
         associatedBuilding = building;
         associatedUnit = unit;
         active = true;
-        remainingTime = unit.GetRequiredTime();
+        remainingTime = (InstanceManager.instanceManager.instantInstantiation) ? 0:unit.GetRequiredTime();
         requiredTime = unit.GetRequiredTime();
     }
 

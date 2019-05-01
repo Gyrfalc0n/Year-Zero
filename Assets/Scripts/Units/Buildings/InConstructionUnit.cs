@@ -25,7 +25,7 @@ public class InConstructionUnit : BuildingUnit
     {
         maxLife = building.defaultMaxLife;
         associatedBuilding = building;
-        currentLife = 0;
+        currentLife = (InstanceManager.instanceManager.instantInstantiation) ? GetMaxlife():0;
         buildersCount = 0;
     }
 

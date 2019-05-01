@@ -13,6 +13,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public bool offlineMode;
     public bool debugMode;
     public bool noCosts;
+    public bool instantInstantiation;
 
     public void Awake()
     {
