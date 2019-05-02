@@ -7,7 +7,6 @@ public class GameResource {
 
     string name;
     private int value;
-    public int defaultValue;
 
     public GameResource(string name)
     {
@@ -17,11 +16,6 @@ public class GameResource {
     public string GetName()
     {
         return name;
-    }
-
-    private void Awake()
-    {
-        value = defaultValue;
     }
 
     public int GetValue()

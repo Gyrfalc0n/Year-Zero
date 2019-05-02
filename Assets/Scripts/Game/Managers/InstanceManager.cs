@@ -45,7 +45,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     }
 
     public float timer { get; private set; }
-    private void Update()
+    void Update()
     {
         timer += Time.deltaTime;
     }

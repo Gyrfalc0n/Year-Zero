@@ -22,16 +22,15 @@ public class MinimapMarkerControls : PlayerControls
 
     public override void Update()
     {
-        if (active)
+        if (!isActive) return;
+
+        if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
         {
-            if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
-            {
-                LeftClick();
-            }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                RightClick();
-            }
+            LeftClick();
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            RightClick();
         }
     }
 

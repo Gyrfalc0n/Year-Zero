@@ -6,11 +6,11 @@ using Photon.Pun;
 
 public class PlayerControls : MonoBehaviourPunCallbacks
 {
-    protected bool active;
+    public bool isActive { get; protected set; }
 
     public PlayerControls Activate()
     {
-        active = true;
+        isActive = true;
         Init();
         return this;
     }
@@ -19,7 +19,9 @@ public class PlayerControls : MonoBehaviourPunCallbacks
 
     public virtual void Update()
     {
-        if (active && !MouseOverUI())
+        if (!isActive) return;
+
+        if (!MouseOverUI())
         {
             if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
             {
@@ -44,12 +46,7 @@ public class PlayerControls : MonoBehaviourPunCallbacks
     
     public virtual void Cancel()
     {
-        active = false;
-    }
-
-    public virtual bool IsActive()
-    {
-        return active;
+        isActive = false;
     }
 
     public bool MouseOverUI()

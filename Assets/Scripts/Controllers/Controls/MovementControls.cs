@@ -42,7 +42,7 @@ public class MovementControls : PlayerControls
 
     public override void Update()
     {
-        if (!active) return;
+        if (!isActive) return;
 
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
@@ -73,6 +73,7 @@ public class MovementControls : PlayerControls
         }
 
         SelectUnit.selectUnit.UpdateSelection();
+
         if (Input.GetKeyDown(KeyCode.Return))
         {
             GetComponent<PlayerController>().InitChatPanelControls();

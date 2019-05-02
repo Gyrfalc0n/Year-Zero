@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour {
 
     void CheckCurrentPlayerControls()
     {
-        if (!currentPlayerControls.IsActive())
+        if (!currentPlayerControls.isActive)
         {
             InitMovementControls();
         }
@@ -189,7 +189,8 @@ public class PlayerController : MonoBehaviour {
 
     public bool CameraAvailable()
     {
-        return (currentPlayerControls != pauseControls &&
+        return (!SelectUnit.selectUnit.isSelecting && 
+            currentPlayerControls != pauseControls &&
             currentPlayerControls != chatPanelControls &&
             currentPlayerControls != alliesPanelControls &&
             currentPlayerControls != chatMenuPanelControls &&

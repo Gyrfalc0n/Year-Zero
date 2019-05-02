@@ -17,9 +17,9 @@ public class BuildToolControls : PlayerControls
     public override void Update()
     {
         base.Update();
-        if (active && currentPlacementGrid == null)
+        if (currentPlacementGrid == null)
         {
-            active = false;
+            isActive = false;
         }
     }
 

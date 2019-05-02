@@ -19,10 +19,9 @@ public class HelpPanelControls : PlayerControls
 
     public override void Update()
     {
-        if (active)
-        {
-            CheckMenu();
-        }
+        if (!isActive) return;
+
+        CheckMenu();
     }
 
     public override void Cancel()
