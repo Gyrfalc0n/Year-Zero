@@ -73,7 +73,7 @@ public class ConstructedUnit : BuildingUnit
     {
         for (int i = repairers.Count - 1; i >= 0; i--)
         {
-            repairers[i].StopRepairing();
+            repairers[i].ResetAction();
         }
     }
 

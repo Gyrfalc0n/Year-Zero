@@ -72,7 +72,7 @@ public class InConstructionUnit : BuildingUnit
     {
         for (int i = builders.Count-1; i >= 0; i--)
         {
-            builders[i].StopBuild();
+            builders[i].ResetAction();
         }
     }
 

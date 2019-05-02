@@ -14,24 +14,27 @@ public class JoblessConstructorsPanel : MonoBehaviour
 
     List<BuilderUnit> builders = new List<BuilderUnit>();
 
-    void Start()
+    public void Add(BuilderUnit unit)
     {
-        UpdatePanel();
+        if (builders.Contains(unit))
+            Debug.Log("wtf");
+        else
+            builders.Add(unit);
+        UpdateButton();
     }
 
-    public void UpdatePanel()
+    public void Remove(BuilderUnit unit)
     {
-        builders.Clear();
-        bool oneBuilder = false;
-        foreach (SelectableObj obj in InstanceManager.instanceManager.mySelectableObjs)
-        {
-            if (obj.GetComponent<BuilderUnit>() != null && obj.GetComponent<BuilderUnit>().IsDoingNothing())
-            {
-                oneBuilder = true;
-                builders.Add(obj.GetComponent<BuilderUnit>());
-            }
-        }
-        button.SetActive(oneBuilder);
+        if (!builders.Contains(unit))
+            Debug.Log("wtf");
+        else
+            builders.Remove(unit);
+        UpdateButton();
+    }
+
+    public void UpdateButton()
+    {
+        button.SetActive(builders.Count > 0);
     }
 
     public void OnClicked()

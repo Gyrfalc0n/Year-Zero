@@ -102,12 +102,6 @@ public class MovableUnit : DestructibleUnit {
         moving = true;
     }
 
-    public void ResetDestination()
-    {
-        if (agent.hasPath)
-            agent.ResetPath();
-    }
-
     void DetermineHome()
     {
         if (botIndex == -2)
@@ -137,23 +131,14 @@ public class MovableUnit : DestructibleUnit {
         return patrolSystem.IsPatroling();
     }
 
-    public virtual void StopPatrol()
-    {
-        patrolSystem.StopPatrol();
-    }
-
-    public virtual void StopAttack()
-    {
-        combatSystem.StopAttack();
-    }
-
     public virtual void ResetAction()
     {
-        ResetDestination();
+        if (agent.hasPath)
+            agent.ResetPath();
         if (patrolSystem.IsPatroling())
-            StopPatrol();
+            patrolSystem.StopPatrol();
         if (combatSystem.IsAttacking())
-            StopAttack();
+            combatSystem.StopAttack();
     }
 
     public override Vector3 GetSelectionCirclePos()
@@ -232,7 +217,7 @@ public class MovableUnit : DestructibleUnit {
         }
     }
 
-    public void Attack(DestructibleUnit unit)
+    public virtual void Attack(DestructibleUnit unit)
     {
         combatSystem.InitAttack(unit);
     }

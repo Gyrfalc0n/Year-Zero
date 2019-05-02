@@ -67,7 +67,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         {
             oneClick -= Time.deltaTime;
         }
-        if (!MouseOverUI() && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !MouseOverUI())
         {
             isSelecting = true;
             mousePos1 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -81,7 +81,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             oneClick = doubleClickTime;
         }
 
-        if (isSelecting && Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && isSelecting)
         {
             mousePos2 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
@@ -89,7 +89,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
                 HighlightObjects();
         }
 
-        if (isSelecting && Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && isSelecting)
         {
             CalculateSelection();
             isSelecting = false;
