@@ -160,4 +160,16 @@ public class BuilderUnit : MovableUnit {
             combatSystem.OnEnemyEnters(enemy);
         }
     }
+
+    public override void SetDestination(Vector3 pos, float stoppingDistance)
+    {
+        base.SetDestination(pos, stoppingDistance);
+        jobless.UpdatePanel();
+    }
+
+    public override void OnReachedDestination()
+    {
+        base.OnReachedDestination();
+        jobless.UpdatePanel();
+    }
 }

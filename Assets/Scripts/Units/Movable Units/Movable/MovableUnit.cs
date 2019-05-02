@@ -99,7 +99,6 @@ public class MovableUnit : DestructibleUnit {
         ResetAction();
         agent.SetDestination(pos);
         agent.stoppingDistance = stoppingDistance;
-        GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>().UpdatePanel();
         moving = true;
     }
 
@@ -162,10 +161,9 @@ public class MovableUnit : DestructibleUnit {
         return new Vector3(0, -GetComponent<BoxCollider>().size.y / 2 + 0.01f, 0);
     }
 
-    void OnReachedDestination()
+    public virtual void OnReachedDestination()
     {
         moving = false;
-        GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>().UpdatePanel();
     }
 
     public void Hack()

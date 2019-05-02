@@ -16,7 +16,6 @@ public class JoblessConstructorsPanel : MonoBehaviour
 
     void Start()
     {
-        button.SetActive(false);
         UpdatePanel();
     }
 
