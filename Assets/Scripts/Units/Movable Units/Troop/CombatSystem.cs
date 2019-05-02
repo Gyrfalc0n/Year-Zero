@@ -45,11 +45,6 @@ public class CombatSystem : MonoBehaviour
 
     void Update()
     {
-        if (time > 0)
-        {
-            time -= Time.deltaTime;
-        }
-
         if (target != null)
         {
             if (Vector3.Distance(transform.position, target.transform.position) <= range * 3)
@@ -67,6 +62,10 @@ public class CombatSystem : MonoBehaviour
 
     void Shoot()
     {
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+        }
         if (time <= 0)
         {
             time = 1/attackRate;
