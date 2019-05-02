@@ -57,7 +57,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     public void UpdateSelection()
     {
         selectionBox.CheckBox();
-        CheckHighlight();
+        CheckMonoHighlight();
         CheckSelect();
     }
 
@@ -260,19 +260,37 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         selected.Clear();
     }
 
-    void CheckHighlight()
+
+
+    SelectableObj monohighlighted;
+    void CheckMonoHighlight()
     {
         RaycastHit hit;
         bool gotHit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value);
-        foreach (SelectableObj selectableObj in InstanceManager.instanceManager.allSelectableObjs)
+
+        if (monohighlighted == null)
         {
-            if (gotHit && hit.collider.GetComponent<SelectableObj>() == selectableObj && !MouseOverUI())
+            if (gotHit && hit.collider.GetComponent<SelectableObj>() != null)
             {
-                selectableObj.Highlight(false);
+                monohighlighted = hit.collider.GetComponent<SelectableObj>();
+                monohighlighted.Highlight(false);
             }
-            else if (selectableObj.highlighted)
+        }
+        else
+        {
+            if (gotHit && hit.collider.GetComponent<SelectableObj>() != null)
             {
-                selectableObj.Dehighlight();
+                if (hit.collider.GetComponent<SelectableObj>() != monohighlighted)
+                {
+                    monohighlighted.Dehighlight();
+                    monohighlighted = hit.collider.GetComponent<SelectableObj>();
+                    monohighlighted.Highlight(false);
+                }
+            }
+            else
+            {
+                monohighlighted.Dehighlight();
+                monohighlighted = null;
             }
         }
     }

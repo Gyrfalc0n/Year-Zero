@@ -26,10 +26,11 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     Transform ground;
 
-    
+    MinimapController minimapController;
 
-    void Awake()
+    void Start()
     {
+        minimapController = InstanceManager.instanceManager.gameObject.GetComponent<MinimapController>();
         pos = transform.position;
         rot = transform.rotation.eulerAngles;
         limitX = ground.localScale[0]/2 - 5;
@@ -98,7 +99,15 @@ public class CameraController : MonoBehaviour {
         pos.z = Mathf.Clamp(pos.z, -limitZ, limitZ);
         pos.x = Mathf.Clamp(pos.x, -limitX, limitX);
 
-        transform.SetPositionAndRotation(pos, Quaternion.Euler(rot));
+
+        bool input = Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.D) ||
+    PlayerPrefs.GetInt("camMoveMouse") == 1 && (Input.mousePosition.y >= Screen.height - border || Input.mousePosition.y <= border
+    || Input.mousePosition.x <= border || Input.mousePosition.x >= Screen.width - border);
+        if (input)
+        {
+            transform.SetPositionAndRotation(pos, Quaternion.Euler(rot));
+            minimapController.UpdateMinimapSquare();
+        }
     }
 
     public void LookTo(Vector3 obj)

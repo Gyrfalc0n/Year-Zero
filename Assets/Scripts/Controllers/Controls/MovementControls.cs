@@ -42,9 +42,10 @@ public class MovementControls : PlayerControls
 
     public override void Update()
     {
-        if (active)
+        if (!active) return;
+
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            minimapController.UpdateMinimapSquare();
             if (!MouseOverUI())
             {
                 if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
@@ -55,44 +56,46 @@ public class MovementControls : PlayerControls
                 {
                     RightClick();
                 }
-                
+
             }
             else if (minimapController.MouseOnMinimap())
             {
                 if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
                 {
                     MoveCamera(minimapController.MinimapToWorldSpaceCoords());
+                    minimapController.UpdateMinimapSquare();
                 }
                 else if (Input.GetMouseButtonDown(1))
                 {
                     RightClick();
                 }
             }
-            SelectUnit.selectUnit.UpdateSelection();
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                GetComponent<PlayerController>().InitChatPanelControls();
-            }
-            else if (Input.GetKeyDown(KeyCode.F9))
-            {
-               GetComponent<PlayerController>().InitHelpPanelControls();
-            }
-            else if (Input.GetKeyDown(KeyCode.F10))
-            {
-                GetComponent<PlayerController>().InitPauseControls();
-            }
-            else if (Input.GetKeyDown(KeyCode.F11))
-            {
-                GetComponent<PlayerController>().InitAlliesPanelControls();
-            }
-            else if (Input.GetKeyDown(KeyCode.F12))
-            {
-                GetComponent<PlayerController>().InitChatMenuPanelControls();
-            }
-            else if (Input.GetKeyDown(KeyCode.T))
-            {
-                GetComponent<PlayerController>().InitSkilltreePanelControls();
-            }
+        }
+
+        SelectUnit.selectUnit.UpdateSelection();
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            GetComponent<PlayerController>().InitChatPanelControls();
+        }
+        else if (Input.GetKeyDown(KeyCode.F9))
+        {
+            GetComponent<PlayerController>().InitHelpPanelControls();
+        }
+        else if (Input.GetKeyDown(KeyCode.F10))
+        {
+            GetComponent<PlayerController>().InitPauseControls();
+        }
+        else if (Input.GetKeyDown(KeyCode.F11))
+        {
+            GetComponent<PlayerController>().InitAlliesPanelControls();
+        }
+        else if (Input.GetKeyDown(KeyCode.F12))
+        {
+            GetComponent<PlayerController>().InitChatMenuPanelControls();
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            GetComponent<PlayerController>().InitSkilltreePanelControls();
         }
     }
 

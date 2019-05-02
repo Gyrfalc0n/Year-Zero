@@ -40,6 +40,15 @@ public class MinimapController : MonoBehaviour
         SetSquareSize();
     }
 
+    public void UpdateMinimapSquare()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out hit, Mathf.Infinity, fakeGroundLayer))
+        {
+            minimapSquare.position = WorldSpaceToMinimap(hit.point);
+        }
+    }
+
     public bool MouseOnMinimap()
     {
         Vector3 vec = Input.mousePosition;
@@ -62,8 +71,9 @@ public class MinimapController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
         {
-            x = (hit.point.x / scaleX) + img.rect.width * cnvs.scaleFactor / 2 + camLeft;
-            z = (hit.point.z / scaleZ) + img.rect.height * cnvs.scaleFactor / 2 + camBottom;
+            Vector3 tmp = WorldSpaceToMinimap(hit.point);
+            x = tmp.x;
+            z = tmp.y;
         }
         else
         {
@@ -105,15 +115,5 @@ public class MinimapController : MonoBehaviour
             }
         }
         minimapSquare.sizeDelta = new Vector2(mainCamWidth, mainCamHeight);
-    }
-
-    public void UpdateMinimapSquare()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out hit, Mathf.Infinity, fakeGroundLayer))
-        {
-            minimapSquare.position = new Vector3(hit.point.x / scaleX + img.rect.width * cnvs.scaleFactor / 2 + camLeft,
-                hit.point.z / scaleZ + img.rect.height * cnvs.scaleFactor / 2 + camBottom, 0);
-        }
     }
 }
