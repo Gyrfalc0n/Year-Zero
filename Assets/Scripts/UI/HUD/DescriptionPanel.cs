@@ -23,10 +23,15 @@ public class DescriptionPanel : MonoBehaviour {
     [SerializeField]
     private Text description;
 
-    private void Update()
+    #region Singleton
+
+    public static DescriptionPanel m;
+    private void Awake()
     {
-        MouseOverTool();
+        m = this;
     }
+
+    #endregion
 
     public void Init(SelectableObj obj)
     {
@@ -48,35 +53,5 @@ public class DescriptionPanel : MonoBehaviour {
     {
         pop.gameObject.SetActive(false);
         panel.SetActive(false);
-    }
-
-    public void MouseOverTool()
-    {
-        bool found = false;
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Input.mousePosition;
-
-        List<RaycastResult> raycastResultList = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerEventData, raycastResultList);
-        for (int i = raycastResultList.Count - 1; i >= 0; i--)
-        {
-            if (raycastResultList[i].gameObject.GetComponent<BuildTool>() != null)
-            {
-                BuildTool tmp = raycastResultList[i].gameObject.GetComponent<BuildTool>();
-                SelectableObj building = tmp.GetAssociatedBuilding().GetComponent<SelectableObj>();
-                Init(building);
-                found = true;
-            }
-            else if (raycastResultList[i].gameObject.GetComponent<TaskTool>() != null)
-            {
-                TaskTool tmp = raycastResultList[i].gameObject.GetComponent<TaskTool>();
-                Init(tmp.associatedUnit);
-                found = true;
-            }
-        }
-        if (!found)
-        {
-            ResetPanel();
-        }
     }
 }

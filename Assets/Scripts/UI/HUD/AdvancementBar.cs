@@ -36,7 +36,7 @@ public class AdvancementBar : MonoBehaviour {
             }
             else
             {
-                Reset();
+                ResetBar();
             }
         }
     }
@@ -46,7 +46,7 @@ public class AdvancementBar : MonoBehaviour {
         bar.value = currentBuilding.GetCurrentActionAdvancement();
     }
 
-    public void Reset()
+    public void ResetBar()
     {
         obj.SetActive(false);
         currentBuilding = null;

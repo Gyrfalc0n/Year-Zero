@@ -44,4 +44,14 @@ public class TaskTool : Tool
             image.gameObject.SetActive(false);
         }
     }
+
+    public void OnPointerEnter()
+    {
+        DescriptionPanel.m.Init(associatedUnit);
+    }
+
+    public void OnPointerExit()
+    {
+        DescriptionPanel.m.ResetPanel();
+    }
 }

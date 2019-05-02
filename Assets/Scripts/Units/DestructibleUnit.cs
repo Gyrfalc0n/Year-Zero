@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class DestructibleUnit : SelectableObj {
 
     FloatingLifeBarPanel flbPanel;
+    CardsPanel cardsPanel;
 
     public override void InitUnit(int botIndex)
     {
@@ -19,6 +20,7 @@ public class DestructibleUnit : SelectableObj {
             photonView.RPC("RPCInitDestructible", RpcTarget.Others, lifeValue, maxLife);
         }
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
+        cardsPanel = GameObject.Find("CardsPanel").GetComponent<CardsPanel>();
     }
 
     [PunRPC]
@@ -81,13 +83,16 @@ public class DestructibleUnit : SelectableObj {
         lifeValue += value;
         if (lifeValue > maxLife)
             lifeValue = maxLife;
+        if (photonView.IsMine)
+            cardsPanel.UpdateCards();
     }
 
-    private void CheckLife()
+    void CheckLife()
     {
         if (photonView.IsMine && lifeValue <= 0)
         {
             KillUnit();
+            cardsPanel.UpdateCards();
         }
     }
 

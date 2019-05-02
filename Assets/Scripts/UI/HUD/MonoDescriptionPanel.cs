@@ -50,15 +50,11 @@ public class MonoDescriptionPanel : MonoBehaviour
             else
                 resourceText.text = "";
         }
-        else
-        {
-            resourceText.text = "";
-        }
-
     }
 
     public void ResetBar()
     {
+        resourceText.text = "";
         obj.SetActive(false);
     }
 }

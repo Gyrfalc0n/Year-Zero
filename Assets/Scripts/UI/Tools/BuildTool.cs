@@ -22,6 +22,7 @@ public class BuildTool : Tool
             BuilderUnit builder = SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<BuilderUnit>();
             PlayerController.playerController.InitBuildToolControls(associatedBuilding, builder);
         }
+        OnPointerExit();
         SelectUnit.selectUnit.UpdateUI();
     }
 
@@ -42,5 +43,15 @@ public class BuildTool : Tool
             GetComponentInChildren<Text>().text = associatedBuilding.objName;
             image.gameObject.SetActive(false);
         }
+    }
+
+    public void OnPointerEnter()
+    {
+        DescriptionPanel.m.Init(associatedBuilding);
+    }
+
+    public void OnPointerExit()
+    {
+        DescriptionPanel.m.ResetPanel();
     }
 }

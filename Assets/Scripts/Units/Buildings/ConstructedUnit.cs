@@ -46,11 +46,9 @@ public class ConstructedUnit : BuildingUnit
             {
                 Heal(repairers.Count);
                 repairTimer = 1f;
+                if (GetLife() >= GetMaxlife())
+                    OnRepairFinished();
             }
-        }
-        else
-        {
-            OnRepairFinished();
         }
     }
 

@@ -20,6 +20,7 @@ public class Card : MonoBehaviour {
             image.gameObject.SetActive(true);
             image.sprite = associatedUnit.iconSprite;
         }
+        UpdateCard();
     }
 
     public void OnClicked()
@@ -27,7 +28,7 @@ public class Card : MonoBehaviour {
         GetComponentInParent<CardsPanel>().SelectCard();
     }
 
-    void Update()
+    public void UpdateCard()
     {
         lifeBar.fillAmount = associatedUnit.GetLife() / associatedUnit.GetMaxlife();
         if (associatedUnit.GetLife() <= 0)
