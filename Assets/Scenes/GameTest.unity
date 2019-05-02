@@ -118,6 +118,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6280805093687666138}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &297764442 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6280805093961930062, guid: 558a34a8be43927418fdbc9bfea841c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6280805093687666138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &362628435 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6280805094175093357, guid: 558a34a8be43927418fdbc9bfea841c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6280805093687666138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &830411399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,6 +211,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ea836ea07ce614eb84e57e0bad0862, type: 3}
+--- !u!223 &1391530076 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6280805093781093302, guid: 558a34a8be43927418fdbc9bfea841c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6280805093687666138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1584678028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6280805093987309784, guid: 558a34a8be43927418fdbc9bfea841c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6280805093687666138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1584678030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584678028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0dc0884d5fe56940a72c599650ea5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 297764442}
+  minimapSquare: {fileID: 362628435}
+  cnvs: {fileID: 1391530076}
+  ground: {fileID: 1839496939}
+  fakeGroundLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+--- !u!4 &1839496939 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6280805093683172071, guid: 558a34a8be43927418fdbc9bfea841c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6280805093687666138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &223003407152570175
 MonoBehaviour:
   m_ObjectHideFlags: 0

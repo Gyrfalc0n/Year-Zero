@@ -39,14 +39,14 @@ public class MinimapMarkerControls : PlayerControls
     {
         Vector3 pos = Vector3.zero;
         bool mark = false;
-        if (GetComponent<MovementControls>().MouseOnMinimap())
+        if (GetComponent<MinimapController>().MouseOnMinimap())
         { 
             pos = Input.mousePosition;
             mark = true;
         }
         else if (!GetComponent<MovementControls>().MouseOverUI())
         {
-            pos = GetComponent<MovementControls>().MouseWorldSpaceToMinimap();
+            pos = GetComponent<MinimapController>().MouseWorldSpaceToMinimap();
             mark = true;
         }
         if (mark)
