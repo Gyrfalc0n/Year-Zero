@@ -152,6 +152,7 @@ public class DestructibleUnit : SelectableObj {
     public override void Dehighlight()
     {
         base.Dehighlight();
-        flbPanel.Hide();
+        if (flbPanel != null)
+            flbPanel.Hide();
     }
 }

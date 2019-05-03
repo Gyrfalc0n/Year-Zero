@@ -65,14 +65,16 @@ public class BuilderUnit : MovableUnit {
     public override void Attack(DestructibleUnit unit)
     {
         base.Attack(unit);
-        jobless.Remove(this);
+        if (jobless != null)
+            jobless.Remove(this);
     }
 
     public void Build(InConstructionUnit obj)
     {
         ResetAction();
         buildingSystem.InitBuild(obj);
-        jobless.Remove(this);
+        if (jobless != null)
+            jobless.Remove(this);
     }
 
     public void Mine(ResourceUnit obj)
@@ -80,21 +82,24 @@ public class BuilderUnit : MovableUnit {
         home = (botIndex == -1) ? PlayerManager.playerManager.GetNearestHome(transform.position): InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().GetNearestHome(transform.position);
         ResetAction();
         miningSystem.InitMining(home, obj);
-        jobless.Remove(this);
+        if (jobless != null)
+            jobless.Remove(this);
     }
 
     public void Repair(ConstructedUnit obj)
     {
         ResetAction();
         repairingSystem.InitRepair(obj);
-        jobless.Remove(this);
+        if (jobless != null)
+            jobless.Remove(this);
     }
 
     public override void Patrol(Vector3 pos1, Vector3 pos2, float stoppingDistance)
     {
         ResetAction();
         base.Patrol(pos1, pos2, stoppingDistance);
-        jobless.Remove(this);
+        if (jobless != null)
+            jobless.Remove(this);
     }
 
     public override void ResetAction()
@@ -109,7 +114,8 @@ public class BuilderUnit : MovableUnit {
         if (repairingSystem.IsRepairing())
             repairingSystem.StopRepairing();
 
-        jobless.Add(this);
+        if (jobless != null)
+            jobless.Add(this);
     }
 
     public bool IsDoingNothing()
@@ -147,12 +153,14 @@ public class BuilderUnit : MovableUnit {
     public override void SetDestination(Vector3 pos, float stoppingDistance)
     {
         base.SetDestination(pos, stoppingDistance);
-        jobless.Remove(this);
+        if (jobless != null)
+            jobless.Remove(this);
     }
 
     public override void OnReachedDestination()
     {
         base.OnReachedDestination();
-        jobless.Add(this);
+        if (jobless != null)
+            jobless.Add(this);
     }
 }
