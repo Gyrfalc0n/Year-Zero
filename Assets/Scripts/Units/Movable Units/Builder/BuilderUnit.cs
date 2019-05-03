@@ -81,6 +81,7 @@ public class BuilderUnit : MovableUnit {
     {
         home = (botIndex == -1) ? PlayerManager.playerManager.GetNearestHome(transform.position): InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().GetNearestHome(transform.position);
         ResetAction();
+        if (home == null) return;
         miningSystem.InitMining(home, obj);
         if (jobless != null)
             jobless.Remove(this);
