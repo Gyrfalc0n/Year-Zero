@@ -30,32 +30,24 @@ public class FieldOfViewCollider : MonoBehaviour
         return transform.localScale;
     }
 
-    List<Collider> collidersList = new List<Collider>();
+    Collider[] colliders = new Collider[0];
     protected void Update()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, dist);
+        Collider[] tmpcolliders = Physics.OverlapSphere(transform.position, dist);
 
-        for (int i = colliders.Length-1; i >= 0; i--)
+        for (int i = colliders.Length - 1; i >= 0; i--)
         {
-            if (!collidersList.Contains(colliders[i]))
+            if (Array.IndexOf(tmpcolliders, colliders[i]) == -1)
             {
-                collidersList.Add(colliders[i]);
+                OnExit(colliders[i]);
             }
         }
 
-        for (int i = collidersList.Count - 1; i >= 0; i--)
+        for (int i = 0; i < tmpcolliders.Length; i++)
         {
-            if (Array.IndexOf(colliders, collidersList[i]) == -1)
-            {
-                OnExit(collidersList[i]);
-                collidersList.RemoveAt(i);
-            }
+            OnStay(tmpcolliders[i]);
         }
-
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            OnStay(colliders[i]);
-        }
+        colliders = tmpcolliders;
     }
 
     protected virtual void OnStay(Collider collision)
