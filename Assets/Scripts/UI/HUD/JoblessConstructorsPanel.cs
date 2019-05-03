@@ -16,18 +16,14 @@ public class JoblessConstructorsPanel : MonoBehaviour
 
     public void Add(BuilderUnit unit)
     {
-        if (builders.Contains(unit))
-            Debug.Log("wtf");
-        else
+        if (!builders.Contains(unit))
             builders.Add(unit);
         UpdateButton();
     }
 
     public void Remove(BuilderUnit unit)
     {
-        if (!builders.Contains(unit))
-            Debug.Log("wtf");
-        else
+        if (builders.Contains(unit))
             builders.Remove(unit);
         UpdateButton();
     }

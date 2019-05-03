@@ -196,6 +196,8 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             {
                 if (!tmp[i].photonView.IsMine)
                 {
+                    if (tmp[i].GetComponent<SelectableObj>() != null)
+                        tmp[i].GetComponent<SelectableObj>().Dehighlight();
                     tmp.RemoveAt(i);
                 }
             }
@@ -213,16 +215,19 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         if (movable)
         {
             int nb = 0;
-            int i = 0;
-            while (i < tmp.Count && nb < 24)
+            for (int i = 0; i < tmp.Count; i++)
             {
-                if (tmp[i].GetComponent<MovableUnit>() != null)
+                if (nb < 24 && tmp[i].GetComponent<MovableUnit>() != null)
                 {
                     if (SelectObject(tmp[i]))
                         changement = true;
                     nb++;
                 }
-                i++;
+                else
+                {
+                    if (tmp[i].GetComponent<SelectableObj>() != null)
+                        tmp[i].GetComponent<SelectableObj>().Dehighlight();
+                }
             }
         }
         else

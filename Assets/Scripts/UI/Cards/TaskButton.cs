@@ -10,6 +10,7 @@ public class TaskButton : MonoBehaviour
 
     public void Init(Task task)
     {
+        if (task == null) return;
         this.task = task;
         if (task.GetComponent<Task>() != null && task.GetComponent<Task>().associatedUnit.iconSprite != null)
         {
