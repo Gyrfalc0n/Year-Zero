@@ -47,7 +47,7 @@ public class CombatSystem : MonoBehaviour
     {
         if (target != null)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) <= range * 3)
+            if (Vector3.Distance(transform.position, target.transform.position) <= range * 7)
             {
                 FaceTarget(target.transform.position);
                 agent.ResetPath();

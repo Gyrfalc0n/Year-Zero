@@ -13,6 +13,7 @@ public class CombatFOV : FieldOfViewCollider
 
     protected override void OnStay(Collider collision)
     {
+        if (collision == null) return;
         base.OnStay(collision);
         if (parent != null && collision.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(parent) != MultiplayerTools.GetTeamOf(collision.GetComponent<DestructibleUnit>()))
             parent.OnEnemyEnters(collision.GetComponent<DestructibleUnit>());

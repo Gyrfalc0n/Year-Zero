@@ -61,7 +61,7 @@ public class MiningSystem : MonoBehaviour
         mining = true;
         //this.home = home;
         currentResourceUnit = resourceUnit;
-        InitPatrol(home.GetComponent<BoxCollider>().ClosestPoint(transform.position), currentResourceUnit.GetComponent<BoxCollider>().ClosestPoint(transform.position), 1f);
+        InitPatrol(home.GetComponent<SphereCollider>().ClosestPoint(transform.position), currentResourceUnit.GetComponent<SphereCollider>().ClosestPoint(transform.position), 1f);
         currentResourceUnit.Add(GetComponent<BuilderUnit>());
         if (resourceUnit.GetComponent<AsteroidResourceUnit>() != null)
         {
