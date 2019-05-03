@@ -110,11 +110,6 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[0]
       value: 
       objectReference: {fileID: 5914945105126054897}
-    - target: {fileID: 4432904553138613038, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: costs.Array.size
@@ -166,6 +161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fieldOfViewPrefabPath
       value: VFX/FogOfWar/FieldOfViewPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432904553138613038, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}

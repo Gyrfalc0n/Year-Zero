@@ -143,6 +143,8 @@ public class DestructibleUnit : SelectableObj {
     public override void Highlight(bool group)
     {
         base.Highlight(group);
+        if (!visible)
+            return;
         if (!group)
         {
             flbPanel.Show(this);

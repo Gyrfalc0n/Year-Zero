@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatFOV : MonoBehaviour
+public class CombatFOV : FieldOfViewCollider
 {
     MovableUnit parent;
-
-    void Start()
+    public override void Init(Vector3 vec)
     {
+        base.Init(vec);
         parent = GetComponentInParent<MovableUnit>();
     }
 
-    void OnTriggerStay(Collider other)
+    protected override void OnStay(Collider collision)
     {
-        if (parent != null && other.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(parent) != MultiplayerTools.GetTeamOf(other.GetComponent<DestructibleUnit>()))
-            parent.OnEnemyEnters(other.GetComponent<DestructibleUnit>());
+        base.OnStay(collision);
+        if (parent != null && collision.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(parent) != MultiplayerTools.GetTeamOf(collision.GetComponent<DestructibleUnit>()))
+            parent.OnEnemyEnters(collision.GetComponent<DestructibleUnit>());
     }
 }

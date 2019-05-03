@@ -19,7 +19,7 @@ public class MovementControls : PlayerControls
 
     public override void RightClick()
     {
-        if (SelectUnit.selectUnit.selected.Count == 0)
+        if (SelectUnit.selectUnit.selected.Count == 0 || !SelectUnit.selectUnit.selected[0].photonView.IsMine || SelectUnit.selectUnit.selected[0].botIndex != -1)
             return;
         if (SelectUnit.selectUnit.selected[0].GetComponent<ProductionBuilding>() != null && !MouseOverUI())
         {

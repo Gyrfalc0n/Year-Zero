@@ -33,7 +33,7 @@ public class SelectableObj : Interactable
     protected string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";
     [HideInInspector]
     public FieldOfViewCollider fovCollider;
-    bool visible;
+    protected bool visible;
 
     [HideInInspector]
     public int botIndex;
@@ -282,19 +282,23 @@ public class SelectableObj : Interactable
 
         fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
         fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
+        Vector3 vec = Vector3.zero;
         if (GetComponent<MovableUnit>() != null)
         {
             float combat = GetComponent<CombatSystem>().range * 3;
-            fovCollider.transform.localScale = new Vector3(combat, 1, combat);
+            vec = new Vector3(combat, 1, combat);
         }
         else if (GetComponent<Radar>() != null)
         {
-            fovCollider.transform.localScale = new Vector3(4, 1, 4);
+            vec = new Vector3(4, 1, 4);
         }
         else if (GetComponent<ConstructedUnit>() != null || GetComponent<InConstructionUnit>() != null)
         {
-            fovCollider.transform.localScale = new Vector3(3, 1, 3);
+            vec = new Vector3(3, 1, 3);
         }
+        else
+            print("wt");
+        fovCollider.Init(vec);
 
         if (visible)
         {
