@@ -4,38 +4,17 @@
     <e p="C:\Users\Enguerrand\.Rider2018.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Enguerrand\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_year-zero.-961222250.00" t="ExcludeRecursive" />
     <e p="D:\Document D\EPITA\YEAR ZERO - BEARTH\Git Year Zero\current build\year-zero" t="IncludeRecursive">
-      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="3D Resources" t="Include">
           <e p="Particle" t="Include">
-            <e p="EffectExamples" t="Include">
-              <e p="Editor" t="Include">
-                <e p="PackageManagerAssembly" t="Include">
-                  <e p="PackageImportList.txt" t="Include" />
-                </e>
-              </e>
-              <e p="Shared" t="Include">
-                <e p="Scripts" t="Include">
-                  <e p="DecalDestroyer.cs" t="Include" />
-                  <e p="ExtinguishableFire.cs" t="Include" />
-                  <e p="GunAim.cs" t="Include" />
-                  <e p="GunShoot.cs" t="Include" />
-                  <e p="ParticleCollision.cs" t="Include" />
-                  <e p="ParticleExamples.cs" t="Include" />
-                  <e p="ParticleMenu.cs" t="Include" />
-                </e>
-                <e p="Shaders" t="Include">
-                  <e p="SurfaceShader_VC.shader" t="Include" />
-                </e>
-              </e>
-              <e p="TutorialInfo" t="Include">
-                <e p="Scripts" t="Include">
-                  <e p="Editor" t="Include">
-                    <e p="ReadmeEditor.cs" t="Include" />
-                  </e>
-                  <e p="Readme.cs" t="Include" />
-                </e>
+            <e p="To Use" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="particleAttractorLinear.cs" t="Include" />
+                <e p="particleAttractorMove.cs" t="Include" />
+                <e p="particleAttractorSelf.cs" t="Include" />
+                <e p="particleAttractorSpherical.cs" t="Include" />
+                <e p="rotation.cs" t="Include" />
               </e>
             </e>
           </e>
@@ -45,7 +24,6 @@
                 <e p="UnifiedMaterials.txt" t="Include" />
               </e>
             </e>
-            <e p="readme.txt" t="Include" />
           </e>
         </e>
         <e p="Materials" t="Include">
@@ -238,6 +216,7 @@
               <e p="StopToolControls.cs" t="Include" />
             </e>
             <e p="FormationSystem.cs" t="Include" />
+            <e p="MinimapController.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="SelectUnit.cs" t="Include" />
           </e>
@@ -427,7 +406,6 @@
               <e p="ProductionBuilding.cs" t="Include" />
               <e p="Radar.cs" t="Include" />
               <e p="TaskSystem" t="Include">
-                <e p="InstantiateTask.cs" t="Include" />
                 <e p="Task.cs" t="Include" />
                 <e p="TaskSystem.cs" t="Include" />
               </e>
@@ -495,6 +473,7 @@
             <e p="BotSettings.cs" t="Include" />
             <e p="PlayerSettings.cs" t="Include" />
             <e p="PlayersManager.cs" t="Include" />
+            <e p="WaitingRoomSettings.cs" t="Include" />
           </e>
         </e>
         <e p="Visual Resources" t="Include">
