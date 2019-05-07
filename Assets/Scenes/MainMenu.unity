@@ -1696,7 +1696,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.28, y: -1.73}
+  m_AnchoredPosition: {x: -0.27999997, y: -1.7299957}
   m_SizeDelta: {x: 75.09, y: 3.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203788651
@@ -14205,6 +14205,7 @@ GameObject:
   - component: {fileID: 1888737010}
   - component: {fileID: 1888737009}
   - component: {fileID: 1888737008}
+  - component: {fileID: 1888737011}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -14276,6 +14277,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1888737011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888737007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9ae853100b2944384e0a4d3708f6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  presence:
+    state: 
+    details: 
+    startTimestamp: 1
+    endTimestamp: 0
+    largeImageKey: 
+    largeImageText: 
+    smallImageKey: 
+    smallImageText: 
+    partyId: 
+    partySize: 0
+    partyMax: 0
+    matchSecret: 
+    joinSecret: 
+    spectateSecret: 
+    instance: 0
+  applicationId: 575375504169893888
+  optionalSteamId: 
+  callbackCalls: 0
+  joinRequest:
+    userId: 
+    username: 
+    discriminator: 
+    avatar: 
+  onConnect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDisconnect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  hasResponded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onJoin:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: DiscordPresence.DiscordJoinEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onSpectate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: DiscordPresence.DiscordJoinEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onJoinRequest:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: DiscordPresence.DiscordJoinRequestEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1891594220
 PrefabInstance:
   m_ObjectHideFlags: 0
