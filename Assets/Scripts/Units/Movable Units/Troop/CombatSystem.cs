@@ -9,13 +9,17 @@ public class CombatSystem : MonoBehaviour
     NavMeshAgent agent;
     DestructibleUnit target;
 
+    [SerializeField]
     string projectile = "BulletPrefab";
     Transform firePoint;
     Transform bulletHolder;
 
     public float range;
     public float attackRate;
-    float time;
+    [SerializeField]
+    int bulletAmount;
+    int _bulletAmount;
+    float waveTime;
 
     void Start()
     {
@@ -60,18 +64,35 @@ public class CombatSystem : MonoBehaviour
         }
     }
 
+    float timeBetweenBullets;
     void Shoot()
     {
-        if (time > 0)
+        if (waveTime > 0)
         {
-            time -= Time.deltaTime;
+            waveTime -= Time.deltaTime;
         }
-        if (time <= 0)
+        if (waveTime <= 0)
         {
-            time = 1/attackRate;
-            GameObject obj = PhotonNetwork.Instantiate("Units/Bullets/" + projectile, firePoint.position, firePoint.rotation);
-            obj.transform.SetParent(bulletHolder);
-            obj.GetComponent<Bullet>().Init(14f, GetComponent<MovableUnit>().damage, GetComponent<DestructibleUnit>());
+            if (timeBetweenBullets <= 0)
+            {
+                timeBetweenBullets = 0.3f;
+                if (_bulletAmount > 0)
+                {
+                    _bulletAmount--;
+                    GameObject obj = PhotonNetwork.Instantiate("Units/Bullets/" + projectile, firePoint.position, firePoint.rotation);
+                    obj.transform.SetParent(bulletHolder);
+                    obj.GetComponent<Bullet>().Init(14f, GetComponent<MovableUnit>().damage, GetComponent<DestructibleUnit>());
+                }
+                else
+                {
+                    waveTime = 1 / attackRate;
+                    _bulletAmount = bulletAmount;
+                }
+            }
+            else
+            {
+                timeBetweenBullets -= Time.deltaTime;
+            }
         }
     }
 
