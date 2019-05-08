@@ -22,7 +22,7 @@ public class MinimapMarkerControls : PlayerControls
 
     public override void Update()
     {
-        if (!isActive) return;
+        if (!CanUpdate()) return;
 
         if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
         {

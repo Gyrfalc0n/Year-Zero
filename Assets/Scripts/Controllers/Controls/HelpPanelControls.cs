@@ -9,6 +9,7 @@ public class HelpPanelControls : PlayerControls
 
     public override void Init()
     {
+        Debug.Log("helpinit");
         obj.Show();
     }
 
@@ -19,7 +20,7 @@ public class HelpPanelControls : PlayerControls
 
     public override void Update()
     {
-        if (!isActive) return;
+        if (!CanUpdate()) return;
 
         CheckMenu();
     }
@@ -34,6 +35,7 @@ public class HelpPanelControls : PlayerControls
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F9))
         {
+            Debug.Log("helpcancel");
             Cancel();
         }
     }

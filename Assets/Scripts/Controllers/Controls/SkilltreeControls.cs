@@ -19,7 +19,7 @@ public class SkilltreeControls : PlayerControls
 
     public override void Update()
     {
-        if (!isActive) return;
+        if (!CanUpdate()) return;
 
         CheckMenu();
     }

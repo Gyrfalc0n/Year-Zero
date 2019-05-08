@@ -7,19 +7,32 @@ using Photon.Pun;
 public class PlayerControls : MonoBehaviourPunCallbacks
 {
     public bool isActive { get; protected set; }
+    protected bool protectedFrame;
 
     public PlayerControls Activate()
     {
         isActive = true;
+        protectedFrame = true;
         Init();
         return this;
     }
 
     public virtual void Init() { }
 
+    protected bool CanUpdate()
+    {
+        if (!isActive) return false;
+        if (protectedFrame)
+        {
+            protectedFrame = false;
+            return false;
+        }
+        return true;
+    }
+
     public virtual void Update()
     {
-        if (!isActive) return;
+        if (!CanUpdate()) return;
 
         if (!MouseOverUI())
         {

@@ -19,7 +19,7 @@ public class ChatMenuPanelControls : PlayerControls
 
     public override void Update()
     {
-        if (!isActive) return;
+        if (!CanUpdate()) return;
 
         CheckMenu();
     }

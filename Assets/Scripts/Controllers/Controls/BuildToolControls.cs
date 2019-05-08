@@ -16,6 +16,7 @@ public class BuildToolControls : PlayerControls
 
     public override void Update()
     {
+        if (!CanUpdate()) return;
         base.Update();
         if (currentPlacementGrid == null)
         {

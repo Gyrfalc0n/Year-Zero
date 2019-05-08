@@ -42,7 +42,7 @@ public class MovementControls : PlayerControls
 
     public override void Update()
     {
-        if (!isActive) return;
+        if (!CanUpdate()) return;
 
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
@@ -76,26 +76,32 @@ public class MovementControls : PlayerControls
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            Debug.Log("Return");
             GetComponent<PlayerController>().InitChatPanelControls();
         }
         else if (Input.GetKeyDown(KeyCode.F9))
         {
+            Debug.Log("F9");
             GetComponent<PlayerController>().InitHelpPanelControls();
         }
         else if (Input.GetKeyDown(KeyCode.F10))
         {
+            Debug.Log("F10");
             GetComponent<PlayerController>().InitPauseControls();
         }
         else if (Input.GetKeyDown(KeyCode.F11))
         {
+            Debug.Log("F11");
             GetComponent<PlayerController>().InitAlliesPanelControls();
         }
         else if (Input.GetKeyDown(KeyCode.F12))
         {
+            Debug.Log("F12");
             GetComponent<PlayerController>().InitChatMenuPanelControls();
         }
         else if (Input.GetKeyDown(KeyCode.T))
         {
+            Debug.Log("T");
             GetComponent<PlayerController>().InitSkilltreePanelControls();
         }
     }
