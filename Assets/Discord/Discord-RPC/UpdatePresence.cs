@@ -7,37 +7,33 @@ using UnityEngine.SceneManagement;
 
 public class UpdatePresence : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "GameTest")
-        {
-            if (PhotonNetwork.OfflineMode == true)
-            {
-                PresenceManager.UpdatePresence(detail: "Dans une partie en solo");
-            }
-            else
-            {
-                PresenceManager.UpdatePresence(detail: "Dans une partie en ligne");
-            }
+#if UNITY_EDITOR
+        return;
+#endif
 
-        }
-        else if (SceneManager.GetActiveScene().name == "MainMenu")
+        string message;
+        switch (SceneManager.GetActiveScene().name)
         {
-            PresenceManager.UpdatePresence(detail: "Dans les menus");
+            case "GameTest":
+                message = PhotonNetwork.OfflineMode ? "Dans une partie en solo": "Dans une partie en ligne";
+                break;
+            case "MainMenu":
+                message = "Dans les menus";
+                break;
+            case "WaitingRoom":
+                message = "Dans une salle d'attente";
+                break;
+            case "Tutorial":
+            case "Mission":
+            case "Mission2":
+                message = "Dans la campagne solo";
+                break;
+            default:
+                message = "Dans le mode sans fin";
+                break;
         }
-        else if (SceneManager.GetActiveScene().name == "WaitingRoom")
-        {
-            PresenceManager.UpdatePresence(detail: "Dans une salle d'attente");
-        }
-        else if (SceneManager.GetActiveScene().name == "Tutorial" || SceneManager.GetActiveScene().name == "Mission" ||
-                 SceneManager.GetActiveScene().name == "Mission2")
-        {
-            PresenceManager.UpdatePresence(detail: "Dans la campagne solo");
-        }
-        else
-        {
-            PresenceManager.UpdatePresence(detail: "Dans le mode sans fin");
-        }
+        PresenceManager.UpdatePresence(detail: message);
     }
 }

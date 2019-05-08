@@ -32,6 +32,14 @@ namespace DiscordPresence
 
         public static PresenceManager instance;
 
+        private void Start()
+        {
+#if UNITY_EDITOR
+            Destroy(gameObject);
+            return;
+#endif
+        }
+
         /*public void OnClick()
         {
             Debug.Log("Discord: on click!");
