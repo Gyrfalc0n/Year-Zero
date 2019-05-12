@@ -11,8 +11,6 @@ public class InConstructionUnit : BuildingUnit
 {
     ConstructedUnit associatedBuilding;
 
-    float currentLife;
-
     private List<BuilderUnit> builders = new List<BuilderUnit>();
     public int buildersCount { get; private set; }
 
@@ -25,16 +23,16 @@ public class InConstructionUnit : BuildingUnit
     {
         maxLife = building.defaultMaxLife;
         associatedBuilding = building;
-        currentLife = (InstanceManager.instanceManager.instantInstantiation) ? GetMaxlife():0;
         buildersCount = 0;
     }
 
     void CheckConstruction()
     {
-        if (currentLife < GetMaxlife())
+        if (InstanceManager.instanceManager.instantInstantiation)
+            OnConstructionFinished();
+        if (GetLife() < GetMaxlife())
         {
-            currentLife += Time.deltaTime * builders.Count * SkilltreeManager.manager.constructionSpeed * 30;
-            SetLife(currentLife);
+            Heal((int)(Time.deltaTime * builders.Count * SkilltreeManager.manager.constructionSpeed * 30));
         }
         else
         {
@@ -80,11 +78,6 @@ public class InConstructionUnit : BuildingUnit
     {
         base.OnDestroyed();
         RemoveAllBuilders();
-    }
-
-    public override float GetCurrentActionAdvancement()
-    {
-        return currentLife / GetMaxlife();
     }
 
     public ConstructedUnit GetAssociatedBuilding()
