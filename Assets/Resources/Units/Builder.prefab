@@ -275,21 +275,6 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 135501387409097762, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.44452024
-      objectReference: {fileID: 0}
-    - target: {fileID: 135501387409097762, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -0.06903106
-      objectReference: {fileID: 0}
-    - target: {fileID: 135501387409097762, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.08257139
-      objectReference: {fileID: 0}
     - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Layer
@@ -305,6 +290,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300002, guid: 21c6d0bb8170cae4f9d49bb728b3f524, type: 3}
+    - target: {fileID: 135501387409097762, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.44452024
+      objectReference: {fileID: 0}
+    - target: {fileID: 135501387409097762, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.06903106
+      objectReference: {fileID: 0}
+    - target: {fileID: 135501387409097762, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.08257139
+      objectReference: {fileID: 0}
     - target: {fileID: 2191311493941266332, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_RootOrder
@@ -354,6 +354,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3658717761734235465}
     m_Modifications:
+    - target: {fileID: 100000, guid: bc0290eb454386141a1f4a4cf6a5c25b, type: 3}
+      propertyPath: m_Name
+      value: Flame-1-Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc0290eb454386141a1f4a4cf6a5c25b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc0290eb454386141a1f4a4cf6a5c25b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
@@ -397,14 +405,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: bc0290eb454386141a1f4a4cf6a5c25b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: bc0290eb454386141a1f4a4cf6a5c25b, type: 3}
-      propertyPath: m_Name
-      value: Flame-1-Particles
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: bc0290eb454386141a1f4a4cf6a5c25b, type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: bc0290eb454386141a1f4a4cf6a5c25b, type: 3}
       propertyPath: InitialModule.startSize.scalar
