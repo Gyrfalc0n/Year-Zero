@@ -139,6 +139,7 @@ public class MovableUnit : DestructibleUnit {
 
     public virtual void ResetAction()
     {
+        if (agent == null) return;
         if (agent.hasPath)
             agent.ResetPath();
         if (patrolSystem.IsPatroling())
