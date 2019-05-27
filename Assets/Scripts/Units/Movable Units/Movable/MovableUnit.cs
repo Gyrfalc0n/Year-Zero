@@ -231,7 +231,6 @@ public class MovableUnit : DestructibleUnit {
     public virtual void Attack(DestructibleUnit unit, bool attackMove)
     {
         this.attackMove = attackMove;
-        audioManager.PlaySound("AttackCommand");
         combatSystem.InitAttack(unit);
     }
 
