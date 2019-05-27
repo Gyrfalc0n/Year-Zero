@@ -24,7 +24,7 @@ public class BotArmyManager : MonoBehaviour
     {
         DestructibleUnit res = null;
         List<Holder> enemies = GetEnemyHolders();
-        Vector3 myPos =(GetComponent<IndependantIAManager>() == null) ? GetComponent<BotManager>().GetHomes()[0].transform.position:army[0].transform.position;
+        Vector3 myPos =(GetComponent<IndependantIAManager>() != null) ? GetComponent<BotManager>().GetHomes()[0].transform.position:army[0].transform.position;
 
         foreach (Holder enemy in enemies)
         {
@@ -41,7 +41,7 @@ public class BotArmyManager : MonoBehaviour
     {
         DestructibleUnit res = null;
         Transform buildings = x.transform.GetChild(0).Find("Buildings");
-        Vector3 myPos = (GetComponent<IndependantIAManager>() == null) ? GetComponent<BotManager>().GetHomes()[0].transform.position : army[0].transform.position;
+        Vector3 myPos = (GetComponent<IndependantIAManager>() != null) ? GetComponent<BotManager>().GetHomes()[0].transform.position : army[0].transform.position;
 
         foreach (Transform child in buildings)
         {
@@ -55,7 +55,7 @@ public class BotArmyManager : MonoBehaviour
     {
         DestructibleUnit res = null;
         Transform buildings = x.transform.GetChild(0).Find("Movable");
-        Vector3 myPos = (GetComponent<IndependantIAManager>() == null) ? GetComponent<BotManager>().GetHomes()[0].transform.position : army[0].transform.position;
+        Vector3 myPos = (GetComponent<IndependantIAManager>() != null) ? GetComponent<BotManager>().GetHomes()[0].transform.position : army[0].transform.position;
 
         foreach (Transform child in buildings)
         {

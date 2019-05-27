@@ -27,8 +27,6 @@ public class MovableUnit : DestructibleUnit {
     [HideInInspector]
     public float speed;
 
-    [HideInInspector]
-    private AudioManager audioManager;
 
     public override void InitUnit(int botIndex)
     {

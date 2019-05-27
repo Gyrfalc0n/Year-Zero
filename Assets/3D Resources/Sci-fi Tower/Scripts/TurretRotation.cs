@@ -79,7 +79,6 @@ public class TurretRotation : MonoBehaviour
 
     public void SetTarget(Transform target)
     {
-        print("s");
         this.target = target;
     }
 
