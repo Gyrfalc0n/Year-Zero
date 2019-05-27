@@ -105,7 +105,7 @@ public class Tutorial : MonoBehaviour
             
         }
 
-        //  InstanceManager.instanceManager.mySelectableObjs  pour trouver la liste des objets selectionnables à nous
+        //   InstanceManager.instanceManager.mySelectableObjs  pour trouver la liste des objets selectionnables à nous
         //   SelectUnit.selectUnit.selected
         //   Time.timeScale = 0;      
     }
