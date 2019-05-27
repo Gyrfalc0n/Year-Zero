@@ -121,7 +121,7 @@ public class DestructibleUnit : SelectableObj {
     protected string destructionAnim;
     public virtual void OnDestroyed()
     {
-        //CreateDestructionAnim();
+        CreateDestructionAnim();
     }
 
     protected void CreateDestructionAnim()

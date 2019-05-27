@@ -11,8 +11,11 @@ public class AutoDestructObj : MonoBehaviour
     float remainingFadeOutTime;
     float maxAlpha;
 
+    [SerializeField] Transform holder;
+
     void Start()
     {
+        if (holder == null) holder = transform;
         maxAlpha = 1;
         remainingFadeOutTime = fadeOutTime;
         remainingTime = lifetime;
@@ -35,7 +38,7 @@ public class AutoDestructObj : MonoBehaviour
 
     void ChangeAlpha(float val)
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in holder)
         {
             if (child.GetComponent<MeshRenderer>() != null)
             {
