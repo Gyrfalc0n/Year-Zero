@@ -129,7 +129,16 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         if (mySelectableObjs.Count == 0)
         {
             GameObject.Find("DeathScreen").GetComponent<DeathScreen>().Show();
+            return;
         }
+        bool alive = false;
+        for (int i = 0; i < mySelectableObjs.Count && !alive; i++)
+        {
+            if (mySelectableObjs[i] != null)
+                alive = true;
+        }
+        if (!alive)
+            GameObject.Find("DeathScreen").GetComponent<DeathScreen>().Show();
     }
 
     public List<SelectableObj> allSelectableObjs = new List<SelectableObj>();
