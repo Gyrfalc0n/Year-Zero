@@ -34,7 +34,7 @@ public class TurrelFOV : MonoBehaviour
     {
         if (target == null)
         {
-            if (other.GetComponent<DestructibleUnit>() != null && !InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>()))
+            if (other.GetComponent<DestructibleUnit>() != null &&  MultiplayerTools.GetTeamOf(other.GetComponent<SelectableObj>()) != InstanceManager.instanceManager.GetTeam())
             {
                 if (GetComponentInParent<Turrel>().turretRotation != null)
                 {
@@ -76,7 +76,7 @@ public class TurrelFOV : MonoBehaviour
         {
             time = attackRate;
             GameObject obj = PhotonNetwork.Instantiate("Units/Bullets/" + projectile, firePoint.position, firePoint.rotation);
-            obj.GetComponent<Bullet>().Init(14f, damage, GetComponentInParent<Turrel>());
+            obj.GetComponent<Bullet>().Init(500, damage, GetComponentInParent<Turrel>());
         }
         time -= Time.deltaTime;
     }
