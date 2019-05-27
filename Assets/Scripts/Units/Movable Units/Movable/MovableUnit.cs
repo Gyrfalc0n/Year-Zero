@@ -200,7 +200,7 @@ public class MovableUnit : DestructibleUnit {
 
     public override void Interact(Interactable obj)
     {
-        if (obj.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<ConstructedUnit>()) != MultiplayerTools.GetTeamOf(this))
+        if (obj.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<DestructibleUnit>()) != MultiplayerTools.GetTeamOf(this))
         {
             Attack(obj.GetComponent<DestructibleUnit>());
         }
