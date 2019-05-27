@@ -45,9 +45,9 @@ public class MovableUnit : DestructibleUnit {
             InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().Add(this);
         }
         
-        if (botIndex == -1 && photonView.IsMine)
+        if (botIndex == -1 && photonView.IsMine && InstanceManager.instanceManager.timer > 1) 
         {
-            audioManager = FindObjectOfType<AudioManager>();
+            FindObjectOfType<AudioManager>().PlaySound("UnitSpawn");
         }
     }
 
@@ -231,7 +231,6 @@ public class MovableUnit : DestructibleUnit {
     public virtual void Attack(DestructibleUnit unit, bool attackMove)
     {
         this.attackMove = attackMove;
-        audioManager.PlaySound("AttackCommand");
         combatSystem.InitAttack(unit);
     }
 
