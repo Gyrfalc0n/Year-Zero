@@ -126,6 +126,7 @@ public class DestructibleUnit : SelectableObj {
 
     protected void CreateDestructionAnim()
     {
+        if (GetComponent<InConstructionUnit>() != null) return;
         string prefab = "VFX/DestructionAnimations/" + ((GetComponent<BuildingUnit>() != null) ? "Buildings":"Troops");
         PhotonNetwork.Instantiate(prefab, transform.position, Quaternion.identity);
     }

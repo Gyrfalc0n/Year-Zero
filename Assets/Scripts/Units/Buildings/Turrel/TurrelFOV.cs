@@ -16,6 +16,7 @@ public class TurrelFOV : MonoBehaviour
 
     private void Start()
     {
+        firePoint = GetComponentInParent<Turrel>().firePoint;
         damage = defaultDamage * SkilltreeManager.manager.turrelBonusDamage;
         defaultRange = transform.localScale.x;
         SetRange(SkilltreeManager.manager.turrelRange);
@@ -24,8 +25,8 @@ public class TurrelFOV : MonoBehaviour
     public void SetRange(float vec)
     {
         Vector3 tmp = new Vector3(defaultRange, transform.localScale.y, defaultRange);
-        tmp.x += vec;
-        tmp.z += vec;
+        tmp.x *= vec;
+        tmp.z *= vec;
         transform.localScale = tmp;
     }
 
@@ -35,7 +36,11 @@ public class TurrelFOV : MonoBehaviour
         {
             if (other.GetComponent<DestructibleUnit>() != null && !InstanceManager.instanceManager.IsEnemy(other.GetComponent<DestructibleUnit>()))
             {
-                target = other.GetComponent<DestructibleUnit>();
+                if (GetComponentInParent<Turrel>().turretRotation != null)
+                {
+                    target = other.GetComponent<DestructibleUnit>();
+                    GetComponentInParent<Turrel>().turretRotation.SetTarget(target.transform);
+                }
             }
         }
     }
@@ -44,6 +49,7 @@ public class TurrelFOV : MonoBehaviour
     {
         if (other.GetComponent<DestructibleUnit>() == target && target != null)
         {
+            GetComponentInParent<Turrel>().turretRotation.SetTarget(null);
             target = null;
         }
     }
