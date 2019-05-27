@@ -74,7 +74,8 @@ public class CardsPanel : MonoBehaviour {
     {
         foreach (Transform child in content)
         {
-            child.GetComponent<Card>().UpdateCard();
+            if (child.GetComponent<Card>() != null)
+                child.GetComponent<Card>().UpdateCard();
         }
     }
 }
