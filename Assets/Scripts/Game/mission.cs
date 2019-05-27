@@ -55,10 +55,7 @@ public class mission : MonoBehaviour
 
         if (timer == waveTime+1)
         {
-            isFirstTick = true;
-            
-            
-            
+            isFirstTick = true;                       
         }
         
         if (isFirstTick && timer == waveTime+5)
