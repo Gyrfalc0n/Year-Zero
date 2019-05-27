@@ -39,7 +39,8 @@ public class TurrelFOV : MonoBehaviour
                 if (GetComponentInParent<Turrel>().turretRotation != null)
                 {
                     target = other.GetComponent<DestructibleUnit>();
-                    GetComponentInParent<Turrel>().turretRotation.SetTarget(target.transform.Find("model"));
+                    GetComponentInParent<Turrel>().turretRotation.SetTarget(target.transform);
+                    print(target.transform.position);
                 }
             }
         }
@@ -49,7 +50,6 @@ public class TurrelFOV : MonoBehaviour
     {
         if (other.GetComponent<DestructibleUnit>() == target && target != null)
         {
-            print("e");
             GetComponentInParent<Turrel>().turretRotation.SetTarget(null);
             target = null;
         }
