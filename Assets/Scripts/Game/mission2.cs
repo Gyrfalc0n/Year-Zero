@@ -30,7 +30,7 @@ public class mission2 : MonoBehaviour
         }
         if (timer == 9 && !isFirstTick) isFirstTick = true;
         
-         if (timer == 10 && isFirstTick)
+         if (timer == 25 && isFirstTick)
          {             
              FindObjectOfType<AudioManager>().PlaySound(voicesToPlay[1]);
              isFirstTick = false;
@@ -41,7 +41,7 @@ public class mission2 : MonoBehaviour
              wave++;
          }
 
-        if (timer == 40)
+        if (timer == 65)
         {
             FindObjectOfType<AudioManager>().PlaySound(voicesToPlay[2]);
             independentBotPrefab.GetComponent<BotArmyManager>().STOPRUSH();
