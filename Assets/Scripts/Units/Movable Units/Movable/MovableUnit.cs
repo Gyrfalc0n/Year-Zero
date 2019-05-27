@@ -27,6 +27,9 @@ public class MovableUnit : DestructibleUnit {
     [HideInInspector]
     public float speed;
 
+    [HideInInspector]
+    private AudioManager audioManager;
+
     public override void InitUnit(int botIndex)
     {
         fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefabForMV";
@@ -42,6 +45,11 @@ public class MovableUnit : DestructibleUnit {
         if (botIndex != -1 && botIndex != -2 && GetComponent<BuilderUnit>() == null)
         {
             InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().Add(this);
+        }
+        
+        if (botIndex == -1 && photonView.IsMine)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
         }
     }
 
@@ -221,6 +229,7 @@ public class MovableUnit : DestructibleUnit {
 
     public virtual void Attack(DestructibleUnit unit)
     {
+        audioManager.PlaySound("AttackCommand");
         combatSystem.InitAttack(unit);
     }
 
