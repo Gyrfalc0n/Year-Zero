@@ -24,7 +24,7 @@ public class BotArmyManager : MonoBehaviour
     {
         DestructibleUnit res = null;
         List<Holder> enemies = GetEnemyHolders();
-        Vector3 myPos =(GetComponent<IndependantIAManager>() == null) ? GetComponent<BotManager>().GetHomes()[0].transform.position:army[0].transform.position;
+        Vector3 myPos =(GetComponent<IndependantIAManager>() != null) ? GetComponent<BotManager>().GetHomes()[0].transform.position:army[0].transform.position;
 
         foreach (Holder enemy in enemies)
         {
