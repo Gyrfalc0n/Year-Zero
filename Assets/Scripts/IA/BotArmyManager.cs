@@ -142,7 +142,7 @@ public class BotArmyManager : MonoBehaviour
             if (troop == null)
                 continue;
 
-            troop.Attack(target);
+            troop.Attack(target, false);
             troop.SetAlwaysAttack();
         }
     }

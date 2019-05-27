@@ -74,7 +74,7 @@ public class MovableUnit : DestructibleUnit {
                 target = InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().GetNearestEnemy();
             }
             if (target == null) return;
-            Attack(target);
+            Attack(target, false);
         }
         else if (moving)
         {
