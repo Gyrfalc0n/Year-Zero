@@ -65,7 +65,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         {
             IAManager bot = Instantiate((GameObject)Resources.Load(botPrefab)).GetComponent<IAManager>();
             bot.gameObject.name = "Bot0";
-            bot.Init(0, 1, 0, 1, new Vector3 (15, 1, 15));
+            bot.Init(0, 1, 1, 1, new Vector3 (15, 1, 15));
             i++;
         }
     }
