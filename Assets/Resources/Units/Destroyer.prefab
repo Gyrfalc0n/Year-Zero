@@ -149,11 +149,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroyer
       objectReference: {fileID: 0}
-    - target: {fileID: 7043851759568410477, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
-      propertyPath: m_Radius
-      value: 1.09
-      objectReference: {fileID: 0}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 2200028590359865215}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -198,15 +198,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 2200028590359865215}
     - target: {fileID: 195716740978087658, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Radius
       value: 4.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043851759568410477, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
@@ -246,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: projectile
-      value: Units/Bullets/BulletPrefab
+      value: MissileShipKiller
       objectReference: {fileID: 0}
     - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
@@ -273,6 +273,11 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 13.43
       objectReference: {fileID: 0}
+    - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 135501387409097762, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: m_Radius
@@ -292,11 +297,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: -19.409634
-      objectReference: {fileID: 0}
-    - target: {fileID: 7616132807774361020, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4838555871492452, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -357,6 +357,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8471129090755253008}
     m_Modifications:
+    - target: {fileID: 1564131809788078, guid: 3410e70e48dc33444864198cdaf57018, type: 3}
+      propertyPath: m_Name
+      value: Cruiser_04
+      objectReference: {fileID: 0}
     - target: {fileID: 4203773460733162, guid: 3410e70e48dc33444864198cdaf57018, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -412,10 +416,6 @@ PrefabInstance:
     - target: {fileID: 4203773460733162, guid: 3410e70e48dc33444864198cdaf57018, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1564131809788078, guid: 3410e70e48dc33444864198cdaf57018, type: 3}
-      propertyPath: m_Name
-      value: Cruiser_04
       objectReference: {fileID: 0}
     - target: {fileID: 8786470844181732131, guid: 3410e70e48dc33444864198cdaf57018,
         type: 3}
