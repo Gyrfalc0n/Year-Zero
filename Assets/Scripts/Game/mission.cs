@@ -13,7 +13,7 @@ public class mission : MonoBehaviour
     private bool isFirstTick = true;
     private int waveTime = 10;
     private int waveCount = 0;
-    private int[] numberPerWave = {0, 1, 2, 3, 5, 0, 0, 0};
+    private int[] numberPerWave = {0, 0, 1, 2, 3, 5, 0, 0};
     private string[] messageOfWave =
     {
         "Instructor: Create units to be prepared",
@@ -71,7 +71,11 @@ public class mission : MonoBehaviour
         if (timer == waveTime+6)
         {
             isFirstTick = true;
-            waveTime += 30;
+            if (waveCount==1)
+            {
+                waveTime += 80;
+            }
+            waveTime += 20;
             waveCount += 1;
             if (waveCount > 7)
             {
