@@ -77,6 +77,12 @@ public class TurretRotation : MonoBehaviour
 		return GetAngleBetween( forward, ( targetPos - transfPos ).normalized );
 	}
 
+    public void SetTarget(Transform target)
+    {
+        print("s");
+        this.target = target;
+    }
+
 
 
 #if UNITY_EDITOR
