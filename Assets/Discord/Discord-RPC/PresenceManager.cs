@@ -105,10 +105,12 @@ namespace DiscordPresence
         // Singleton
         void Awake()
         {
-#if UNITY_EDITOR
-            Destroy(gameObject);
-            return;
-#endif
+            if (Application.isEditor)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             if (instance == null)
             {
                 instance = this;

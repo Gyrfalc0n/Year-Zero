@@ -9,9 +9,8 @@ public class UpdatePresence : MonoBehaviour
 {
     void Start()
     {
-#if UNITY_EDITOR
-        return;
-#endif
+        if (Application.isEditor)
+            return;
 
         string message;
         switch (SceneManager.GetActiveScene().name)
