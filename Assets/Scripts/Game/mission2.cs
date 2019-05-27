@@ -13,34 +13,31 @@ public class mission2 : MonoBehaviour
     private string[] voicesToPlay =
     {
         
-    };
-    
-  
-
-    
+    };     
     void Update()
     {
-        if (isFirstTick)
+         int timer = (int)InstanceManager.instanceManager.timer;                                  
+         if (timer == 10 && isFirstTick)
+         {
+             isFirstTick = false;
+             Wave(wave);
+             wave++;            
+             independentBotPrefab.GetComponent<BotArmyManager>().SendArmyMission2(new Vector3(3,0,3));
+             Wave(2);
+             wave++;
+         }
+
+        if (timer == 20)
         {
-            isFirstTick = false;
-            Wave(wave);            
-            if(wave == 1){}
-                
-            if (wave == 2)
-            {
-                
-            }
-            if(wave == 3){}       
-            
+            independentBotPrefab.GetComponent<BotArmyManager>().attackMission2();
         }
 
-        if (InstanceManager.instanceManager.allSelectableObjs.Count - InstanceManager.instanceManager.mySelectableObjs.Count == 0)
+        if (InstanceManager.instanceManager.allSelectableObjs.Count -
+            InstanceManager.instanceManager.mySelectableObjs.Count == 0 && wave == 3)
         {
-            wave++;
-            isFirstTick = true;            
-        }
-        
-
+            Wave(3);
+            independentBotPrefab.GetComponent<BotArmyManager>().SendArmyMission2(new Vector3(-40,0,-40));
+        }                                 
     }
 
     void Wave(int n)
@@ -48,31 +45,33 @@ public class mission2 : MonoBehaviour
         if (n == 1)
         {
             independentBotPrefab.GetComponent<IndependantIAManager>()
-                .InstantiateUnit("Units/Builder", new Vector3(-25,0,-25), Quaternion.Euler(0, 0, 0)); //1
+                .InstantiateUnit("Units/Hacker", new Vector3(-35, 0, -35), Quaternion.Euler(0, 0, 0)); //1
+            independentBotPrefab.GetComponent<IndependantIAManager>()
+                .InstantiateUnit("Units/Hacker", new Vector3(-34, 0, -35), Quaternion.Euler(0, 0, 0)); //1
         }
-        if (n == 2)
+        if(n == 2)
         {
             independentBotPrefab.GetComponent<IndependantIAManager>()
-                .InstantiateUnit("Units/Basic Troop", new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
+                .InstantiateUnit("Units/Basic Troop", new Vector3(0, 0, 1), Quaternion.Euler(0, 0, 0));
             independentBotPrefab.GetComponent<IndependantIAManager>()
-                .InstantiateUnit("Units/Builder", new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0)); //2
+                .InstantiateUnit("Units/Basic Troop", new Vector3(1, 0, 0), Quaternion.Euler(0, 0, 0)); //2
             independentBotPrefab.GetComponent<IndependantIAManager>()
-                .InstantiateUnit("Units/Basic Troop", new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
+                .InstantiateUnit("Units/Basic Troop", new Vector3(-1, 0, 0), Quaternion.Euler(0, 0, 0));
+            independentBotPrefab.GetComponent<IndependantIAManager>()
+                .InstantiateUnit("Units/Light Troop", new Vector3(1, 0, -1), Quaternion.Euler(0, 0, 0));
+            independentBotPrefab.GetComponent<IndependantIAManager>()
+                .InstantiateUnit("Units/Bomber", new Vector3(1, 0, 1), Quaternion.Euler(0, 0, 0));
         }
         if (n == 3)
         {
             independentBotPrefab.GetComponent<IndependantIAManager>()
-                .InstantiateUnit("Units/Basic Troop", new Vector3(30, 0, 30), Quaternion.Euler(0, 0, 0));
+                .InstantiateUnit("Units/Basic Troop", new Vector3(-40, 0, -30), Quaternion.Euler(0, 0, 0));
             independentBotPrefab.GetComponent<IndependantIAManager>()
-                .InstantiateUnit("Units/Basic Troop", new Vector3(30, 0, 30), Quaternion.Euler(0, 0, 0)); //3
+                .InstantiateUnit("Units/Basic Troop", new Vector3(-40, 0, -30), Quaternion.Euler(0, 0, 0)); //3
             independentBotPrefab.GetComponent<IndependantIAManager>()
-                .InstantiateUnit("Units/Basic Troop", new Vector3(30, 0, 30), Quaternion.Euler(0, 0, 0));
+                .InstantiateUnit("Units/Bomber", new Vector3(-40, 0, -30), Quaternion.Euler(0, 0, 0));
             independentBotPrefab.GetComponent<IndependantIAManager>()
-                .InstantiateUnit("Units/Builder", new Vector3(30, 0, 30), Quaternion.Euler(0, 0, 0));
-            independentBotPrefab.GetComponent<IndependantIAManager>()
-                .InstantiateUnit("Units/Builder", new Vector3(30, 0, 30), Quaternion.Euler(0, 0, 0));
-            independentBotPrefab.GetComponent<IndependantIAManager>()
-                .InstantiateUnit("Units/Builder", new Vector3(30, 0, 30), Quaternion.Euler(0, 0, 0));
+                .InstantiateUnit("Units/Bomber", new Vector3(-40, 0, -30), Quaternion.Euler(0, 0, 0));
         }
     }
 

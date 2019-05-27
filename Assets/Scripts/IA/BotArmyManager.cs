@@ -152,4 +152,25 @@ public class BotArmyManager : MonoBehaviour
             troop.SetDestination(pos, 2f);
         }
     }
+
+    public void SendArmyMission2(Vector3 pos)
+    {
+        foreach (MovableUnit troop in army)
+        {
+            if (troop == null)
+                continue;
+
+            troop.SetDestination(pos, 2f);
+        }
+    }
+
+    public void attackMission2()
+    {
+        foreach (MovableUnit troop in army)
+        {
+            if (troop == null)
+                continue;
+            troop.SetAlwaysAttack();
+        }
+    }
 }
