@@ -54,7 +54,7 @@ MonoBehaviour:
   selected: 0
   objName: Destroyer
   description: The most gigantic ship ever created. Very resistant, does balanced
-    damae but can buff near units and be used as a spawn point for production buildings
+    damage but can buff near units and be used as a spawn point for production buildings
   costs: 78000000b00400005802000000000000
   pop: 12
   fovCollider: {fileID: 0}
@@ -149,6 +149,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroyer
       objectReference: {fileID: 0}
+    - target: {fileID: 195716740978087658, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4.07
+      objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: ObservedComponents.Array.data[0]
@@ -198,15 +203,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 195716740978087658, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
-      propertyPath: m_Radius
-      value: 4.07
+      propertyPath: firePoint
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7043851759568410477, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
-      propertyPath: m_Radius
-      value: 1.09
+      propertyPath: projectile
+      value: MissileShipKiller
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: range
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: bulletAmount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7678754933936445317, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
@@ -238,25 +253,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
+    - target: {fileID: 7043851759568410477, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: projectile
-      value: MissileShipKiller
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: range
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: bulletAmount
-      value: 3
+      propertyPath: m_Radius
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 2254224967263018919, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
