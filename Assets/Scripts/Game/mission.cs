@@ -9,6 +9,7 @@ public class mission : MonoBehaviour
     [SerializeField] public GameObject independentBotPrefab;
     [SerializeField] public Text Display;
     [SerializeField] public GameObject Background;
+    public bool isNormal;
 
     private bool isFirstTick = true;
     private int waveTime = 10;
@@ -68,7 +69,7 @@ public class mission : MonoBehaviour
         if (timer == waveTime+6)
         {
             isFirstTick = true;
-            if (waveCount==1)
+            if (waveCount==1 && isNormal)
             {
                 waveTime += 80;
             }
