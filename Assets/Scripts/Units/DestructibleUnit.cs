@@ -118,7 +118,17 @@ public class DestructibleUnit : SelectableObj {
         InstanceManager.instanceManager.allSelectableObjs.Remove(this);
     }
 
-    public virtual void OnDestroyed() { }
+    protected string destructionAnim;
+    public virtual void OnDestroyed()
+    {
+        CreateDestructionAnim();
+    }
+
+    protected void CreateDestructionAnim()
+    {
+        string prefab = "VFX/DestructionAnimations/" + ((GetComponent<BuildingUnit>() != null) ? "Buildings":"Troops");
+        PhotonNetwork.Instantiate(prefab, transform.position, Quaternion.identity);
+    }
 
     public float GetLife()
     {
