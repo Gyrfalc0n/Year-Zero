@@ -20,7 +20,7 @@ public class AttackToolControls : PlayerControls
         {
             if (hit.collider.GetComponent<DestructibleUnit>() != null && InstanceManager.instanceManager.IsEnemy(hit.collider.GetComponent<DestructibleUnit>()))
             {
-                SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<MovableUnit>().Attack(hit.collider.GetComponent<DestructibleUnit>());
+                SelectUnit.selectUnit.selected[SelectUnit.selectUnit.underSelected].GetComponent<MovableUnit>().Attack(hit.collider.GetComponent<DestructibleUnit>(), true);
             }
         }
     }

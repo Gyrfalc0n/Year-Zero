@@ -46,7 +46,7 @@ public class BuilderUnit : MovableUnit {
     {
         if (obj.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<DestructibleUnit>()) != MultiplayerTools.GetTeamOf(this))
         {
-            Attack(obj.GetComponent<DestructibleUnit>());
+            Attack(obj.GetComponent<DestructibleUnit>(), false);
         }
         else if (obj.GetComponent<InConstructionUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<InConstructionUnit>()) == MultiplayerTools.GetTeamOf(this))
         {
@@ -62,9 +62,9 @@ public class BuilderUnit : MovableUnit {
         }
     }
 
-    public override void Attack(DestructibleUnit unit)
+    public override void Attack(DestructibleUnit unit, bool attackMove)
     {
-        base.Attack(unit);
+        base.Attack(unit, attackMove);
         if (jobless != null)
             jobless.Remove(this);
     }

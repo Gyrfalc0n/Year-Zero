@@ -2802,6 +2802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2045162995727196905}
   - component: {fileID: 6133154424111657961}
+  - component: {fileID: 1442535366422323045}
   m_Layer: 0
   m_Name: Buildings
   m_TagString: Untagged
@@ -2848,6 +2849,19 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1442535366422323045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094206596390228014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31cc4f544de9fc4abc0fd91333d8efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 3
 --- !u!1 &6223972548856923906
 GameObject:
   m_ObjectHideFlags: 0
