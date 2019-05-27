@@ -71,7 +71,11 @@ public class mission : MonoBehaviour
         if (timer == waveTime+6)
         {
             isFirstTick = true;
-            waveTime += 30;
+            if (waveCount==1)
+            {
+                waveTime += 80;
+            }
+            waveTime += 20;
             waveCount += 1;
             if (waveCount > 7)
             {
