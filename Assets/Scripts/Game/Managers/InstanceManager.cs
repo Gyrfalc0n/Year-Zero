@@ -128,8 +128,26 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     {
         if (mySelectableObjs.Count == 0)
         {
-            GameObject.Find("DeathScreen").GetComponent<DeathScreen>().Show();
+            ShowDeath();
         }
+        else if (SceneManager.GetActiveScene().name == "Mission" || SceneManager.GetActiveScene().name == "EndlessMode")
+        {
+            bool townhall = false;
+            for (int i = 0; i < mySelectableObjs.Count && !townhall; i++)
+            {
+                if (mySelectableObjs[i].GetComponent<TownHall>() != null)
+                    townhall = true;
+            }
+            if (!townhall)
+            {
+                ShowDeath();
+            }
+        }
+    }
+
+    void ShowDeath()
+    {
+        GameObject.Find("DeathScreen").GetComponent<DeathScreen>().Show();
     }
 
     public List<SelectableObj> allSelectableObjs = new List<SelectableObj>();

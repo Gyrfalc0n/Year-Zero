@@ -28,6 +28,8 @@ public class TownHall : ProductionBuilding
     
     public override bool IsAvailable()
     {
-        return SceneManager.GetActiveScene().name!="Tutorial";
+        return SceneManager.GetActiveScene().name!="Tutorial"
+            && SceneManager.GetActiveScene().name != "Mission"
+            && SceneManager.GetActiveScene().name != "Endless";
     }
 }
