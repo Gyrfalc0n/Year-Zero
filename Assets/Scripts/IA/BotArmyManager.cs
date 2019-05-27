@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.AI;
 
 public class BotArmyManager : MonoBehaviour
 {
@@ -182,6 +183,16 @@ public class BotArmyManager : MonoBehaviour
             if (troop == null)
                 continue;
             troop.SetAlwaysAttack();
+        }
+    }
+
+    public void STOPRUSH()
+    {
+        foreach (MovableUnit troop in army)
+        {
+            if (troop == null)
+                continue;
+            troop.GetComponent<NavMeshAgent>().ResetPath();
         }
     }
 }
