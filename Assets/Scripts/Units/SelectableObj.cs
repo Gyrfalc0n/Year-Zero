@@ -38,7 +38,6 @@ public class SelectableObj : Interactable
     [HideInInspector]
     public int botIndex;
 
-    protected AudioManager audioManager;
 
     public virtual void InitUnit(int botIndex)
     {
@@ -47,9 +46,8 @@ public class SelectableObj : Interactable
         SetBotIndex(botIndex);
 
         if (botIndex == -1 && photonView.IsMine)
-        {
-            audioManager = FindObjectOfType<AudioManager>();
-            audioManager.PlaySound("UnitSpawn");
+        {    
+            //FindObjectOfType<AudioManager>().PlaySound("UnitSpawn");
         }
         
         team = MultiplayerTools.GetTeamOf(this);
