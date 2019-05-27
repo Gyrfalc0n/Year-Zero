@@ -119,11 +119,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultRange: 0
-  defaultDamage: 0
+  defaultDamage: 1
   damage: 0
-  projectile: 
+  projectile: BulletPrefab
   firePoint: {fileID: 0}
-  attackRate: 0
+  attackRate: 3
 --- !u!54 &5524490773001349496
 Rigidbody:
   m_ObjectHideFlags: 0

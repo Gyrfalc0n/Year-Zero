@@ -39,7 +39,7 @@ public class TurrelFOV : MonoBehaviour
                 if (GetComponentInParent<Turrel>().turretRotation != null)
                 {
                     target = other.GetComponent<DestructibleUnit>();
-                    GetComponentInParent<Turrel>().turretRotation.SetTarget(target.transform);
+                    GetComponentInParent<Turrel>().turretRotation.SetTarget(target.transform.Find("model"));
                 }
             }
         }
@@ -49,6 +49,7 @@ public class TurrelFOV : MonoBehaviour
     {
         if (other.GetComponent<DestructibleUnit>() == target && target != null)
         {
+            print("e");
             GetComponentInParent<Turrel>().turretRotation.SetTarget(null);
             target = null;
         }
@@ -75,9 +76,10 @@ public class TurrelFOV : MonoBehaviour
         if (time <= 0)
         {
             time = attackRate;
-            GameObject obj = PhotonNetwork.Instantiate(projectile, firePoint.position, firePoint.rotation);
-            obj.GetComponent<Bullet>().Init(1f, GetComponent<MovableUnit>().damage, GetComponentInParent<Turrel>());
+            GameObject obj = PhotonNetwork.Instantiate("Units/Bullets/" + projectile, firePoint.position, firePoint.rotation);
+            obj.GetComponent<Bullet>().Init(14f, damage, GetComponentInParent<Turrel>());
         }
+        time -= Time.deltaTime;
     }
 
     void FaceTarget(Vector3 destination)
