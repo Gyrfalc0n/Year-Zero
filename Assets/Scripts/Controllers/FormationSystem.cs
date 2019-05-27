@@ -10,9 +10,12 @@ public class FormationSystem : MonoBehaviour
     float unitDistance;
     float stoppingDistance = 1f;
     Formation formation;
+    [HideInInspector]
+    protected AudioManager audioManagerF;
 
     void Start()
     {
+        audioManagerF = FindObjectOfType<AudioManager>();
         formation = Formation.SQUARE;
         u = SelectUnit.selectUnit;
     }
@@ -46,6 +49,7 @@ public class FormationSystem : MonoBehaviour
 
     public void MoveSelection(Vector3 newPos)
     {
+        audioManagerF.PlaySound("MoveCommand");
         if (formation == Formation.NO)
             NoFormation(newPos);
         else if (formation == Formation.SQUARE)
