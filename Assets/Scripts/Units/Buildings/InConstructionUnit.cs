@@ -32,7 +32,7 @@ public class InConstructionUnit : BuildingUnit
             OnConstructionFinished();
         if (GetLife() < GetMaxlife())
         {
-            Heal((int)(Time.deltaTime * builders.Count * SkilltreeManager.manager.constructionSpeed * 30));
+            Heal((int)(Time.deltaTime * builders.Count * SkilltreeManager.manager.constructionSpeed * 30 + buildersCount));
         }
         else
         {
@@ -89,6 +89,11 @@ public class InConstructionUnit : BuildingUnit
     public bool HasNoMoreBuilder()
     {
         return hadBuilder && builders.Count == 0;
+    }
+
+    public override float GetCurrentActionAdvancement()
+    {
+        return GetLife() / GetMaxlife();
     }
 }
 
