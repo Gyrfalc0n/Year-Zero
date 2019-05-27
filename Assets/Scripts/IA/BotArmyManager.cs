@@ -25,13 +25,24 @@ public class BotArmyManager : MonoBehaviour
         Vector3 myPos;
         if (GetComponent<IndependantIAManager>() == null)
         {
+            ClearList(GetComponent<BotManager>().GetHomes());
             myPos = (GetComponent<BotManager>().GetHomes().Count > 0) ? GetComponent<BotManager>().GetHomes()[0].transform.position : Vector3.zero;
         }
         else
         {
+            ClearList(army);
             myPos = (army.Count > 0) ? army[0].transform.position : Vector3.zero;
         }
         return myPos;
+    }
+
+    void ClearList<T>(List<T> l)
+    {
+        for (int i = l.Count-1; i >= 0; i--)
+        {
+            if (l[i] == null)
+                l.RemoveAt(i);
+        }
     }
 
     public DestructibleUnit GetNearestEnemy()
@@ -131,7 +142,7 @@ public class BotArmyManager : MonoBehaviour
             if (troop == null)
                 continue;
 
-            troop.Attack(target);
+            troop.Attack(target, false);
             troop.SetAlwaysAttack();
         }
     }

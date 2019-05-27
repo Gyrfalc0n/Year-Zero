@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviourPunCallbacks
             time -= Time.deltaTime;
             if (time <= 0)
             {
-                PhotonNetwork.Destroy(this.gameObject);
+                Destroy();
             }
         }
     }
@@ -47,9 +47,16 @@ public class Bullet : MonoBehaviourPunCallbacks
                     || associatedUnit.botIndex >= 0 && InstanceManager.instanceManager.GetBot(associatedUnit.botIndex).IsEnemy(other.GetComponent<DestructibleUnit>()))
                 {
                     other.GetComponent<DestructibleUnit>().TakeDamage((int)damage, associatedUnit);
-                    PhotonNetwork.Destroy(this.gameObject);
+                    Destroy();
                 }
             }
         }
+    }
+
+    [SerializeField] string destructionAnimation;
+    public void Destroy()
+    {
+        PhotonNetwork.Instantiate("Units/Bullets/DestructionAnimations/" + destructionAnimation, transform.position, Quaternion.identity);
+        PhotonNetwork.Destroy(this.gameObject);
     }
 }

@@ -52,7 +52,7 @@ public class DestructibleUnit : SelectableObj {
         {
             photonView.RPC("RPCTakeDamage", RpcTarget.Others, value);
         }
-        //OnDamageTaken(shooter);
+        OnDamageTaken(shooter);
     }
 
     public virtual void OnDamageTaken(DestructibleUnit shooter) { }
