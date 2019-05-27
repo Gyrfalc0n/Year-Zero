@@ -55,7 +55,7 @@ public class CardsPanel : MonoBehaviour {
         }
 
         int counter = 0;
-        foreach (Transform child in content.transform)
+        foreach (Transform child in content)
         {
             if (child.gameObject == tmp.gameObject)
             {
@@ -67,6 +67,15 @@ public class CardsPanel : MonoBehaviour {
                 child.GetComponent<Card>().DeHighlight();
             }
             counter++;
+        }
+    }
+
+    public void UpdateCards()
+    {
+        foreach (Transform child in content)
+        {
+            if (child.GetComponent<Card>() != null)
+                child.GetComponent<Card>().UpdateCard();
         }
     }
 }

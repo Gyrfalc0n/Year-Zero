@@ -7,8 +7,8 @@ public class Task : MonoBehaviour
     float requiredTime;
     float remainingTime;
 
-    ConstructedUnit associatedBuilding;
-    MovableUnit associatedUnit;
+    public ConstructedUnit associatedBuilding { get; private set; }
+    public MovableUnit associatedUnit { get; private set; }
 
     bool active;
 
@@ -17,7 +17,7 @@ public class Task : MonoBehaviour
         associatedBuilding = building;
         associatedUnit = unit;
         active = true;
-        remainingTime = unit.GetRequiredTime();
+        remainingTime = (InstanceManager.instanceManager.instantInstantiation) ? 0:unit.GetRequiredTime();
         requiredTime = unit.GetRequiredTime();
     }
 
@@ -72,15 +72,5 @@ public class Task : MonoBehaviour
     public float GetCurrentAdvancement()
     {
         return 1 - remainingTime / requiredTime;
-    }
-
-    public ConstructedUnit GetBuilding()
-    {
-        return associatedBuilding;
-    }
-
-    public Sprite GetSprite()
-    {
-        return associatedUnit.iconSprite;
     }
 }

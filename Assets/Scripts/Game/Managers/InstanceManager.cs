@@ -13,6 +13,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     public bool offlineMode;
     public bool debugMode;
     public bool noCosts;
+    public bool instantInstantiation;
 
     public void Awake()
     {
@@ -44,7 +45,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     }
 
     public float timer { get; private set; }
-    private void Update()
+    void Update()
     {
         timer += Time.deltaTime;
     }
@@ -127,8 +128,26 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
     {
         if (mySelectableObjs.Count == 0)
         {
-            GameObject.Find("DeathScreen").GetComponent<DeathScreen>().Show();
+            ShowDeath();
         }
+        else if (SceneManager.GetActiveScene().name == "Mission" || SceneManager.GetActiveScene().name == "EndlessMode")
+        {
+            bool townhall = false;
+            for (int i = 0; i < mySelectableObjs.Count && !townhall; i++)
+            {
+                if (mySelectableObjs[i].GetComponent<TownHall>() != null)
+                    townhall = true;
+            }
+            if (!townhall)
+            {
+                ShowDeath();
+            }
+        }
+    }
+
+    void ShowDeath()
+    {
+        GameObject.Find("DeathScreen").GetComponent<DeathScreen>().Show();
     }
 
     public List<SelectableObj> allSelectableObjs = new List<SelectableObj>();

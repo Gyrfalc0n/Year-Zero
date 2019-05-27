@@ -20,24 +20,20 @@ public class TaskSystem : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        if (!photonView.IsMine)
+        if (!photonView.IsMine || tasks.Count <= 0)
             return;
 
+        if (tasks[0].Finished())
+        {
+            Remove(tasks[0]);
+        }
         if (tasks.Count > 0)
         {
-            if (tasks[0].Finished())
-            {
-                Remove(tasks[0]);
-            }
-            if (tasks.Count > 0)
-            {
-                tasks[0].UpdateTask();
-            }
-            else
-            {
-                SelectUnit.selectUnit.UpdateUI();
-            }
-                
+            tasks[0].UpdateTask();
+        }
+        else
+        {
+            SelectUnit.selectUnit.UpdateUI();
         }
     }
 

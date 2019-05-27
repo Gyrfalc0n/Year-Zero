@@ -27,10 +27,9 @@ public class PauseControls : PlayerControls
 
     public override void Update()
     {
-        if (active)
-        {
-            CheckMenu();
-        }
+        if (!CanUpdate()) return;
+
+        CheckMenu();
     }
 
     public override void Cancel()

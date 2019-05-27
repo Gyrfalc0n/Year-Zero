@@ -57,7 +57,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     public void UpdateSelection()
     {
         selectionBox.CheckBox();
-        CheckHighlight();
+        CheckMonoHighlight();
         CheckSelect();
     }
 
@@ -67,7 +67,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         {
             oneClick -= Time.deltaTime;
         }
-        if (!MouseOverUI() && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !MouseOverUI())
         {
             isSelecting = true;
             mousePos1 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -81,7 +81,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             oneClick = doubleClickTime;
         }
 
-        if (isSelecting && Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && isSelecting)
         {
             mousePos2 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
@@ -89,7 +89,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
                 HighlightObjects();
         }
 
-        if (isSelecting && Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && isSelecting)
         {
             CalculateSelection();
             isSelecting = false;
@@ -125,7 +125,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
     public void UpdateUI()
     {
         monoDescriptionPanel.ResetBar();
-        advancementBar.Reset();
+        advancementBar.ResetBar();
         taskBar.ResetBar();
         cardsPanel.ClearCards();
         toolsPanel.ClearTools();
@@ -196,6 +196,8 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
             {
                 if (!tmp[i].photonView.IsMine)
                 {
+                    if (tmp[i].GetComponent<SelectableObj>() != null)
+                        tmp[i].GetComponent<SelectableObj>().Dehighlight();
                     tmp.RemoveAt(i);
                 }
             }
@@ -213,16 +215,19 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         if (movable)
         {
             int nb = 0;
-            int i = 0;
-            while (i < tmp.Count && nb < 24)
+            for (int i = 0; i < tmp.Count; i++)
             {
-                if (tmp[i].GetComponent<MovableUnit>() != null)
+                if (nb < 24 && tmp[i].GetComponent<MovableUnit>() != null)
                 {
                     if (SelectObject(tmp[i]))
                         changement = true;
                     nb++;
                 }
-                i++;
+                else
+                {
+                    if (tmp[i].GetComponent<SelectableObj>() != null)
+                        tmp[i].GetComponent<SelectableObj>().Dehighlight();
+                }
             }
         }
         else
@@ -260,19 +265,37 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         selected.Clear();
     }
 
-    void CheckHighlight()
+
+
+    SelectableObj monohighlighted;
+    void CheckMonoHighlight()
     {
         RaycastHit hit;
         bool gotHit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value);
-        foreach (SelectableObj selectableObj in InstanceManager.instanceManager.allSelectableObjs)
+
+        if (monohighlighted == null)
         {
-            if (gotHit && hit.collider.GetComponent<SelectableObj>() == selectableObj && !MouseOverUI())
+            if (gotHit && hit.collider.GetComponent<SelectableObj>() != null)
             {
-                selectableObj.Highlight(false);
+                monohighlighted = hit.collider.GetComponent<SelectableObj>();
+                monohighlighted.Highlight(false);
             }
-            else if (selectableObj.highlighted)
+        }
+        else
+        {
+            if (gotHit && hit.collider.GetComponent<SelectableObj>() != null)
             {
-                selectableObj.Dehighlight();
+                if (hit.collider.GetComponent<SelectableObj>() != monohighlighted)
+                {
+                    monohighlighted.Dehighlight();
+                    monohighlighted = hit.collider.GetComponent<SelectableObj>();
+                    monohighlighted.Highlight(false);
+                }
+            }
+            else
+            {
+                monohighlighted.Dehighlight();
+                monohighlighted = null;
             }
         }
     }
@@ -355,7 +378,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, interactableLayer.value))
         {
-            if (hit.collider.GetComponent<MovableUnit>() != null && hit.collider.GetComponent<MovableUnit>().photonView.IsMine && hit.collider.GetComponent<MovableUnit>().botIndex != -1 && hit.collider.GetComponent<MovableUnit>().botIndex != -2)
+            if (hit.collider.GetComponent<MovableUnit>() != null && hit.collider.GetComponent<MovableUnit>().photonView.IsMine && hit.collider.GetComponent<MovableUnit>().botIndex == -1)
             {
                 ClearSelection();
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Radar : ConstructedUnit
 {
     MinimapMarkerControls minimap;
-    MovementControls movementControls;
+    MinimapController minimapController;
 
     List<MovableUnit> list = new List<MovableUnit>();
 
@@ -16,7 +16,7 @@ public class Radar : ConstructedUnit
         {
             GameObject tmp = GameObject.Find("InstanceManager");
             minimap = tmp.GetComponent<MinimapMarkerControls>();
-            movementControls = tmp.GetComponent<MovementControls>();
+            minimapController = tmp.GetComponent<MinimapController>();
         }
     }
     void OnTriggerEnter(Collider other)
@@ -28,7 +28,7 @@ public class Radar : ConstructedUnit
             list.Add(other.GetComponent<MovableUnit>());
             if (empty)
             {
-                minimap.CreateMarker(movementControls.WorldSpaceToMinimap(other.transform.position));
+                minimap.CreateMarker(minimapController.WorldSpaceToMinimap(other.transform.position));
                 TemporaryMessage.temporaryMessage.Add("We are attacked!");
             }
         }

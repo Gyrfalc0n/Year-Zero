@@ -22,16 +22,15 @@ public class MinimapMarkerControls : PlayerControls
 
     public override void Update()
     {
-        if (active)
+        if (!CanUpdate()) return;
+
+        if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
         {
-            if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
-            {
-                LeftClick();
-            }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                RightClick();
-            }
+            LeftClick();
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            RightClick();
         }
     }
 
@@ -39,14 +38,14 @@ public class MinimapMarkerControls : PlayerControls
     {
         Vector3 pos = Vector3.zero;
         bool mark = false;
-        if (GetComponent<MovementControls>().MouseOnMinimap())
+        if (GetComponent<MinimapController>().MouseOnMinimap())
         { 
             pos = Input.mousePosition;
             mark = true;
         }
         else if (!GetComponent<MovementControls>().MouseOverUI())
         {
-            pos = GetComponent<MovementControls>().MouseWorldSpaceToMinimap();
+            pos = GetComponent<MinimapController>().MouseWorldSpaceToMinimap();
             mark = true;
         }
         if (mark)

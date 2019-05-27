@@ -15,7 +15,7 @@ public class SelectionBox : MonoBehaviour {
 
     public void CheckBox()
     {
-        if (!MouseOverUI() && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !MouseOverUI())
         {
             isSelecting = true;
             startPos = Input.mousePosition;
@@ -27,7 +27,7 @@ public class SelectionBox : MonoBehaviour {
             selectionBoxSprite.gameObject.SetActive(false);
         }
 
-        if (isSelecting && Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && isSelecting)
         {
             if (!selectionBoxSprite.gameObject.activeInHierarchy)
             {

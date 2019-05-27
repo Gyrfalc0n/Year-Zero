@@ -24,7 +24,7 @@ MonoBehaviour:
   botIndex: 0
   spells: []
   groupHighlight: 0
-  defaultMaxLife: 2
+  defaultMaxLife: 2000
   maxLife: 10
   iconSprite: {fileID: 21300000, guid: b42b1ff84bd6fc84a8f2a64f14f13819, type: 3}
   lines: 3
@@ -96,32 +96,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+    - target: {fileID: 7268759584853336968, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
-      propertyPath: ghost
-      value: 
-      objectReference: {fileID: 1498426257654464, guid: 5d66490c44b273340b4574f04e246d7d,
-        type: 3}
-    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: constructor
-      value: 
-      objectReference: {fileID: 2487996386993575265, guid: fa695baeac3f0fb42ab83e82205413f5,
-        type: 3}
-    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: requiredTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: costs.Array.data[0]
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785013821060988554, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_Radius
+      value: 0.88
       objectReference: {fileID: 0}
     - target: {fileID: 3288736474022729068, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
@@ -166,12 +144,49 @@ PrefabInstance:
     - target: {fileID: 3288736474022729068, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.09
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3288736474022729068, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.09
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 235288453557077553, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d92132683bd5b54c9ffc4017e61dcf3, type: 2}
+    - target: {fileID: 7572351305989905342, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300952, guid: d0e44a72fa075a545ad7cd5d52d8c66b, type: 3}
+    - target: {fileID: 7785013821060988554, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 1498426257654464, guid: 5d66490c44b273340b4574f04e246d7d,
+        type: 3}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: constructor
+      value: 
+      objectReference: {fileID: 2487996386993575265, guid: fa695baeac3f0fb42ab83e82205413f5,
+        type: 3}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: requiredTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
+        type: 3}
+      propertyPath: costs.Array.data[0]
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4232799789023330727, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
         type: 3}
@@ -188,16 +203,6 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 2.04
       objectReference: {fileID: 0}
-    - target: {fileID: 7572351305989905342, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300952, guid: d0e44a72fa075a545ad7cd5d52d8c66b, type: 3}
-    - target: {fileID: 235288453557077553, guid: 28cf06e1e917f394dad9cf8ba8e2560a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 645a9de5e8a6a1b41a4f78ffb6b6b71f, type: 2}
     m_RemovedComponents:
     - {fileID: 1012317340487716086, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}
     - {fileID: 2888816329839541249, guid: 28cf06e1e917f394dad9cf8ba8e2560a, type: 3}

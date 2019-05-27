@@ -14,6 +14,7 @@ public class DeathScreen : MonoBehaviour
 
     public void Show()
     {
+        Time.timeScale = 0;
         obj.SetActive(true);
         retryButton.SetActive(!PhotonNetwork.InRoom);
     }

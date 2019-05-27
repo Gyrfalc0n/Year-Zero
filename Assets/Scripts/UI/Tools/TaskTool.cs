@@ -9,7 +9,7 @@ public class TaskTool : Tool
     GameObject taskPrefab;
 
     ConstructedUnit associatedBuilding;
-    MovableUnit associatedUnit;
+    public MovableUnit associatedUnit { get; private set; }
     [SerializeField] Image image;
 
     public void Init(ConstructedUnit building, MovableUnit unit)
@@ -17,7 +17,6 @@ public class TaskTool : Tool
         associatedBuilding = building;
         associatedUnit = unit;
         SetButtonSprite(unit);
-
     }
 
     public void CreateInstantiateTask()
@@ -32,11 +31,6 @@ public class TaskTool : Tool
         }
     }
 
-    public MovableUnit GetAssociatedUnit()
-    {
-        return associatedUnit;
-    }
-
     void SetButtonSprite(DestructibleUnit unit)
     {
         if (unit.iconSprite)
@@ -49,5 +43,15 @@ public class TaskTool : Tool
             GetComponentInChildren<Text>().text = associatedUnit.objName;
             image.gameObject.SetActive(false);
         }
+    }
+
+    public void OnPointerEnter()
+    {
+        DescriptionPanel.m.Init(associatedUnit);
+    }
+
+    public void OnPointerExit()
+    {
+        DescriptionPanel.m.ResetPanel();
     }
 }

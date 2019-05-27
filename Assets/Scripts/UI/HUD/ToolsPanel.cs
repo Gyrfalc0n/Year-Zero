@@ -87,7 +87,7 @@ public class ToolsPanel : MonoBehaviour {
         {
             if (tool.GetComponent<TaskTool>() != null)
             {
-                tool.GetComponent<Button>().interactable = tool.GetComponent<TaskTool>().GetAssociatedUnit().IsAvailable();
+                tool.GetComponent<Button>().interactable = tool.GetComponent<TaskTool>().associatedUnit.IsAvailable();
             }
             else if (tool.GetComponent<BuildTool>() != null)
             {

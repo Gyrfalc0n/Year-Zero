@@ -27,6 +27,7 @@ public class MovableUnit : DestructibleUnit {
     [HideInInspector]
     public float speed;
 
+
     public override void InitUnit(int botIndex)
     {
         fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefabForMV";
@@ -42,6 +43,11 @@ public class MovableUnit : DestructibleUnit {
         if (botIndex != -1 && botIndex != -2 && GetComponent<BuilderUnit>() == null)
         {
             InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().Add(this);
+        }
+        
+        if (botIndex == -1 && photonView.IsMine && InstanceManager.instanceManager.timer > 1) 
+        {
+            FindObjectOfType<AudioManager>().PlaySound("UnitSpawn");
         }
     }
 
@@ -68,7 +74,7 @@ public class MovableUnit : DestructibleUnit {
                 target = InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().GetNearestEnemy();
             }
             if (target == null) return;
-            Attack(target);
+            Attack(target, false);
         }
         else if (moving)
         {
@@ -99,14 +105,7 @@ public class MovableUnit : DestructibleUnit {
         ResetAction();
         agent.SetDestination(pos);
         agent.stoppingDistance = stoppingDistance;
-        GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>().UpdatePanel();
         moving = true;
-    }
-
-    public void ResetDestination()
-    {
-        if (agent.hasPath)
-            agent.ResetPath();
     }
 
     void DetermineHome()
@@ -138,34 +137,28 @@ public class MovableUnit : DestructibleUnit {
         return patrolSystem.IsPatroling();
     }
 
-    public virtual void StopPatrol()
-    {
-        patrolSystem.StopPatrol();
-    }
-
-    public virtual void StopAttack()
-    {
-        combatSystem.StopAttack();
-    }
-
     public virtual void ResetAction()
     {
-        ResetDestination();
+        if (agent == null) return;
+        if (agent.hasPath)
+            agent.ResetPath();
         if (patrolSystem.IsPatroling())
-            StopPatrol();
+            patrolSystem.StopPatrol();
         if (combatSystem.IsAttacking())
-            StopAttack();
+            combatSystem.StopAttack();
     }
 
     public override Vector3 GetSelectionCirclePos()
     {
-        return new Vector3(0, -GetComponent<BoxCollider>().size.y / 2 + 0.01f, 0);
+        float tmp = (GetComponent<SphereCollider>() != null) ? GetComponent<SphereCollider>().radius : GetComponent<BoxCollider>().size.y / 2;
+
+        return new Vector3(0, -tmp, 0);
     }
 
-    void OnReachedDestination()
+    public virtual void OnReachedDestination()
     {
         moving = false;
-        GameObject.Find("JoblessConstructorsPanel").GetComponent<JoblessConstructorsPanel>().UpdatePanel();
+        attackMove = false;
     }
 
     public void Hack()
@@ -215,9 +208,9 @@ public class MovableUnit : DestructibleUnit {
 
     public override void Interact(Interactable obj)
     {
-        if (obj.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<ConstructedUnit>()) != MultiplayerTools.GetTeamOf(this))
+        if (obj.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<DestructibleUnit>()) != MultiplayerTools.GetTeamOf(this))
         {
-            Attack(obj.GetComponent<DestructibleUnit>());
+            Attack(obj.GetComponent<DestructibleUnit>(), false);
         }
     }
 
@@ -225,17 +218,19 @@ public class MovableUnit : DestructibleUnit {
     [HideInInspector]
     public float damage;
 
+    bool attackMove = false;
     public virtual void OnEnemyEnters(DestructibleUnit enemy)
     {
-        if (!moving && !combatSystem.IsAttacking())
+        if (attackMove || !moving && !combatSystem.IsAttacking())
         {
             ResetAction();
             combatSystem.OnEnemyEnters(enemy);
         }
     }
 
-    public void Attack(DestructibleUnit unit)
+    public virtual void Attack(DestructibleUnit unit, bool attackMove)
     {
+        this.attackMove = attackMove;
         combatSystem.InitAttack(unit);
     }
 

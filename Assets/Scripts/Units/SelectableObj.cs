@@ -33,16 +33,23 @@ public class SelectableObj : Interactable
     protected string fieldOfViewPrefabPath = "VFX/FogOfWar/FieldOfViewPrefab";
     [HideInInspector]
     public FieldOfViewCollider fovCollider;
-    bool visible;
+    protected bool visible;
 
     [HideInInspector]
     public int botIndex;
+
 
     public virtual void InitUnit(int botIndex)
     {
         if (!PhotonNetwork.OfflineMode)
             photonView.RPC("RPCInitUnit", RpcTarget.Others, botIndex);
         SetBotIndex(botIndex);
+
+        if (botIndex == -1 && photonView.IsMine)
+        {    
+            //FindObjectOfType<AudioManager>().PlaySound("UnitSpawn");
+        }
+        
         team = MultiplayerTools.GetTeamOf(this);
         InitSelectionCircle();
         ToggleColor(1);
@@ -98,6 +105,12 @@ public class SelectableObj : Interactable
         InitSpellHolder();
         foreach (GameObject obj in tools)
         {
+            if (obj == null)
+            {
+                Debug.LogWarning("A tool is missing in the " + objName);
+                continue;
+            }
+
             if (obj.GetComponent<Spell>() != null)
             {
                 GameObject tmp = Instantiate(obj, spellHolder);
@@ -136,7 +149,7 @@ public class SelectableObj : Interactable
     {
         selectionCircle = ((GameObject)Instantiate(Resources.Load(selectionCirclePath), transform)).GetComponent<SpriteRenderer>();
         selectionCircle.transform.localPosition = GetSelectionCirclePos();
-        selectionCircle.transform.localScale = new Vector3(1, 1, 1);
+        selectionCircle.transform.localScale = GetSelectionCircleSize();
         selectionCircle.gameObject.SetActive(false);
 
         minimapIcon = ((GameObject)Instantiate(Resources.Load(minimapIconPrefabPath), transform)).GetComponent<SpriteRenderer>();
@@ -210,6 +223,11 @@ public class SelectableObj : Interactable
         return Vector3.zero;
     }
 
+    public virtual Vector3 GetSelectionCircleSize()
+    {
+        return new Vector3(1, 1, 1);
+    }
+
     public virtual void Select()
     {
         if (!visible)
@@ -271,19 +289,23 @@ public class SelectableObj : Interactable
 
         fovCollider = ((GameObject)Instantiate(Resources.Load(fieldOfViewPrefabPath), transform)).GetComponent<FieldOfViewCollider>();
         fovCollider.transform.localPosition = new Vector3(0, 0.51f, 0);
+        Vector3 vec = Vector3.zero;
         if (GetComponent<MovableUnit>() != null)
         {
             float combat = GetComponent<CombatSystem>().range * 3;
-            fovCollider.transform.localScale = new Vector3(combat, 1, combat);
+            vec = new Vector3(combat, 1, combat);
         }
         else if (GetComponent<Radar>() != null)
         {
-            fovCollider.transform.localScale = new Vector3(4, 1, 4);
+            vec = new Vector3(4, 1, 4);
         }
         else if (GetComponent<ConstructedUnit>() != null || GetComponent<InConstructionUnit>() != null)
         {
-            fovCollider.transform.localScale = new Vector3(3, 1, 3);
+            vec = new Vector3(3, 1, 3);
         }
+        else
+            print("wt");
+        fovCollider.Init(vec);
 
         if (visible)
         {

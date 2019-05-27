@@ -45,6 +45,7 @@ public class PlayerManager : MonoBehaviour {
 
     public bool Pay(int[] costs, int pop, bool dontcheckPop)
     {
+        SkilltreeManager.manager.amountPaid += costs[3];
         if (InstanceManager.instanceManager.noCosts) return true;
         if (PayCheck(costs, pop, dontcheckPop))
         {

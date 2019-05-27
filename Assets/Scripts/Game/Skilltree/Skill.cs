@@ -45,7 +45,13 @@ public class Skill : MonoBehaviour
             Effect();
             activated = true;
             SelectUnit.selectUnit.ReloadTools();
+            MusicStage();
         }
+    }
+
+    private void MusicStage() // change la musique pour correspondre à l'ambiance de la partie en fonction de l'avancée technologique
+    {
+        
     }
 
     void ChangeSprite()

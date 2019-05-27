@@ -12,6 +12,11 @@ public class Destroyer : MovableUnit
         GetComponentInChildren<SupportSpellZone>().Init(spellHolder);
     }
 
+    public override Vector3 GetSelectionCircleSize()
+    {
+        return new Vector3(3, 3, 3);
+    }
+
     public override bool IsAvailable()
     {
         return SkilltreeManager.manager.destroyer;

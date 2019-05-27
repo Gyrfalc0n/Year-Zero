@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class DestructibleUnit : SelectableObj {
 
     FloatingLifeBarPanel flbPanel;
+    CardsPanel cardsPanel;
 
     public override void InitUnit(int botIndex)
     {
@@ -19,6 +20,7 @@ public class DestructibleUnit : SelectableObj {
             photonView.RPC("RPCInitDestructible", RpcTarget.Others, lifeValue, maxLife);
         }
         flbPanel = GameObject.Find("WorldSpaceCanvas").GetComponent<FloatingLifeBarPanel>();
+        cardsPanel = GameObject.Find("CardsPanel").GetComponent<CardsPanel>();
     }
 
     [PunRPC]
@@ -50,7 +52,7 @@ public class DestructibleUnit : SelectableObj {
         {
             photonView.RPC("RPCTakeDamage", RpcTarget.Others, value);
         }
-        //OnDamageTaken(shooter);
+        OnDamageTaken(shooter);
     }
 
     public virtual void OnDamageTaken(DestructibleUnit shooter) { }
@@ -61,11 +63,6 @@ public class DestructibleUnit : SelectableObj {
         lifeValue -= value;
         if (photonView.IsMine)
             CheckLife();
-    }
-
-    public void SetLife(float val)
-    {
-        lifeValue = (int)val;
     }
 
     public void Heal(int value)
@@ -81,13 +78,16 @@ public class DestructibleUnit : SelectableObj {
         lifeValue += value;
         if (lifeValue > maxLife)
             lifeValue = maxLife;
+        if (photonView.IsMine)
+            cardsPanel.UpdateCards();
     }
 
-    private void CheckLife()
+    void CheckLife()
     {
         if (photonView.IsMine && lifeValue <= 0)
         {
             KillUnit();
+            cardsPanel.UpdateCards();
         }
     }
 
@@ -118,7 +118,18 @@ public class DestructibleUnit : SelectableObj {
         InstanceManager.instanceManager.allSelectableObjs.Remove(this);
     }
 
-    public virtual void OnDestroyed() { }
+    protected string destructionAnim;
+    public virtual void OnDestroyed()
+    {
+        CreateDestructionAnim();
+    }
+
+    protected void CreateDestructionAnim()
+    {
+        if (GetComponent<InConstructionUnit>() != null) return;
+        string prefab = "VFX/DestructionAnimations/" + ((GetComponent<BuildingUnit>() != null) ? "Buildings":"Troops");
+        PhotonNetwork.Instantiate(prefab, transform.position, Quaternion.identity);
+    }
 
     public float GetLife()
     {
@@ -138,6 +149,8 @@ public class DestructibleUnit : SelectableObj {
     public override void Highlight(bool group)
     {
         base.Highlight(group);
+        if (!visible)
+            return;
         if (!group)
         {
             flbPanel.Show(this);
@@ -147,6 +160,7 @@ public class DestructibleUnit : SelectableObj {
     public override void Dehighlight()
     {
         base.Dehighlight();
-        flbPanel.Hide();
+        if (flbPanel != null)
+            flbPanel.Hide();
     }
 }

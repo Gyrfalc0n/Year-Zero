@@ -46,6 +46,7 @@ public class FormationSystem : MonoBehaviour
 
     public void MoveSelection(Vector3 newPos)
     {
+        FindObjectOfType<AudioManager>().PlayRandomSound(new []{"MoveCommand1","MoveCommand2","MoveCommand3"} );
         if (formation == Formation.NO)
             NoFormation(newPos);
         else if (formation == Formation.SQUARE)
