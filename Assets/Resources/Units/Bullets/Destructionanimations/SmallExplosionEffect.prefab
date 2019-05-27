@@ -14077,6 +14077,8 @@ GameObject:
   - component: {fileID: 7144445155699978646}
   - component: {fileID: 7159520021844047344}
   - component: {fileID: 2423888250370060589}
+  - component: {fileID: 5865299330034607296}
+  - component: {fileID: 5607457487149503411}
   m_Layer: 0
   m_Name: SmallExplosionEffect
   m_TagString: Untagged
@@ -14318,7 +14320,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 2
-      minScalar: 1
+      minScalar: 0.005
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14954,7 +14956,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -18760,3 +18762,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5865299330034607296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033155266352441564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5607457487149503411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033155266352441564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31cc4f544de9fc4abc0fd91333d8efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 1

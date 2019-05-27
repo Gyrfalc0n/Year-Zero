@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.06
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5160,8 +5160,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 1
+      scalar: 0.05
+      minScalar: 0.02
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9540,6 +9540,8 @@ GameObject:
   - component: {fileID: 198000010585806678}
   - component: {fileID: 199000012270651464}
   - component: {fileID: 2996138970902300557}
+  - component: {fileID: 7310963036714728748}
+  - component: {fileID: 7418315543150773081}
   m_Layer: 0
   m_Name: PlasmaExplosionEffect
   m_TagString: Untagged
@@ -9800,7 +9802,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 1
-      minScalar: 3
+      minScalar: 0.005
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14251,6 +14253,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7310963036714728748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011128802252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &7418315543150773081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011128802252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31cc4f544de9fc4abc0fd91333d8efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 1
 --- !u!1 &1000011730688910
 GameObject:
   m_ObjectHideFlags: 0
@@ -14517,7 +14554,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0005
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -14900,7 +14937,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 0.6, y: 0.6, z: 0.6}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -14979,7 +15016,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.5
+      value: 0.5
       mode: 0
       spread: 0
       speed:
@@ -18232,7 +18269,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minVertexDistance: 0.2
+    minVertexDistance: 0.1
     textureMode: 0
     ribbonCount: 1
     shadowBias: 0.5
@@ -18310,7 +18347,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
