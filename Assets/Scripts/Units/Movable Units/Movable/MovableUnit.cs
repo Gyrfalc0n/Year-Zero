@@ -74,7 +74,7 @@ public class MovableUnit : DestructibleUnit {
                 target = InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotArmyManager>().GetNearestEnemy();
             }
             if (target == null) return;
-            Attack(target);
+            Attack(target, false);
         }
         else if (moving)
         {
@@ -158,6 +158,7 @@ public class MovableUnit : DestructibleUnit {
     public virtual void OnReachedDestination()
     {
         moving = false;
+        attackMove = false;
     }
 
     public void Hack()
@@ -209,7 +210,7 @@ public class MovableUnit : DestructibleUnit {
     {
         if (obj.GetComponent<DestructibleUnit>() != null && MultiplayerTools.GetTeamOf(obj.GetComponent<DestructibleUnit>()) != MultiplayerTools.GetTeamOf(this))
         {
-            Attack(obj.GetComponent<DestructibleUnit>());
+            Attack(obj.GetComponent<DestructibleUnit>(), false);
         }
     }
 
@@ -217,18 +218,20 @@ public class MovableUnit : DestructibleUnit {
     [HideInInspector]
     public float damage;
 
+    bool attackMove = false;
     public virtual void OnEnemyEnters(DestructibleUnit enemy)
     {
-        if (!moving && !combatSystem.IsAttacking())
+        if (attackMove || !moving && !combatSystem.IsAttacking())
         {
             ResetAction();
             combatSystem.OnEnemyEnters(enemy);
         }
     }
 
-    public virtual void Attack(DestructibleUnit unit)
+    public virtual void Attack(DestructibleUnit unit, bool attackMove)
     {
-        //FindObjectOfType<AudioManager>().PlaySound("AttackCommand");
+        this.attackMove = attackMove;
+        audioManager.PlaySound("AttackCommand");
         combatSystem.InitAttack(unit);
     }
 
