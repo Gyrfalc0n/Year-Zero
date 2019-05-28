@@ -64,4 +64,10 @@ public abstract class Spell : MonoBehaviour
     {
         TemporaryMessage.temporaryMessage.Add(errorMessage);
     }
+
+    [SerializeField] Sprite sprite;
+    public Sprite GetSprite()
+    {
+        return sprite;
+    }
 }

@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter(Collider other)
     { 
-        if (photonView.IsMine)
+        if (photonView.IsMine && associatedUnit != null)
         {
             if (other.GetComponent<DestructibleUnit>() != null)
             {
