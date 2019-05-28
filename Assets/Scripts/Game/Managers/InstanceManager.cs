@@ -37,11 +37,16 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     void Start()
     {
+        
         bulletHolder = GameObject.Find("BulletsHolder").transform;
         botIndex = -1;
         InitStartingTroops(InitProp());
         if (PhotonNetwork.IsMasterClient)
             InitBots();
+        if (SceneManager.GetActiveScene().name == "GameTest")
+        {
+            FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
+        }
     }
 
     public float timer { get; private set; }
