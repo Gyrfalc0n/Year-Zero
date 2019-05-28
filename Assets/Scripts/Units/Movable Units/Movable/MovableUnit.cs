@@ -249,6 +249,7 @@ public class MovableUnit : DestructibleUnit {
     public override void OnDestroyed()
     {
         base.OnDestroyed();
+        ResetAction();
         if (GetComponent<BuilderUnit>() == null)
         {
             if (botIndex != -1 && botIndex != -2)
