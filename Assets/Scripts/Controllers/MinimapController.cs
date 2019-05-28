@@ -38,6 +38,7 @@ public class MinimapController : MonoBehaviour
         camLeft = img.position.x - img.rect.width * cnvs.scaleFactor / 2;
         camRight = img.position.x + img.rect.width * cnvs.scaleFactor / 2;
         SetSquareSize();
+        UpdateMinimapSquare();
     }
 
     public void UpdateMinimapSquare()

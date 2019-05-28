@@ -30,17 +30,9 @@ public class SpellTool : Tool
 
     private void Update()
     {
-        if (associatedSpell.GetRemainingTime() <= 0)
-        {
-            bar.gameObject.SetActive(false);
-            GetComponent<Button>().interactable = true;
-        }
-        else
-        {
-            GetComponent<Button>().interactable = false;
-            bar.gameObject.SetActive(true);
-            bar.Set(associatedSpell.GetRemainingTime() / associatedSpell.GetRequiredTime());
-        }
+        GetComponent<Button>().interactable = associatedSpell.IsAvailable();
+        bar.gameObject.SetActive(!associatedSpell.IsAvailable());
+        bar.Set(associatedSpell.GetRemainingTime() / associatedSpell.GetRequiredTime());
     }
 
     void SetButtonSprite(Spell spell)

@@ -13,7 +13,7 @@ public class PlayerSettings : WaitingRoomSettings
     {
         base.InitPanel();
         Transform playersList = GameObject.Find("PlayersList").transform;
-        if (playersList.childCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
+        if (playersList.childCount > PhotonNetwork.CurrentRoom.MaxPlayers)
         {
             PhotonNetwork.LeaveRoom();
         }

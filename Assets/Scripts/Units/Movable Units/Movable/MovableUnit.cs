@@ -116,7 +116,7 @@ public class MovableUnit : DestructibleUnit {
         List<TownHall> tmpHomes;
         tmpHomes = (botIndex == -1) ? PlayerManager.playerManager.GetHomes() : InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().GetHomes();
 
-        TownHall nearest = PlayerManager.playerManager.GetHomes()[0];
+        TownHall nearest = tmpHomes[0];
         foreach (TownHall townHall in tmpHomes)
         {
             if (Vector3.Distance(townHall.transform.position, transform.position) < (Vector3.Distance(nearest.transform.position, transform.position)))
@@ -221,6 +221,7 @@ public class MovableUnit : DestructibleUnit {
     bool attackMove = false;
     public virtual void OnEnemyEnters(DestructibleUnit enemy)
     {
+        if (!photonView.IsMine) return;
         if (attackMove || !moving && !combatSystem.IsAttacking())
         {
             ResetAction();
@@ -248,6 +249,7 @@ public class MovableUnit : DestructibleUnit {
     public override void OnDestroyed()
     {
         base.OnDestroyed();
+        ResetAction();
         if (GetComponent<BuilderUnit>() == null)
         {
             if (botIndex != -1 && botIndex != -2)

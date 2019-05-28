@@ -108,7 +108,7 @@ public class CreateGameMenu : MonoBehaviour {
         }
         else
             CreateGame();
-    }
+     }
 
     public void SetGameName(string value)
     {

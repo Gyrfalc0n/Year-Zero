@@ -32,7 +32,7 @@ public class BotArmyManager : MonoBehaviour
         else
         {
             ClearList(army);
-            myPos = (army.Count > 0) ? army[0].transform.position : Vector3.zero;
+            myPos = (army.Count > 0 && army[0] != null && army[0].GetComponent<MovableUnit>() != null) ? army[0].transform.position : Vector3.zero;
         }
         return myPos;
     }

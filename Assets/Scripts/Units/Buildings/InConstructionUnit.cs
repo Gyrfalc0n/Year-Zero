@@ -16,6 +16,7 @@ public class InConstructionUnit : BuildingUnit
 
     void Update()
     {
+        if (!photonView.IsMine) return;
         CheckConstruction();
         fovCollider.enabled = ((int)GetLife() > 0);
         fovCollider.GetComponent<MeshRenderer>().enabled = ((int)GetLife() > 0); ;

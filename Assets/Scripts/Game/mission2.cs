@@ -66,7 +66,7 @@ public class mission2 : MonoBehaviour
 
     void EndMission()
     {
-        PlayerPrefs.SetInt("missionCleared",1);
+        PlayerPrefs.SetInt("mission2Cleared",1);
         PhotonNetwork.LoadLevel("MainMenu");
         FindObjectOfType<AudioManager>().PlaySound("MainMenuMusic");
     }   
