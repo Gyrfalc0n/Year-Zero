@@ -13,7 +13,7 @@ public class mission3 : MonoBehaviour
     private bool isFirstTick = true;
     private string botPrefab = "IA/BotPrefab";
     private bool Sucess = false;
-    private int finishtimer = 0;
+    private int finishtimer;
     
 
     
@@ -23,7 +23,7 @@ public class mission3 : MonoBehaviour
     {
         "VoixMission3.1",
         "VoixMission3.2",
-        "VoixMission3.3"      
+            
     };     
     private void Start()
     {
@@ -40,13 +40,14 @@ public class mission3 : MonoBehaviour
             FindObjectOfType<AudioManager>().PlaySound(voicesToPlay[0]);            
         }
         if (InstanceManager.instanceManager.allSelectableObjs.Count -
-            InstanceManager.instanceManager.mySelectableObjs.Count == 0)
+            InstanceManager.instanceManager.mySelectableObjs.Count == 0 && !isFirstTick)
         {
-            Sucess = true;
             FindObjectOfType<AudioManager>().PlaySound(voicesToPlay[1]);
+            Sucess = true;           
             finishtimer = timer;
+            isFirstTick = true;
         }
-        if (Sucess && timer == finishtimer + 25)
+        if (Sucess && timer == (finishtimer + 25))
         {
             EndMission();
         }
