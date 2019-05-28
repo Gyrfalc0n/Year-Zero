@@ -45,15 +45,17 @@ public class mission2 : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().PlaySound(voicesToPlay[2]);
             independentBotPrefab.GetComponent<BotArmyManager>().STOPRUSH();
+            isFirstTick = true;
         }
         
         if ((InstanceManager.instanceManager.allSelectableObjs.Count -
-            InstanceManager.instanceManager.mySelectableObjs.Count == 0 && wave == 3) || timer > 600)
+            InstanceManager.instanceManager.mySelectableObjs.Count == 0 && wave == 3) || timer > 600 && isFirstTick)
         {
             FindObjectOfType<AudioManager>().PlaySound(voicesToPlay[3]);
             Wave(3);
             independentBotPrefab.GetComponent<BotArmyManager>().SendArmyMission2(new Vector3(-40,0,-40));
             wave++;
+            isFirstTick = false;
         }     
         if (InstanceManager.instanceManager.allSelectableObjs.Count -
             InstanceManager.instanceManager.mySelectableObjs.Count == 0 && wave == 4)
