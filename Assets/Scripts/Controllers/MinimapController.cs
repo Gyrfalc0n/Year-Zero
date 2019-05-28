@@ -98,10 +98,12 @@ public class MinimapController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 1, 0)), out hit, Mathf.Infinity, fakeGroundLayer))
         {
+            print("a");
             top = hit.point.z;
 
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(1, 0, 0)), out hit, Mathf.Infinity, fakeGroundLayer))
             {
+                print("b");
                 right = hit.point.x;
                 bottom = hit.point.z;
 
@@ -109,6 +111,9 @@ public class MinimapController : MonoBehaviour
                 {
                     left = hit.point.x;
 
+                    print(top);
+                    print(bottom);
+                    print(scaleZ);
                     mainCamHeight = (top - bottom) / scaleZ;
                     mainCamWidth = (right - left) / scaleX;
                 }

@@ -116,7 +116,7 @@ public class MovableUnit : DestructibleUnit {
         List<TownHall> tmpHomes;
         tmpHomes = (botIndex == -1) ? PlayerManager.playerManager.GetHomes() : InstanceManager.instanceManager.GetBot(botIndex).GetComponent<BotManager>().GetHomes();
 
-        TownHall nearest = PlayerManager.playerManager.GetHomes()[0];
+        TownHall nearest = tmpHomes[0];
         foreach (TownHall townHall in tmpHomes)
         {
             if (Vector3.Distance(townHall.transform.position, transform.position) < (Vector3.Distance(nearest.transform.position, transform.position)))
