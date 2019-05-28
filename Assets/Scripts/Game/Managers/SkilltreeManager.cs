@@ -20,6 +20,7 @@ public class SkilltreeManager : MonoBehaviour
     #endregion    
 
     public int amountPaid = 0;
+    public int tier = 0;
 
     //LIGHT ATTACK
     public bool lightTroop = false; 
