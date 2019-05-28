@@ -1678,11 +1678,42 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616300322127490, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
-      propertyPath: m_Name
-      value: MissileSidewinder
+    - target: {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 8781381249210104719, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 5117945920114995482, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
 --- !u!4 &1790857719760950412 stripped
 Transform:
@@ -2050,11 +2081,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616300322127490, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
-      propertyPath: m_Name
-      value: MissileSidewinder (3)
+    - target: {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 8781381249210104719, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 5117945920114995482, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
 --- !u!4 &2598300602952530519 stripped
 Transform:
@@ -2194,16 +2231,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616300322127490, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
-      propertyPath: m_Name
-      value: MissileSidewinder (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 8912593436893626187, guid: e53749d7b1076af489adf3cf538873ab,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 8781381249210104719, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 5117945920114995482, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
 --- !u!4 &3678598749687671319 stripped
 Transform:
@@ -2274,11 +2317,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616300322127490, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
-      propertyPath: m_Name
-      value: MissileSidewinder (5)
+    - target: {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 8781381249210104719, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 5117945920114995482, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
 --- !u!4 &3778143612739908104 stripped
 Transform:
@@ -2349,11 +2398,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616300322127490, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
-      propertyPath: m_Name
-      value: MissileSidewinder (8)
+    - target: {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 8781381249210104719, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 5117945920114995482, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
 --- !u!4 &5293322611090248558 stripped
 Transform:
@@ -2825,11 +2880,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616300322127490, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
-      propertyPath: m_Name
-      value: MissileSidewinder (4)
+    - target: {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 8781381249210104719, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 5117945920114995482, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
 --- !u!4 &5874017087090475370 stripped
 Transform:
@@ -2975,11 +3036,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616300322127490, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
-      propertyPath: m_Name
-      value: MissileSidewinder (9)
+    - target: {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 8781381249210104719, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 5117945920114995482, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
 --- !u!4 &6313976238161716828 stripped
 Transform:
@@ -3050,11 +3117,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616300322127490, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
-      propertyPath: m_Name
-      value: MissileSidewinder (6)
+    - target: {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 8781381249210104719, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 5117945920114995482, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
 --- !u!4 &6330816356857611167 stripped
 Transform:
@@ -3575,11 +3648,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616300322127490, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
-      propertyPath: m_Name
-      value: MissileSidewinder (2)
+    - target: {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 8781381249210104719, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 5117945920114995482, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
 --- !u!4 &8039120524533165707 stripped
 Transform:
@@ -3650,11 +3729,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616300322127490, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
-      propertyPath: m_Name
-      value: MissileSidewinder (7)
+    - target: {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5727608895520150443, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7351874159566852483, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 7125707883879854714, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 8781381249210104719, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
+    - {fileID: 5117945920114995482, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e53749d7b1076af489adf3cf538873ab, type: 3}
 --- !u!4 &8680523893769188352 stripped
 Transform:

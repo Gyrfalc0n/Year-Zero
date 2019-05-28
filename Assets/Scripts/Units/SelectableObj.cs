@@ -307,7 +307,12 @@ public class SelectableObj : Interactable
             print("wt");
         fovCollider.Init(vec);
 
-        if (visible)
+        if (GetComponent<InConstructionUnit>() != null)
+        {
+            fovCollider.enabled = false;
+            fovCollider.GetComponent<MeshRenderer>().enabled = false;
+        }
+        else if (visible)
         {
             UnHide();
         }
