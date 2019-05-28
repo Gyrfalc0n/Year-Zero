@@ -14,7 +14,7 @@ public class mission : MonoBehaviour
     private bool isFirstTick = true;
     private int waveTime = 10;
     private int waveCount = 0;
-    private int[] numberPerWave = {0, 1, 2, 3, 5, 0, 0, 0};
+    private int[] numberPerWave = {0, 1, 2, 2, 3, 0, 0};
     private string[] messageOfWave =
     {
         "Instructor: Create units to be prepared",
@@ -23,7 +23,7 @@ public class mission : MonoBehaviour
         "Instructor: More are coming at you",
         "Instructor: Last one you are almost done with them",
         "Instructor: Last one you are almost done with them",
-        "Instructor: Last one you are almost done with them",
+        //"Instructor: Last one you are almost done with them",
         "Instructor: Good Job!" + "\n" + "Endless mode and Mission 2 unlocked!"
     };
     private string[] voicesToPlay =
@@ -34,7 +34,7 @@ public class mission : MonoBehaviour
         "NameNotMissing",
         "NameNotMissing",
         "NameNotMissing",
-        "NameNotMissing",
+        //"NameNotMissing",
         "VoixMission1.4"
     };
     
@@ -75,7 +75,7 @@ public class mission : MonoBehaviour
             }
             waveTime += 40;
             waveCount += 1;
-            if (waveCount > 7)
+            if (waveCount > 6)
             {
                 EndMission();
             }
