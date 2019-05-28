@@ -102,6 +102,8 @@ public class SelectableObj : Interactable
     public virtual void Init2()
     {
         SetHolder();
+        if (!PhotonNetwork.OfflineMode)
+            photonView.RPC("SetHolder", RpcTarget.Others);
         InitSpellHolder();
         foreach (GameObject obj in tools)
         {
@@ -127,7 +129,8 @@ public class SelectableObj : Interactable
         spellHolder.gameObject.name = "SpellHolder";
     }
 
-    void SetHolder()
+    [PunRPC]
+    public void SetHolder()
     {
         string tmp = (GetComponent<MovableUnit>() != null) ? "Movable" : "Buildings";
         string parentName = "Holder";
