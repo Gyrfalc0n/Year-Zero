@@ -39,4 +39,17 @@ public class CampaignMenu : MonoBehaviourPunCallbacks
              WarningMissionNotCleared.GetComponent<TemporaryMenuMessage>().Activate();
          }
      }
+     
+     public void StartMission3()
+     {
+         if ((PlayerPrefs.GetInt("mission2Cleared",0)==1))
+         {
+             PhotonNetwork.LoadLevel("Mission3");
+             FindObjectOfType<AudioManager>().PlaySound("BattleMusic");
+         }
+         else
+         {
+             WarningMissionNotCleared.GetComponent<TemporaryMenuMessage>().Activate();
+         }
+     }
 }
