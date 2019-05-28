@@ -22,6 +22,8 @@ public class Skill : MonoBehaviour
 
     [SerializeField] Sprite activatedSprite;
 
+    private int tier = 0;
+
     void Start()
     {
         activated = false;
@@ -51,8 +53,55 @@ public class Skill : MonoBehaviour
 
     private void MusicStage() // change la musique pour correspondre à l'ambiance de la partie en fonction de l'avancée technologique
     {
+        switch (tier)
+        {
+            case 0:
+                if (SkilltreeManager.manager.amountPaid >= 200)
+                {
+                    FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
+                    tier++;
+                }
+                break;
+            case 1:
+                if (SkilltreeManager.manager.amountPaid >= 500)
+                {
+                    FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
+                    tier++;
+                }
+                break;
+            case 2:
+                if (SkilltreeManager.manager.amountPaid >= 1250)
+                {
+                    FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
+                    tier++;
+                }
+                break;
+            case 3:
+                if (SkilltreeManager.manager.amountPaid >= 2250)
+                {
+                    FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
+                    tier++;
+                }
+                break;
+            case 4:
+                if (SkilltreeManager.manager.amountPaid >= 3500)
+                {
+                    FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
+                    tier++;
+                }
+                break;
+            case 5:
+                if (SkilltreeManager.manager.amountPaid >= 5000)
+                {
+                    FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
+                    tier++;
+                }
+                break;
+            
+        }
         
     }
+    
 
     void ChangeSprite()
     {
