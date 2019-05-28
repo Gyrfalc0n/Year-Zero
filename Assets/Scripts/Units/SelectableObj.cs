@@ -246,7 +246,8 @@ public class SelectableObj : Interactable
     public virtual void Deselect()
     {
         selected = false;
-        selectionCircle.gameObject.SetActive(false);
+        if (selectionCircle != null)
+            selectionCircle.gameObject.SetActive(false);
     }
 
     [HideInInspector]

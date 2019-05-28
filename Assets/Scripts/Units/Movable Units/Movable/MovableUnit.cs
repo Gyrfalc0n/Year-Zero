@@ -221,6 +221,7 @@ public class MovableUnit : DestructibleUnit {
     bool attackMove = false;
     public virtual void OnEnemyEnters(DestructibleUnit enemy)
     {
+        if (!photonView.IsMine) return;
         if (attackMove || !moving && !combatSystem.IsAttacking())
         {
             ResetAction();
