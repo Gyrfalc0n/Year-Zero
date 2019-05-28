@@ -7,11 +7,13 @@ public class SpellTool : Tool
 {
     Spell associatedSpell;
     RadialLoadingBar bar;
+    [SerializeField] Image image;
 
     public void Init(Spell spell)
     {
         associatedSpell = spell;
         bar = GetComponentInChildren<RadialLoadingBar>();
+        SetButtonSprite(spell);
     }
 
     public void OnClicked()
@@ -38,6 +40,20 @@ public class SpellTool : Tool
             GetComponent<Button>().interactable = false;
             bar.gameObject.SetActive(true);
             bar.Set(associatedSpell.GetRemainingTime() / associatedSpell.GetRequiredTime());
+        }
+    }
+
+    void SetButtonSprite(Spell spell)
+    {
+        if (spell.GetSprite())
+        {
+            GetComponentInChildren<Text>().gameObject.SetActive(false);
+            image.sprite = spell.GetSprite();
+        }
+        else
+        {
+            GetComponentInChildren<Text>().text = "";
+            image.gameObject.SetActive(false);
         }
     }
 }
