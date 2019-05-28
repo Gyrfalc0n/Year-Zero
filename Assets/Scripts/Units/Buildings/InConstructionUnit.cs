@@ -17,6 +17,8 @@ public class InConstructionUnit : BuildingUnit
     void Update()
     {
         CheckConstruction();
+        fovCollider.enabled = ((int)GetLife() > 0);
+        fovCollider.GetComponent<MeshRenderer>().enabled = ((int)GetLife() > 0); ;
     }
 
     public void Init(ConstructedUnit building)
