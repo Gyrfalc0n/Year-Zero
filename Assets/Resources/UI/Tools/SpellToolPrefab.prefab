@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829e2f878a059334e81e9efe8663e01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 187928816182096642}
 --- !u!1001 &8594847453649533677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,6 +122,11 @@ PrefabInstance:
     - target: {fileID: 1961081022781010, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}
       propertyPath: m_Name
       value: SpellToolPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345285088568080383, guid: 37b0bb7757687cb44af7df486cd63dcf,
+        type: 3}
+      propertyPath: description
+      value: Use the unit's spell
       objectReference: {fileID: 0}
     - target: {fileID: 224655561362021626, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
@@ -277,15 +283,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1111736006107294, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114547213410525244, guid: 37b0bb7757687cb44af7df486cd63dcf,
         type: 3}
       propertyPath: m_Text
       value: Spell
-      objectReference: {fileID: 0}
-    - target: {fileID: 1345285088568080383, guid: 37b0bb7757687cb44af7df486cd63dcf,
-        type: 3}
-      propertyPath: description
-      value: Use the unit's spell
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114878553697462674, guid: 37b0bb7757687cb44af7df486cd63dcf, type: 3}
@@ -309,6 +314,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 8594847453649533677}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8593430693177879743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &187928816182096642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8492839449718458863, guid: 37b0bb7757687cb44af7df486cd63dcf,
+    type: 3}
+  m_PrefabInstance: {fileID: 8594847453649533677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
