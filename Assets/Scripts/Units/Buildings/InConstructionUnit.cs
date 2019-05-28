@@ -16,6 +16,7 @@ public class InConstructionUnit : BuildingUnit
 
     void Update()
     {
+        if (!photonView.IsMine) return;
         CheckConstruction();
         fovCollider.enabled = ((int)GetLife() > 0);
         fovCollider.GetComponent<MeshRenderer>().enabled = ((int)GetLife() > 0); ;
@@ -44,7 +45,6 @@ public class InConstructionUnit : BuildingUnit
 
     public virtual void OnConstructionFinished()
     {
-        if (!photonView.IsMine) return;
         RemoveAllBuilders();
         InstanceManager.instanceManager.InstantiateUnit(associatedBuilding.GetPath(), transform.position, Quaternion.identity, botIndex);
         KillUnit();
