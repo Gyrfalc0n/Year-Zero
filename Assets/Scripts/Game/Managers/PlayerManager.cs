@@ -104,18 +104,22 @@ public class PlayerManager : MonoBehaviour {
         {
             case 0:
                 message = "You don't have enough energy";
+                FindObjectOfType<AudioManager>().PlaySound("NotEnoughEnergy");
                 break;
             case 1:
                 message = "You don't have enough ore";
+                FindObjectOfType<AudioManager>().PlayRandomSound(new []{"NotEnoughOre","NotEnoughOre2"} );
                 break;
             case 2:
                 message = "You don't have enough food";
+                FindObjectOfType<AudioManager>().PlaySound("NotEnoughFood");
                 break;
             case 3:
                 message = "You don't have enough tech points";
                 break;
             default:
                 message = "You don't have enough population";
+                FindObjectOfType<AudioManager>().PlayRandomSound(new []{"NotEnoughPop1","NotEnoughPop2"} );
                 break;
         }
         TemporaryMessage.temporaryMessage.Add(message);
