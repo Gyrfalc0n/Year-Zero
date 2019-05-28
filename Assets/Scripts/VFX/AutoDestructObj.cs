@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoDestructObj : MonoBehaviour
 {
-    [SerializeField] int lifetime;
+    [SerializeField] float lifetime;
     float remainingTime;
 
     float fadeOutTime = 2f;
