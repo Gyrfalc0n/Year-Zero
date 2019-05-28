@@ -26,7 +26,7 @@ public class TurretRotation : MonoBehaviour
 
 	public bool xPointingActive;
 	// Update is called once per frame
-	float currentVelocity = 0;
+	//float currentVelocity = 0;
 	void Update( )
 	{
 		if( target != null )
