@@ -115,7 +115,6 @@ public class PlayersManager : MonoBehaviourPunCallbacks {
         SetCustomPropForAll();
         string mapName = PlayerPrefs.GetString("MapName");
         PhotonNetwork.LoadLevel(mapName);
-        FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
     }
 
     void SetCustomPropForAll()
