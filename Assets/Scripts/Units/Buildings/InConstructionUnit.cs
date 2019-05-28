@@ -44,6 +44,7 @@ public class InConstructionUnit : BuildingUnit
 
     public virtual void OnConstructionFinished()
     {
+        if (!photonView.IsMine) return;
         RemoveAllBuilders();
         InstanceManager.instanceManager.InstantiateUnit(associatedBuilding.GetPath(), transform.position, Quaternion.identity, botIndex);
         KillUnit();
