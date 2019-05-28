@@ -116,4 +116,9 @@ public class CombatSystem : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.1f);
     }
+
+    public void StopMission2()
+    {
+        agent.ResetPath();
+    }
 }

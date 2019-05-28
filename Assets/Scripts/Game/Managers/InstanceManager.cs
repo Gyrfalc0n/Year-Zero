@@ -84,8 +84,10 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
         }
         else
         {
-            myCoords = new Vector3(0, 0, 0);
-
+            if(SceneManager.GetActiveScene().name == "Mission2")
+                myCoords = new Vector3(-40,0,-40);
+            else
+                myCoords = new Vector3(0, 0, 0);
             race = 0;
             team = 0;
             color = 0;
