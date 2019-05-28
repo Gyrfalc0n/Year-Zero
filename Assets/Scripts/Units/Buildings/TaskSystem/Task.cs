@@ -44,7 +44,7 @@ public class Task : MonoBehaviour
             i++;
         }
 
-        if (destroyer != null)
+        if (destroyer != null && SkilltreeManager.manager.destroyerBanner)
         {
             GameObject unit = InstanceManager.instanceManager.InstantiateUnit(associatedUnit.GetPath(), destroyer.transform.position + new Vector3(-5, 0, 0), Quaternion.identity, associatedBuilding.botIndex);
             unit.GetComponent<MovableUnit>().Init(destroyer.transform.position + new Vector3(-10, 0, 0));
