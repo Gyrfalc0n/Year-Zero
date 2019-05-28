@@ -73,7 +73,7 @@ public class mission : MonoBehaviour
             {
                 waveTime += 80;
             }
-            waveTime += 20;
+            waveTime += 40;
             waveCount += 1;
             if (waveCount > 7)
             {
