@@ -14,7 +14,7 @@ public class mission : MonoBehaviour
     private bool isFirstTick = true;
     private int waveTime = 10;
     private int waveCount = 0;
-    private int[] numberPerWave = {0, 1, 2, 3, 5, 0, 0, 0};
+    private int[] numberPerWave = {0, 1, 2, 2, 3, 0, 0, 0};
     private string[] messageOfWave =
     {
         "Instructor: Create units to be prepared",
