@@ -1519,8 +1519,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2045162995727196905}
-  - component: {fileID: 9085450757796496824}
   - component: {fileID: 5928436000973919395}
+  - component: {fileID: 5189466928691322112}
   m_Layer: 0
   m_Name: Troops
   m_TagString: Untagged
@@ -1543,20 +1543,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9085450757796496824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4094206596390228014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e31cc4f544de9fc4abc0fd91333d8efd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 2
-  holder: {fileID: 0}
 --- !u!114 &5928436000973919395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1579,6 +1565,20 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &5189466928691322112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094206596390228014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31cc4f544de9fc4abc0fd91333d8efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 1
+  holder: {fileID: 0}
 --- !u!1 &7822153374839097685
 GameObject:
   m_ObjectHideFlags: 0
