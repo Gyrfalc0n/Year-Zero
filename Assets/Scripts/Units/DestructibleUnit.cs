@@ -46,13 +46,14 @@ public class DestructibleUnit : SelectableObj {
 
     public void TakeDamage(int value, DestructibleUnit shooter)
     {
-        if (photonView.IsMine)
+        if (PhotonNetwork.OfflineMode)
             RPCTakeDamage(value);
         else
         {
-            photonView.RPC("RPCTakeDamage", RpcTarget.Others, value);
+            photonView.RPC("RPCTakeDamage", RpcTarget.All, value);
         }
-        OnDamageTaken(shooter);
+        if (photonView.IsMine)
+            OnDamageTaken(shooter);
     }
 
     public virtual void OnDamageTaken(DestructibleUnit shooter) { }
