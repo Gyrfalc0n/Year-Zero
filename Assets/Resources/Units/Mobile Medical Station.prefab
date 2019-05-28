@@ -14219,25 +14219,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1498426257654464, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
-      propertyPath: m_Name
-      value: Mobile Medical Station
-      objectReference: {fileID: 0}
-    - target: {fileID: 7043851759568410477, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.46242744
-      objectReference: {fileID: 0}
-    - target: {fileID: 7043851759568410477, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: m_Center.x
-      value: -0.09970868
-      objectReference: {fileID: 0}
-    - target: {fileID: 7043851759568410477, guid: a2cd80c251494bb4a9642bd55de4b99a,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -0.16663933
-      objectReference: {fileID: 0}
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14281,6 +14262,25 @@ PrefabInstance:
     - target: {fileID: 4991307429433494, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498426257654464, guid: a2cd80c251494bb4a9642bd55de4b99a, type: 3}
+      propertyPath: m_Name
+      value: Mobile Medical Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043851759568410477, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.46242744
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043851759568410477, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.09970868
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043851759568410477, guid: a2cd80c251494bb4a9642bd55de4b99a,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.16663933
       objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
@@ -14330,7 +14330,7 @@ PrefabInstance:
     - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
       propertyPath: projectile
-      value: Units/Bullets/BulletPrefab
+      value: BulletPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 5445773958597346252, guid: a2cd80c251494bb4a9642bd55de4b99a,
         type: 3}
