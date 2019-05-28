@@ -35,13 +35,23 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     protected int botIndex;
 
+    [SerializeField] GameObject audioManagerPrefab;
     void Start()
     {
+        
         bulletHolder = GameObject.Find("BulletsHolder").transform;
         botIndex = -1;
         InitStartingTroops(InitProp());
         if (PhotonNetwork.IsMasterClient)
             InitBots();
+        if (SceneManager.GetActiveScene().name == "GameTest")
+        {
+            if (FindObjectOfType<AudioManager>() == null)
+            {
+                Instantiate(audioManagerPrefab);
+            }
+            FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
+        }
     }
 
     public float timer { get; private set; }

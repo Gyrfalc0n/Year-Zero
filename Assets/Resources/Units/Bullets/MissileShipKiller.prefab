@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1567194746187364}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.3}
+  m_LocalScale: {x: 0.19, y: 0.19, z: 0.17}
   m_Children:
   - {fileID: 283231875101331680}
   m_Father: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b876f2165299a438f11b5bb48b223e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionAnimation: SmallExplosionEffect
+  destructionAnimation: PlasmaExplosionEffect2
 --- !u!82 &3108487653519368507
 AudioSource:
   m_ObjectHideFlags: 0
@@ -158,10 +158,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243611415690189326, guid: d05f2ce08fd19ab4b9bf7768cc231df8,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 427dd31606604ed4ba0105dabb440cb5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1ed8c67e8b5f2ca45918ec1f4cbbcc5f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.97
+  m_Pitch: 0.8
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -169,7 +169,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 8
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 1
@@ -271,7 +271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7739156720553698064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.02, z: -2.275}
+  m_LocalPosition: {x: 0, y: 0.016, z: -2.327}
   m_LocalScale: {x: 0.07323, y: 0.24018, z: 0.23166999}
   m_Children: []
   m_Father: {fileID: 4712304849064868}
@@ -4972,7 +4972,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.15311241
+        value: 0.11961937
         inSlope: 0
         outSlope: 0
         tangentMode: 0

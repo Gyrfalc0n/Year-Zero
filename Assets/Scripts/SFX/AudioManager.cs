@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
