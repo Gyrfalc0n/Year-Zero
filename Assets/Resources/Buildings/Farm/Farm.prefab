@@ -95,6 +95,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4432904553138613038, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114909607590321650, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: viewIdField
@@ -110,11 +115,6 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[0]
       value: 
       objectReference: {fileID: 5914945105126054897}
-    - target: {fileID: 4432904553138613038, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: costs.Array.size
@@ -201,6 +201,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7966389504802592862}
     m_Modifications:
+    - target: {fileID: 864846727302924138, guid: 728b57e63d490cd449cea493e31151e5,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceFarm
+      objectReference: {fileID: 0}
     - target: {fileID: 866970822035632308, guid: 728b57e63d490cd449cea493e31151e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -255,11 +260,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 864846727302924138, guid: 728b57e63d490cd449cea493e31151e5,
-        type: 3}
-      propertyPath: m_Name
-      value: SpaceFarm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 728b57e63d490cd449cea493e31151e5, type: 3}

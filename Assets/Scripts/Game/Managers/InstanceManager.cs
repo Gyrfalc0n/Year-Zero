@@ -35,6 +35,7 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
 
     protected int botIndex;
 
+    [SerializeField] GameObject audioManagerPrefab;
     void Start()
     {
         
@@ -45,6 +46,10 @@ public class InstanceManager : MonoBehaviourPunCallbacks {
             InitBots();
         if (SceneManager.GetActiveScene().name == "GameTest")
         {
+            if (FindObjectOfType<AudioManager>() == null)
+            {
+                Instantiate(audioManagerPrefab);
+            }
             FindObjectOfType<AudioManager>().PlayRandomSound(new []{"UniverseMusic","09. Genesis","06. Spatial Lullaby"} );
         }
     }
