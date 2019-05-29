@@ -632,6 +632,11 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[0]
       value: 
       objectReference: {fileID: 6137002704854191189}
+    - target: {fileID: 6812466868223442527, guid: 636fb200f2cdc914bb060a84a57f4203,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4395632109901910853, guid: 636fb200f2cdc914bb060a84a57f4203,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -651,11 +656,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6812466868223442527, guid: 636fb200f2cdc914bb060a84a57f4203,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114676342713092854, guid: 636fb200f2cdc914bb060a84a57f4203, type: 3}

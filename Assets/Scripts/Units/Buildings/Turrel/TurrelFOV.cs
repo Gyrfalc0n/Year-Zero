@@ -34,7 +34,7 @@ public class TurrelFOV : MonoBehaviour
     {
         if (target == null)
         {
-            if (other.GetComponent<DestructibleUnit>() != null &&  MultiplayerTools.GetTeamOf(other.GetComponent<SelectableObj>()) != InstanceManager.instanceManager.GetTeam())
+            if (other.GetComponent<DestructibleUnit>() != null &&  MultiplayerTools.GetTeamOf(other.GetComponent<SelectableObj>()) != MultiplayerTools.GetTeamOf(GetComponentInParent<Turrel>()))
             {
                 if (GetComponentInParent<Turrel>().turretRotation != null)
                 {
