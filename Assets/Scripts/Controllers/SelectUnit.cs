@@ -124,6 +124,7 @@ public class SelectUnit : MonoBehaviourPunCallbacks {
 
     public void UpdateUI()
     {
+        underSelected = 0;
         monoDescriptionPanel.ResetBar();
         advancementBar.ResetBar();
         taskBar.ResetBar();
