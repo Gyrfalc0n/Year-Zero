@@ -113,7 +113,7 @@ public class BotArmyManager : MonoBehaviour
             }
         }
 
-        for (int i = 1; i <= PlayerPrefs.GetInt("BotNumber"); i++)
+        for (int i = 1; PhotonNetwork.InRoom && i <= PlayerPrefs.GetInt("BotNumber"); i++)
         {
             if (GameObject.Find("Holder" + i).GetComponent<Holder>().team != GetComponent<IAManager>().GetTeam())
                 enemies.Add(GameObject.Find("Holder" + i).GetComponent<Holder>());
