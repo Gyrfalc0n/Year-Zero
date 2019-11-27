@@ -58,19 +58,19 @@ public class BotMiningManager : MonoBehaviour
 
     ResourceUnit GetOptimumFarm(BuilderUnit unit)
     {
-        List<ResourceUnit> r = InstanceManager.instanceManager.allResourceUnits;
+        List<SelectableObj> r = GetComponent<IAManager>().mySelectableObjs;
         ResourceUnit currentUnit = null;
         float currentVal = Mathf.Infinity;
 
         for (int i = 0; i < r.Count; i++)
         {
-            if (r[i].GetResourceIndex() != 2)
+            if (r[i].GetComponent<ResourceUnit>() == null || r[i].GetComponent<ResourceUnit>().GetResourceIndex() != 2)
                 continue;
 
-            float newVal = (3 * (r[i].GetBuildersCount()) + 1) * Vector3.Distance(unit.transform.position, r[i].transform.position);
+            float newVal = (3 * (r[i].GetComponent<ResourceUnit>().GetBuildersCount()) + 1) * Vector3.Distance(unit.transform.position, r[i].transform.position);
             if (newVal < currentVal)
             {
-                currentUnit = r[i];
+                currentUnit = r[i].GetComponent<ResourceUnit>();
                 currentVal = newVal;
             }
         }
