@@ -30,9 +30,12 @@ So we explore various areas, moving from programming, the heart of the game, to 
 
 ## Project website
 
+-----
 <p align="middle">
 <a href="https://gyrfalc0n.wixsite.com/yearzero?lang=en">Year Zero</a>
-  </p>
+  </p> 
+  
+-----
 
 ## Learn more about Year Zero Project
 
