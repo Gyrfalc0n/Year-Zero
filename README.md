@@ -34,6 +34,25 @@ So we explore various areas, moving from programming, the heart of the game, to 
 <a href="https://gyrfalc0n.wixsite.com/yearzero?lang=en">Year Zero</a>
   </p>
 
+## Learn more about Year Zero Project
+
+*Sorry for the syntax issues, different fonts, sizes and some translation issues. In the interest of time we have translated the original French documents directly into English using Google Translate*
+
+### **English**
+
+* [Project specification document](https://e785d98c-4d23-48d9-8052-c202a63145b6.filesusr.com/ugd/b44325_28aeb35bd29347ddbc53041717ed90ec.pdf)
+* [Defense 1 document](https://e785d98c-4d23-48d9-8052-c202a63145b6.filesusr.com/ugd/b44325_99c3432113704acc83b9baffe56ecf9f.pdf)
+* [Defense 2 document](https://e785d98c-4d23-48d9-8052-c202a63145b6.filesusr.com/ugd/b44325_2aa4d2d728cf494aabb2c9d29e2b1977.pdf)
+* [Project report](https://e785d98c-4d23-48d9-8052-c202a63145b6.filesusr.com/ugd/b44325_2c4c4caf524042fa8bf997028057b374.pdf)
+
+ ### **Français**
+
+* [Cahier des charges](https://e785d98c-4d23-48d9-8052-c202a63145b6.filesusr.com/ugd/40b83d_460bb95be6f84c3f891d8fc78e250359.pdf)
+* [Rapport de soutenance 1](https://e785d98c-4d23-48d9-8052-c202a63145b6.filesusr.com/ugd/b44325_60ce6ad0eefb4c7d8f23d4132d76609e.pdf)
+* [Rapport de soutenance 2](https://e785d98c-4d23-48d9-8052-c202a63145b6.filesusr.com/ugd/b44325_4a8a186fd3854ab7b6f59dc09c32a6c9.pdf)
+* [Rapport de projet](https://e785d98c-4d23-48d9-8052-c202a63145b6.filesusr.com/ugd/b44325_e6676b34f87a48d1a571e60536fda8d6.pdf)
+
+
 ## Trailer
 https://user-images.githubusercontent.com/46728024/117968780-dcd4e100-b326-11eb-9859-57412ef1fd53.mp4
 
