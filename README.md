@@ -9,6 +9,9 @@
 [Year Zero](https://gyrfalc0n.wixsite.com/yearzero?lang=en) is a **space strategy game** in which several teams compete for supremacy in the universe. It controls buildings that produce units on a map with set limits.
 The unitized game engine to develop it is Unity and the language used is CSharp (C #).
 
+**Concretely, Year Zero is a PC game of real-time strategy (RTS) playable in solo and multiplayer up to 4 players. 
+The game features a short campaign starting with a tutorial, as well as the possibility to play games directly in solo against bots or in multiplayer with other players or bot against other players or bot.**
+
 The art direction will be fanciful and unrealistic in order to set a somber but not shocking tone. The objective is to make the game all public. The cartoon aspect was preferred to realism in order to make the atmosphere of the game quite light but without losing the strategy aspect. However, we wanted to keep a certain degree of realism in order to keep a dramatic side in view of the history of the game.
 
 From a sound point of view the game will be quite epic with great catchy themes. But he will also juggle with calmer and more melancholy themes to recall the desperate condition of humanity. The epic aspect being purely fun and the dramatic aspect serving to reinforce the intentions of the scenario.
