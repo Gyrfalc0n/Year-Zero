@@ -82,16 +82,16 @@ https://user-images.githubusercontent.com/46728024/117968780-dcd4e100-b326-11eb-
 [Phalcon22](https://github.com/Phalcon22), [Smajser1](https://github.com/Smajser1), [timothee-ribes](https://github.com/timothee-ribes) and [Gyrfalc0n](https://github.com/Gyrfalc0n)
 
 
-[contributors-shield]: https://img.shields.io/github/contributors/Gyrfalc0n/Projet-EMS-RP.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Gyrfalc0n/Year-Zero.svg?style=for-the-badge
 [contributors-url]: https://github.com/Gyrfalc0n/Projet-EMS-RP/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Gyrfalc0n/Projet-EMS-RP.svg?style=for-the-badge
-[forks-url]: https://github.com/Gyrfalc0n/Projet-EMS-RP/network/members
-[stars-shield]: https://img.shields.io/github/stars/Gyrfalc0n/Projet-EMS-RP.svg?style=for-the-badge
-[stars-url]: https://github.com/Gyrfalc0n/Projet-EMS-RP/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Gyrfalc0n/Projet-EMS-RP.svg?style=for-the-badge
-[issues-url]: https://github.com/Gyrfalc0n/Projet-EMS-RP/issues
-[license-shield]: https://img.shields.io/github/license/Gyrfalc0n/Projet-EMS-RP.svg?style=for-the-badge
-[license-url]: https://github.com/Gyrfalc0n/Projet-EMS-RP/blob/master/LICENSE
+[forks-shield]: https://img.shields.io/github/forks/Gyrfalc0n/Year-Zero.svg?style=for-the-badge
+[forks-url]: https://github.com/Gyrfalc0n/Year-Zero/network/members
+[stars-shield]: https://img.shields.io/github/stars/Gyrfalc0n/Year-Zero.svg?style=for-the-badge
+[stars-url]: https://github.com/Gyrfalc0n/Year-Zero/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Gyrfalc0n/Year-Zero.svg?style=for-the-badge
+[issues-url]: https://github.com/Gyrfalc0n/Year-Zero/issues
+[license-shield]: https://img.shields.io/github/license/Gyrfalc0n/Year-Zero.svg?style=for-the-badge
+[license-url]: https://github.com/Gyrfalc0n/Year-Zero/blob/master/LICENSE
 
 
 
